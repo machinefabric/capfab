@@ -92,14 +92,6 @@ profile_uri = "https://capdag.com/schema/string"
 description = "UTF-8 string value."
 
 [[media_spec]]
-# String array media spec
-urn = "media:list;textable"
-media_type = "application/json"
-title = "String Array"
-profile_uri = "https://capdag.com/schema/str-array"
-description = "Array of string values"
-
-[[media_spec]]
 # Boolean array media spec
 urn = "media:bool;list;textable"
 media_type = "application/json"
