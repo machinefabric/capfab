@@ -1,7 +1,0 @@
-{
-  "urn": "media:timestamps-flag;textable",
-  "media_type": "text/plain",
-  "title": "Timestamps Flag",
-  "profile_uri": "https://capdag.com/schema/timestamps_flag",
-  "description": "Timestamps Flag value"
-}

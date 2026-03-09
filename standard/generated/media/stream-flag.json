@@ -1,7 +1,0 @@
-{
-  "urn": "media:stream-flag;textable",
-  "media_type": "text/plain",
-  "title": "Stream Flag",
-  "profile_uri": "https://capdag.com/schema/stream_flag",
-  "description": "Stream Flag value"
-}

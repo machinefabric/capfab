@@ -1,6 +1,0 @@
-{
-  "title": "Test Edge 6 Arg 1 (Count)",
-  "description": "Number of times to duplicate input when producing list",
-  "media_type": "text/plain",
-  "urn": "media:edge6arg1;textable;numeric"
-}

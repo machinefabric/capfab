@@ -1,7 +1,0 @@
-{
-  "urn": "media:decision;bool;textable",
-  "media_type": "text/plain",
-  "title": "Decision",
-  "profile_uri": "https://capdag.com/schema/decision",
-  "description": "Boolean decision value (true/false)"
-}

@@ -1,35 +1,22 @@
 {
-  "name": "capdag-dot-com",
-  "version": "{{ project.version }}",
-  "description": "CAPDAG Registry - Capability namespace definition registry",
-  "main": "capdag.js",
+  "name": "capgraph",
+  "version": "0.386.194696",
+  "description": "CAPDAG Standard Definitions - Capability and media URN definitions",
   "scripts": {
-    "build": "npm run build:browser && npm run build:css",
-    "build:browser": "node scripts/build-browser.js",
-    "build:css": "sass scss/main.scss:styles/main.css --style=compressed --no-source-map",
-    "watch:css": "sass scss/main.scss:styles/main.css --watch",
-    "dev": "npm run build && netlify dev",
-    "upload-standards": "./upload-standards.sh",
-    "admin:wipe": "node scripts/admin-wipe.js",
-    "admin:wipe:production": "node scripts/admin-wipe.js --production",
+    "upload": "./upload-standards.sh",
     "standards": "node standard/standards.js",
-    "standards:validate": "node standard/standards.js validate",
-    "standards:list-urns": "node standard/standards.js list-urns",
-    "standards:list-caps": "node standard/standards.js list-caps",
-    "standards:export-graph": "node standard/standards.js export-graph",
-    "standards:render-graph": "node standard/standards.js export-graph --render --png cap-graph.ignore.png"
+    "validate": "node standard/standards.js validate",
+    "list-urns": "node standard/standards.js list-urns",
+    "list-caps": "node standard/standards.js list-caps",
+    "export-graph": "node standard/standards.js export-graph",
+    "render-graph": "node standard/standards.js export-graph --render --png cap-graph.ignore.png"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
     "@netlify/blobs": "^8.0.0",
     "ajv": "^8.17.1",
-    "bcryptjs": "^2.4.3",
-    "capdag": "^{{ projects.capdag_js.version }}",
-    "dotenv": "^17.2.3",
-    "jsonwebtoken": "^9.0.0"
-  },
-  "devDependencies": {
-    "netlify-cli": "^17.0.0",
-    "sass": "^1.97.2"
+    "tagged-urn": "../tagged-urn-js",
+    "capdag": "../capdag-js",
+    "dotenv": "^17.2.3"
   }
 }

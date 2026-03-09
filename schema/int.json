@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://capdag.com/schema/int",
-  "title": "Integer",
-  "description": "A JSON integer value",
-  "type": "integer"
-}

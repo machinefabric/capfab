@@ -1,7 +1,0 @@
-{
-  "urn": "media:include-order-indexes;textable",
-  "media_type": "text/plain",
-  "title": "Include Order Indexes",
-  "profile_uri": "https://capdag.com/schema/include_order_indexes",
-  "description": "Include Order Indexes value"
-}

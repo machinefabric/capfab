@@ -1,7 +1,0 @@
-{
-  "urn": "media:numeric;real;textable",
-  "media_type": "text/plain",
-  "title": "Real",
-  "profile_uri": "https://capdag.com/schema/real",
-  "description": "Real numeric value."
-}

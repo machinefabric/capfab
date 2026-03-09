@@ -20,7 +20,7 @@ fi
 export CAPDAG_ADMIN_KEY="$ADMIN_PASSWORD"
 
 echo "Loading, validating, and uploading standard capabilities..."
-node standard/load-standards.js
+node standard/standards.js
 
 echo ""
 echo "OK Done!"

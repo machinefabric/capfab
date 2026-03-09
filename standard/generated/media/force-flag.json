@@ -1,7 +1,0 @@
-{
-  "urn": "media:force-flag;textable",
-  "media_type": "text/plain",
-  "title": "Force Flag",
-  "profile_uri": "https://capdag.com/schema/force_flag",
-  "description": "Force Flag value"
-}
