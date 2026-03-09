@@ -1,0 +1,7 @@
+# LZMA archive media spec
+urn = "media:lzma;archive"
+media_type = "application/x-lzma"
+title = "LZMA Archive"
+profile_uri = "https://capdag.com/schema/lzma"
+description = "LZMA compressed archive"
+extensions = ["lzma", "lz"]

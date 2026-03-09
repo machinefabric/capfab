@@ -1,0 +1,22 @@
+# Model Path media spec - local path to a downloaded model
+urn = "media:model-path;textable;record"
+media_type = "application/json"
+title = "Model Path"
+profile_uri = "https://capdag.com/schema/model-path"
+description = "Local filesystem path to a model directory"
+
+[schema]
+type = "object"
+required = ["path"]
+
+[schema.properties.path]
+type = "string"
+description = "Local filesystem path to the model directory"
+
+[schema.properties.model_spec]
+type = "string"
+description = "The model specification (e.g., 'hf:org/model-name')"
+
+[schema.properties.exists]
+type = "boolean"
+description = "Whether the path exists on the filesystem"

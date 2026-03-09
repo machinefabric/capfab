@@ -1,0 +1,11 @@
+{
+  "urn": "media:gzip;archive",
+  "media_type": "application/gzip",
+  "title": "GZIP Archive",
+  "profile_uri": "https://capdag.com/schema/gzip",
+  "description": "GNU zip compressed archive",
+  "extensions": [
+    "gz",
+    "gzip"
+  ]
+}

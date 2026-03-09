@@ -1,0 +1,7 @@
+{
+  "urn": "media:",
+  "media_type": "application/octet-stream",
+  "title": "Bytes",
+  "profile_uri": "https://capdag.com/schema/bytes",
+  "description": "Raw byte sequence."
+}

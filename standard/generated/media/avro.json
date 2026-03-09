@@ -1,0 +1,10 @@
+{
+  "urn": "media:avro;list;record",
+  "media_type": "application/avro",
+  "title": "Avro",
+  "profile_uri": "https://capdag.com/schema/avro",
+  "description": "Apache Avro serialized data",
+  "extensions": [
+    "avro"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:max-tokens;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Max Tokens",
+  "profile_uri": "https://capdag.com/schema/max_tokens",
+  "description": "Max Tokens numeric value",
+  "validation": {
+    "max": 8192,
+    "min": 1
+  }
+}

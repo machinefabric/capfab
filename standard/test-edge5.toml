@@ -1,0 +1,44 @@
+# Test Edge 5 - node2 + node3 → node5
+# Multi-input merge: combines two independent inputs into one output
+# For testing: concatenates both inputs with optional separator (edge5arg3)
+
+title = "Test Edge 5 (Multi-Input Merge)"
+cap_description = "Merge node2 and node3 inputs into single node5 output"
+command = "test-concat"
+
+urn = 'cap:in="media:node2;textable";in2="media:node3;textable";op=test_edge5;out="media:node5;textable"'
+
+# First required input file - primary input via stdin or position 0
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the first input text file (node2)"
+sources = [
+  { stdin = "media:node2;textable" },
+  { position = 0 }
+]
+
+# Second required input file (edge5arg2 - the secondary input)
+# No stdin source — in CLI mode, only the first arg reads from stdin.
+# In CBOR mode, the file path is passed through as-is (no file-reading).
+[[args]]
+media_urn = "media:edge5arg2;file-path;textable"
+required = true
+arg_description = "Path to the second input text file (node3)"
+sources = [
+  { position = 1 }
+]
+
+# Optional separator between merged content (edge5arg3)
+[[args]]
+media_urn = "media:edge5arg3;textable"
+required = false
+default_value = " "
+arg_description = "Separator text between merged inputs"
+sources = [
+  { cli_flag = "--separator" }
+]
+
+[output]
+media_urn = "media:node5;textable"
+output_description = "Merged text from both inputs"

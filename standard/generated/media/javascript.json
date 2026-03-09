@@ -1,0 +1,12 @@
+{
+  "urn": "media:javascript;textable;code",
+  "media_type": "text/javascript",
+  "title": "JavaScript Source",
+  "profile_uri": "https://capdag.com/schema/javascript",
+  "description": "JavaScript programming language source code",
+  "extensions": [
+    "js",
+    "mjs",
+    "cjs"
+  ]
+}

@@ -1,0 +1,17 @@
+# mem-enable-automatic-cleanup.toml
+# Generated from key_reference.csv
+
+urn = "media:mem-enable-automatic-cleanup;setting;textable"
+media_type = "text/plain"
+title = "Enable automatic memory cleanup"
+profile_uri = "https://capdag.com/schema/mem-enable-automatic-cleanup"
+description = "Enable automatic memory cleanup"
+
+[metadata]
+category = "mem"
+subcategory = "mem_management"
+display_index = 3
+ui_type = "SETTING_UI_TYPE_CHECKBOX"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = true
+overridable_by = ["cap", "model", "user"]

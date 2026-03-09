@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CAPDAG Registry</title>
+    <meta name="description" content="Register and manage your capabilities in the CAPDAG registry.">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2260%22 font-family=%22monospace%22>cap</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <div class="dashboard-app">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <a href="/browse" class="header-brand">
+                    <span class="brand-text">cap:</span>
+                </a>
+                <nav class="header-nav">
+                    <a href="/browse" class="nav-link nav-link-desktop">Browse</a>
+                    <a href="/docs.html" class="nav-link nav-link-desktop">Docs</a>
+                    <button class="theme-toggle nav-link-desktop" id="theme-toggle" title="Toggle theme">
+                        <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                        <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                    </button>
+                    <button class="hamburger-btn" id="hamburger-btn" title="Menu">
+                        <svg class="hamburger-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                        <svg class="close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </nav>
+                <div class="mobile-menu" id="mobile-menu">
+                    <a href="/browse" class="mobile-menu-link">Browse</a>
+                    <a href="/docs.html" class="mobile-menu-link">Docs</a>
+                    <button class="mobile-menu-link mobile-theme-toggle" id="mobile-theme-toggle">
+                        <span class="theme-label-dark">Light Mode</span>
+                        <span class="theme-label-light">Dark Mode</span>
+                    </button>
+                </div>
+                <div class="header-auth" id="auth-section">
+                    <!-- Filled by JS based on auth state -->
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Login View -->
+            <div id="login-view" class="dashboard-view" style="display: none;">
+                <div class="login-container">
+                    <!-- Login Card -->
+                    <div id="login-card" class="login-card">
+                        <div class="login-header">
+                            <h1>CAPDAG Registry</h1>
+                            <p>Sign in to register and manage capabilities</p>
+                        </div>
+                        <form id="login-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="login-email">Email</label>
+                                <input type="email" id="login-email" class="input" placeholder="you@example.com" required autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input type="password" id="login-password" class="input" placeholder="Your password" required autocomplete="current-password">
+                            </div>
+                            <div class="form-group">
+                                <div id="login-turnstile" class="turnstile-container"></div>
+                            </div>
+                            <div id="login-status" class="form-status" style="display: none;"></div>
+                            <div id="login-error" class="form-error" style="display: none;"></div>
+                            <button type="submit" class="btn btn-primary btn-large">Sign In</button>
+                        </form>
+                        <p class="auth-switch">
+                            <a href="#" id="show-forgot-password">Forgot password?</a>
+                        </p>
+                        <p class="auth-switch">
+                            Don't have an account? <a href="/register">Create one</a>
+                        </p>
+                    </div>
+
+                    <!-- Forgot Password Card -->
+                    <div id="forgot-password-card" class="login-card" style="display: none;">
+                        <div class="login-header">
+                            <h1>Reset Password</h1>
+                            <p>Enter your email to receive a reset link</p>
+                        </div>
+                        <form id="forgot-password-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="forgot-email">Email</label>
+                                <input type="email" id="forgot-email" class="input" placeholder="you@example.com" required autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <div id="forgot-turnstile" class="turnstile-container"></div>
+                            </div>
+                            <div id="forgot-status" class="form-status" style="display: none;"></div>
+                            <div id="forgot-error" class="form-error" style="display: none;"></div>
+                            <button type="submit" class="btn btn-primary btn-large">Send Reset Link</button>
+                        </form>
+                        <p class="auth-switch">
+                            Remember your password? <a href="#" id="show-login-from-forgot">Sign in</a>
+                        </p>
+                    </div>
+
+                    <!-- Reset Password Card -->
+                    <div id="reset-password-card" class="login-card" style="display: none;">
+                        <div class="login-header">
+                            <h1>Set New Password</h1>
+                            <p>Enter your new password</p>
+                        </div>
+                        <form id="reset-password-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="reset-password">New Password</label>
+                                <input type="password" id="reset-password" class="input" placeholder="At least 8 characters" minlength="8" required autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="reset-confirm">Confirm New Password</label>
+                                <input type="password" id="reset-confirm" class="input" placeholder="Confirm your password" minlength="8" required autocomplete="new-password">
+                            </div>
+                            <div id="reset-error" class="form-error" style="display: none;"></div>
+                            <button type="submit" class="btn btn-primary btn-large">Reset Password</button>
+                        </form>
+                    </div>
+
+                    <!-- Check Email Card (shown when login fails due to unverified email) -->
+                    <div id="check-email-card" class="login-card" style="display: none;">
+                        <div class="login-header">
+                            <h1>Check Your Email</h1>
+                            <p>We've sent a verification link to <strong id="check-email-address"></strong></p>
+                        </div>
+                        <div class="auth-message">
+                            <p>Click the link in the email to verify your account. If you don't see the email, check your spam folder.</p>
+                        </div>
+                        <div class="form-group">
+                            <div id="resend-turnstile" class="turnstile-container"></div>
+                        </div>
+                        <div id="resend-status" class="form-status" style="display: none;"></div>
+                        <div id="resend-error" class="form-error" style="display: none;"></div>
+                        <div id="resend-success" class="form-success" style="display: none;"></div>
+                        <button type="button" id="resend-verification-btn" class="btn btn-secondary btn-large">Resend Verification Email</button>
+                        <p class="auth-switch">
+                            <a href="#" id="back-to-login">Back to Sign In</a>
+                        </p>
+                    </div>
+
+                    <!-- Email Verified Card -->
+                    <div id="email-verified-card" class="login-card" style="display: none;">
+                        <div class="login-header">
+                            <h1>Email Verified!</h1>
+                            <p>Your email has been verified successfully</p>
+                        </div>
+                        <div class="auth-message success">
+                            <p>You can now sign in to your account.</p>
+                        </div>
+                        <button type="button" id="go-to-login-btn" class="btn btn-primary btn-large">Sign In</button>
+                    </div>
+
+                    <!-- Verification Error Card -->
+                    <div id="verification-error-card" class="login-card" style="display: none;">
+                        <div class="login-header">
+                            <h1>Verification Failed</h1>
+                            <p id="verification-error-message">The verification link is invalid or has expired</p>
+                        </div>
+                        <div class="auth-message">
+                            <p>Please request a new verification email.</p>
+                        </div>
+                        <a href="/register" class="btn btn-secondary btn-large">Request New Verification</a>
+                        <p class="auth-switch">
+                            <a href="#" id="back-to-login-from-error">Back to Sign In</a>
+                        </p>
+                    </div>
+
+                    <!-- Password Reset Success Card -->
+                    <div id="password-reset-success-card" class="login-card" style="display: none;">
+                        <div class="login-header">
+                            <h1>Password Reset!</h1>
+                            <p>Your password has been reset successfully</p>
+                        </div>
+                        <div class="auth-message success">
+                            <p>You can now sign in with your new password.</p>
+                        </div>
+                        <button type="button" id="go-to-login-after-reset-btn" class="btn btn-primary btn-large">Sign In</button>
+                    </div>
+
+                    <!-- Forgot Password Email Sent Card -->
+                    <div id="forgot-email-sent-card" class="login-card" style="display: none;">
+                        <div class="login-header">
+                            <h1>Check Your Email</h1>
+                            <p>If an account exists, we've sent a password reset link</p>
+                        </div>
+                        <div class="auth-message">
+                            <p>Check your inbox and spam folder for the reset link. The link will expire in 1 hour.</p>
+                        </div>
+                        <p class="auth-switch">
+                            <a href="#" id="back-to-login-from-forgot-sent">Back to Sign In</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Username Setup View -->
+            <div id="username-view" class="dashboard-view" style="display: none;">
+                <div class="username-container">
+                    <div class="username-card">
+                        <div class="username-header">
+                            <h1>Choose Your Username</h1>
+                            <p>This will be displayed as the registrant of your capabilities.</p>
+                        </div>
+                        <form id="username-form" class="username-form">
+                            <div class="form-group">
+                                <label for="username-input">Username</label>
+                                <div class="input-prefix-group">
+                                    <span class="input-prefix">@</span>
+                                    <input type="text" id="username-input" class="input input-mono" placeholder="yourname" pattern="[a-zA-Z][a-zA-Z0-9_]{2,19}" minlength="3" maxlength="20" required>
+                                </div>
+                                <p class="form-hint">3-20 characters. Letters, numbers, and underscores only. Must start with a letter.</p>
+                            </div>
+                            <div id="username-error" class="form-error" style="display: none;"></div>
+                            <button type="submit" class="btn btn-primary btn-large">Set Username</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="dashboard-view" style="display: none;">
+                <div class="dashboard-container">
+                    <div class="dashboard-welcome">
+                        <h1>Welcome, <span id="display-username">@username</span></h1>
+                        <p>Register new capabilities or view your existing registrations.</p>
+                    </div>
+
+                    <section class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Register New Capability</h2>
+                        </div>
+                        <div class="register-card">
+                            <form id="register-form" class="register-form">
+                                <div class="form-group">
+                                    <label for="cap-json">Capability JSON</label>
+                                    <div class="textarea-container" id="drop-zone">
+                                        <textarea id="cap-json" class="input input-mono cap-textarea" placeholder='Paste or drop your capability JSON here...' rows="12" required></textarea>
+                                        <div class="drop-overlay" id="drop-overlay">
+                                            <span>Drop JSON file here</span>
+                                        </div>
+                                    </div>
+                                    <p class="form-hint">Paste capability JSON or drag and drop a .json file.</p>
+                                </div>
+                                <div id="validation-preview" class="validation-preview" style="display: none;">
+                                    <div class="validation-header">
+                                        <span class="validation-icon" id="validation-icon"></span>
+                                        <span class="validation-status" id="validation-status"></span>
+                                    </div>
+                                    <div id="validation-details" class="validation-details"></div>
+                                </div>
+                                <div id="cap-register-error" class="form-error" style="display: none;"></div>
+                                <div id="cap-register-success" class="form-success" style="display: none;"></div>
+                                <div class="form-actions">
+                                    <button type="button" id="validate-btn" class="btn btn-secondary">Validate</button>
+                                    <button type="submit" id="register-btn" class="btn btn-primary" disabled>Register Capability</button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <section class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Your Capability Graph</h2>
+                            <div class="section-actions">
+                                <button id="graph-fullscreen-btn" class="btn btn-ghost btn-small" title="Fullscreen">
+                                    Expand
+                                </button>
+                            </div>
+                        </div>
+                        <div id="user-cap-graph" class="user-cap-graph">
+                            <div class="graph-empty">
+                                <p>Register capabilities to see your conversion graph.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Your Registered Capabilities</h2>
+                            <span id="caps-count" class="badge badge-secondary">0</span>
+                        </div>
+                        <div id="caps-list" class="caps-list">
+                            <div class="caps-empty">
+                                <p>You haven't registered any capabilities yet.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Your Media Specifications</h2>
+                            <span id="media-count" class="badge badge-secondary">0</span>
+                        </div>
+                        <div id="media-list" class="media-list">
+                            <div class="media-empty">
+                                <p>You haven't defined any custom media specifications yet.</p>
+                                <p class="media-hint">Media specs are automatically registered when you register capabilities with custom <code>media_specs</code>.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Loading View -->
+            <div id="loading-view" class="dashboard-view">
+                <div class="loading-container">
+                    <div class="spinner"></div>
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <span class="footer-logo-text">cap:</span>
+                        </div>
+                        <p class="footer-tagline">An addressing layer for computation. CAPDAG provides standardized URN identifiers for computational capabilities.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Documentation</h4>
+                        <ul class="footer-links">
+                            <li><a href="/docs.html" class="footer-link">Specification</a></li>
+                            <li><a href="/docs.html#api" class="footer-link">API Reference</a></li>
+                            <li><a href="/docs.html#syntax" class="footer-link">URN Syntax</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="/browse" class="footer-link">Browse Registry</a></li>
+                            <li><a href="/schema/cap.v1" class="footer-link">JSON Schema</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <!-- Graph Libraries -->
+    <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+    <script src="https://unpkg.com/elkjs@0.9.1/lib/elk.bundled.js"></script>
+    <script src="https://unpkg.com/cytoscape-elk@2.2.0/dist/cytoscape-elk.js"></script>
+
+    <!-- App Scripts -->
+    <script src="/scripts/tagged-urn.js"></script>
+    <script src="/scripts/capdag.js"></script>
+    <script src="/scripts/pow-solver.js"></script>
+    <script src="/scripts/auth-client.js"></script>
+    <script src="/scripts/user-cap-graph.js"></script>
+    <script src="/scripts/dashboard.js"></script>
+</body>
+</html>

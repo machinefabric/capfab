@@ -1,0 +1,7 @@
+# WAR archive media spec
+urn = "media:war;archive"
+media_type = "application/java-archive"
+title = "WAR Archive"
+profile_uri = "https://capdag.com/schema/war"
+description = "Web application archive"
+extensions = ["war"]

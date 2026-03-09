@@ -1,0 +1,17 @@
+# inference-enable-gpu.toml
+# Generated from key_reference.csv
+
+urn = "media:inference-enable-gpu;setting;textable"
+media_type = "text/plain"
+title = "Enable GPU acceleration"
+profile_uri = "https://capdag.com/schema/inference-enable-gpu"
+description = "Enable GPU acceleration"
+
+[metadata]
+category = "inference"
+subcategory = "inference_gpu_hardware"
+display_index = 1
+ui_type = "SETTING_UI_TYPE_SWITCH"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = true
+overridable_by = ["cap", "model", "user"]

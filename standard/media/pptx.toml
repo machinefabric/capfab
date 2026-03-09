@@ -1,0 +1,7 @@
+# PPTX Document media spec
+urn = "media:pptx"
+media_type = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+title = "PowerPoint Presentation"
+profile_uri = "https://capdag.com/schema/pptx"
+description = "Microsoft PowerPoint presentation data"
+extensions = ["pptx"]

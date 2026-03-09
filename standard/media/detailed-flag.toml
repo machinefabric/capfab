@@ -1,0 +1,6 @@
+# Detailed Flag media spec
+urn = "media:detailed-flag;textable"
+media_type = "text/plain"
+title = "Detailed Flag"
+profile_uri = "https://capdag.com/schema/detailed_flag"
+description = "Detailed Flag value"

@@ -1,0 +1,9 @@
+# Repository media spec
+urn = "media:repository;textable"
+media_type = "text/plain"
+title = "Repository"
+profile_uri = "https://capdag.com/schema/repository"
+description = "Repository value"
+
+[validation]
+allowed_values = ["huggingface", "local", "custom"]

@@ -1,0 +1,11 @@
+{
+  "urn": "media:arrow;list;record",
+  "media_type": "application/vnd.apache.arrow.file",
+  "title": "Arrow Data",
+  "profile_uri": "https://capdag.com/schema/arrow",
+  "description": "Apache Arrow columnar data",
+  "extensions": [
+    "arrow",
+    "feather"
+  ]
+}

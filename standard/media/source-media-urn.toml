@@ -1,0 +1,10 @@
+# Source Media Urn media spec
+urn = "media:source-media-urn;textable"
+media_type = "text/plain"
+title = "Source Media Urn"
+profile_uri = "https://capdag.com/schema/source_media_urn"
+description = "Source Media Urn value"
+
+[validation]
+pattern = "^media:.+"
+min_length = 7

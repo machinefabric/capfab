@@ -1,0 +1,10 @@
+{
+  "urn": "media:dockerfile;textable",
+  "media_type": "text/x-dockerfile",
+  "title": "Dockerfile",
+  "profile_uri": "https://capdag.com/schema/dockerfile",
+  "description": "Docker container definition",
+  "extensions": [
+    "dockerfile"
+  ]
+}

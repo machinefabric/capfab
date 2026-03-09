@@ -1,0 +1,11 @@
+{
+  "urn": "media:pkcs12",
+  "media_type": "application/x-pkcs12",
+  "title": "PKCS#12 Certificate",
+  "profile_uri": "https://capdag.com/schema/pkcs12",
+  "description": "PKCS#12 certificate bundle",
+  "extensions": [
+    "p12",
+    "pfx"
+  ]
+}

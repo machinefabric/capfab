@@ -1,0 +1,21 @@
+{
+  "urn": "media:language;textable",
+  "media_type": "text/plain",
+  "title": "Language",
+  "profile_uri": "https://capdag.com/schema/language",
+  "description": "Language value",
+  "validation": {
+    "allowed_values": [
+      "en",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "ru",
+      "zh",
+      "ja",
+      "ko"
+    ]
+  }
+}

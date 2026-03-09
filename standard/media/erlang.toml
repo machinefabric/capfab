@@ -1,0 +1,7 @@
+# Erlang source code media spec
+urn = "media:erlang;textable;code"
+media_type = "text/x-erlang"
+title = "Erlang Source"
+profile_uri = "https://capdag.com/schema/erlang"
+description = "Erlang programming language source code"
+extensions = ["erl", "hrl"]

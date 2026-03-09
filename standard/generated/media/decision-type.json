@@ -1,0 +1,16 @@
+{
+  "urn": "media:decision-type;textable",
+  "media_type": "text/plain",
+  "title": "Decision Type",
+  "profile_uri": "https://capdag.com/schema/decision_type",
+  "description": "Decision Type value",
+  "validation": {
+    "allowed_values": [
+      "binary",
+      "classification",
+      "reasoning",
+      "verification",
+      "comparison"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+# TSX source code media spec
+urn = "media:tsx;textable;code"
+media_type = "text/typescript-jsx"
+title = "TypeScript JSX Source"
+profile_uri = "https://capdag.com/schema/tsx"
+description = "TypeScript JSX source code"
+extensions = ["tsx"]

@@ -1,0 +1,7 @@
+# MOBI Document media spec
+urn = "media:mobi"
+media_type = "application/x-mobipocket-ebook"
+title = "Kindle eBook"
+profile_uri = "https://capdag.com/schema/mobi"
+description = "Kindle/Mobipocket eBook data"
+extensions = ["mobi", "azw", "azw3"]

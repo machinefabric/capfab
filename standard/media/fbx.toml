@@ -1,0 +1,7 @@
+# FBX media spec
+urn = "media:fbx;model"
+media_type = "application/octet-stream"
+title = "FBX Model"
+profile_uri = "https://capdag.com/schema/fbx"
+description = "Filmbox 3D model"
+extensions = ["fbx"]

@@ -1,0 +1,10 @@
+{
+  "urn": "media:psv;textable",
+  "media_type": "text/plain",
+  "title": "PSV Data",
+  "profile_uri": "https://capdag.com/schema/psv",
+  "description": "Pipe-separated values data",
+  "extensions": [
+    "psv"
+  ]
+}

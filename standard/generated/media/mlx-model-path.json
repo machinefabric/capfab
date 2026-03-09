@@ -1,0 +1,10 @@
+{
+  "urn": "media:mlx-model-path;textable",
+  "media_type": "text/plain",
+  "title": "Mlx Model Path",
+  "profile_uri": "https://capdag.com/schema/mlx_model_path",
+  "description": "Mlx Model Path file system path",
+  "validation": {
+    "min_length": 1
+  }
+}

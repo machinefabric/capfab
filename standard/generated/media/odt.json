@@ -1,0 +1,10 @@
+{
+  "urn": "media:odt",
+  "media_type": "application/vnd.oasis.opendocument.text",
+  "title": "OpenDocument Text",
+  "profile_uri": "https://capdag.com/schema/odt",
+  "description": "OpenDocument text document data",
+  "extensions": [
+    "odt"
+  ]
+}

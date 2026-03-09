@@ -1,0 +1,7 @@
+# Scheme source media spec
+urn = "media:scheme;textable;code"
+media_type = "text/x-scheme"
+title = "Scheme Source"
+profile_uri = "https://capdag.com/schema/scheme"
+description = "Scheme programming language source code"
+extensions = ["scm", "ss"]

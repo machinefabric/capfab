@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URN Syntax - CAPDAG Documentation</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+<header class="docs-top-header">
+  <a href="/" class="header-brand">
+    <span class="brand-text">cap:</span>
+    <span class="docs-title-inline">Documentation</span>
+  </a>
+  <nav class="header-nav">
+    <a href="/browse" class="nav-link nav-link-desktop">Browse</a>
+    <a href="/dashboard" class="nav-link nav-link-accent nav-link-desktop">Sign In</a>
+    <button class="theme-toggle nav-link-desktop" id="theme-toggle" title="Toggle theme">
+      <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button class="hamburger-btn" id="hamburger-btn" title="Menu">
+      <svg class="hamburger-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg class="close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/browse" class="mobile-menu-link">Browse</a>
+    <a href="/dashboard" class="mobile-menu-link mobile-menu-link-accent">Sign In</a>
+    <button class="mobile-menu-link mobile-theme-toggle" id="mobile-theme-toggle">
+      <span class="theme-label-dark">Light Mode</span>
+      <span class="theme-label-light">Dark Mode</span>
+    </button>
+  </div>
+</header>
+  <main class="docs-main"><div class="docs-container"><aside class="docs-sidebar"><nav class="docs-nav">
+  <ul class="docs-nav-subtree docs-tree-root" id="docs-global-tree"></ul>
+</nav></aside><div class="docs-content">
+    <header class="docs-header"><h1>URN Syntax</h1><p class="docs-subtitle">Tagged URN canonicalization and CAP-specific parsing behavior</p></header>
+
+    <section class="docs-section">
+      <h2>Contract</h2>
+      <p>Tagged URNs require a prefix (<code>prefix:...</code>). Prefix and keys are lowercased on parse. Unquoted values are lowercased; quoted values preserve case.</p>
+      <p>Value-less tags (for example <code>cap:op</code>) parse as <code>*</code> and serialize back in value-less form.</p>
+      <pre>Input:  CAP:Op=Extract;Format=pdf
+Output: cap:format=pdf;op=extract
+
+Input:  cap:key="UPPER"
+Output: cap:key="UPPER"</pre>
+    </section>
+
+    <section class="docs-section">
+      <h2>CAP Direction Tags: Parser vs Canonical Form</h2>
+      <p><code>CapUrn::from_string</code> requires the <code>cap:</code> prefix but does not require explicit <code>in</code>/<code>out</code> tags in input text. Missing or wildcard direction tags are normalized to <code>media:</code>.</p>
+      <pre>cap:                       -> cap:in=media:;out=media:
+cap:in                     -> cap:in=media:;out=media:
+cap:out                    -> cap:in=media:;out=media:
+cap:in=media:text;out      -> cap:in="media:text";out=media:
+cap:in=*;out=*             -> cap:in=media:;out=media:</pre>
+      <p>Canonical strings still include both <code>in</code> and <code>out</code>.</p>
+    </section>
+
+    <section class="docs-section">
+      <h2>Algorithm</h2>
+      <ol>
+        <li>Parse prefix and tags using tagged URN parser.</li>
+        <li>Normalize prefix/keys and unquoted values to lowercase.</li>
+        <li>Treat value-less tags as wildcard <code>*</code>.</li>
+        <li>For CAP URNs, map missing/wildcard <code>in</code>/<code>out</code> to <code>media:</code>.</li>
+        <li>Serialize tags in sorted order with smart quoting.</li>
+      </ol>
+    </section>
+
+    <section class="docs-section">
+      <h2>Errors</h2>
+      <ul>
+        <li>Missing prefix: parse error.</li>
+        <li>Duplicate key: parse error.</li>
+        <li>Empty value after <code>=</code>: parse error.</li>
+        <li>Invalid CAP prefix (not <code>cap:</code>): <code>CapUrnError::MissingCapPrefix</code>.</li>
+      </ul>
+    </section>
+
+    <section class="docs-section">
+      <h2>References</h2>
+      <ul>
+        <li><a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L75"><code>tagged-urn-rs/src/tagged_urn.rs:75</code></a>, <a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L94"><code>tagged-urn-rs/src/tagged_urn.rs:94</code></a>, <a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L138"><code>tagged-urn-rs/src/tagged_urn.rs:138</code></a>, <a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L238"><code>tagged-urn-rs/src/tagged_urn.rs:238</code></a></li>
+        <li><a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_urn.rs#L75"><code>capdag/src/urn/cap_urn.rs:75</code></a>, <a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_urn.rs#L93"><code>capdag/src/urn/cap_urn.rs:93</code></a>, <a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_urn.rs#L138"><code>capdag/src/urn/cap_urn.rs:138</code></a>, <a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_urn.rs#L153"><code>capdag/src/urn/cap_urn.rs:153</code></a></li>
+        <li><a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L999"><code>tagged-urn-rs/src/tagged_urn.rs:999</code></a>, <a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L1020"><code>tagged-urn-rs/src/tagged_urn.rs:1020</code></a>, <a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L1770"><code>tagged-urn-rs/src/tagged_urn.rs:1770</code></a></li>
+        <li><a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_urn.rs#L721"><code>capdag/src/urn/cap_urn.rs:721</code></a></li>
+      </ul>
+    </section>
+  </div></div></div></main>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="footer-logo-text">cap:</span>
+        </div>
+        <p class="footer-tagline">A naming system for computational capabilities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Documentation</h4>
+        <ul class="footer-links">
+          <li><a href="/docs/syntax.html" class="footer-link">URN Syntax</a></li>
+          <li><a href="/docs/matching.html" class="footer-link">Matching</a></li>
+          <li><a href="/docs/libraries.html" class="footer-link">Libraries</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/browse" class="footer-link">Browse Registry</a></li>
+          <li><a href="https://machinefabric.com" class="footer-link">MachineFabric</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+  <script src="/scripts/docs.js" defer></script>
+</body>
+</html>

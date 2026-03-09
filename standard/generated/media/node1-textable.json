@@ -1,0 +1,9 @@
+{
+  "urn": "media:node1;textable",
+  "media_type": "text/plain",
+  "title": "Test Node 1 (Base Text)",
+  "description": "Base text content for capchain testing - entry point",
+  "extensions": [
+    "testxt"
+  ]
+}

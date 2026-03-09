@@ -1,0 +1,114 @@
+# LLM Text Generation Capability Definition - GGUF Backend
+
+title = "Generate Text with LLM (GGUF)"
+cap_description = "Generate text using GGUF models with llama.cpp backend"
+command = "run_inference"
+
+urn = 'cap:gguf;in="media:textable";llm;ml-model;op=generate_text;out="media:generated-text;textable;record"'
+
+[[args]]
+media_urn = "media:textable"
+required = false
+arg_description = "Input text prompt for generation"
+sources = [
+    { stdin = "media:textable" },
+    { cli_flag = "--prompt" }
+]
+[[args]]
+media_urn = "media:file-path;textable"
+required = false
+arg_description = "Path to input file containing prompt"
+sources = [
+    { stdin = "media:textable" },
+    { position = 0 }
+]
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "GGUF model specification (HuggingFace repo or local path)"
+default_value = "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+[[args]]
+media_urn = "media:max-tokens;textable;numeric"
+required = false
+arg_description = "Maximum number of tokens to generate"
+default_value = 512
+sources = [
+    { cli_flag = "--max-tokens" }
+]
+[[args]]
+media_urn = "media:temperature;textable;numeric"
+required = false
+arg_description = "Sampling temperature (0.0-2.0)"
+default_value = 0.7
+sources = [
+    { cli_flag = "--temperature" }
+]
+
+[[args]]
+media_urn = "media:top-k;textable;numeric"
+required = false
+arg_description = "Top-k sampling parameter"
+default_value = 40
+sources = [
+    { cli_flag = "--top-k" }
+]
+
+[[args]]
+media_urn = "media:top-p;textable;numeric"
+required = false
+arg_description = "Top-p (nucleus) sampling parameter"
+default_value = 0.9
+sources = [
+    { cli_flag = "--top-p" }
+]
+
+[[args]]
+media_urn = "media:min-p;textable;numeric"
+required = false
+arg_description = "Min-p sampling parameter"
+default_value = 0.05
+sources = [
+    { cli_flag = "--min-p" }
+]
+
+[[args]]
+media_urn = "media:seed;textable;numeric"
+required = false
+arg_description = "Random seed for reproducibility"
+default_value = 42
+sources = [
+    { cli_flag = "--seed" }
+]
+
+[[args]]
+media_urn = "media:max-context-length;textable;numeric"
+required = false
+arg_description = "Maximum context length"
+default_value = 4096
+sources = [
+    { cli_flag = "--max-context-length" }
+]
+[[args]]
+media_urn = "media:batch-size;textable;numeric"
+required = false
+arg_description = "Batch size for processing"
+default_value = 2048
+sources = [
+    { cli_flag = "--batch-size" }
+]
+[[args]]
+media_urn = "media:stream-flag;textable"
+required = false
+arg_description = "Enable streaming output"
+default_value = false
+sources = [
+    { cli_flag = "--stream" }
+]
+
+[output]
+media_urn = "media:generated-text;textable;record"
+output_description = "Generated text with metadata including tokens and timing"

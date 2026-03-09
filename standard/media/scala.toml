@@ -1,0 +1,7 @@
+# Scala source code media spec
+urn = "media:scala;textable;code"
+media_type = "text/x-scala"
+title = "Scala Source"
+profile_uri = "https://capdag.com/schema/scala"
+description = "Scala programming language source code"
+extensions = ["scala", "sc"]

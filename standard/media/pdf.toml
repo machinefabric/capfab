@@ -1,0 +1,7 @@
+# PDF document media spec
+urn = "media:pdf"
+media_type = "application/pdf"
+title = "PDF Document"
+profile_uri = "https://capdag.com/schema/pdf"
+description = "PDF document data"
+extensions = ["pdf"]

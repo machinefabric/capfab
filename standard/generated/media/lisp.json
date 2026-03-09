@@ -1,0 +1,12 @@
+{
+  "urn": "media:lisp;textable;code",
+  "media_type": "text/x-lisp",
+  "title": "Lisp Source",
+  "profile_uri": "https://capdag.com/schema/lisp",
+  "description": "Common Lisp source code",
+  "extensions": [
+    "lisp",
+    "cl",
+    "lsp"
+  ]
+}

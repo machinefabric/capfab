@@ -1,0 +1,7 @@
+# OGV Video media spec
+urn = "media:ogv;video"
+media_type = "video/ogg"
+title = "OGG Video"
+profile_uri = "https://capdag.com/schema/ogv"
+description = "Ogg video data"
+extensions = ["ogv"]

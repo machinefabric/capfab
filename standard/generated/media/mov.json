@@ -1,0 +1,10 @@
+{
+  "urn": "media:mov;video",
+  "media_type": "video/quicktime",
+  "title": "QuickTime Video",
+  "profile_uri": "https://capdag.com/schema/mov",
+  "description": "QuickTime video data",
+  "extensions": [
+    "mov"
+  ]
+}

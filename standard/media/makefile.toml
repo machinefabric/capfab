@@ -1,0 +1,7 @@
+# Makefile media spec
+urn = "media:makefile;textable"
+media_type = "text/x-makefile"
+title = "Makefile"
+profile_uri = "https://capdag.com/schema/makefile"
+description = "Make build file"
+extensions = ["mk"]

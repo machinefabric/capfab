@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libraries - CAPDAG Documentation</title>
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+<header class="docs-top-header">
+  <a href="/" class="header-brand">
+    <span class="brand-text">cap:</span>
+    <span class="docs-title-inline">Documentation</span>
+  </a>
+  <nav class="header-nav">
+    <a href="/browse" class="nav-link nav-link-desktop">Browse</a>
+    <a href="/dashboard" class="nav-link nav-link-accent nav-link-desktop">Sign In</a>
+    <button class="theme-toggle nav-link-desktop" id="theme-toggle" title="Toggle theme">
+      <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button class="hamburger-btn" id="hamburger-btn" title="Menu">
+      <svg class="hamburger-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg class="close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/browse" class="mobile-menu-link">Browse</a>
+    <a href="/dashboard" class="mobile-menu-link mobile-menu-link-accent">Sign In</a>
+    <button class="mobile-menu-link mobile-theme-toggle" id="mobile-theme-toggle">
+      <span class="theme-label-dark">Light Mode</span>
+      <span class="theme-label-light">Dark Mode</span>
+    </button>
+  </div>
+</header>
+  <main class="docs-main"><div class="docs-container"><aside class="docs-sidebar"><nav class="docs-nav">
+  <ul class="docs-nav-subtree docs-tree-root" id="docs-global-tree"></ul>
+</nav></aside><div class="docs-content">
+    <header class="docs-header"><h1>Libraries</h1><p class="docs-subtitle">Language bindings and behavior scope</p></header>
+
+    <section class="docs-section">
+      <h2>Implementations</h2>
+      <ul>
+        <li>Rust: <code>capdag</code> + <code>tagged-urn-rs</code> (reference implementation)</li>
+        <li>Go: <code>capdag-go</code> + <code>tagged-urn-go</code></li>
+        <li>JavaScript: <code>capdag-js</code> + <code>tagged-urn-js</code></li>
+        <li>Objective-C/Swift: <code>capdag-objc</code> + <code>tagged-urn-objc</code></li>
+      </ul>
+    </section>
+
+    <section class="docs-section">
+      <h2>Semantics Boundaries</h2>
+      <ul>
+        <li>Generic tagged URN <code>?</code>/<code>!</code>/<code>*</code> table applies to tagged URN APIs.</li>
+        <li>CAP direction semantics and CAP non-direction tag matching follow <code>CapUrn::accepts</code> behavior.</li>
+        <li>Do not assume global tuple-based tie-break logic for CAP matrix/block selection.</li>
+      </ul>
+    </section>
+
+    <section class="docs-section">
+      <h2>Rust Example (Direction Defaulting + Matching)</h2>
+      <pre>use capdag::CapUrn;
+
+let pattern = CapUrn::from_string("cap:op=extract")?; // in/out default to media:
+let request = CapUrn::from_string(
+  "cap:in=\"media:pdf;bytes\";op=extract;out=\"media:text;utf8\""
+)?;
+assert!(pattern.accepts(&request));</pre>
+    </section>
+
+    <section class="docs-section">
+      <h2>References</h2>
+      <ul>
+        <li><a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L475"><code>tagged-urn-rs/src/tagged_urn.rs:475</code></a>, <a href="https://github.com/machinefabric/tagged-urn-rs/blob/main/src/tagged_urn.rs#L595"><code>tagged-urn-rs/src/tagged_urn.rs:595</code></a></li>
+        <li><a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_urn.rs#L291"><code>capdag/src/urn/cap_urn.rs:291</code></a>, <a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_urn.rs#L319"><code>capdag/src/urn/cap_urn.rs:319</code></a>, <a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_urn.rs#L349"><code>capdag/src/urn/cap_urn.rs:349</code></a></li>
+        <li><a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_matrix.rs#L591"><code>capdag/src/urn/cap_matrix.rs:591</code></a>, <a href="https://github.com/machinefabric/capdag/blob/main/src/urn/cap_matrix.rs#L855"><code>capdag/src/urn/cap_matrix.rs:855</code></a></li>
+      </ul>
+    </section>
+  </div></div></div></main>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="footer-logo-text">cap:</span>
+        </div>
+        <p class="footer-tagline">A naming system for computational capabilities.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Documentation</h4>
+        <ul class="footer-links">
+          <li><a href="/docs/syntax.html" class="footer-link">URN Syntax</a></li>
+          <li><a href="/docs/matching.html" class="footer-link">Matching</a></li>
+          <li><a href="/docs/libraries.html" class="footer-link">Libraries</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/browse" class="footer-link">Browse Registry</a></li>
+          <li><a href="https://machinefabric.com" class="footer-link">MachineFabric</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+  <script src="/scripts/docs.js" defer></script>
+</body>
+</html>

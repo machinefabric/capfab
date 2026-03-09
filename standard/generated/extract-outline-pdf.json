@@ -1,0 +1,47 @@
+{
+  "urn": "cap:in=media:pdf;op=extract_outline;out=\"media:document-outline;textable;record\"",
+  "command": "extract-outline",
+  "title": "Extract PDF Outline",
+  "cap_description": "Extract PDF document outline/table of contents with hierarchical structure",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:pdf"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the document file to process"
+    },
+    {
+      "media_urn": "media:max-depth;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-depth"
+        }
+      ],
+      "arg_description": "Maximum outline depth to extract (1-10)"
+    },
+    {
+      "media_urn": "media:include-order-indexes;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--include-order-indexes"
+        }
+      ],
+      "arg_description": "Include page numbers in the outline (default: true)",
+      "default_value": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:document-outline;textable;record",
+    "output_description": "Hierarchical document outline with section titles and optional page numbers"
+  }
+}

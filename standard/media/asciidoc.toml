@@ -1,0 +1,7 @@
+# AsciiDoc media spec
+urn = "media:asciidoc;textable"
+media_type = "text/x-asciidoc"
+title = "AsciiDoc"
+profile_uri = "https://capdag.com/schema/asciidoc"
+description = "AsciiDoc markup document"
+extensions = ["adoc", "asciidoc"]

@@ -1,0 +1,7 @@
+# TAR.GZ archive media spec
+urn = "media:targz;archive"
+media_type = "application/gzip"
+title = "Tarball (gzipped)"
+profile_uri = "https://capdag.com/schema/targz"
+description = "TAR archive compressed with gzip"
+extensions = ["tgz"]

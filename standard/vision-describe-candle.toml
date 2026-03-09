@@ -1,0 +1,34 @@
+# Image Description Capability Definition - Candle Backend (BLIP)
+
+title = "Describe Image (Candle)"
+cap_description = "Generate image descriptions using BLIP models with Candle ML framework"
+command = "describe_image"
+
+urn = 'cap:candle;in="media:image;png";ml-model;op=describe_image;out="media:image-description;textable"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the image file to describe"
+sources = [
+    { stdin = "media:image;png" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:prompt;textable"
+required = false
+arg_description = "Optional prompt to guide the image description"
+sources = [
+    { cli_flag = "--prompt" }
+]
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "BLIP model name from HuggingFace"
+default_value = "hf:Salesforce/blip-image-captioning-large"
+sources = [
+    { cli_flag = "--model" }
+]
+[output]
+media_urn = "media:image-description;textable"
+output_description = "Generated text description of the image"

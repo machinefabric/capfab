@@ -1,0 +1,43 @@
+# Embeddings Generation Capability Definition - Candle Backend
+
+title = "Generate Vector Embeddings (Candle)"
+cap_description = "Generate vector embeddings from text using Candle ML framework on CPU/GPU"
+command = "generate_embeddings"
+
+urn = 'cap:candle;in="media:textable";ml-model;op=generate_embeddings;out="media:embedding-vector;textable;record"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to text file to generate embeddings from"
+sources = [
+    { stdin = "media:textable" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "HuggingFace model name for embeddings"
+default_value = "hf:sentence-transformers/all-MiniLM-L6-v2"
+sources = [
+    { cli_flag = "--model" }
+]
+[[args]]
+media_urn = "media:chunk-size;textable;numeric"
+required = false
+arg_description = "Chunk size in words for splitting input text"
+default_value = 400
+sources = [
+    { cli_flag = "--chunk-size" }
+]
+[[args]]
+media_urn = "media:chunk-overlap;textable;numeric"
+required = false
+arg_description = "Chunk overlap in words when splitting input text"
+default_value = 50
+sources = [
+    { cli_flag = "--chunk-overlap" }
+]
+[output]
+media_urn = "media:embedding-vector;textable;record"
+output_description = "JSON containing embeddings, chunk metadata and model information"

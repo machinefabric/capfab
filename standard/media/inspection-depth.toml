@@ -1,0 +1,9 @@
+# Inspection Depth media spec
+urn = "media:inspection-depth;textable"
+media_type = "text/plain"
+title = "Inspection Depth"
+profile_uri = "https://capdag.com/schema/inspection_depth"
+description = "Inspection Depth value"
+
+[validation]
+allowed_values = ["summary", "detailed", "full"]

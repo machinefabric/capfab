@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://capdag.com/schema/media.schema.json",
+  "title": "Media Spec Definition",
+  "description": "Schema for media spec TOML/JSON definitions in the CAPDAG registry",
+  "type": "object",
+  "required": ["urn", "media_type", "title"],
+  "properties": {
+    "urn": {
+      "type": "string",
+      "pattern": "^media:",
+      "description": "The media URN identifier (e.g., 'media:pdf;binary')"
+    },
+    "media_type": {
+      "type": "string",
+      "pattern": "^[a-z]+/[a-z0-9+._-]+$",
+      "description": "MIME media type (e.g., 'application/pdf', 'text/plain')"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display-friendly title for the media type"
+    },
+    "profile_uri": {
+      "type": "string",
+      "pattern": "^https?://",
+      "description": "Profile URI for schema reference"
+    },
+    "schema": {
+      "type": "object",
+      "description": "Optional JSON Schema for validation"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the media type"
+    },
+    "validation": {
+      "type": "object",
+      "description": "Validation rules for values of this media type",
+      "additionalProperties": false,
+      "properties": {
+        "min": {
+          "type": "number",
+          "description": "Minimum numeric value"
+        },
+        "max": {
+          "type": "number",
+          "description": "Maximum numeric value"
+        },
+        "min_length": {
+          "type": "integer",
+          "description": "Minimum string/array length",
+          "minimum": 0
+        },
+        "max_length": {
+          "type": "integer",
+          "description": "Maximum string/array length",
+          "minimum": 0
+        },
+        "pattern": {
+          "type": "string",
+          "description": "Regular expression pattern for validation"
+        },
+        "allowed_values": {
+          "type": "array",
+          "description": "List of allowed values",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata for display and categorization (arbitrary key-value pairs)",
+      "additionalProperties": true
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9+]+$"
+      },
+      "description": "File extensions for storing this media type (e.g., ['pdf'], ['jpg', 'jpeg']). Should not include the leading dot."
+    }
+  },
+  "additionalProperties": false
+}

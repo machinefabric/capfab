@@ -1,0 +1,11 @@
+{
+  "urn": "media:top-p;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Top P",
+  "profile_uri": "https://capdag.com/schema/top_p",
+  "description": "Top P numeric value",
+  "validation": {
+    "min": 0,
+    "max": 1
+  }
+}

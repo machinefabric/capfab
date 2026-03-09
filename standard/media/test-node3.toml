@@ -1,0 +1,6 @@
+# Test Node 3 - Intermediate text after second transformation
+urn = "media:node3;textable"
+media_type = "text/plain"
+title = "Test Node 3 (Second Intermediate)"
+description = "Text content after second transformation step"
+extensions = ["testxt"]

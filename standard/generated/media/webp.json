@@ -1,0 +1,10 @@
+{
+  "urn": "media:webp;image",
+  "media_type": "image/webp",
+  "title": "WebP Image",
+  "profile_uri": "https://capdag.com/schema/webp",
+  "description": "WebP image data",
+  "extensions": [
+    "webp"
+  ]
+}

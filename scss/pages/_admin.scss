@@ -1,0 +1,431 @@
+// =============================================================================
+// CAPDAG - Admin Page Styles
+// Admin panel for capability management
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// LAYOUT
+// -----------------------------------------------------------------------------
+
+.admin-main {
+  min-height: 100vh;
+  background-color: var(--bg-base);
+}
+
+// Authentication Section
+.auth-section {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-base) 100%);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-lg);
+
+  h1 {
+    text-align: center;
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+  }
+
+  p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// ADMIN PANEL
+// -----------------------------------------------------------------------------
+
+.admin-panel {
+  padding: var(--space-8) 0;
+}
+
+.admin-container {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.admin-section {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-secondary);
+
+  h2 {
+    margin: 0;
+    color: var(--text-primary);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FORMS
+// -----------------------------------------------------------------------------
+
+.capability-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  &.full-width {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+}
+
+.form-input,
+.form-textarea {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: var(--text-base);
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+  transition: border-color var(--duration-fast);
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-subtle);
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--accent);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.form-section {
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--border-secondary);
+  margin-top: var(--space-4);
+
+  &:first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  h3 {
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// ARGUMENT MANAGEMENT
+// -----------------------------------------------------------------------------
+
+.argument-group {
+  display: grid;
+  grid-template-columns: 1fr 150px 2fr 150px auto;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-4);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+
+  .form-input {
+    margin: 0;
+  }
+}
+
+.remove-btn {
+  background-color: var(--error);
+  color: white;
+  border: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+
+  &:hover {
+    background-color: var(--error-hover);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// BUTTONS
+// -----------------------------------------------------------------------------
+
+.primary-button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+
+  &:hover {
+    background-color: var(--accent-hover);
+  }
+}
+
+.secondary-button {
+  background-color: var(--bg-overlay);
+  color: var(--text-primary);
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+
+  &:hover {
+    background-color: var(--bg-active);
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-secondary);
+}
+
+// -----------------------------------------------------------------------------
+// CAPABILITIES MANAGEMENT
+// -----------------------------------------------------------------------------
+
+.admin-capabilities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-4);
+}
+
+.admin-capability-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  transition: all var(--duration-fast);
+
+  &:hover {
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.admin-capability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
+}
+
+.admin-capability-urn {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent);
+  font-weight: 600;
+  flex: 1;
+  margin-right: var(--space-4);
+}
+
+.admin-capability-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.action-btn {
+  background-color: var(--bg-overlay);
+  color: var(--text-primary);
+  border: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+
+  &:hover {
+    background-color: var(--bg-active);
+  }
+
+  &.danger {
+    background-color: var(--error);
+    color: white;
+
+    &:hover {
+      background-color: var(--error-hover);
+    }
+  }
+}
+
+.admin-capability-description {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.admin-capability-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+// -----------------------------------------------------------------------------
+// MESSAGES
+// -----------------------------------------------------------------------------
+
+.error-message {
+  background-color: var(--error-subtle);
+  color: var(--error);
+  border: 1px solid var(--error);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.success-message {
+  background-color: var(--success-subtle);
+  color: var(--success);
+  border: 1px solid var(--success);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+// -----------------------------------------------------------------------------
+// LOADING STATES
+// -----------------------------------------------------------------------------
+
+.loading {
+  text-align: center;
+  color: var(--text-tertiary);
+  padding: var(--space-8);
+}
+
+.form-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--border-primary);
+    border-radius: 50%;
+    border-top-color: var(--accent);
+    animation: spin 1s linear infinite;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// RESPONSIVE
+// -----------------------------------------------------------------------------
+
+@media (max-width: 768px) {
+  .auth-section {
+    padding: var(--space-4);
+  }
+
+  .admin-container {
+    padding: 0 var(--space-4);
+  }
+
+  .admin-section {
+    padding: var(--space-4);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .argument-group {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: stretch;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .admin-capabilities-list {
+    grid-template-columns: 1fr;
+  }
+}

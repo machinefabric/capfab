@@ -1,0 +1,17 @@
+# api-enable-analytics.toml
+# Generated from key_reference.csv
+
+urn = "media:api-enable-analytics;setting;textable"
+media_type = "text/plain"
+title = "Enable analytics reporting"
+profile_uri = "https://capdag.com/schema/api-enable-analytics"
+description = "Enable analytics reporting"
+
+[metadata]
+category = "api"
+subcategory = "api_features"
+display_index = 1
+ui_type = "SETTING_UI_TYPE_SWITCH"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = true
+overridable_by = ["user", "end_user"]

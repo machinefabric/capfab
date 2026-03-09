@@ -1,0 +1,11 @@
+# Model Spec media spec
+urn = "media:model-spec;textable"
+media_type = "text/plain"
+title = "Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Model Spec value"
+
+[validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"

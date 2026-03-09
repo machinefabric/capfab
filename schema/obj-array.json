@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://capdag.com/schema/obj-array",
+  "title": "Object Array",
+  "description": "A JSON array of object values",
+  "type": "array",
+  "items": {
+    "type": "object"
+  }
+}

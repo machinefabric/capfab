@@ -1,0 +1,12 @@
+{
+  "urn": "media:protobuf",
+  "media_type": "application/x-protobuf",
+  "title": "Protocol Buffers",
+  "profile_uri": "https://capdag.com/schema/protobuf",
+  "description": "Google Protocol Buffers data",
+  "extensions": [
+    "pb",
+    "protobuf",
+    "proto"
+  ]
+}

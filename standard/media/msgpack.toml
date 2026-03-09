@@ -1,0 +1,7 @@
+# MessagePack media spec
+urn = "media:msgpack"
+media_type = "application/msgpack"
+title = "MessagePack"
+profile_uri = "https://capdag.com/schema/msgpack"
+description = "MessagePack serialized data"
+extensions = ["msgpack"]

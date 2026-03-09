@@ -1,0 +1,7 @@
+{
+  "urn": "media:file-path;textable;list",
+  "media_type": "application/json",
+  "title": "File Path Array",
+  "profile_uri": "https://capdag.com/schema/file_path_array",
+  "description": "File Path file system path array"
+}

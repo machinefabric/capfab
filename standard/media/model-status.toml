@@ -1,0 +1,53 @@
+# Model Status media spec - detailed status of a model including download progress
+urn = "media:model-status;textable;record"
+media_type = "application/json"
+title = "Model Status"
+profile_uri = "https://capdag.com/schema/model-status"
+description = "Detailed model status including state, download progress, and health information"
+
+[schema]
+type = "object"
+required = ["state"]
+
+[schema.properties.state]
+type = "string"
+enum = ["not_found", "available", "downloading", "paused", "ready", "failed"]
+description = "Current state of the model"
+
+[schema.properties.total_bytes]
+type = "integer"
+description = "Total bytes to download (if known)"
+
+[schema.properties.downloaded_bytes]
+type = "integer"
+description = "Bytes downloaded so far"
+
+[schema.properties.progress]
+type = "number"
+description = "Download progress as a percentage (0.0 to 1.0)"
+
+[schema.properties.speed_bps]
+type = "number"
+description = "Download speed in bytes per second"
+
+[schema.properties.eta_seconds]
+type = "integer"
+description = "Estimated time remaining in seconds"
+
+[schema.properties.error_message]
+type = "string"
+description = "Error message if download/load failed"
+
+[schema.properties.started_at]
+type = "string"
+format = "date-time"
+description = "When the download/operation started (ISO 8601)"
+
+[schema.properties.finished_at]
+type = "string"
+format = "date-time"
+description = "When the download/operation completed or failed (ISO 8601)"
+
+[schema.properties.local_path]
+type = "string"
+description = "Local filesystem path if model is available locally"

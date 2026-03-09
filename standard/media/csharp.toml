@@ -1,0 +1,7 @@
+# C# source code media spec
+urn = "media:csharp;textable;code"
+media_type = "text/x-csharp"
+title = "C# Source"
+profile_uri = "https://capdag.com/schema/csharp"
+description = "C# programming language source code"
+extensions = ["cs"]

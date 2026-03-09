@@ -1,0 +1,32 @@
+# Test Edge 1 - node1 → node2
+# Basic transformation: reads input text, prepends optional prefix
+# For testing: concatenates edge1arg1 (prefix) + input content
+
+title = "Test Edge 1 (Prepend Transform)"
+cap_description = "Transform node1 to node2 by prepending optional text argument"
+command = "test-concat"
+
+urn = 'cap:in="media:node1;textable";op=test_edge1;out="media:node2;textable"'
+
+# Required input file - content comes via stdin or file path
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the input text file"
+sources = [
+  { stdin = "media:node1;textable" },
+  { position = 0 }
+]
+
+# Optional prefix text argument (edge1arg1)
+[[args]]
+media_urn = "media:edge1arg1;textable"
+required = false
+arg_description = "Text to prepend before the input content"
+sources = [
+  { cli_flag = "--prefix" }
+]
+
+[output]
+media_urn = "media:node2;textable"
+output_description = "Transformed text with optional prefix prepended"

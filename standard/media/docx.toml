@@ -1,0 +1,7 @@
+# DOCX Document media spec
+urn = "media:docx"
+media_type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+title = "Word Document"
+profile_uri = "https://capdag.com/schema/docx"
+description = "Microsoft Word document data"
+extensions = ["docx"]

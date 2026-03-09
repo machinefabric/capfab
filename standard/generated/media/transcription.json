@@ -1,0 +1,7 @@
+{
+  "urn": "media:transcription;textable;record",
+  "media_type": "application/json",
+  "title": "Audio Transcription",
+  "profile_uri": "https://capdag.com/schema/transcription",
+  "description": "Transcribed text structured as a map with metadata."
+}

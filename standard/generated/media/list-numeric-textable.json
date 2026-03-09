@@ -1,0 +1,7 @@
+{
+  "urn": "media:list;numeric;textable",
+  "media_type": "application/json",
+  "title": "Number Array",
+  "profile_uri": "https://capdag.com/schema/num-array",
+  "description": "Array of floating-point numeric values"
+}

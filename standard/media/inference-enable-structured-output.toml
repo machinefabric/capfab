@@ -1,0 +1,17 @@
+# inference-enable-structured-output.toml
+# Generated from key_reference.csv
+
+urn = "media:inference-enable-structured-output;setting;textable"
+media_type = "text/plain"
+title = "Enable structured output generation"
+profile_uri = "https://capdag.com/schema/inference-enable-structured-output"
+description = "Enable structured output generation"
+
+[metadata]
+category = "inference"
+subcategory = "inference_generation"
+display_index = 5
+ui_type = "SETTING_UI_TYPE_CHECKBOX"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = false
+overridable_by = ["cap", "model", "user"]

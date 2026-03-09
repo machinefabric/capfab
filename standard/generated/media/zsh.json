@@ -1,0 +1,10 @@
+{
+  "urn": "media:zsh;textable;code",
+  "media_type": "text/x-shellscript",
+  "title": "Zsh Script",
+  "profile_uri": "https://capdag.com/schema/zsh",
+  "description": "Zsh script source code",
+  "extensions": [
+    "zsh"
+  ]
+}

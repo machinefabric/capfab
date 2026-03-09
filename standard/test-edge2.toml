@@ -1,0 +1,32 @@
+# Test Edge 2 - node2 → node3
+# Second step transformation: reads intermediate, appends optional suffix text
+# For testing: concatenates input content + edge2arg1 (suffix)
+
+title = "Test Edge 2 (Append Transform)"
+cap_description = "Transform node2 to node3 by appending optional text argument"
+command = "test-concat"
+
+urn = 'cap:in="media:node2;textable";op=test_edge2;out="media:node3;textable"'
+
+# Required input file - content comes via stdin or file path
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the intermediate text file"
+sources = [
+  { stdin = "media:node2;textable" },
+  { position = 0 }
+]
+
+# Optional suffix text argument (edge2arg1)
+[[args]]
+media_urn = "media:edge2arg1;textable"
+required = false
+arg_description = "Text to append after the input content"
+sources = [
+  { cli_flag = "--suffix" }
+]
+
+[output]
+media_urn = "media:node3;textable"
+output_description = "Transformed text with optional suffix appended"

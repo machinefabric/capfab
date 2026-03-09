@@ -1,0 +1,9 @@
+# Summary Focus media spec
+urn = "media:summary-focus;textable"
+media_type = "text/plain"
+title = "Summary Focus"
+profile_uri = "https://capdag.com/schema/summary_focus"
+description = "Summary Focus value"
+
+[validation]
+allowed_values = ["main_points", "key_facts", "conclusions", "methodology", "results", "implications", "overview"]

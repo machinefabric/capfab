@@ -1,0 +1,10 @@
+{
+  "urn": "media:odp",
+  "media_type": "application/vnd.oasis.opendocument.presentation",
+  "title": "OpenDocument Presentation",
+  "profile_uri": "https://capdag.com/schema/odp",
+  "description": "OpenDocument presentation data",
+  "extensions": [
+    "odp"
+  ]
+}

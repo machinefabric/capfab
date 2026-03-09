@@ -1,0 +1,7 @@
+# iCalendar media spec
+urn = "media:ics;textable;list"
+media_type = "text/calendar"
+title = "iCalendar"
+profile_uri = "https://capdag.com/schema/ics"
+description = "iCalendar event data"
+extensions = ["ics"]

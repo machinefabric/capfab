@@ -1,0 +1,19 @@
+# Extract Metadata Capability Definition for Log Files
+title = "Extract Log Metadata"
+cap_description = "Extract log document metadata including title, file size, word count, and other properties"
+command = "extract-metadata"
+
+urn = 'cap:in="media:log;textable";op=extract_metadata;out="media:file-metadata;textable;record"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the log file to process"
+sources = [
+  { stdin = "media:log;textable" },
+  { position = 0 }
+]
+
+[output]
+media_urn = "media:textable;record"
+output_description = "Structured metadata including file properties and log-specific metadata"

@@ -1,0 +1,7 @@
+# RPM package media spec
+urn = "media:rpm;archive"
+media_type = "application/x-rpm"
+title = "RPM Package"
+profile_uri = "https://capdag.com/schema/rpm"
+description = "Red Hat Package Manager package"
+extensions = ["rpm"]

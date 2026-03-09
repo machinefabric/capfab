@@ -1,0 +1,12 @@
+{
+  "urn": "media:perl;textable;code",
+  "media_type": "text/x-perl",
+  "title": "Perl Source",
+  "profile_uri": "https://capdag.com/schema/perl",
+  "description": "Perl programming language source code",
+  "extensions": [
+    "pl",
+    "pm",
+    "pod"
+  ]
+}

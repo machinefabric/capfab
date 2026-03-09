@@ -1,0 +1,360 @@
+// =============================================================================
+// CAPDAG Design System - Theme Definitions
+// CSS Custom Properties for runtime theming
+// =============================================================================
+
+@use 'tokens' as *;
+
+// -----------------------------------------------------------------------------
+// CSS CUSTOM PROPERTIES
+// Applied to :root, using dark theme as default for this technical product
+// Light theme available via .theme-light class or prefers-color-scheme
+// -----------------------------------------------------------------------------
+
+:root {
+  // Typography tokens as custom properties
+  --font-sans: #{$font-sans};
+  --font-mono: #{$font-mono};
+
+  --text-xs: #{$text-xs};
+  --text-sm: #{$text-sm};
+  --text-base: #{$text-base};
+  --text-lg: #{$text-lg};
+  --text-xl: #{$text-xl};
+  --text-2xl: #{$text-2xl};
+  --text-3xl: #{$text-3xl};
+  --text-4xl: #{$text-4xl};
+  --text-5xl: #{$text-5xl};
+
+  --leading-none: #{$leading-none};
+  --leading-tight: #{$leading-tight};
+  --leading-snug: #{$leading-snug};
+  --leading-normal: #{$leading-normal};
+  --leading-relaxed: #{$leading-relaxed};
+
+  --tracking-tight: #{$tracking-tight};
+  --tracking-normal: #{$tracking-normal};
+  --tracking-wide: #{$tracking-wide};
+  --tracking-wider: #{$tracking-wider};
+
+  // Spacing tokens
+  --space-0: #{$space-0};
+  --space-1: #{$space-1};
+  --space-2: #{$space-2};
+  --space-3: #{$space-3};
+  --space-4: #{$space-4};
+  --space-5: #{$space-5};
+  --space-6: #{$space-6};
+  --space-8: #{$space-8};
+  --space-10: #{$space-10};
+  --space-12: #{$space-12};
+  --space-16: #{$space-16};
+  --space-20: #{$space-20};
+  --space-24: #{$space-24};
+
+  // Border radius
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-xl: #{$radius-xl};
+  --radius-2xl: #{$radius-2xl};
+  --radius-full: #{$radius-full};
+
+  // Transitions
+  --duration-fast: #{$duration-fast};
+  --duration-normal: #{$duration-normal};
+  --duration-slow: #{$duration-slow};
+  --duration-slower: #{$duration-slower};
+  --ease-out: #{$ease-out};
+  --ease-in-out: #{$ease-in-out};
+
+  // Layout
+  --max-width-content: #{$max-width-content};
+  --max-width-wide: #{$max-width-wide};
+  --max-width-prose: #{$max-width-prose};
+
+  // Raw color values (for transparency calculations)
+  --slate-50: #{$slate-50};
+  --slate-100: #{$slate-100};
+  --slate-200: #{$slate-200};
+  --slate-300: #{$slate-300};
+  --slate-400: #{$slate-400};
+  --slate-500: #{$slate-500};
+  --slate-600: #{$slate-600};
+  --slate-700: #{$slate-700};
+  --slate-800: #{$slate-800};
+  --slate-900: #{$slate-900};
+  --slate-950: #{$slate-950};
+
+  --blue-50: #{$blue-50};
+  --blue-100: #{$blue-100};
+  --blue-200: #{$blue-200};
+  --blue-300: #{$blue-300};
+  --blue-400: #{$blue-400};
+  --blue-500: #{$blue-500};
+  --blue-600: #{$blue-600};
+  --blue-700: #{$blue-700};
+
+  --cyan-400: #{$cyan-400};
+  --cyan-500: #{$cyan-500};
+
+  --green-500: #{$green-500};
+  --green-600: #{$green-600};
+  --green-700: #{$green-700};
+
+  --amber-500: #{$amber-500};
+  --amber-600: #{$amber-600};
+
+  --red-400: #{$red-400};
+  --red-500: #{$red-500};
+  --red-600: #{$red-600};
+
+  --green-400: #{$green-400};
+  --green-600: #{$green-600};
+  --green-700: #{$green-700};
+  --amber-400: #{$amber-400};
+  --amber-700: #{$amber-700};
+}
+
+// -----------------------------------------------------------------------------
+// DARK THEME (DEFAULT)
+// Deep slate backgrounds with high-contrast text
+// -----------------------------------------------------------------------------
+
+:root,
+[data-theme="dark"] {
+  // Background surfaces (darkest to lightest)
+  --bg-base: #{$slate-950};
+  --bg-surface: #{$slate-900};
+  --bg-elevated: #{$slate-800};
+  --bg-overlay: #{$slate-700};
+  --bg-hover: #{$slate-700};
+  --bg-active: #{$slate-600};
+
+  // Text hierarchy
+  --text-primary: #{$slate-50};
+  --text-secondary: #{$slate-300};
+  --text-tertiary: #{$slate-400};
+  --text-muted: #{$slate-500};
+  --text-inverse: #{$slate-900};
+
+  // Border colors
+  --border-primary: #{$slate-700};
+  --border-secondary: #{$slate-800};
+  --border-focus: #{$blue-500};
+
+  // Accent colors
+  --accent: #{$blue-500};
+  --accent-hover: #{$blue-400};
+  --accent-muted: #{$blue-600};
+  --accent-subtle: rgba(59, 130, 246, 0.15);
+  --accent-border: rgba(59, 130, 246, 0.4);
+
+  // Semantic colors
+  --success: #{$green-500};
+  --success-hover: #{$green-400};
+  --success-subtle: rgba(34, 197, 94, 0.15);
+
+  --warning: #{$amber-500};
+  --warning-hover: #{$amber-400};
+  --warning-subtle: rgba(245, 158, 11, 0.15);
+
+  --error: #{$red-500};
+  --error-hover: #{$red-400};
+  --error-subtle: rgba(239, 68, 68, 0.15);
+
+  // Shadows
+  --shadow-sm: #{$shadow-dark-sm};
+  --shadow-md: #{$shadow-dark-md};
+  --shadow-lg: #{$shadow-dark-lg};
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+
+  // Code block colors
+  --code-bg: #{$slate-900};
+  --code-text: #{$slate-100};
+  --code-keyword: #{$blue-400};
+  --code-string: #86efac;
+  --code-number: #fca5a5;
+  --code-comment: #{$slate-500};
+
+  // Focus ring
+  --ring-color: #{$blue-500};
+  --ring-offset-color: #{$slate-900};
+
+  // Graph visualization
+  --graph-bg: #{$slate-950};
+  --graph-node-text: #{$slate-50};
+  --graph-node-border: #{$slate-700};
+  --graph-node-border-highlighted: #{$slate-50};
+  --graph-node-border-active: #{$amber-400};
+  --graph-edge-text-bg: #{$slate-900};
+  --graph-edge-text-bg-opacity: 0.9;
+  --graph-overlay: rgba(255, 255, 255, 0.1);
+  --graph-faded-opacity: 0.15;
+  --graph-faded-edge-opacity: 0.1;
+
+  // Graph namespace colors (consistent across themes)
+  --graph-ns-std: #{$blue-500};
+  --graph-ns-capdag: #8b5cf6;
+  --graph-ns-machfab: #10b981;
+  --graph-ns-default: #{$amber-500};
+}
+
+// -----------------------------------------------------------------------------
+// LIGHT THEME
+// Clean white backgrounds with subtle shadows
+// -----------------------------------------------------------------------------
+
+[data-theme="light"] {
+  // Background surfaces (lightest to darkest)
+  --bg-base: #ffffff;
+  --bg-surface: #{$slate-50};
+  --bg-elevated: #ffffff;
+  --bg-overlay: #{$slate-100};
+  --bg-hover: #{$slate-100};
+  --bg-active: #{$slate-200};
+
+  // Text hierarchy
+  --text-primary: #{$slate-900};
+  --text-secondary: #{$slate-600};
+  --text-tertiary: #{$slate-500};
+  --text-muted: #{$slate-400};
+  --text-inverse: #ffffff;
+
+  // Border colors
+  --border-primary: #{$slate-200};
+  --border-secondary: #{$slate-100};
+  --border-focus: #{$blue-500};
+
+  // Accent colors
+  --accent: #{$blue-600};
+  --accent-hover: #{$blue-700};
+  --accent-muted: #{$blue-500};
+  --accent-subtle: rgba(37, 99, 235, 0.08);
+  --accent-border: rgba(37, 99, 235, 0.25);
+
+  // Semantic colors
+  --success: #{$green-600};
+  --success-hover: #{$green-700};
+  --success-subtle: rgba(22, 163, 74, 0.1);
+
+  --warning: #{$amber-600};
+  --warning-hover: #{$amber-700};
+  --warning-subtle: rgba(217, 119, 6, 0.1);
+
+  --error: #{$red-600};
+  --error-hover: #{$red-700};
+  --error-subtle: rgba(220, 38, 38, 0.1);
+
+  // Shadows
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+
+  // Code block colors
+  --code-bg: #{$slate-900};
+  --code-text: #{$slate-100};
+  --code-keyword: #{$blue-400};
+  --code-string: #86efac;
+  --code-number: #fca5a5;
+  --code-comment: #{$slate-500};
+
+  // Focus ring
+  --ring-color: #{$blue-500};
+  --ring-offset-color: #ffffff;
+
+  // Graph visualization
+  --graph-bg: #{$slate-100};
+  --graph-node-text: #{$slate-900};
+  --graph-node-border: #{$slate-300};
+  --graph-node-border-highlighted: #{$slate-900};
+  --graph-node-border-active: #{$amber-500};
+  --graph-edge-text-bg: #ffffff;
+  --graph-edge-text-bg-opacity: 0.95;
+  --graph-overlay: rgba(0, 0, 0, 0.05);
+  --graph-faded-opacity: 0.25;
+  --graph-faded-edge-opacity: 0.15;
+
+  // Graph namespace colors (same in light theme for consistency)
+  --graph-ns-std: #{$blue-600};
+  --graph-ns-capdag: #7c3aed;
+  --graph-ns-machfab: #059669;
+  --graph-ns-default: #{$amber-600};
+}
+
+// -----------------------------------------------------------------------------
+// SYSTEM PREFERENCE SUPPORT
+// Automatically switch to light theme if user prefers it
+// (Can be overridden by data-theme attribute)
+// -----------------------------------------------------------------------------
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    // Background surfaces
+    --bg-base: #ffffff;
+    --bg-surface: #{$slate-50};
+    --bg-elevated: #ffffff;
+    --bg-overlay: #{$slate-100};
+    --bg-hover: #{$slate-100};
+    --bg-active: #{$slate-200};
+
+    // Text hierarchy
+    --text-primary: #{$slate-900};
+    --text-secondary: #{$slate-600};
+    --text-tertiary: #{$slate-500};
+    --text-muted: #{$slate-400};
+    --text-inverse: #ffffff;
+
+    // Border colors
+    --border-primary: #{$slate-200};
+    --border-secondary: #{$slate-100};
+
+    // Accent colors
+    --accent: #{$blue-600};
+    --accent-hover: #{$blue-700};
+    --accent-muted: #{$blue-500};
+    --accent-subtle: rgba(37, 99, 235, 0.08);
+    --accent-border: rgba(37, 99, 235, 0.25);
+
+    // Semantic colors
+    --success: #{$green-600};
+    --success-hover: #{$green-700};
+    --success-subtle: rgba(22, 163, 74, 0.1);
+
+    --warning: #{$amber-600};
+    --warning-hover: #{$amber-700};
+    --warning-subtle: rgba(217, 119, 6, 0.1);
+
+    --error: #{$red-600};
+    --error-hover: #{$red-700};
+    --error-subtle: rgba(220, 38, 38, 0.1);
+
+    // Shadows
+    --shadow-sm: #{$shadow-sm};
+    --shadow-md: #{$shadow-md};
+    --shadow-lg: #{$shadow-lg};
+    --shadow-xl: #{$shadow-xl};
+
+    // Focus ring
+    --ring-offset-color: #ffffff;
+
+    // Graph visualization
+    --graph-bg: #{$slate-100};
+    --graph-node-text: #{$slate-900};
+    --graph-node-border: #{$slate-300};
+    --graph-node-border-highlighted: #{$slate-900};
+    --graph-node-border-active: #{$amber-500};
+    --graph-edge-text-bg: #ffffff;
+    --graph-edge-text-bg-opacity: 0.95;
+    --graph-overlay: rgba(0, 0, 0, 0.05);
+    --graph-faded-opacity: 0.25;
+    --graph-faded-edge-opacity: 0.15;
+
+    // Graph namespace colors
+    --graph-ns-std: #{$blue-600};
+    --graph-ns-capdag: #7c3aed;
+    --graph-ns-machfab: #059669;
+    --graph-ns-default: #{$amber-600};
+  }
+}

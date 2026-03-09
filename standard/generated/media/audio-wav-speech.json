@@ -1,0 +1,10 @@
+{
+  "urn": "media:audio;wav;speech",
+  "media_type": "audio/wav",
+  "title": "Speech Audio",
+  "profile_uri": "https://capdag.com/schema/audio-speech",
+  "description": "WAV audio data containing human speech for transcription by Whisper or similar models",
+  "extensions": [
+    "wav"
+  ]
+}

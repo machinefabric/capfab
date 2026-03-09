@@ -1,0 +1,7 @@
+# STL media spec
+urn = "media:stl;model"
+media_type = "model/stl"
+title = "STL Model"
+profile_uri = "https://capdag.com/schema/stl"
+description = "Stereolithography 3D model"
+extensions = ["stl"]

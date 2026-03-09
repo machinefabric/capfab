@@ -1,0 +1,7 @@
+# EPS Image media spec
+urn = "media:eps;image"
+media_type = "application/postscript"
+title = "EPS Image"
+profile_uri = "https://capdag.com/schema/eps"
+description = "Encapsulated PostScript image data"
+extensions = ["eps"]

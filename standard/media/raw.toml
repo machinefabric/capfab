@@ -1,0 +1,7 @@
+# RAW Image media spec
+urn = "media:raw;image"
+media_type = "image/x-raw"
+title = "RAW Image"
+profile_uri = "https://capdag.com/schema/raw"
+description = "Camera RAW image data"
+extensions = ["raw", "cr2", "nef", "arw", "dng", "orf", "rw2"]

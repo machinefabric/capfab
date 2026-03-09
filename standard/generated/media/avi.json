@@ -1,0 +1,10 @@
+{
+  "urn": "media:avi;video",
+  "media_type": "video/x-msvideo",
+  "title": "AVI Video",
+  "profile_uri": "https://capdag.com/schema/avi",
+  "description": "AVI video container data",
+  "extensions": [
+    "avi"
+  ]
+}

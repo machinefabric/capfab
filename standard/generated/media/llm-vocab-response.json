@@ -1,0 +1,23 @@
+{
+  "urn": "media:llm-vocab-response;json;record",
+  "media_type": "application/json",
+  "title": "LLM Vocabulary Response",
+  "profile_uri": "https://capdag.com/schema/llm-vocab-response",
+  "description": "Response containing the model's vocabulary tokens",
+  "schema": {
+    "type": "object",
+    "required": [
+      "vocab"
+    ],
+    "properties": {
+      "vocab": {
+        "type": "array",
+        "description": "Array of vocabulary tokens"
+      },
+      "vocab_size": {
+        "type": "integer",
+        "description": "Total vocabulary size"
+      }
+    }
+  }
+}

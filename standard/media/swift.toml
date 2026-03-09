@@ -1,0 +1,7 @@
+# Swift source code media spec
+urn = "media:swift;textable;code"
+media_type = "text/x-swift"
+title = "Swift Source"
+profile_uri = "https://capdag.com/schema/swift"
+description = "Swift programming language source code"
+extensions = ["swift"]

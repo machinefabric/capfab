@@ -1,0 +1,7 @@
+# WebAssembly Text media spec
+urn = "media:wat;textable;code"
+media_type = "text/plain"
+title = "WebAssembly Text"
+profile_uri = "https://capdag.com/schema/wat"
+description = "WebAssembly text format"
+extensions = ["wat"]

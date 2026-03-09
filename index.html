@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPDAG - Capability Namespace System</title>
+    <meta name="description" content="CAPDAG is a naming system for computational capabilities. Define what operations exist, discover what's available, match requests to implementations.">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2260%22 font-family=%22monospace%22>cap</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body class="fullscreen-graph-mode">
+    <!-- Minimal floating header -->
+    <header class="floating-header">
+        <a href="/" class="header-brand">
+            <span class="brand-text" id="brand-text">cap:</span>
+        </a>
+        <nav class="header-nav">
+            <a href="/docs.html" class="nav-link nav-link-desktop">Docs</a>
+            <a href="/dashboard" class="nav-link nav-link-accent nav-link-desktop">Sign In</a>
+            <button class="theme-toggle nav-link-desktop" id="theme-toggle" title="Toggle theme">
+                <svg class="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg class="theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+            <button class="hamburger-btn" id="hamburger-btn" title="Menu">
+                <svg class="hamburger-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                <svg class="close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="/docs.html" class="mobile-menu-link">Docs</a>
+            <a href="/dashboard" class="mobile-menu-link mobile-menu-link-accent">Sign In</a>
+            <button class="mobile-menu-link mobile-theme-toggle" id="mobile-theme-toggle">
+                <span class="theme-label-dark">Light Mode</span>
+                <span class="theme-label-light">Dark Mode</span>
+            </button>
+        </div>
+    </header>
+
+    <div id="copy-toast" style="position: fixed; top: 56px; left: 50%; transform: translateX(-50%) translateY(-8px); opacity: 0; z-index: 200; pointer-events: none; background: var(--bg-overlay); border: 1px solid var(--border-primary); color: var(--text-secondary); border-radius: 8px; padding: 6px 10px; font: 11px/1.3 var(--font-mono); transition: opacity 0.18s ease, transform 0.18s ease;">Copied to clipboard</div>
+
+    <!-- Full-viewport graph -->
+    <div id="cap-graph" class="fullscreen-graph cap-graph-loading"></div>
+
+    <!-- Bottom panel for navigator/details -->
+    <div id="bottom-panel" class="bottom-panel">
+        <div id="cap-navigator" class="bottom-panel-content"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/elkjs@0.9.2/lib/elk.bundled.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape-elk@2.2.0/dist/cytoscape-elk.min.js"></script>
+    <script src="/scripts/tagged-urn.js"></script>
+    <script src="/scripts/capdag.js"></script>
+    <script src="/scripts/cap-graph.js"></script>
+    <script src="/scripts/cap-navigator.js"></script>
+    <script>
+        // Register cytoscape-elk extension
+        cytoscape.use(cytoscapeElk);
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        function getStoredTheme() {
+            return localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
+        }
+
+        // Apply stored theme on load
+        setTheme(getStoredTheme());
+
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') || 'dark';
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // Mobile theme toggle
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme') || 'dark';
+                setTheme(current === 'dark' ? 'light' : 'dark');
+            });
+        }
+
+        // Hamburger menu toggle
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
+
+        // Copy full URN from the floating page title (when available)
+        const headerBrand = document.querySelector('.floating-header .header-brand');
+        const brandText = document.getElementById('brand-text');
+        const copyToast = document.getElementById('copy-toast');
+        let copyToastTimer = null;
+
+        async function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return;
+            }
+
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            const ok = document.execCommand('copy');
+            document.body.removeChild(textArea);
+            if (!ok) {
+                throw new Error('Copy command failed');
+            }
+        }
+
+        function showCopyToast(message) {
+            if (!copyToast) return;
+            copyToast.textContent = message;
+            copyToast.style.opacity = '1';
+            copyToast.style.transform = 'translateX(-50%) translateY(0)';
+
+            if (copyToastTimer) {
+                clearTimeout(copyToastTimer);
+            }
+            copyToastTimer = setTimeout(() => {
+                copyToast.style.opacity = '0';
+                copyToast.style.transform = 'translateX(-50%) translateY(-8px)';
+            }, 1200);
+        }
+
+        if (headerBrand && brandText) {
+            headerBrand.addEventListener('click', async (e) => {
+                const fullUrn = brandText.dataset.fullUrn;
+                if (!fullUrn) return;
+
+                e.preventDefault();
+                try {
+                    await copyToClipboard(fullUrn);
+                    showCopyToast('Copied URN to clipboard');
+                } catch {
+                    showCopyToast('Copy failed');
+                }
+            });
+        }
+
+        // Bottom panel reference (navigator will control its own toggle)
+        const bottomPanel = document.getElementById('bottom-panel');
+
+        // Shared data loading - both graph and navigator use the same data
+        (async function init() {
+            const graphContainer = document.getElementById('cap-graph');
+            const navContainer = document.getElementById('cap-navigator');
+
+            try {
+                // Fetch capabilities once
+                const response = await fetch('/api/capabilities');
+                if (!response.ok) throw new Error('Failed to fetch');
+
+                const capabilities = await response.json();
+                if (!Array.isArray(capabilities)) {
+                    throw new Error('API response is not an array');
+                }
+
+                // Initialize navigator first (so graph can reference it)
+                let navigator = null;
+                if (window.CapNavigator) {
+                    navigator = new CapNavigator('cap-navigator', { capabilities });
+                    navigator.render();
+                }
+
+                // Initialize graph and connect to navigator (bidirectional)
+                graphContainer.classList.remove('cap-graph-loading');
+                if (capabilities.length > 0) {
+                    const graph = new CapGraphVisualization('cap-graph', {
+                        width: window.innerWidth,
+                        height: window.innerHeight
+                    });
+                    graph.buildFromCapabilities(capabilities);
+
+                    // Bidirectional connection between graph and navigator
+                    if (navigator) {
+                        graph.setNavigator(navigator);
+                        navigator.setGraph(graph);
+                    }
+                    graph.render();
+
+                    // Handle resize
+                    window.addEventListener('resize', () => {
+                        if (graph.cy) {
+                            graph.cy.resize();
+                            graph.cy.fit(undefined, 50);
+                        }
+                    });
+                } else {
+                    graphContainer.innerHTML = '<div class="cap-graph-empty"><p>No capabilities registered yet</p></div>';
+                }
+
+            } catch (error) {
+                console.error('Error loading capabilities:', error);
+                graphContainer.classList.remove('cap-graph-loading');
+                graphContainer.innerHTML = '<div class="cap-graph-empty"><p>Could not load capabilities</p></div>';
+
+                // Still try to init navigator (it may have its own fallback)
+                if (window.CapNavigator) {
+                    const navigator = new CapNavigator('cap-navigator');
+                    navigator.render();
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

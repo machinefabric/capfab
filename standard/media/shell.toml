@@ -1,0 +1,7 @@
+# Shell script media spec
+urn = "media:shell;textable;code"
+media_type = "text/x-shellscript"
+title = "Shell Script"
+profile_uri = "https://capdag.com/schema/shell"
+description = "Shell script source code"
+extensions = ["sh", "bash"]

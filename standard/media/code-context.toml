@@ -1,0 +1,9 @@
+# Code Context media spec
+urn = "media:code-contextable"
+media_type = "text/plain"
+title = "Code Context"
+profile_uri = "https://capdag.com/schema/code_context"
+description = "Code Context contextual information"
+
+[validation]
+max_length = 65536

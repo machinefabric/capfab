@@ -1,0 +1,89 @@
+{
+  "urn": "media:llm-generation-request;json;record",
+  "media_type": "application/json",
+  "title": "LLM Generation Request",
+  "profile_uri": "https://capdag.com/schema/llm-generation-request",
+  "description": "Request object for LLM text generation containing prompt, model specification, and generation parameters",
+  "schema": {
+    "type": "object",
+    "required": [
+      "prompt",
+      "model_spec"
+    ],
+    "properties": {
+      "prompt": {
+        "type": "string",
+        "description": "The input text prompt for generation"
+      },
+      "model_spec": {
+        "type": "string",
+        "description": "Model specification (HuggingFace repo, local path, or alias)"
+      },
+      "system_prompt": {
+        "type": "string",
+        "description": "System prompt for chat models"
+      },
+      "request_type": {
+        "type": "string",
+        "enum": [
+          "generate",
+          "get_vocab",
+          "get_info"
+        ],
+        "description": "Type of request"
+      },
+      "request_id": {
+        "type": "string",
+        "description": "Unique request identifier for correlation"
+      },
+      "streaming": {
+        "type": "boolean",
+        "description": "Whether to stream output"
+      },
+      "max_tokens": {
+        "type": "integer",
+        "description": "Maximum tokens to generate"
+      },
+      "temperature": {
+        "type": "number",
+        "description": "Sampling temperature (0.0-2.0)"
+      },
+      "top_k": {
+        "type": "integer",
+        "description": "Top-k sampling parameter"
+      },
+      "top_p": {
+        "type": "number",
+        "description": "Top-p (nucleus) sampling parameter"
+      },
+      "min_p": {
+        "type": "number",
+        "description": "Min-p sampling parameter"
+      },
+      "seed": {
+        "type": "integer",
+        "description": "Random seed for reproducibility"
+      },
+      "grammar": {
+        "type": "string",
+        "description": "Grammar constraint in GBNF format"
+      },
+      "json_schema": {
+        "type": "object",
+        "description": "JSON schema constraint for structured output"
+      },
+      "constraint": {
+        "type": "object",
+        "description": "Constraint specification (json_schema, regex, grammar, or tool_call)"
+      },
+      "chat_template": {
+        "type": "string",
+        "description": "Override chat template (Jinja2 format)"
+      },
+      "stop_sequences": {
+        "type": "array",
+        "description": "Sequences that stop generation"
+      }
+    }
+  }
+}

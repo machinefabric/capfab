@@ -1,0 +1,7 @@
+# NDJSON data media spec
+urn = "media:ndjson;textable"
+media_type = "application/x-ndjson"
+title = "NDJSON Data"
+profile_uri = "https://capdag.com/schema/ndjson"
+description = "Newline-delimited JSON data"
+extensions = ["ndjson", "jsonl"]

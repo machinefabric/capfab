@@ -1,0 +1,6 @@
+# Model repository media spec
+urn = "media:model-repo;textable;record"
+media_type = "application/json"
+title = "Model Repository"
+profile_uri = "https://capdag.com/schema/model-repo"
+description = "Model repository(e.g., huggingface)"

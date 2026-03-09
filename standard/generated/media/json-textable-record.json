@@ -1,0 +1,10 @@
+{
+  "urn": "media:json;textable;record",
+  "media_type": "application/json",
+  "title": "JSON Object",
+  "profile_uri": "https://capdag.com/schema/json",
+  "description": "JSON formatted object document",
+  "extensions": [
+    "json"
+  ]
+}

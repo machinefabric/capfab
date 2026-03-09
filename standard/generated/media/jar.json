@@ -1,0 +1,10 @@
+{
+  "urn": "media:jar;archive",
+  "media_type": "application/java-archive",
+  "title": "JAR Archive",
+  "profile_uri": "https://capdag.com/schema/jar",
+  "description": "Java archive",
+  "extensions": [
+    "jar"
+  ]
+}

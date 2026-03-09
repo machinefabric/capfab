@@ -1,0 +1,15 @@
+# Local Netlify folder
+.netlify
+node_modules
+.env
+
+*.log
+
+# Generated browser builds (built from npm packages)
+scripts/tagged-urn.js
+scripts/capdag.js
+.wsb/
+*.ignore*
+package-lock.json
+.scrap/
+diffs/

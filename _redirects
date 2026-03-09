@@ -1,0 +1,71 @@
+# CAPDAG Registry URL Redirects
+
+# API routes - must come first
+/api/capabilities /.netlify/functions/api-capabilities 200
+/api/admin/auth /.netlify/functions/api-admin-auth 200
+/api/admin/capabilities/bulk-delete /.netlify/functions/api-admin-capabilities 200
+/api/admin/capabilities/clear /.netlify/functions/api-admin-capabilities 200
+/api/admin/capabilities /.netlify/functions/api-admin-capabilities 200
+/api/admin/capabilities/* /.netlify/functions/api-admin-capabilities 200
+/api/admin/media/clear /.netlify/functions/api-admin-media 200
+/api/admin/media /.netlify/functions/api-admin-media 200
+/api/admin/media/* /.netlify/functions/api-admin-media 200
+/api/admin/reset /.netlify/functions/api-admin-reset 200
+/api/admin/wipe-all /.netlify/functions/api-admin 200
+
+# Public config endpoint
+/api/config /.netlify/functions/api-config 200
+
+# Challenge endpoint
+/api/challenge /.netlify/functions/api-challenge 200
+
+# Auth API routes
+/api/auth/* /.netlify/functions/api-auth 200
+
+# User API routes
+/api/user/profile /.netlify/functions/api-user-profile 200
+/api/user/capabilities /.netlify/functions/api-user-capabilities 200
+
+# Assets
+/assets/* /assets/:splat 200
+
+# Schemas
+/schema/:splat /schema/:splat.json 200
+/schema/* /schema/:splat 200
+
+# CAPURN lookup routes - must come after API routes
+/cap:* /.netlify/functions/capdag-lookup 200
+
+# Media URN lookup routes
+/media:* /.netlify/functions/media-lookup 200
+
+# Generic API redirect
+/api/* /.netlify/functions/:splat 200
+
+# Admin access
+/admin /admin.html 200
+
+# User dashboard
+/dashboard /dashboard.html 200
+
+# Documentation redirect (old single-page URL)
+/docs.html /docs/ 301
+
+# Browse UI - human-facing cap navigator and profile pages
+/ /browse 302!
+/hasse /hasse.html 200
+/browse/hasse /hasse.html 200
+/browse/cap:* /index.html 200
+/browse /index.html 200
+
+# Block access to system files and implementation details
+/.netlify/* /404.html 404
+/netlify.toml /404.html 404
+/functions/* /404.html 404
+/.env* /404.html 404
+/.git/* /404.html 404
+/node_modules/* /404.html 404
+/package*.json /404.html 404
+
+# Default catch-all
+/* /index.html 200

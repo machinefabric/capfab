@@ -1,0 +1,7 @@
+# SVG Image media spec
+urn = "media:svg;image;textable"
+media_type = "image/svg+xml"
+title = "SVG Image"
+profile_uri = "https://capdag.com/schema/svg"
+description = "Scalable Vector Graphics image data"
+extensions = ["svg"]

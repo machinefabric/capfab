@@ -1,0 +1,6 @@
+# Timestamps media spec
+urn = "media:timestamps;textable"
+media_type = "text/plain"
+title = "Timestamps"
+profile_uri = "https://capdag.com/schema/timestamps"
+description = "Boolean flag indicating whether to include timestamps in output."

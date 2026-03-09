@@ -1,0 +1,10 @@
+{
+  "urn": "media:bmp;image",
+  "media_type": "image/bmp",
+  "title": "BMP Image",
+  "profile_uri": "https://capdag.com/schema/bmp",
+  "description": "Bitmap image data",
+  "extensions": [
+    "bmp"
+  ]
+}

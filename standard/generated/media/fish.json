@@ -1,0 +1,10 @@
+{
+  "urn": "media:fish;textable;code",
+  "media_type": "text/x-shellscript",
+  "title": "Fish Script",
+  "profile_uri": "https://capdag.com/schema/fish",
+  "description": "Fish shell script source code",
+  "extensions": [
+    "fish"
+  ]
+}

@@ -1,0 +1,7 @@
+# TOML data media spec
+urn = "media:toml;textable;record"
+media_type = "application/toml"
+title = "TOML Document"
+profile_uri = "https://capdag.com/schema/toml"
+description = "TOML configuration data"
+extensions = ["toml"]

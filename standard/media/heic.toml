@@ -1,0 +1,7 @@
+# HEIC Image media spec
+urn = "media:heic;image"
+media_type = "image/heic"
+title = "HEIC Image"
+profile_uri = "https://capdag.com/schema/heic"
+description = "High Efficiency Image Container data"
+extensions = ["heic", "heif"]

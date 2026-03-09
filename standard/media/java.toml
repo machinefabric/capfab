@@ -1,0 +1,7 @@
+# Java source code media spec
+urn = "media:java;textable;code"
+media_type = "text/x-java"
+title = "Java Source"
+profile_uri = "https://capdag.com/schema/java"
+description = "Java programming language source code"
+extensions = ["java"]

@@ -1,0 +1,10 @@
+{
+  "urn": "media:objcpp;textable;code",
+  "media_type": "text/x-objective-c++",
+  "title": "Objective-C++ Source",
+  "profile_uri": "https://capdag.com/schema/objcpp",
+  "description": "Objective-C++ programming language source code",
+  "extensions": [
+    "mm"
+  ]
+}

@@ -1,0 +1,56 @@
+# Vision Image Description Capability Definition - GGUF Backend
+
+title = "Describe Image (GGUF)"
+cap_description = "Generate detailed image descriptions using GGUF multimodal models (LLaVA, BakLLaVA) with llama.cpp backend"
+command = "describe_image"
+
+urn = 'cap:gguf;in="media:image;png";ml-model;op=describe_image;out="media:image-description;textable";vision'
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "GGUF vision model specification (HuggingFace repo or local path)"
+default_value = "hf:xtuner/llava-llama-3-8b-v1_1-gguf?include=*f16*"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the image file to describe"
+sources = [
+    { stdin = "media:image;png" },
+    { position = 0 }
+]
+
+[[args]]
+media_urn = "media:textable"
+required = false
+arg_description = "Text prompt for the image description"
+default_value = "Describe this image in detail."
+sources = [
+    { cli_flag = "--prompt" }
+]
+
+[[args]]
+media_urn = "media:max-tokens;textable;numeric"
+required = false
+arg_description = "Maximum number of tokens to generate"
+default_value = 256
+sources = [
+    { cli_flag = "--max-tokens" }
+]
+
+[[args]]
+media_urn = "media:temperature;textable;numeric"
+required = false
+arg_description = "Sampling temperature (0.0-2.0)"
+default_value = 0.6
+sources = [
+    { cli_flag = "--temperature" }
+]
+
+[output]
+media_urn = "media:image-description;textable"
+output_description = "Text description of the image"

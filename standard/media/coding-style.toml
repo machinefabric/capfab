@@ -1,0 +1,9 @@
+# Coding Style media spec
+urn = "media:coding-style;textable"
+media_type = "text/plain"
+title = "Coding Style"
+profile_uri = "https://capdag.com/schema/coding_style"
+description = "Coding Style value"
+
+[validation]
+max_length = 4096

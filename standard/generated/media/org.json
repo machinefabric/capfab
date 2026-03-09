@@ -1,0 +1,10 @@
+{
+  "urn": "media:org;textable",
+  "media_type": "text/x-org",
+  "title": "Org-mode Document",
+  "profile_uri": "https://capdag.com/schema/org",
+  "description": "Emacs Org-mode document",
+  "extensions": [
+    "org"
+  ]
+}

@@ -1,0 +1,38 @@
+# Download output media spec
+urn = "media:download-result;textable;record"
+media_type = "application/json"
+title = "Model Download Result"
+profile_uri = "https://capdag.com/schema/download-result"
+description = "Result from a model download operation, including the local path and download metadata"
+
+[schema]
+type = "object"
+required = ["path", "success"]
+
+[schema.properties.success]
+type = "boolean"
+description = "Whether the download completed successfully"
+
+[schema.properties.path]
+type = "string"
+description = "Local filesystem path where the model was downloaded"
+
+[schema.properties.model_spec]
+type = "string"
+description = "The model specification that was downloaded (e.g., 'hf:org/model-name')"
+
+[schema.properties.total_bytes]
+type = "integer"
+description = "Total bytes downloaded"
+
+[schema.properties.file_count]
+type = "integer"
+description = "Number of files downloaded"
+
+[schema.properties.duration_ms]
+type = "integer"
+description = "Download duration in milliseconds"
+
+[schema.properties.error]
+type = "string"
+description = "Error message if download failed"

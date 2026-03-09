@@ -1,0 +1,7 @@
+# Lua source code media spec
+urn = "media:lua;textable;code"
+media_type = "text/x-lua"
+title = "Lua Source"
+profile_uri = "https://capdag.com/schema/lua"
+description = "Lua programming language source code"
+extensions = ["lua"]

@@ -1,0 +1,9 @@
+# Repetition Penalty media spec
+urn = "media:repetition-penalty;textable;numeric"
+media_type = "text/plain"
+title = "Repetition Penalty"
+profile_uri = "https://capdag.com/schema/repetition_penalty"
+description = "Repetition Penalty numeric value"
+
+[validation]
+min = 1.0

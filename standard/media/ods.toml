@@ -1,0 +1,7 @@
+# ODS Document media spec
+urn = "media:ods"
+media_type = "application/vnd.oasis.opendocument.spreadsheet"
+title = "OpenDocument Spreadsheet"
+profile_uri = "https://capdag.com/schema/ods"
+description = "OpenDocument spreadsheet data"
+extensions = ["ods"]

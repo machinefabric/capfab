@@ -1,0 +1,10 @@
+{
+  "urn": "media:gomod;textable",
+  "media_type": "text/plain",
+  "title": "Go Module",
+  "profile_uri": "https://capdag.com/schema/gomod",
+  "description": "Go module definition",
+  "extensions": [
+    "mod"
+  ]
+}

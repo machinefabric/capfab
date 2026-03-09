@@ -1,0 +1,7 @@
+{
+  "urn": "media:preserve-structure-flag;textable",
+  "media_type": "text/plain",
+  "title": "Preserve Structure Flag",
+  "profile_uri": "https://capdag.com/schema/preserve_structure_flag",
+  "description": "Preserve Structure Flag value"
+}

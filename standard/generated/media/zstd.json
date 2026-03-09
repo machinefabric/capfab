@@ -1,0 +1,11 @@
+{
+  "urn": "media:zstd;archive",
+  "media_type": "application/zstd",
+  "title": "Zstandard Archive",
+  "profile_uri": "https://capdag.com/schema/zstd",
+  "description": "Zstandard compressed archive",
+  "extensions": [
+    "zst",
+    "zstd"
+  ]
+}

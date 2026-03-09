@@ -1,0 +1,33 @@
+# Test Edge 4 - node4;list → node5
+# Fan-in transformation: collects list items into single merged output
+# For testing: concatenates all items with optional separator (edge4arg1)
+
+title = "Test Edge 4 (Fan-In Collect)"
+cap_description = "Collect list of node4 items into single node5 output"
+command = "test-concat"
+
+urn = 'cap:in="media:node4;textable;list";op=test_edge4;out="media:node5;textable"'
+
+# Required list input - content comes as list via stdin
+[[args]]
+media_urn = "media:file-path;textable;list"
+required = true
+arg_description = "List of text items to collect"
+sources = [
+  { stdin = "media:node4;textable;list" },
+  { position = 0 }
+]
+
+# Optional separator text between items (edge4arg1)
+[[args]]
+media_urn = "media:edge4arg1;textable"
+required = false
+default_value = " "
+arg_description = "Separator text between collected items"
+sources = [
+  { cli_flag = "--separator" }
+]
+
+[output]
+media_urn = "media:node5;textable"
+output_description = "Single merged text from all list items"

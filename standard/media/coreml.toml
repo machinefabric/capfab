@@ -1,0 +1,7 @@
+# Core ML model media spec
+urn = "media:coreml;model"
+media_type = "application/octet-stream"
+title = "Core ML Model"
+profile_uri = "https://capdag.com/schema/coreml"
+description = "Apple Core ML machine learning model"
+extensions = ["mlmodel", "mlpackage"]

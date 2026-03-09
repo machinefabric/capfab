@@ -1,0 +1,26 @@
+{
+  "urn": "cap:in=\"media:model-spec;textable\";op=download-model;out=\"media:download-result;textable;record\"",
+  "command": "download",
+  "title": "Download Model",
+  "cap_description": "Download a model from repository to local cache.",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:model-spec;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Model spec (e.g., hf:org/model-name)"
+    }
+  ],
+  "output": {
+    "media_urn": "media:download-result;textable;record",
+    "output_description": "Download result with model path and metadata"
+  }
+}

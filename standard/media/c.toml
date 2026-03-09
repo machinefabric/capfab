@@ -1,0 +1,7 @@
+# C source code media spec
+urn = "media:c;textable;code"
+media_type = "text/x-c"
+title = "C Source"
+profile_uri = "https://capdag.com/schema/c"
+description = "C programming language source code"
+extensions = ["c"]

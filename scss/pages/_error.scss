@@ -1,0 +1,93 @@
+// =============================================================================
+// CAPDAG - Error Pages (404, 500, etc.)
+// =============================================================================
+
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  background: linear-gradient(135deg, var(--bg-base) 0%, var(--bg-surface) 100%);
+}
+
+.error-container {
+  text-align: center;
+  max-width: 600px;
+}
+
+.error-code {
+  font-size: clamp(5rem, 15vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: var(--space-4);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.error-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+
+  @media (min-width: 768px) {
+    font-size: var(--text-3xl);
+  }
+}
+
+.error-description {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-8);
+  line-height: var(--leading-relaxed);
+
+  @media (min-width: 768px) {
+    font-size: var(--text-lg);
+  }
+}
+
+.error-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+  color: white;
+  text-decoration: none;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: var(--text-base);
+  transition: all var(--duration-normal) ease;
+  box-shadow: var(--shadow-md);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: white;
+  }
+
+  .arrow-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--duration-normal) ease;
+  }
+
+  &:hover .arrow-icon {
+    transform: translateX(3px);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .error-page {
+    padding: var(--space-6);
+  }
+
+  .error-action {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-sm);
+  }
+}

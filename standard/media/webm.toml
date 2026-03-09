@@ -1,0 +1,7 @@
+# WebM Video media spec
+urn = "media:webm;video"
+media_type = "video/webm"
+title = "WebM Video"
+profile_uri = "https://capdag.com/schema/webm"
+description = "WebM video data"
+extensions = ["webm"]

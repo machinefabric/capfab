@@ -1,0 +1,10 @@
+{
+  "urn": "media:wasm",
+  "media_type": "application/wasm",
+  "title": "WebAssembly Binary",
+  "profile_uri": "https://capdag.com/schema/wasm",
+  "description": "WebAssembly binary module",
+  "extensions": [
+    "wasm"
+  ]
+}

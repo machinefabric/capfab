@@ -1,0 +1,11 @@
+{
+  "urn": "media:php;textable;code",
+  "media_type": "text/x-php",
+  "title": "PHP Source",
+  "profile_uri": "https://capdag.com/schema/php",
+  "description": "PHP programming language source code",
+  "extensions": [
+    "php",
+    "phtml"
+  ]
+}

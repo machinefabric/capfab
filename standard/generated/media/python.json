@@ -1,0 +1,12 @@
+{
+  "urn": "media:python;textable;code",
+  "media_type": "text/x-python",
+  "title": "Python Source",
+  "profile_uri": "https://capdag.com/schema/python",
+  "description": "Python programming language source code",
+  "extensions": [
+    "py",
+    "pyw",
+    "pyi"
+  ]
+}

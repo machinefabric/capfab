@@ -1,0 +1,7 @@
+# LaTeX media spec
+urn = "media:latex;textable"
+media_type = "text/x-latex"
+title = "LaTeX Document"
+profile_uri = "https://capdag.com/schema/latex"
+description = "LaTeX document"
+extensions = ["tex", "latex"]

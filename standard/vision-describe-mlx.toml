@@ -1,0 +1,43 @@
+# Vision Image Description Capability Definition - MLX Backend
+
+title = "Describe Image (MLX)"
+cap_description = "Generate detailed image descriptions using MLX-based vision-language models on Apple Silicon"
+command = "describe_image"
+
+urn = 'cap:in="media:image;png";ml-model;mlx;op=describe_image;out="media:image-description;textable";vision'
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Path to MLX vision model directory"
+default_value = "hf:mlx-community/llava-1.5-7b-4bit"
+sources = [
+    { cli_flag = "--model" }
+]
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the image file to describe (local path or HTTP(S) URL)"
+sources = [
+    { stdin = "media:image;png" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:textable"
+required = false
+arg_description = "Text prompt for the image description"
+default_value = "Describe this image in detail."
+sources = [
+    { cli_flag = "--prompt" }
+]
+[[args]]
+media_urn = "media:max-tokens;textable;numeric"
+required = false
+arg_description = "Maximum number of tokens to generate"
+default_value = 256
+sources = [
+    { cli_flag = "--max-tokens" }
+]
+[output]
+media_urn = "media:image-description;textable"
+output_description = "Text description of the image"

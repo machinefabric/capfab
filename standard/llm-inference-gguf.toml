@@ -1,0 +1,20 @@
+# LLM Inference Cap - GGUF backend
+# ALL execution is streaming - this is not a special mode
+
+title = "LLM Text Generation (GGUF)"
+cap_description = "Generate text using GGUF models with llama.cpp backend. Output is NDJSON streaming tokens."
+command = "inference"
+
+urn = 'cap:gguf;in="media:llm-generation-request;json;record";llm;ml-model;op=llm_inference;out="media:llm-text-stream;ndjson;streaming"'
+
+[[args]]
+media_urn = "media:llm-generation-request;json;record"
+required = true
+arg_description = "The generation request containing prompt, model spec, and parameters"
+sources = [
+    { stdin = "media:llm-generation-request;json;record" }
+]
+
+[output]
+media_urn = "media:llm-text-stream;ndjson;streaming"
+output_description = "NDJSON stream of tokens, status updates, and completion message"

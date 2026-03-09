@@ -1,0 +1,27 @@
+{
+  "urn": "media:model-path;textable;record",
+  "media_type": "application/json",
+  "title": "Model Path",
+  "profile_uri": "https://capdag.com/schema/model-path",
+  "description": "Local filesystem path to a model directory",
+  "schema": {
+    "type": "object",
+    "required": [
+      "path"
+    ],
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Local filesystem path to the model directory"
+      },
+      "model_spec": {
+        "type": "string",
+        "description": "The model specification (e.g., 'hf:org/model-name')"
+      },
+      "exists": {
+        "type": "boolean",
+        "description": "Whether the path exists on the filesystem"
+      }
+    }
+  }
+}

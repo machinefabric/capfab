@@ -1,0 +1,7 @@
+# OCaml source media spec
+urn = "media:ocaml;textable;code"
+media_type = "text/x-ocaml"
+title = "OCaml Source"
+profile_uri = "https://capdag.com/schema/ocaml"
+description = "OCaml programming language source code"
+extensions = ["ml", "mli"]

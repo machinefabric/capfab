@@ -1,0 +1,10 @@
+{
+  "urn": "media:numbers",
+  "media_type": "application/vnd.apple.numbers",
+  "title": "Apple Numbers",
+  "profile_uri": "https://capdag.com/schema/numbers",
+  "description": "Apple Numbers spreadsheet data",
+  "extensions": [
+    "numbers"
+  ]
+}

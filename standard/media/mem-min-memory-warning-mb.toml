@@ -1,0 +1,21 @@
+# mem-min-memory-warning-mb.toml
+# Generated from key_reference.csv
+
+urn = "media:mem-min-memory-warning-mb;setting;textable;numeric"
+media_type = "text/plain"
+title = "Minimum memory warning threshold in MB"
+profile_uri = "https://capdag.com/schema/mem-min-memory-warning-mb"
+description = "Minimum memory warning threshold in MB"
+
+[metadata]
+category = "mem"
+subcategory = "mem_thresholds"
+display_index = 6
+ui_type = "SETTING_UI_TYPE_NUMBER_FIELD"
+data_type = "SETTING_DATA_TYPE_UNSIGNED_INTEGER"
+default = 512
+overridable_by = ["cap", "model", "user"]
+
+[validation]
+min = 128
+max = 4096

@@ -1,0 +1,10 @@
+{
+  "urn": "media:xml;textable",
+  "media_type": "application/xml",
+  "title": "XML Document",
+  "profile_uri": "https://capdag.com/schema/xml",
+  "description": "XML formatted document",
+  "extensions": [
+    "xml"
+  ]
+}

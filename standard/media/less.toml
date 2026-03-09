@@ -1,0 +1,7 @@
+# Less media spec
+urn = "media:less;textable"
+media_type = "text/x-less"
+title = "Less Stylesheet"
+profile_uri = "https://capdag.com/schema/less"
+description = "Less CSS stylesheet"
+extensions = ["less"]

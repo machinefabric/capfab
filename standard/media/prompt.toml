@@ -1,0 +1,6 @@
+# Prompt media spec
+urn = "media:prompt;textable"
+media_type = "text/plain"
+title = "Prompt"
+profile_uri = "https://capdag.com/schema/prompt"
+description = "Text prompt to guide model generation or analysis."

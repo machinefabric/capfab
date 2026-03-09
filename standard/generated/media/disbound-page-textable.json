@@ -1,0 +1,10 @@
+{
+  "urn": "media:disbound-page;textable",
+  "media_type": "application/json",
+  "title": "Disbound Page",
+  "profile_uri": "https://capdag.com/schema/disbound-page",
+  "description": "A single page within a document - contains page number (order_index), list of paragraphs with text content, and optional source reference",
+  "extensions": [
+    "json"
+  ]
+}

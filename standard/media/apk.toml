@@ -1,0 +1,7 @@
+# APK archive media spec
+urn = "media:apk;archive"
+media_type = "application/vnd.android.package-archive"
+title = "Android Package"
+profile_uri = "https://capdag.com/schema/apk"
+description = "Android application package"
+extensions = ["apk"]

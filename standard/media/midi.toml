@@ -1,0 +1,7 @@
+# MIDI Audio media spec
+urn = "media:midi;audio"
+media_type = "audio/midi"
+title = "MIDI Audio"
+profile_uri = "https://capdag.com/schema/midi"
+description = "MIDI sequence data"
+extensions = ["mid", "midi"]

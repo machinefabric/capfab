@@ -1,0 +1,10 @@
+{
+  "urn": "media:ipa;archive",
+  "media_type": "application/octet-stream",
+  "title": "iOS Package",
+  "profile_uri": "https://capdag.com/schema/ipa",
+  "description": "iOS application package",
+  "extensions": [
+    "ipa"
+  ]
+}

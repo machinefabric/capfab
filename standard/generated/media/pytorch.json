@@ -1,0 +1,11 @@
+{
+  "urn": "media:pytorch;model",
+  "media_type": "application/octet-stream",
+  "title": "PyTorch Model",
+  "profile_uri": "https://capdag.com/schema/pytorch",
+  "description": "PyTorch machine learning model",
+  "extensions": [
+    "pt",
+    "pth"
+  ]
+}

@@ -1,0 +1,27 @@
+# Image Embeddings Capability Definition - Candle Backend (CLIP)
+
+title = "Generate Image Embeddings (Candle)"
+cap_description = "Generate image embeddings using CLIP models with Candle ML framework"
+command = "generate_image_embeddings"
+
+urn = 'cap:candle;in="media:image;png";ml-model;op=generate_image_embeddings;out="media:embedding-vector;textable;record"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the image file to embed"
+sources = [
+    { stdin = "media:image;png" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "CLIP model name from HuggingFace"
+default_value = "hf:openai/clip-vit-base-patch32"
+sources = [
+    { cli_flag = "--model" }
+]
+[output]
+media_urn = "media:embedding-vector;textable;record"
+output_description = "Image embedding vector with model metadata"

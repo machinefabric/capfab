@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://capdag.com/schema/num",
+  "title": "Number",
+  "description": "A JSON number value (integer or floating point)",
+  "type": "number"
+}

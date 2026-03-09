@@ -1,0 +1,19 @@
+[[media_spec]]
+# Question Text media spec
+urn = "media:question;textable"
+media_type = "text/plain"
+title = "Question Text"
+profile_uri = "https://capdag.com/schema/question_text"
+description = "Question Text text input"
+
+[validation]
+max_length = 4096
+min_length = 5
+
+[[media_spec]]
+# Question List media spec
+urn = "media:question;textable;list"
+media_type = "application/json"
+title = "Question List"
+profile_uri = "https://capdag.com/schema/question_list"
+description = "Question List"

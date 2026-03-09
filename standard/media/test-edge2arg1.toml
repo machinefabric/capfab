@@ -1,0 +1,5 @@
+# Test Edge 2 Argument 1 - Suffix text for edge2
+title = "Test Edge 2 Arg 1 (Suffix)"
+description = "Optional text to append after input content in edge2 transformation"
+media_type="text/plain"
+urn = "media:edge2arg1;textable"

@@ -1,0 +1,11 @@
+{
+  "urn": "media:numpy",
+  "media_type": "application/x-numpy",
+  "title": "NumPy Array",
+  "profile_uri": "https://capdag.com/schema/numpy",
+  "description": "NumPy array data",
+  "extensions": [
+    "npy",
+    "npz"
+  ]
+}

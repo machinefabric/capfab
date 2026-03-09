@@ -1,0 +1,7 @@
+{
+  "urn": "media:question;textable;list",
+  "media_type": "application/json",
+  "title": "Question List",
+  "profile_uri": "https://capdag.com/schema/question_list",
+  "description": "Question List"
+}

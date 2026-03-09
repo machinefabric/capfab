@@ -1,0 +1,7 @@
+# WMA Audio media spec
+urn = "media:wma;audio"
+media_type = "audio/x-ms-wma"
+title = "WMA Audio"
+profile_uri = "https://capdag.com/schema/wma"
+description = "Windows Media Audio data"
+extensions = ["wma"]

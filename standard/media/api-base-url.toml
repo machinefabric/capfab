@@ -1,0 +1,17 @@
+# api-base-url.toml
+# Generated from key_reference.csv
+
+urn = "media:api-base-url;setting;textable"
+media_type = "text/plain"
+title = "Base URL for API endpoints"
+profile_uri = "https://capdag.com/schema/api-base-url"
+description = "Base URL for API endpoints"
+
+[metadata]
+category = "api"
+subcategory = "api_endpoints"
+display_index = 1
+ui_type = "SETTING_UI_TYPE_URL_FIELD"
+data_type = "SETTING_DATA_TYPE_STRING"
+default = "https://machinefabric.com/api"
+overridable_by = []

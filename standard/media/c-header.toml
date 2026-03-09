@@ -1,0 +1,7 @@
+# C header media spec
+urn = "media:c-header;textable;code"
+media_type = "text/x-c"
+title = "C Header"
+profile_uri = "https://capdag.com/schema/c-header"
+description = "C header file"
+extensions = ["h"]

@@ -1,0 +1,108 @@
+[[media_spec]]
+urn = "media:"
+media_type = "application/octet-stream"
+title = "Bytes"
+profile_uri = "https://capdag.com/schema/bytes"
+description = "Raw byte sequence."
+
+[[media_spec]]
+urn = "media:list;textable"
+media_type = "application/json"
+title = "List"
+profile_uri = "https://capdag.com/schema/list"
+description = "Ordered list of textable values."
+
+[[media_spec]]
+urn = "media:record;textable"
+media_type = "application/json"
+title = "Record"
+profile_uri = "https://capdag.com/schema/record"
+description = "Structured record with key-value fields."
+
+[[media_spec]]
+# Number array media spec
+urn = "media:list;numeric;textable"
+media_type = "application/json"
+title = "Number Array"
+profile_uri = "https://capdag.com/schema/num-array"
+description = "Array of floating-point numeric values"
+
+[[media_spec]]
+# Number primitive media spec
+urn = "media:numeric;textable"
+media_type = "text/plain"
+title = "Number Value"
+profile_uri = "https://capdag.com/schema/num"
+description = "Floating-point numeric value"
+
+[[media_spec]]
+urn = "media:integer;numeric;textable"
+media_type = "text/plain"
+title = "Integer"
+profile_uri = "https://capdag.com/schema/integer"
+description = "Signed integer value."
+
+[[media_spec]]
+urn = "media:integer;list;numeric;textable"
+media_type = "text/plain"
+title = "Integer Array"
+profile_uri = "https://capdag.com/schema/integer-array"
+description = "Array of signed integer values."
+
+[[media_spec]]
+urn = "media:numeric;real;textable"
+media_type = "text/plain"
+title = "Real"
+profile_uri = "https://capdag.com/schema/real"
+description = "Real numeric value."
+
+[[media_spec]]
+urn = "media:list;numeric;real;textable"
+media_type = "text/plain"
+title = "Real Array"
+profile_uri = "https://capdag.com/schema/real-array"
+description = "Array of real numeric values."
+
+[[media_spec]]
+urn = "media:complex;numeric;textable"
+media_type = "text/plain"
+title = "Complex"
+profile_uri = "https://capdag.com/schema/complex"
+description = "Complex numeric value."
+
+[[media_spec]]
+urn = "media:complex;list;numeric;textable"
+media_type = "text/plain"
+title = "Complex Array"
+profile_uri = "https://capdag.com/schema/complex-array"
+description = "Array of complex numeric values."
+
+[[media_spec]]
+urn = "media:bool;textable"
+media_type = "text/plain"
+title = "Boolean"
+profile_uri = "https://capdag.com/schema/bool"
+description = "Boolean value."
+
+[[media_spec]]
+urn = "media:textable"
+media_type = "text/plain"
+title = "String"
+profile_uri = "https://capdag.com/schema/string"
+description = "UTF-8 string value."
+
+[[media_spec]]
+# String array media spec
+urn = "media:list;textable"
+media_type = "application/json"
+title = "String Array"
+profile_uri = "https://capdag.com/schema/str-array"
+description = "Array of string values"
+
+[[media_spec]]
+# Boolean array media spec
+urn = "media:bool;list;textable"
+media_type = "application/json"
+title = "Boolean Array"
+profile_uri = "https://capdag.com/schema/bool-array"
+description = "Array of boolean values"

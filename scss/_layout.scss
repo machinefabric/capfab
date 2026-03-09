@@ -1,0 +1,686 @@
+// =============================================================================
+// CAPDAG Design System - Layout Components
+// Site-wide layout structures: header, footer, navigation
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// SITE HEADER
+// Standard header for dashboard/admin pages
+// -----------------------------------------------------------------------------
+
+.site-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.header-brand {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.brand-text {
+  color: var(--accent);
+}
+
+.header-nav {
+  display: flex;
+  gap: var(--space-4);
+  flex: 0;
+}
+
+.nav-link {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+.nav-link-accent {
+  color: var(--accent);
+  font-weight: 500;
+
+  &:hover {
+    color: var(--accent-hover);
+  }
+}
+
+.header-auth {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.auth-user {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+// Responsive
+@media (max-width: 640px) {
+  .header-content {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .header-nav {
+    gap: var(--space-2);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FLOATING HEADER
+// Transparent header for fullscreen graph mode
+// -----------------------------------------------------------------------------
+
+.floating-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), transparent);
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+
+  .header-brand {
+    text-decoration: none;
+    flex: 1;
+    min-width: 0;
+    max-width: 75%;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--slate-100);
+    line-height: 1.8;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex: 0;
+  }
+
+  .nav-link {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--slate-400);
+    text-decoration: none;
+    transition: color 0.15s;
+
+    &:hover {
+      color: var(--slate-100);
+    }
+  }
+
+  .nav-link-accent {
+    color: var(--blue-400);
+
+    &:hover {
+      color: var(--blue-300);
+    }
+  }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-overlay);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-left: var(--space-2);
+
+    &:hover {
+      background: var(--bg-hover);
+      color: var(--text-primary);
+      border-color: var(--border-secondary);
+    }
+
+    .theme-icon-light {
+      display: none;
+    }
+
+    .theme-icon-dark {
+      display: block;
+    }
+  }
+}
+
+// Light theme adjustments for floating header
+[data-theme="light"] {
+  .floating-header {
+    // No distinct background - text colors provide contrast
+    background: transparent;
+    border-color: transparent;
+
+    .brand-text {
+      color: var(--slate-800);
+    }
+
+    .nav-link {
+      color: var(--slate-600);
+
+      &:hover {
+        color: var(--slate-900);
+      }
+    }
+
+    .nav-link-accent {
+      color: var(--blue-600);
+
+      &:hover {
+        color: var(--blue-700);
+      }
+    }
+
+    .theme-toggle {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: var(--slate-500);
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+        color: var(--slate-700);
+      }
+    }
+  }
+
+  .theme-toggle {
+    .theme-icon-light {
+      display: block;
+    }
+
+    .theme-icon-dark {
+      display: none;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// HAMBURGER MENU (Mobile responsive)
+// -----------------------------------------------------------------------------
+
+.hamburger-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-left: var(--space-2);
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border-color: var(--border-secondary);
+  }
+
+  .close-icon {
+    display: none;
+  }
+
+  &.active {
+    .hamburger-icon {
+      display: none;
+    }
+    .close-icon {
+      display: block;
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: var(--space-4);
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+  min-width: 140px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  &.active {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}
+
+.mobile-menu-link {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s;
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+  }
+}
+
+.mobile-menu-link-accent {
+  color: var(--accent);
+  font-weight: 500;
+
+  &:hover {
+    color: var(--accent-hover);
+  }
+}
+
+.mobile-theme-toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border-primary);
+  margin-top: var(--space-2);
+  padding-top: var(--space-3);
+  cursor: pointer;
+  font-family: inherit;
+
+  .theme-label-light {
+    display: none;
+  }
+}
+
+[data-theme="light"] .mobile-theme-toggle {
+  .theme-label-dark {
+    display: none;
+  }
+  .theme-label-light {
+    display: inline;
+  }
+}
+
+// Mobile responsive
+@media (max-width: 480px) {
+  .nav-link-desktop {
+    display: none !important;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+}
+
+[data-theme="light"] {
+  .hamburger-btn {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: var(--slate-500);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+      color: var(--slate-700);
+    }
+  }
+
+  .mobile-menu {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-menu-link {
+    color: var(--slate-600);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--slate-900);
+    }
+  }
+
+  .mobile-menu-link-accent {
+    color: var(--blue-600);
+
+    &:hover {
+      color: var(--blue-700);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// NAVBAR (Legacy admin style)
+// -----------------------------------------------------------------------------
+
+.navbar {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.nav-container {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo .logo-text {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.logout-btn {
+  background-color: var(--error);
+  color: white;
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+
+  &:hover {
+    background-color: var(--error-hover);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FOOTER
+// -----------------------------------------------------------------------------
+
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border-secondary);
+  background-color: var(--bg-surface);
+}
+
+.footer-container {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+
+  @media (min-width: 768px) {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.footer-logo-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.footer-tagline {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+.footer-section h4 {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-link {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  transition: color var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+.footer-bottom {
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer-copyright {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+// -----------------------------------------------------------------------------
+// APP LAYOUT
+// Full-height app container for dashboard
+// -----------------------------------------------------------------------------
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// -----------------------------------------------------------------------------
+// SIDEBAR LAYOUT
+// For docs and other split layouts
+// -----------------------------------------------------------------------------
+
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  flex: 1;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.sidebar {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+    position: sticky;
+    top: var(--space-8);
+    height: fit-content;
+  }
+}
+
+.sidebar-nav {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+
+  h3 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+  }
+}
+
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebar-nav-link {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-primary);
+  }
+
+  &.active {
+    background-color: var(--accent-subtle);
+    color: var(--accent);
+  }
+}
+
+.main-content {
+  max-width: var(--max-width-prose);
+}
+
+// -----------------------------------------------------------------------------
+// BOTTOM PANEL
+// Collapsible panel at bottom of screen
+// Navigator handles its own header/toggle
+// -----------------------------------------------------------------------------
+
+.bottom-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-primary);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  max-height: 33.33vh;
+  transition: transform var(--duration-slower) ease, max-height var(--duration-slower) ease;
+
+  &.collapsed {
+    max-height: 40px;
+
+    .bottom-panel-content > .cap-navigator > :not(.panel-header) {
+      display: none;
+    }
+
+    .panel-toggle-icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.bottom-panel-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .bottom-panel {
+    max-height: 60vh;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FULLSCREEN MODE
+// For graph visualization
+// -----------------------------------------------------------------------------
+
+.fullscreen-mode {
+  overflow: hidden;
+  background: var(--slate-950);
+}

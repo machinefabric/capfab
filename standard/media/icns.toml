@@ -1,0 +1,7 @@
+# ICNS Image media spec
+urn = "media:icns;image"
+media_type = "image/icns"
+title = "ICNS Icon"
+profile_uri = "https://capdag.com/schema/icns"
+description = "macOS icon image data"
+extensions = ["icns"]

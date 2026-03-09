@@ -1,0 +1,17 @@
+# inference-offload-kqv.toml
+# Generated from key_reference.csv
+
+urn = "media:inference-offload-kqv;setting;textable"
+media_type = "text/plain"
+title = "Offload KQV to GPU"
+profile_uri = "https://capdag.com/schema/inference-offload-kqv"
+description = "Offload KQV to GPU"
+
+[metadata]
+category = "inference"
+subcategory = "inference_gpu_hardware"
+display_index = 9
+ui_type = "SETTING_UI_TYPE_CHECKBOX"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = false
+overridable_by = ["cap", "model", "user"]

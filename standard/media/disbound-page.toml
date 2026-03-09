@@ -1,0 +1,17 @@
+
+[[media_spec]]
+# Disbound single page media spec
+urn = "media:disbound-page;textable"
+media_type = "application/json"
+title = "Disbound Page"
+profile_uri = "https://capdag.com/schema/disbound-page"
+description = "A single page within a document - contains page number (order_index), list of paragraphs with text content, and optional source reference"
+extensions = ["json"]
+
+[[media_spec]]
+# Disbound pages media spec (array of disbound-page)
+urn = "media:disbound-page;textable;list"
+media_type = "application/json"
+title = "Disbound Pages (Array)"
+profile_uri = "https://capdag.com/schema/disbound-page"
+description = "Array of disbound page objects - each page contains order_index, text_content, optional source_ref, word_count, and character_count"

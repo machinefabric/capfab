@@ -1,0 +1,10 @@
+{
+  "urn": "media:html;textable",
+  "media_type": "text/html",
+  "title": "HTML Document",
+  "profile_uri": "https://capdag.com/schema/html",
+  "description": "HTML formatted document",
+  "extensions": [
+    "html"
+  ]
+}

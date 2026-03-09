@@ -1,0 +1,10 @@
+{
+  "urn": "media:tar;archive",
+  "media_type": "application/x-tar",
+  "title": "TAR Archive",
+  "profile_uri": "https://capdag.com/schema/tar",
+  "description": "Tape archive",
+  "extensions": [
+    "tar"
+  ]
+}

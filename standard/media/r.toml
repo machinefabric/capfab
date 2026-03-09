@@ -1,0 +1,7 @@
+# R source code media spec
+urn = "media:r;textable;code"
+media_type = "text/x-r"
+title = "R Source"
+profile_uri = "https://capdag.com/schema/r"
+description = "R programming language source code"
+extensions = ["r", "rmd"]

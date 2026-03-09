@@ -1,0 +1,7 @@
+# Julia source code media spec
+urn = "media:julia;textable;code"
+media_type = "text/x-julia"
+title = "Julia Source"
+profile_uri = "https://capdag.com/schema/julia"
+description = "Julia programming language source code"
+extensions = ["jl"]

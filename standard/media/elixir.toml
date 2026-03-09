@@ -1,0 +1,7 @@
+# Elixir source code media spec
+urn = "media:elixir;textable;code"
+media_type = "text/x-elixir"
+title = "Elixir Source"
+profile_uri = "https://capdag.com/schema/elixir"
+description = "Elixir programming language source code"
+extensions = ["ex", "exs"]

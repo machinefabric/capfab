@@ -1,0 +1,7 @@
+{
+  "urn": "media:record;textable",
+  "media_type": "application/json",
+  "title": "Record",
+  "profile_uri": "https://capdag.com/schema/record",
+  "description": "Structured record with key-value fields."
+}

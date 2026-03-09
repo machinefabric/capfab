@@ -1,0 +1,7 @@
+# XLS Document media spec
+urn = "media:xls"
+media_type = "application/vnd.ms-excel"
+title = "Excel Spreadsheet (Legacy)"
+profile_uri = "https://capdag.com/schema/xls"
+description = "Microsoft Excel legacy spreadsheet data"
+extensions = ["xls"]

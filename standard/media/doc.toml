@@ -1,0 +1,7 @@
+# DOC Document media spec
+urn = "media:doc"
+media_type = "application/msword"
+title = "Word Document (Legacy)"
+profile_uri = "https://capdag.com/schema/doc"
+description = "Microsoft Word legacy document data"
+extensions = ["doc"]

@@ -1,0 +1,7 @@
+# Pages Document media spec
+urn = "media:pages"
+media_type = "application/vnd.apple.pages"
+title = "Apple Pages"
+profile_uri = "https://capdag.com/schema/pages"
+description = "Apple Pages document data"
+extensions = ["pages"]

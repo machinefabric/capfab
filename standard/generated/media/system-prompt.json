@@ -1,0 +1,11 @@
+{
+  "urn": "media:system-prompt;textable",
+  "media_type": "text/plain",
+  "title": "System Prompt",
+  "profile_uri": "https://capdag.com/schema/system_prompt",
+  "description": "System Prompt value",
+  "validation": {
+    "max_length": 8192,
+    "min_length": 1
+  }
+}
