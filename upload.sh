@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Upload standard capabilities to CAPDAG registry
+# Upload cap and media definitions to CAPDAG registry
 # Uses environment variables from .env file
 
 set -e
@@ -19,8 +19,8 @@ fi
 # Set the admin key for the upload script
 export CAPDAG_ADMIN_KEY="$ADMIN_PASSWORD"
 
-echo "Loading, validating, and uploading standard capabilities..."
-node standard/standards.js
+echo "Loading, validating, and uploading cap definitions..."
+node src/capgraph.js
 
 echo ""
 echo "OK Done!"
