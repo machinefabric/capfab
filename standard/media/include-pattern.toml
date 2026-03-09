@@ -1,0 +1,6 @@
+# Include Pattern media spec
+urn = "media:include-pattern;textable"
+media_type = "text/plain"
+title = "Include Pattern"
+profile_uri = "https://capdag.com/schema/include_pattern"
+description = "Include Pattern value"

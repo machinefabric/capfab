@@ -1,0 +1,10 @@
+{
+  "urn": "media:rtf;textable",
+  "media_type": "application/rtf",
+  "title": "Rich Text Format",
+  "profile_uri": "https://capdag.com/schema/rtf",
+  "description": "Rich Text Format document data",
+  "extensions": [
+    "rtf"
+  ]
+}

@@ -1,0 +1,7 @@
+# macOS package media spec
+urn = "media:pkg;archive"
+media_type = "application/x-xar"
+title = "macOS Package"
+profile_uri = "https://capdag.com/schema/pkg"
+description = "macOS installer package"
+extensions = ["pkg"]

@@ -1,0 +1,7 @@
+# RAR archive media spec
+urn = "media:rar;archive"
+media_type = "application/vnd.rar"
+title = "RAR Archive"
+profile_uri = "https://capdag.com/schema/rar"
+description = "RAR compressed archive"
+extensions = ["rar"]

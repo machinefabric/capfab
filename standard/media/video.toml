@@ -1,0 +1,6 @@
+# Video semantic type media spec
+urn = "media:video"
+media_type = "video/mp4"
+title = "Video Data"
+profile_uri = "https://capdag.com/schema/video"
+description = "Video data (MP4, WebM, etc.)"

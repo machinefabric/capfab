@@ -1,0 +1,10 @@
+{
+  "urn": "media:astro;textable;code",
+  "media_type": "text/x-astro",
+  "title": "Astro Component",
+  "profile_uri": "https://capdag.com/schema/astro",
+  "description": "Astro component source",
+  "extensions": [
+    "astro"
+  ]
+}

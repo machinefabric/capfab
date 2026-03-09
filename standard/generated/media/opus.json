@@ -1,0 +1,10 @@
+{
+  "urn": "media:opus;audio",
+  "media_type": "audio/opus",
+  "title": "Opus Audio",
+  "profile_uri": "https://capdag.com/schema/opus",
+  "description": "Opus audio data",
+  "extensions": [
+    "opus"
+  ]
+}

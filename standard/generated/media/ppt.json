@@ -1,0 +1,10 @@
+{
+  "urn": "media:ppt",
+  "media_type": "application/vnd.ms-powerpoint",
+  "title": "PowerPoint Presentation (Legacy)",
+  "profile_uri": "https://capdag.com/schema/ppt",
+  "description": "Microsoft PowerPoint legacy presentation data",
+  "extensions": [
+    "ppt"
+  ]
+}

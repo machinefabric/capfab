@@ -1,0 +1,10 @@
+{
+  "urn": "media:csv;textable",
+  "media_type": "text/csv",
+  "title": "CSV Data",
+  "profile_uri": "https://capdag.com/schema/csv",
+  "description": "Comma-separated values data",
+  "extensions": [
+    "csv"
+  ]
+}

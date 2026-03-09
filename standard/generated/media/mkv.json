@@ -1,0 +1,10 @@
+{
+  "urn": "media:mkv;video",
+  "media_type": "video/x-matroska",
+  "title": "MKV Video",
+  "profile_uri": "https://capdag.com/schema/mkv",
+  "description": "Matroska video container data",
+  "extensions": [
+    "mkv"
+  ]
+}

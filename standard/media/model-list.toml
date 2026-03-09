@@ -1,0 +1,53 @@
+# List output media spec - list of models with metadata
+urn = "media:model-list;textable;record"
+media_type = "application/json"
+title = "Model List"
+profile_uri = "https://capdag.com/schema/model-list"
+description = "List of available models with their metadata and status"
+
+[schema]
+type = "object"
+required = ["models"]
+
+[schema.properties.models]
+type = "array"
+description = "List of model entries"
+
+[schema.properties.models.items]
+type = "object"
+
+[schema.properties.models.items.properties.model_spec]
+type = "string"
+description = "Model specification string (e.g., 'hf:org/model-name')"
+
+[schema.properties.models.items.properties.name]
+type = "string"
+description = "Human-readable model name"
+
+[schema.properties.models.items.properties.repository]
+type = "string"
+description = "Repository source"
+
+[schema.properties.models.items.properties.local_available]
+type = "boolean"
+description = "Whether the model is available locally"
+
+[schema.properties.models.items.properties.remote_available]
+type = "boolean"
+description = "Whether the model is available remotely"
+
+[schema.properties.models.items.properties.local_path]
+type = "string"
+description = "Local path if available"
+
+[schema.properties.models.items.properties.size_bytes]
+type = "integer"
+description = "Total size in bytes"
+
+[schema.properties.count]
+type = "integer"
+description = "Total number of models in the list"
+
+[schema.properties.filter]
+type = "string"
+description = "Filter pattern used if any"

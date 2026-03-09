@@ -1,0 +1,11 @@
+{
+  "urn": "media:djvu",
+  "media_type": "image/vnd.djvu",
+  "title": "DjVu Document",
+  "profile_uri": "https://capdag.com/schema/djvu",
+  "description": "DjVu scanned document data",
+  "extensions": [
+    "djvu",
+    "djv"
+  ]
+}

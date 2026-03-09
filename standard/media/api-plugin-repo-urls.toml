@@ -1,0 +1,17 @@
+# api-plugin-repo-urls.toml
+# Generated from key_reference.csv
+
+urn = "media:api-plugin-repo-urls;setting;textable;list"
+media_type = "text/plain"
+title = "Plugin repository URLs"
+profile_uri = "https://capdag.com/schema/api-plugin-repo-urls"
+description = "Plugin repository URLs"
+
+[metadata]
+category = "api"
+subcategory = "api_plugins"
+display_index = 1
+ui_type = "SETTING_UI_TYPE_ARRAY_EDITOR"
+data_type = "SETTING_DATA_TYPE_ARRAY_STRING"
+default = ["https://machinefabric.com/api/plugins"]
+overridable_by = ["user", "end_user"]

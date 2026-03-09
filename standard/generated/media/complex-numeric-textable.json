@@ -1,0 +1,7 @@
+{
+  "urn": "media:complex;numeric;textable",
+  "media_type": "text/plain",
+  "title": "Complex",
+  "profile_uri": "https://capdag.com/schema/complex",
+  "description": "Complex numeric value."
+}

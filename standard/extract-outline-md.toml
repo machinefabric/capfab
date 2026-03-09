@@ -1,0 +1,35 @@
+# Extract Outline Capability Definition for Markdown Files
+title = "Extract Markdown Outline"
+cap_description = "Extract document outline/table of contents from markdown files"
+command = "extract-outline"
+
+urn = 'cap:in="media:md;textable";op=extract_outline;out="media:document-outline;textable;record"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the markdown file to process"
+sources = [
+  { stdin = "media:md;textable" },
+  { position = 0 }
+]
+
+[[args]]
+media_urn = "media:max-depth;textable;numeric"
+required = false
+arg_description = "Maximum outline depth to extract (1-10)"
+sources = [
+  { cli_flag = "--max-depth" }
+]
+[[args]]
+media_urn = "media:include-order-indexes;textable"
+required = false
+arg_description = "Include page numbers in the outline"
+default_value = true
+sources = [
+  { cli_flag = "--include-order-indexes" }
+]
+
+[output]
+media_urn = "media:textable;record"
+output_description = "Structured document outline with hierarchical entries"

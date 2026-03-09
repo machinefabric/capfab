@@ -1,0 +1,6 @@
+# Include Tests Flag media spec
+urn = "media:include-tests-flag;textable"
+media_type = "text/plain"
+title = "Include Tests Flag"
+profile_uri = "https://capdag.com/schema/include_tests_flag"
+description = "Include Tests Flag value"

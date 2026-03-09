@@ -1,0 +1,10 @@
+{
+  "urn": "media:properties;textable;record",
+  "media_type": "text/x-java-properties",
+  "title": "Java Properties",
+  "profile_uri": "https://capdag.com/schema/properties",
+  "description": "Java properties configuration data",
+  "extensions": [
+    "properties"
+  ]
+}

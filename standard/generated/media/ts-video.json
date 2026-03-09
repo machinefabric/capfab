@@ -1,0 +1,12 @@
+{
+  "urn": "media:ts;video",
+  "media_type": "video/mp2t",
+  "title": "MPEG Transport Stream",
+  "profile_uri": "https://capdag.com/schema/ts",
+  "description": "MPEG transport stream video data",
+  "extensions": [
+    "ts",
+    "mts",
+    "m2ts"
+  ]
+}

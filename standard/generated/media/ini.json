@@ -1,0 +1,12 @@
+{
+  "urn": "media:ini;textable;record",
+  "media_type": "text/plain",
+  "title": "INI Configuration",
+  "profile_uri": "https://capdag.com/schema/ini",
+  "description": "INI configuration data",
+  "extensions": [
+    "ini",
+    "cfg",
+    "conf"
+  ]
+}

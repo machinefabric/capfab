@@ -1,0 +1,17 @@
+# mon-log-file-unique-per-run.toml
+# Generated from key_reference.csv
+
+urn = "media:mon-log-file-unique-per-run;setting;textable"
+media_type = "text/plain"
+title = "Create unique log file per run"
+profile_uri = "https://capdag.com/schema/mon-log-file-unique-per-run"
+description = "Create unique log file per run"
+
+[metadata]
+category = "mon"
+subcategory = "mon_output"
+display_index = 7
+ui_type = "SETTING_UI_TYPE_CHECKBOX"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = false
+overridable_by = ["user"]

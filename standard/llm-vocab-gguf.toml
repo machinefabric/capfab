@@ -1,0 +1,20 @@
+# LLM Vocabulary Extraction Cap - GGUF backend
+# Extracts model vocabulary for constraint processing
+
+title = "Get Model Vocabulary (GGUF)"
+cap_description = "Extract vocabulary tokens from a GGUF model for constraint initialization"
+command = "inference"
+
+urn = 'cap:gguf;in="media:llm-generation-request;json;record";llm;ml-model;op=llm_vocab;out="media:llm-vocab-response;json;record"'
+
+[[args]]
+media_urn = "media:llm-generation-request;json;record"
+required = true
+arg_description = "Request with request_type=vocab and model_spec"
+sources = [
+    { stdin = "media:llm-generation-request;json;record" }
+]
+
+[output]
+media_urn = "media:llm-vocab-response;json;record"
+output_description = "JSON object with vocab array and vocab_size"

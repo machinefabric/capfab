@@ -1,0 +1,11 @@
+{
+  "urn": "media:thumbnail-height;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Thumbnail Height",
+  "profile_uri": "https://capdag.com/schema/thumbnail_height",
+  "description": "Thumbnail Height numeric value",
+  "validation": {
+    "max": 2000,
+    "min": 50
+  }
+}

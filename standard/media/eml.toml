@@ -1,0 +1,7 @@
+# Email message media spec
+urn = "media:eml;textable;record"
+media_type = "message/rfc822"
+title = "Email Message"
+profile_uri = "https://capdag.com/schema/eml"
+description = "Email message data"
+extensions = ["eml"]

@@ -1,0 +1,59 @@
+{
+  "urn": "cap:in=media:textable;ml-model;mlx;op=generate_embeddings;out=\"media:embedding-vector;textable;record\"",
+  "command": "generate_embeddings",
+  "title": "Generate Vector Embeddings (MLX)",
+  "cap_description": "Generate vector embeddings from text using MLX-based models on Apple Silicon",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model"
+        }
+      ],
+      "arg_description": "Path to MLX embedding model directory",
+      "default_value": "hf:mlx-community/all-MiniLM-L6-v2-4bit"
+    },
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to text file to generate embeddings from"
+    },
+    {
+      "media_urn": "media:chunk-size;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--chunk-size"
+        }
+      ],
+      "arg_description": "Chunk size in words for splitting input text",
+      "default_value": 400
+    },
+    {
+      "media_urn": "media:chunk-overlap;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--chunk-overlap"
+        }
+      ],
+      "arg_description": "Chunk overlap in words when splitting input text",
+      "default_value": 50
+    }
+  ],
+  "output": {
+    "media_urn": "media:embedding-vector;textable;record",
+    "output_description": "JSON containing embeddings, chunk metadata and model information"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "urn": "cap:in=\"media:image;png\";ml-model;mlx;op=describe_image;out=\"media:image-description;textable\";vision",
+  "command": "describe_image",
+  "title": "Describe Image (MLX)",
+  "cap_description": "Generate detailed image descriptions using MLX-based vision-language models on Apple Silicon",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model"
+        }
+      ],
+      "arg_description": "Path to MLX vision model directory",
+      "default_value": "hf:mlx-community/llava-1.5-7b-4bit"
+    },
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:image;png"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the image file to describe (local path or HTTP(S) URL)"
+    },
+    {
+      "media_urn": "media:textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--prompt"
+        }
+      ],
+      "arg_description": "Text prompt for the image description",
+      "default_value": "Describe this image in detail."
+    },
+    {
+      "media_urn": "media:max-tokens;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum number of tokens to generate",
+      "default_value": 256
+    }
+  ],
+  "output": {
+    "media_urn": "media:image-description;textable",
+    "output_description": "Text description of the image"
+  }
+}

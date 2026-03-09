@@ -1,0 +1,79 @@
+{
+  "urn": "cap:in=media:textable;language=es;op=conversation;out=\"media:generated-text;textable;record\";unconstrained",
+  "command": "llm_inference",
+  "title": "Converse in Spanish",
+  "cap_description": "Conversacion natural y respuestas de chat en espanol",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Entrada conversacional del usuario"
+    },
+    {
+      "media_urn": "media:conversation-contextable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--context"
+        }
+      ],
+      "arg_description": "Contexto e historial de conversacion"
+    },
+    {
+      "media_urn": "media:max-tokens;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximo de tokens a generar",
+      "default_value": 2000
+    },
+    {
+      "media_urn": "media:temperature;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--temperature"
+        }
+      ],
+      "arg_description": "Temperatura de muestreo para creatividad vs consistencia",
+      "default_value": 0.7
+    },
+    {
+      "media_urn": "media:system-prompt;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--system-prompt"
+        }
+      ],
+      "arg_description": "Instrucciones del sistema para comportamiento conversacional"
+    },
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec a usar para la conversacion",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:generated-text;textable;record",
+    "output_description": "Respuesta conversacional generada con informacion de contexto"
+  }
+}

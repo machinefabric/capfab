@@ -1,0 +1,19 @@
+# Extract Metadata Capability Definition for Text Files
+title = "Extract Text Metadata"
+cap_description = "Extract text document metadata including title, file size, word count, and other properties"
+command = "extract-metadata"
+
+urn = 'cap:in="media:txt;textable";op=extract_metadata;out="media:file-metadata;textable;record"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the text file to process"
+sources = [
+  { stdin = "media:txt;textable" },
+  { position = 0 }
+]
+
+[output]
+media_urn = "media:textable;record"
+output_description = "Structured metadata including file properties and text-specific metadata"

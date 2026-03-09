@@ -1,0 +1,11 @@
+{
+  "urn": "media:max-depth;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Max Depth",
+  "profile_uri": "https://capdag.com/schema/max_depth",
+  "description": "Max Depth numeric value",
+  "validation": {
+    "max": 10,
+    "min": 1
+  }
+}

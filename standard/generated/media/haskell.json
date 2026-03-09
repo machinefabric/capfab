@@ -1,0 +1,11 @@
+{
+  "urn": "media:haskell;textable;code",
+  "media_type": "text/x-haskell",
+  "title": "Haskell Source",
+  "profile_uri": "https://capdag.com/schema/haskell",
+  "description": "Haskell programming language source code",
+  "extensions": [
+    "hs",
+    "lhs"
+  ]
+}

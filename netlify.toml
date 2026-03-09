@@ -1,0 +1,130 @@
+[build]
+  command = "npm run build"
+  publish = "."
+  functions = "functions"
+
+# Asset headers for caching
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+[[plugins]]
+  package = "netlify-plugin-inline-functions-env"
+
+[build.environment]
+  NETLIFY_SITE_ID = "3f7fb18c-46b1-494d-bd3e-ebfd6cd53b9b"
+  NETLIFY_TOKEN = "nfp_TJBRk1ZApAf8bQcUT8gTYKfvDEZEoMQF7a2e"
+  # Configure secrets scanning to ignore legitimate environment variable references
+  SECRETS_SCAN_OMIT_PATHS = ".env,.env.example,functions/,scripts/"
+
+# API routes
+[[redirects]]
+  from = "/api/capabilities"
+  to = "/.netlify/functions/api-capabilities"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/auth"
+  to = "/.netlify/functions/api-admin-auth"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/capabilities/bulk-delete"
+  to = "/.netlify/functions/api-admin-capabilities"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/capabilities/clear"
+  to = "/.netlify/functions/api-admin-capabilities"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/capabilities"
+  to = "/.netlify/functions/api-admin-capabilities"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/capabilities/*"
+  to = "/.netlify/functions/api-admin-capabilities"
+  status = 200
+
+# Media specs admin routes
+[[redirects]]
+  from = "/api/admin/media/clear"
+  to = "/.netlify/functions/api-admin-media"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/media"
+  to = "/.netlify/functions/api-admin-media"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/media/*"
+  to = "/.netlify/functions/api-admin-media"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/reset"
+  to = "/.netlify/functions/api-admin-reset"
+  status = 200
+
+# Public config endpoint
+[[redirects]]
+  from = "/api/config"
+  to = "/.netlify/functions/api-config"
+  status = 200
+
+# Challenge endpoint
+[[redirects]]
+  from = "/api/challenge"
+  to = "/.netlify/functions/api-challenge"
+  status = 200
+
+# Auth API routes
+[[redirects]]
+  from = "/api/auth/*"
+  to = "/.netlify/functions/api-auth"
+  status = 200
+
+# Admin API routes
+[[redirects]]
+  from = "/api/admin/*"
+  to = "/.netlify/functions/api-admin"
+  status = 200
+
+# User API routes
+[[redirects]]
+  from = "/api/user/profile"
+  to = "/.netlify/functions/api-user-profile"
+  status = 200
+
+[[redirects]]
+  from = "/api/user/capabilities"
+  to = "/.netlify/functions/api-user-capabilities"
+  status = 200
+
+[[redirects]]
+  from = "/api/user/media"
+  to = "/.netlify/functions/api-user-media"
+  status = 200
+
+# CAPURN lookup routes - must come after API routes
+[[redirects]]
+  from = "/cap:*"
+  to = "/.netlify/functions/capdag-lookup"
+  status = 200
+
+# Media URN lookup routes
+[[redirects]]
+  from = "/media:*"
+  to = "/.netlify/functions/media-lookup"
+  status = 200
+
+# Generic API redirect for any remaining API calls
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

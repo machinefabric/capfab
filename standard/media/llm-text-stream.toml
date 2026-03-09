@@ -1,0 +1,73 @@
+# LLM Text Stream - streaming output from text generation
+# This is NDJSON - newline-delimited JSON messages
+
+urn = "media:llm-text-stream;ndjson;streaming"
+media_type = "application/x-ndjson"
+title = "LLM Text Stream"
+profile_uri = "https://capdag.com/schema/llm-text-stream"
+description = "Streaming output from LLM text generation. Each line is a JSON object with a 'type' field (token, status, complete, tool_request, or error)."
+
+[schema]
+type = "object"
+required = ["type"]
+
+[schema.properties.type]
+type = "string"
+enum = ["token", "status", "complete", "tool_request", "error"]
+description = "Message type discriminator"
+
+[schema.properties.text]
+type = "string"
+description = "Token text (for type=token)"
+
+[schema.properties.operation]
+type = "string"
+description = "Current operation (for type=status)"
+
+[schema.properties.details]
+type = "string"
+description = "Status details (for type=status)"
+
+[schema.properties.progress]
+type = "number"
+description = "Progress 0.0 to 1.0 (for type=status)"
+
+[schema.properties.generated_text]
+type = "string"
+description = "Full generated text (for type=complete)"
+
+[schema.properties.tokens_generated]
+type = "integer"
+description = "Tokens generated count (for type=complete)"
+
+[schema.properties.prompt_tokens]
+type = "integer"
+description = "Prompt tokens count (for type=complete)"
+
+[schema.properties.finish_reason]
+type = "string"
+description = "Why generation stopped (for type=complete)"
+
+[schema.properties.generation_time_ms]
+type = "number"
+description = "Generation time in ms (for type=complete)"
+
+[schema.properties.partial_text]
+type = "string"
+description = "Text before tool call (for type=tool_request)"
+
+[schema.properties.tool_name]
+type = "string"
+description = "Tool to execute (for type=tool_request)"
+
+[schema.properties.tool_args]
+type = "object"
+description = "Tool arguments (for type=tool_request)"
+
+[schema.properties.code]
+type = "string"
+description = "Error code (for type=error)"
+
+[schema.properties.message]
+type = "string"
+description = "Error message (for type=error)"

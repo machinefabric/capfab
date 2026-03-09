@@ -1,0 +1,6 @@
+# Exclude Pattern media spec
+urn = "media:exclude-pattern;textable"
+media_type = "text/plain"
+title = "Exclude Pattern"
+profile_uri = "https://capdag.com/schema/exclude_pattern"
+description = "Exclude Pattern value"

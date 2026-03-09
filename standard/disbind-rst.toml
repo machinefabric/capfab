@@ -1,0 +1,27 @@
+# Grind Capability Definition for RST Files
+title = "Disbind RST Into Pages"
+cap_description = "Disbind RST file into text content from its pages"
+command = "disbind"
+
+urn = 'cap:in="media:rst;textable";op=disbind;out="media:disbound-page;textable;list"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the RST file to process"
+sources = [
+  { stdin = "media:rst;textable" },
+  { position = 0 }
+]
+
+[[args]]
+media_urn = "media:index-range;textable"
+required = false
+arg_description = "Index Range to extract (e.g., '1-5' or '10-')"
+sources = [
+  { cli_flag = "--index-range" }
+]
+
+[output]
+media_urn = "media:textable;record"
+output_description = "Structured file chips with text content"

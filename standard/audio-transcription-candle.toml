@@ -1,0 +1,62 @@
+# Audio Transcription Capability Definition - Candle Backend (Whisper)
+
+title = "Transcribe Audio (Candle)"
+cap_description = "Transcribe audio files to text using Whisper models with Candle ML framework"
+command = "transcribe"
+
+urn = 'cap:candle;in="media:audio;wav;speech";ml-model;op=transcribe;out="media:transcription;textable;record"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the audio file (WAV format)"
+sources = [
+    { stdin = "media:audio;wav;speech" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:language;textable"
+required = false
+arg_description = "Language code for transcription"
+default_value = "en"
+sources = [
+    { cli_flag = "--language" }
+]
+[[args]]
+media_urn = "media:timestamps;textable"
+required = false
+arg_description = "Include timestamps in output"
+default_value = false
+sources = [
+    { cli_flag = "--timestamps" }
+]
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Whisper model name from HuggingFace"
+default_value = "hf:openai/whisper-base"
+sources = [
+    { cli_flag = "--model" }
+]
+[output]
+media_urn = "media:transcription;textable;record"
+output_description = "Transcribed text with optional timestamps and metadata"
+
+[supported_languages]
+en = "English"
+zh = "Chinese"
+de = "German"
+es = "Spanish"
+ru = "Russian"
+ko = "Korean"
+fr = "French"
+ja = "Japanese"
+pt = "Portuguese"
+tr = "Turkish"
+pl = "Polish"
+ca = "Catalan"
+nl = "Dutch"
+ar = "Arabic"
+sv = "Swedish"
+it = "Italian"

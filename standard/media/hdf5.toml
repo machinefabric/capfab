@@ -1,0 +1,7 @@
+# HDF5 media spec
+urn = "media:hdf5"
+media_type = "application/x-hdf5"
+title = "HDF5 Data"
+profile_uri = "https://capdag.com/schema/hdf5"
+description = "Hierarchical Data Format 5"
+extensions = ["h5", "hdf5"]

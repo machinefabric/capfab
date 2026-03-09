@@ -1,0 +1,10 @@
+{
+  "urn": "media:vue;textable;code",
+  "media_type": "text/x-vue",
+  "title": "Vue Component",
+  "profile_uri": "https://capdag.com/schema/vue",
+  "description": "Vue.js single-file component",
+  "extensions": [
+    "vue"
+  ]
+}

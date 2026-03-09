@@ -1,0 +1,7 @@
+# TIFF Image media spec
+urn = "media:tiff;image"
+media_type = "image/tiff"
+title = "TIFF Image"
+profile_uri = "https://capdag.com/schema/tiff"
+description = "Tagged Image File Format data"
+extensions = ["tiff", "tif"]

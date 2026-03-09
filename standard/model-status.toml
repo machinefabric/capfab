@@ -1,0 +1,20 @@
+# Model Status Capability Definition
+
+title = "Model Status"
+cap_description = "Get download status for a model."
+command = "status"
+
+urn = 'cap:in="media:model-spec;textable";op=model-status;out="media:model-status;textable;record"'
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = true
+arg_description = "Model spec to check status for"
+sources = [
+    { stdin = "media:model-spec;textable" },
+    { position = 0 }
+]
+
+[output]
+media_urn = "media:model-status;textable;record"
+output_description = "Model status including health, progress and configuration"

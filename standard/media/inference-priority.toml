@@ -1,0 +1,20 @@
+# inference-priority.toml
+# Generated from key_reference.csv
+
+urn = "media:inference-priority;setting;textable"
+media_type = "text/plain"
+title = "Priority level for LLM operations"
+profile_uri = "https://capdag.com/schema/inference-priority"
+description = "Priority level for LLM operations"
+
+[metadata]
+category = "inference"
+subcategory = "inference_generation"
+display_index = 13
+ui_type = "SETTING_UI_TYPE_DROPDOWN"
+data_type = "SETTING_DATA_TYPE_STRING"
+default = "Normal"
+overridable_by = ["cap", "model", "user"]
+
+[validation]
+allowed_values = ["Low", "Normal", "High", "Critical"]

@@ -1,0 +1,35 @@
+# Generate Thumbnail Capability Definition for Text Files
+title = "Generate Text Thumbnail"
+cap_description = "Generate a thumbnail image preview of the text document"
+command = "generate-thumbnail"
+
+urn = 'cap:in="media:txt;textable";op=generate_thumbnail;out="media:image;png;thumbnail"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the text file to process"
+sources = [
+  { stdin = "media:txt;textable" },
+  { position = 0 }
+]
+
+[[args]]
+media_urn = "media:thumbnail-width;textable;numeric"
+required = false
+arg_description = "Width of the thumbnail in pixels"
+default_value = 200
+sources = [
+  { cli_flag = "--width" }
+]
+[[args]]
+media_urn = "media:thumbnail-height;textable;numeric"
+required = false
+arg_description = "Height of the thumbnail in pixels"
+default_value = 300
+sources = [
+  { cli_flag = "--height" }
+]
+[output]
+media_urn = "media:image;png;thumbnail"
+output_description = "PNG image data representing a thumbnail of the text document"

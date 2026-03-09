@@ -1,0 +1,7 @@
+{
+  "urn": "media:disbound-page;textable;list",
+  "media_type": "application/json",
+  "title": "Disbound Pages (Array)",
+  "profile_uri": "https://capdag.com/schema/disbound-page",
+  "description": "Array of disbound page objects - each page contains order_index, text_content, optional source_ref, word_count, and character_count"
+}

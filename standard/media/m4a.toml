@@ -1,0 +1,7 @@
+# M4A Audio media spec
+urn = "media:m4a;audio"
+media_type = "audio/mp4"
+title = "M4A Audio"
+profile_uri = "https://capdag.com/schema/m4a"
+description = "MPEG-4 audio data"
+extensions = ["m4a"]

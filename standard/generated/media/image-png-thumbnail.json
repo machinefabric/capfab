@@ -1,0 +1,10 @@
+{
+  "urn": "media:image;png;thumbnail",
+  "media_type": "image/png",
+  "title": "Thumbnail Image",
+  "profile_uri": "https://capdag.com/schema/image-thumbnail",
+  "description": "PNG image data representing a thumbnail preview of a document or media file",
+  "extensions": [
+    "png"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "urn": "media:gif;image",
+  "media_type": "image/gif",
+  "title": "GIF Image",
+  "profile_uri": "https://capdag.com/schema/gif",
+  "description": "GIF image data (static or animated)",
+  "extensions": [
+    "gif"
+  ]
+}

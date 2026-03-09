@@ -1,0 +1,59 @@
+# LLM English Multiple Choice Capability Definition
+
+title = "Answer Multiple Choice in English"
+cap_description = "Logical reasoning and binary decision tasks in English"
+command = "llm_inference"
+
+urn = 'cap:constrained;in="media:textable";language=en;op=multiplechoice;out="media:generated-text;textable;record"'
+
+[[args]]
+media_urn = "media:textable"
+required = true
+arg_description = "Logical query or decision problem"
+sources = [
+    { stdin = "media:textable" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:reasoning-contextable"
+required = false
+arg_description = "Context and facts for logical reasoning"
+sources = [
+    { cli_flag = "--context" }
+]
+[[args]]
+media_urn = "media:decision-type;textable"
+required = false
+arg_description = "Type of logical decision required"
+default_value = "binary"
+sources = [
+    { cli_flag = "--decision-type" }
+]
+[[args]]
+media_urn = "media:max-tokens;textable;numeric"
+required = false
+arg_description = "Maximum tokens for reasoning output"
+default_value = 1000
+sources = [
+    { cli_flag = "--max-tokens" }
+]
+[[args]]
+media_urn = "media:require-explanation-flag;textable"
+required = false
+arg_description = "Whether to include reasoning explanation"
+default_value = true
+sources = [
+    { cli_flag = "--require-explanation" }
+]
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Model spec to use for decision making"
+default_value = "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+[output]
+media_urn = "media:generated-text;textable;record"
+output_description = "Logical decision with reasoning explanation and confidence"

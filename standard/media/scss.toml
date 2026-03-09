@@ -1,0 +1,7 @@
+# SCSS media spec
+urn = "media:scss;textable"
+media_type = "text/x-scss"
+title = "SCSS Stylesheet"
+profile_uri = "https://capdag.com/schema/scss"
+description = "Sassy CSS stylesheet"
+extensions = ["scss", "sass"]

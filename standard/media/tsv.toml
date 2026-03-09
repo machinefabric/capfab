@@ -1,0 +1,7 @@
+# TSV data media spec
+urn = "media:tsv;textable"
+media_type = "text/tab-separated-values"
+title = "TSV Data"
+profile_uri = "https://capdag.com/schema/tsv"
+description = "Tab-separated values data"
+extensions = ["tsv"]

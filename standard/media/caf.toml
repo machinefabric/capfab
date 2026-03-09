@@ -1,0 +1,7 @@
+# CAF Audio media spec
+urn = "media:caf;audio"
+media_type = "audio/x-caf"
+title = "CAF Audio"
+profile_uri = "https://capdag.com/schema/caf"
+description = "Core Audio Format data"
+extensions = ["caf"]

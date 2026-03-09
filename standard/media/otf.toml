@@ -1,0 +1,7 @@
+# OpenType Font media spec
+urn = "media:otf;font"
+media_type = "font/otf"
+title = "OpenType Font"
+profile_uri = "https://capdag.com/schema/otf"
+description = "OpenType font data"
+extensions = ["otf"]

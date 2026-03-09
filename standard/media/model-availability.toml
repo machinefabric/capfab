@@ -1,0 +1,35 @@
+# Model Availability media spec - check if model is available locally and/or remotely
+urn = "media:model-availability;textable;record"
+media_type = "application/json"
+title = "Model Availability"
+profile_uri = "https://capdag.com/schema/model-availability"
+description = "Information about a model's availability both locally and in remote repositories"
+
+[schema]
+type = "object"
+required = ["local_available", "remote_available"]
+
+[schema.properties.model_spec]
+type = "string"
+description = "The model specification that was checked"
+
+[schema.properties.local_available]
+type = "boolean"
+description = "Whether the model is available locally"
+
+[schema.properties.remote_available]
+type = "boolean"
+description = "Whether the model is available in the remote repository"
+
+[schema.properties.local_path]
+type = "string"
+description = "Local filesystem path if available locally"
+
+[schema.properties.size_bytes]
+type = "integer"
+description = "Size in bytes if known"
+
+[schema.properties.last_modified]
+type = "string"
+format = "date-time"
+description = "Last modification time if available locally (ISO 8601)"

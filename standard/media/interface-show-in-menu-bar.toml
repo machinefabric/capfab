@@ -1,0 +1,17 @@
+# interface-show-in-menu-bar.toml
+# Generated from key_reference.csv
+
+urn = "media:interface-show-in-menu-bar;setting;textable"
+media_type = "text/plain"
+title = "Show application icon in menu bar"
+profile_uri = "https://capdag.com/schema/interface-show-in-menu-bar"
+description = "Show application icon in menu bar"
+
+[metadata]
+category = "interface"
+subcategory = "interface_appearance"
+display_index = 2
+ui_type = "SETTING_UI_TYPE_CHECKBOX"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = false
+overridable_by = ["model", "user", "end_user"]

@@ -1,0 +1,7 @@
+# TypeScript source code media spec
+urn = "media:typescript;textable;code"
+media_type = "text/typescript"
+title = "TypeScript Source"
+profile_uri = "https://capdag.com/schema/typescript"
+description = "TypeScript programming language source code"
+extensions = ["ts"]

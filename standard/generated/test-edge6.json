@@ -1,0 +1,47 @@
+{
+  "urn": "cap:in=\"media:node1;textable\";op=test_edge6;out=\"media:node4;textable;list\"",
+  "command": "test-concat",
+  "title": "Test Edge 6 (Single to List)",
+  "cap_description": "Transform single node1 input to list of node4 items",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:node1;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the input text file"
+    },
+    {
+      "media_urn": "media:edge6arg1;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--count"
+        }
+      ],
+      "arg_description": "Number of times to duplicate input in list",
+      "default_value": "1"
+    },
+    {
+      "media_urn": "media:edge6arg2;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--item-prefix"
+        }
+      ],
+      "arg_description": "Prefix to add to each list item"
+    }
+  ],
+  "output": {
+    "media_urn": "media:node4;textable;list",
+    "output_description": "List containing input (possibly duplicated)"
+  }
+}

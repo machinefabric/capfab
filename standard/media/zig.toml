@@ -1,0 +1,7 @@
+# Zig source code media spec
+urn = "media:zig;textable;code"
+media_type = "text/x-zig"
+title = "Zig Source"
+profile_uri = "https://capdag.com/schema/zig"
+description = "Zig programming language source code"
+extensions = ["zig"]

@@ -1,0 +1,7 @@
+# Mbox mail archive media spec
+urn = "media:mbox;textable;list"
+media_type = "application/mbox"
+title = "Mbox Archive"
+profile_uri = "https://capdag.com/schema/mbox"
+description = "Unix mailbox archive"
+extensions = ["mbox"]

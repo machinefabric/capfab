@@ -1,0 +1,7 @@
+{
+  "urn": "media:remove-boilerplate;textable",
+  "media_type": "text/plain",
+  "title": "Remove Boilerplate",
+  "profile_uri": "https://capdag.com/schema/remove_boilerplate",
+  "description": "Remove Boilerplate value"
+}

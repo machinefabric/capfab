@@ -1,0 +1,10 @@
+{
+  "urn": "media:vcf;textable;list",
+  "media_type": "text/vcard",
+  "title": "vCard",
+  "profile_uri": "https://capdag.com/schema/vcf",
+  "description": "vCard contact data",
+  "extensions": [
+    "vcf"
+  ]
+}

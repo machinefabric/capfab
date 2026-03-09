@@ -1,0 +1,7 @@
+# GGUF model media spec
+urn = "media:gguf;model"
+media_type = "application/octet-stream"
+title = "GGUF Model"
+profile_uri = "https://capdag.com/schema/gguf"
+description = "GGUF machine learning model"
+extensions = ["gguf"]

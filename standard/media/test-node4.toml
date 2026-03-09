@@ -1,0 +1,6 @@
+# Test Node 4 - List form for fan-out scenarios
+urn = "media:node4;textable;list"
+media_type = "text/plain"
+title = "Test Node 4 (Text List)"
+description = "List of text items for fan-out/fan-in testing"
+extensions = ["testxt"]

@@ -1,0 +1,20 @@
+# Model Contents Capability Definition
+
+title = "Model Contents"
+cap_description = "List contents of a model repository."
+command = "contents"
+
+urn = 'cap:in="media:model-spec;textable";op=model-contents;out="media:model-contents;textable;record"'
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = true
+arg_description = "Model spec to list contents for"
+sources = [
+    { stdin = "media:model-spec;textable" },
+    { position = 0 }
+]
+
+[output]
+media_urn = "media:model-contents;textable;record"
+output_description = "Model contents including files, layers, parameters and metadata"

@@ -1,0 +1,10 @@
+{
+  "urn": "media:kml;textable",
+  "media_type": "application/vnd.google-earth.kml+xml",
+  "title": "KML",
+  "profile_uri": "https://capdag.com/schema/kml",
+  "description": "Keyhole Markup Language geographic data",
+  "extensions": [
+    "kml"
+  ]
+}

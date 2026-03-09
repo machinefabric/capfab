@@ -1,0 +1,22 @@
+{
+  "urn": "media:genre;textable",
+  "media_type": "text/plain",
+  "title": "Genre",
+  "profile_uri": "https://capdag.com/schema/genre",
+  "description": "Genre value",
+  "validation": {
+    "allowed_values": [
+      "fiction",
+      "poetry",
+      "essay",
+      "story",
+      "dialogue",
+      "script",
+      "article",
+      "blog",
+      "marketing",
+      "technical",
+      "academic"
+    ]
+  }
+}

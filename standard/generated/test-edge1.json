@@ -1,0 +1,36 @@
+{
+  "urn": "cap:in=\"media:node1;textable\";op=test_edge1;out=\"media:node2;textable\"",
+  "command": "test-concat",
+  "title": "Test Edge 1 (Prepend Transform)",
+  "cap_description": "Transform node1 to node2 by prepending optional text argument",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:node1;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the input text file"
+    },
+    {
+      "media_urn": "media:edge1arg1;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--prefix"
+        }
+      ],
+      "arg_description": "Text to prepend before the input content"
+    }
+  ],
+  "output": {
+    "media_urn": "media:node2;textable",
+    "output_description": "Transformed text with optional prefix prepended"
+  }
+}

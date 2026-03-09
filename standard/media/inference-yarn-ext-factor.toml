@@ -1,0 +1,21 @@
+# inference-yarn-ext-factor.toml
+# Generated from key_reference.csv
+
+urn = "media:inference-yarn-ext-factor;setting;textable;numeric"
+media_type = "text/plain"
+title = "YaRN extrapolation factor"
+profile_uri = "https://capdag.com/schema/inference-yarn-ext-factor"
+description = "YaRN extrapolation factor"
+
+[metadata]
+category = "inference"
+subcategory = "inference_advanced"
+display_index = 27
+ui_type = "SETTING_UI_TYPE_NUMBER_FIELD"
+data_type = "SETTING_DATA_TYPE_FLOAT"
+default = 1
+overridable_by = ["cap", "model", "user"]
+
+[validation]
+min = 0.1
+max = 10

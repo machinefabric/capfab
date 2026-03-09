@@ -1,0 +1,24 @@
+{
+  "urn": "cap:gguf;in=\"media:model-spec;textable\";ml-model;op=embeddings_dimensions;out=\"media:model-dim;integer;textable;numeric\"",
+  "command": "get_embedding_dimensions",
+  "title": "Get Embeddings Dimensions (GGUF)",
+  "cap_description": "Query the dimensionality of embeddings for a given GGUF model",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "GGUF model specification to query dimensions for",
+      "default_value": "hf:nomic-ai/nomic-embed-text-v1.5-GGUF"
+    }
+  ],
+  "output": {
+    "media_urn": "media:model-dim;integer;textable;numeric",
+    "output_description": "Dimensionality of the embeddings (n_embd from model metadata)"
+  }
+}

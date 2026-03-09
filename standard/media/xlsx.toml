@@ -1,0 +1,7 @@
+# XLSX Document media spec
+urn = "media:xlsx"
+media_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+title = "Excel Spreadsheet"
+profile_uri = "https://capdag.com/schema/xlsx"
+description = "Microsoft Excel spreadsheet data"
+extensions = ["xlsx"]

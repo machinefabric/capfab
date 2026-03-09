@@ -1,0 +1,7 @@
+# F# source code media spec
+urn = "media:fsharp;textable;code"
+media_type = "text/x-fsharp"
+title = "F# Source"
+profile_uri = "https://capdag.com/schema/fsharp"
+description = "F# programming language source code"
+extensions = ["fs", "fsi", "fsx"]

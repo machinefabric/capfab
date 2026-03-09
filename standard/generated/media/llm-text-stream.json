@@ -1,0 +1,82 @@
+{
+  "urn": "media:llm-text-stream;ndjson;streaming",
+  "media_type": "application/x-ndjson",
+  "title": "LLM Text Stream",
+  "profile_uri": "https://capdag.com/schema/llm-text-stream",
+  "description": "Streaming output from LLM text generation. Each line is a JSON object with a 'type' field (token, status, complete, tool_request, or error).",
+  "schema": {
+    "type": "object",
+    "required": [
+      "type"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "token",
+          "status",
+          "complete",
+          "tool_request",
+          "error"
+        ],
+        "description": "Message type discriminator"
+      },
+      "text": {
+        "type": "string",
+        "description": "Token text (for type=token)"
+      },
+      "operation": {
+        "type": "string",
+        "description": "Current operation (for type=status)"
+      },
+      "details": {
+        "type": "string",
+        "description": "Status details (for type=status)"
+      },
+      "progress": {
+        "type": "number",
+        "description": "Progress 0.0 to 1.0 (for type=status)"
+      },
+      "generated_text": {
+        "type": "string",
+        "description": "Full generated text (for type=complete)"
+      },
+      "tokens_generated": {
+        "type": "integer",
+        "description": "Tokens generated count (for type=complete)"
+      },
+      "prompt_tokens": {
+        "type": "integer",
+        "description": "Prompt tokens count (for type=complete)"
+      },
+      "finish_reason": {
+        "type": "string",
+        "description": "Why generation stopped (for type=complete)"
+      },
+      "generation_time_ms": {
+        "type": "number",
+        "description": "Generation time in ms (for type=complete)"
+      },
+      "partial_text": {
+        "type": "string",
+        "description": "Text before tool call (for type=tool_request)"
+      },
+      "tool_name": {
+        "type": "string",
+        "description": "Tool to execute (for type=tool_request)"
+      },
+      "tool_args": {
+        "type": "object",
+        "description": "Tool arguments (for type=tool_request)"
+      },
+      "code": {
+        "type": "string",
+        "description": "Error code (for type=error)"
+      },
+      "message": {
+        "type": "string",
+        "description": "Error message (for type=error)"
+      }
+    }
+  }
+}

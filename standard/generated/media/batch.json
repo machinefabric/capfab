@@ -1,0 +1,11 @@
+{
+  "urn": "media:batch;textable;code",
+  "media_type": "application/x-bat",
+  "title": "Batch Script",
+  "profile_uri": "https://capdag.com/schema/batch",
+  "description": "Windows batch script",
+  "extensions": [
+    "bat",
+    "cmd"
+  ]
+}

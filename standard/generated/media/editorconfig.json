@@ -1,0 +1,10 @@
+{
+  "urn": "media:editorconfig;textable;record",
+  "media_type": "text/plain",
+  "title": "EditorConfig",
+  "profile_uri": "https://capdag.com/schema/editorconfig",
+  "description": "Editor configuration file",
+  "extensions": [
+    "editorconfig"
+  ]
+}

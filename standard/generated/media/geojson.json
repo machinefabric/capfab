@@ -1,0 +1,10 @@
+{
+  "urn": "media:geojson;record;textable",
+  "media_type": "application/geo+json",
+  "title": "GeoJSON",
+  "profile_uri": "https://capdag.com/schema/geojson",
+  "description": "GeoJSON geographic data",
+  "extensions": [
+    "geojson"
+  ]
+}

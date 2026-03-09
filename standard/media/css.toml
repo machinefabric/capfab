@@ -1,0 +1,7 @@
+# CSS media spec
+urn = "media:css;textable"
+media_type = "text/css"
+title = "CSS Stylesheet"
+profile_uri = "https://capdag.com/schema/css"
+description = "Cascading Style Sheet"
+extensions = ["css"]

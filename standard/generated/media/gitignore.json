@@ -1,0 +1,10 @@
+{
+  "urn": "media:gitignore;textable;list",
+  "media_type": "text/plain",
+  "title": "Git Ignore",
+  "profile_uri": "https://capdag.com/schema/gitignore",
+  "description": "Git ignore pattern file",
+  "extensions": [
+    "gitignore"
+  ]
+}

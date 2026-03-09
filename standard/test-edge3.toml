@@ -1,0 +1,32 @@
+# Test Edge 3 - node1;list (folder) → node4;list
+# Fan-out transformation: processes folder of txt files, produces list
+# For testing: reads each file, optionally transforms with edge3arg1
+
+title = "Test Edge 3 (Folder Fan-Out)"
+cap_description = "Transform folder of node1 files to list of node4 items"
+command = "test-concat"
+
+urn = 'cap:in="media:node1;textable;list";op=test_edge3;out="media:node4;textable;list"'
+
+# Required folder input (file path list) - content comes as list
+[[args]]
+media_urn = "media:file-path;textable;list"
+required = true
+arg_description = "Paths to the input text files in folder"
+sources = [
+  { stdin = "media:node1;textable;list" },
+  { position = 0 }
+]
+
+# Optional transform text applied to each file (edge3arg1)
+[[args]]
+media_urn = "media:edge3arg1;textable"
+required = false
+arg_description = "Text to add to each file during fan-out"
+sources = [
+  { cli_flag = "--transform" }
+]
+
+[output]
+media_urn = "media:node4;textable;list"
+output_description = "List of transformed text items"

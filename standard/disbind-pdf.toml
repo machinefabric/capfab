@@ -1,0 +1,28 @@
+# Disbind Capability Definition
+
+title = "Disbind PDF Into Pages"
+cap_description = "Extract structured page content from PDF document"
+command = "disbind"
+
+urn = 'cap:in="media:pdf";op=disbind;out="media:disbound-page;textable;list"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to the document file to process"
+sources = [
+  { stdin = "media:pdf" },
+  { position = 0 }
+]
+
+[[args]]
+media_urn = "media:index-range;textable"
+required = false
+arg_description = "Index Range to extract (e.g., '1-5' or '10-')"
+sources = [
+  { cli_flag = "--index-range" }
+]
+
+[output]
+media_urn = "media:disbound-page;textable;list"
+output_description = "Array of disbound page objects with text content"

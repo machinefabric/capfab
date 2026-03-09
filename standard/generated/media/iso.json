@@ -1,0 +1,10 @@
+{
+  "urn": "media:iso;archive",
+  "media_type": "application/x-iso9660-image",
+  "title": "ISO Disk Image",
+  "profile_uri": "https://capdag.com/schema/iso",
+  "description": "ISO 9660 disk image",
+  "extensions": [
+    "iso"
+  ]
+}

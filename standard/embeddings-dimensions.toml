@@ -1,0 +1,19 @@
+# Embeddings Dimensions Capability Definition
+
+title = "Get Embeddings Dimensions"
+cap_description = "Query the dimensionality of embeddings for a given model"
+command = "get_embedding_dimensions"
+
+urn = 'cap:in="media:model-spec;textable";op=embeddings_dimensions;out="media:model-dim;integer;textable;numeric"'
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Model spec to use for retrieving embeddings dimensions"
+default_value = "hf:sentence-transformers/all-MiniLM-L6-v2"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+[output]
+media_urn = "media:model-dim;integer;textable;numeric"
+output_description = "Dimensionality of the embeddings (positive integer)"

@@ -1,0 +1,11 @@
+{
+  "urn": "media:aiff;audio",
+  "media_type": "audio/aiff",
+  "title": "AIFF Audio",
+  "profile_uri": "https://capdag.com/schema/aiff",
+  "description": "Apple AIFF audio data",
+  "extensions": [
+    "aiff",
+    "aif"
+  ]
+}

@@ -1,0 +1,7 @@
+# OGG Audio media spec
+urn = "media:ogg;audio"
+media_type = "audio/ogg"
+title = "OGG Audio"
+profile_uri = "https://capdag.com/schema/ogg"
+description = "Ogg Vorbis audio data"
+extensions = ["ogg", "oga"]

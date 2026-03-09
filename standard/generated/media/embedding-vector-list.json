@@ -1,0 +1,7 @@
+{
+  "urn": "media:embedding-vector;textable;list",
+  "media_type": "application/json",
+  "title": "Embedding Vector List",
+  "profile_uri": "https://capdag.com/schema/embedding-vector-list",
+  "description": "Batch of embedding vectors"
+}

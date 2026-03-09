@@ -1,0 +1,70 @@
+{
+  "urn": "cap:gguf;in=media:textable;ml-model;op=generate_embeddings;out=\"media:embedding-vector;textable;record\"",
+  "command": "generate_embeddings",
+  "title": "Generate Vector Embeddings (GGUF)",
+  "cap_description": "Generate vector embeddings from text using GGUF models with llama.cpp backend",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": true,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "GGUF model specification (HuggingFace repo or local path)",
+      "default_value": "hf:nomic-ai/nomic-embed-text-v1.5-GGUF"
+    },
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to text file to generate embeddings from"
+    },
+    {
+      "media_urn": "media:chunk-size;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--chunk-size"
+        }
+      ],
+      "arg_description": "Chunk size in words for splitting input text",
+      "default_value": 400
+    },
+    {
+      "media_urn": "media:chunk-overlap;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--chunk-overlap"
+        }
+      ],
+      "arg_description": "Chunk overlap in words when splitting input text",
+      "default_value": 50
+    },
+    {
+      "media_urn": "media:batch-size;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--batch-size"
+        }
+      ],
+      "arg_description": "Token batch size for model inference (must accommodate tokenized chunk)",
+      "default_value": 2048
+    }
+  ],
+  "output": {
+    "media_urn": "media:embedding-vector;textable;record",
+    "output_description": "JSON containing L2-normalized embeddings, chunk metadata and model information"
+  }
+}

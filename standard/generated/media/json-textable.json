@@ -1,0 +1,10 @@
+{
+  "urn": "media:json;textable",
+  "media_type": "application/json",
+  "title": "JSON Value",
+  "profile_uri": "https://capdag.com/schema/json",
+  "description": "Single JSON value - can be object, string, number, boolean, or null",
+  "extensions": [
+    "json"
+  ]
+}

@@ -1,0 +1,6 @@
+# Void primitive media spec
+urn = "media:void"
+media_type = "application/x-void"
+title = "Void Value"
+profile_uri = "https://capdag.com/schema/void"
+description = "No value / void return type"

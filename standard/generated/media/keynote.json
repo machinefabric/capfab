@@ -1,0 +1,11 @@
+{
+  "urn": "media:keynote",
+  "media_type": "application/vnd.apple.keynote",
+  "title": "Apple Keynote",
+  "profile_uri": "https://capdag.com/schema/keynote",
+  "description": "Apple Keynote presentation data",
+  "extensions": [
+    "key",
+    "keynote"
+  ]
+}

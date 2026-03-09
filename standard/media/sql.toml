@@ -1,0 +1,7 @@
+# SQL source media spec
+urn = "media:sql;textable;code"
+media_type = "application/sql"
+title = "SQL Source"
+profile_uri = "https://capdag.com/schema/sql"
+description = "SQL query or script"
+extensions = ["sql"]

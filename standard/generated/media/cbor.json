@@ -1,0 +1,10 @@
+{
+  "urn": "media:cbor",
+  "media_type": "application/cbor",
+  "title": "CBOR",
+  "profile_uri": "https://capdag.com/schema/cbor",
+  "description": "Concise Binary Object Representation data",
+  "extensions": [
+    "cbor"
+  ]
+}

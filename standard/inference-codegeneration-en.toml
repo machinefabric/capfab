@@ -1,0 +1,75 @@
+# LLM English Code Generation Capability Definition
+
+title = "Generate Code in English"
+cap_description = "Code generation and programming tasks in English"
+command = "llm_inference"
+
+urn = 'cap:constrained;in="media:textable";language=en;op=codegeneration;out="media:generated-text;textable;record"'
+
+[[args]]
+media_urn = "media:textable"
+required = true
+arg_description = "Code generation prompt or specification"
+sources = [
+    { stdin = "media:textable" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:programming-language;textable"
+required = false
+arg_description = "Programming language for code generation"
+default_value = "rust"
+sources = [
+    { cli_flag = "--language" }
+]
+[[args]]
+media_urn = "media:code-contextable"
+required = false
+arg_description = "Existing code context or codebase information"
+sources = [
+    { cli_flag = "--context" }
+]
+[[args]]
+media_urn = "media:coding-style;textable"
+required = false
+arg_description = "Coding style or framework preferences"
+sources = [
+    { cli_flag = "--style" }
+]
+[[args]]
+media_urn = "media:max-tokens;textable;numeric"
+required = false
+arg_description = "Maximum tokens for generated code"
+default_value = 4096
+sources = [
+    { cli_flag = "--max-tokens" }
+]
+[[args]]
+media_urn = "media:include-tests-flag;textable"
+required = false
+arg_description = "Whether to include unit tests"
+default_value = false
+sources = [
+    { cli_flag = "--include-tests" }
+]
+
+[[args]]
+media_urn = "media:include-comments-flag;textable"
+required = false
+arg_description = "Whether to include code comments"
+default_value = true
+sources = [
+    { cli_flag = "--include-comments" }
+]
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Model spec to use for code generation"
+default_value = "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+[output]
+media_urn = "media:generated-text;textable;record"
+output_description = "Generated code with optional tests and documentation"

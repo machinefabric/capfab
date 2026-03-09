@@ -1,0 +1,20 @@
+# mon-log-level-hierarchy.toml
+# Generated from key_reference.csv
+
+urn = "media:mon-log-level-hierarchy;setting;textable"
+media_type = "text/plain"
+title = "Log level hierarchy configuration"
+profile_uri = "https://capdag.com/schema/mon-log-level-hierarchy"
+description = "Log level hierarchy configuration"
+
+[metadata]
+category = "mon"
+subcategory = "mon_logging"
+display_index = 4
+ui_type = "SETTING_UI_TYPE_DROPDOWN"
+data_type = "SETTING_DATA_TYPE_STRING"
+default = "info"
+overridable_by = ["cap", "model", "user"]
+
+[validation]
+allowed_values = ["trace", "debug", "info", "warn", "error"]

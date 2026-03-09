@@ -1,0 +1,10 @@
+{
+  "urn": "media:psd;image",
+  "media_type": "image/vnd.adobe.photoshop",
+  "title": "Photoshop Document",
+  "profile_uri": "https://capdag.com/schema/psd",
+  "description": "Adobe Photoshop document data",
+  "extensions": [
+    "psd"
+  ]
+}

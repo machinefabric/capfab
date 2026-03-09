@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__insite__screenshot",
+      "mcp__insite__set_viewport_size",
+      "mcp__insite__click_element",
+      "mcp__insite__type_text",
+      "mcp__insite__load_page",
+      "Bash(grep:*)",
+      "mcp__insite__reload_page",
+      "mcp__insite__scroll_page",
+      "Bash(rg:*)",
+      "mcp__insite__close_browser",
+      "mcp__insite__scroll_to_element_and_screenshot",
+      "mcp__insite__get_element_info",
+      "Bash(find:*)"
+    ],
+    "deny": []
+  }
+}

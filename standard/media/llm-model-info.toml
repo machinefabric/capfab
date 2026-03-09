@@ -1,0 +1,47 @@
+# LLM Model Info - model information response
+
+urn = "media:llm-model-info;json;record"
+media_type = "application/json"
+title = "LLM Model Info"
+profile_uri = "https://capdag.com/schema/llm-model-info"
+description = "Information about a loaded LLM model including capabilities and parameters"
+
+[schema]
+type = "object"
+required = ["model_spec", "vocab_size"]
+
+[schema.properties.model_spec]
+type = "string"
+description = "Model specification identifier"
+
+[schema.properties.vocab_size]
+type = "integer"
+description = "Size of the model's vocabulary"
+
+[schema.properties.context_length]
+type = "integer"
+description = "Maximum context length the model supports"
+
+[schema.properties.embedding_dim]
+type = "integer"
+description = "Dimension of embedding vectors"
+
+[schema.properties.file_size_bytes]
+type = "integer"
+description = "Model file size in bytes"
+
+[schema.properties.head_count]
+type = "integer"
+description = "Number of attention heads"
+
+[schema.properties.layer_count]
+type = "integer"
+description = "Number of transformer layers"
+
+[schema.properties.supports_chat]
+type = "boolean"
+description = "Whether the model has a chat template"
+
+[schema.properties.supports_tools]
+type = "boolean"
+description = "Whether the model supports tool use"

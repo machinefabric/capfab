@@ -1,0 +1,73 @@
+{
+  "urn": "media:embedding-vector;textable;record",
+  "media_type": "application/json",
+  "title": "Embedding Vector",
+  "profile_uri": "https://capdag.com/schema/embedding-vector",
+  "description": "Output from embedding generation including vectors, chunk metadata, and model information",
+  "schema": {
+    "type": "object",
+    "required": [
+      "success",
+      "model_name",
+      "embedding_dim",
+      "total_chunks",
+      "results"
+    ],
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "Whether embedding generation succeeded"
+      },
+      "model_name": {
+        "type": "string",
+        "description": "Model used for embedding generation"
+      },
+      "embedding_dim": {
+        "type": "integer",
+        "description": "Dimension of each embedding vector"
+      },
+      "total_chunks": {
+        "type": "integer",
+        "description": "Total number of chunks processed"
+      },
+      "results": {
+        "type": "array",
+        "description": "Embedding results for each chunk",
+        "items": {
+          "type": "object",
+          "properties": {
+            "chunk": {
+              "type": "object",
+              "description": "The document chunk this embedding is for",
+              "properties": {
+                "chunk_index": {
+                  "type": "integer",
+                  "description": "Index of this chunk in the document"
+                },
+                "text": {
+                  "type": "string",
+                  "description": "Text content of the chunk"
+                },
+                "start_offset": {
+                  "type": "integer",
+                  "description": "Start byte offset in original document"
+                },
+                "end_offset": {
+                  "type": "integer",
+                  "description": "End byte offset in original document"
+                }
+              }
+            },
+            "embedding": {
+              "type": "array",
+              "description": "The embedding vector (array of floats)",
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+# LLM Spanish Conversation Capability Definition
+
+title = "Converse in Spanish"
+cap_description = "Conversacion natural y respuestas de chat en espanol"
+command = "llm_inference"
+
+urn = 'cap:in="media:textable";language=es;op=conversation;out="media:generated-text;textable;record";unconstrained'
+
+[[args]]
+media_urn = "media:textable"
+required = true
+arg_description = "Entrada conversacional del usuario"
+sources = [
+    { stdin = "media:textable" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:conversation-contextable"
+required = false
+arg_description = "Contexto e historial de conversacion"
+sources = [
+    { cli_flag = "--context" }
+]
+[[args]]
+media_urn = "media:max-tokens;textable;numeric"
+required = false
+arg_description = "Maximo de tokens a generar"
+default_value = 2000
+sources = [
+    { cli_flag = "--max-tokens" }
+]
+[[args]]
+media_urn = "media:temperature;textable;numeric"
+required = false
+arg_description = "Temperatura de muestreo para creatividad vs consistencia"
+default_value = 0.7
+sources = [
+    { cli_flag = "--temperature" }
+]
+
+[[args]]
+media_urn = "media:system-prompt;textable"
+required = false
+arg_description = "Instrucciones del sistema para comportamiento conversacional"
+sources = [
+    { cli_flag = "--system-prompt" }
+]
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Model spec a usar para la conversacion"
+default_value = "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+[output]
+media_urn = "media:generated-text;textable;record"
+output_description = "Respuesta conversacional generada con informacion de contexto"

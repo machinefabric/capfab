@@ -1,0 +1,7 @@
+# TrueType Font media spec
+urn = "media:ttf;font"
+media_type = "font/ttf"
+title = "TrueType Font"
+profile_uri = "https://capdag.com/schema/ttf"
+description = "TrueType font data"
+extensions = ["ttf"]

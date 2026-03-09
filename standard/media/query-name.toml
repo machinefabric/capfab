@@ -1,0 +1,11 @@
+# Query Name media spec
+urn = "media:query-name;textable"
+media_type = "text/plain"
+title = "Query Name"
+profile_uri = "https://capdag.com/schema/query_name"
+description = "Query Name value"
+
+[validation]
+max_length = 128
+min_length = 1
+pattern = "^[a-zA-Z0-9_-]+$"

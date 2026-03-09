@@ -1,0 +1,59 @@
+{
+  "urn": "cap:candle;in=\"media:audio;wav;speech\";ml-model;op=transcribe;out=\"media:transcription;textable;record\"",
+  "command": "transcribe",
+  "title": "Transcribe Audio (Candle)",
+  "cap_description": "Transcribe audio files to text using Whisper models with Candle ML framework",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:audio;wav;speech"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the audio file (WAV format)"
+    },
+    {
+      "media_urn": "media:language;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--language"
+        }
+      ],
+      "arg_description": "Language code for transcription",
+      "default_value": "en"
+    },
+    {
+      "media_urn": "media:timestamps;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--timestamps"
+        }
+      ],
+      "arg_description": "Include timestamps in output",
+      "default_value": false
+    },
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model"
+        }
+      ],
+      "arg_description": "Whisper model name from HuggingFace",
+      "default_value": "hf:openai/whisper-base"
+    }
+  ],
+  "output": {
+    "media_urn": "media:transcription;textable;record",
+    "output_description": "Transcribed text with optional timestamps and metadata"
+  }
+}

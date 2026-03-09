@@ -1,0 +1,7 @@
+# Visual Basic source code media spec
+urn = "media:vb;textable;code"
+media_type = "text/x-vb"
+title = "Visual Basic Source"
+profile_uri = "https://capdag.com/schema/vb"
+description = "Visual Basic programming language source code"
+extensions = ["vb", "vbs", "bas"]

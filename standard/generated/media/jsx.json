@@ -1,0 +1,10 @@
+{
+  "urn": "media:jsx;textable;code",
+  "media_type": "text/javascript-jsx",
+  "title": "JavaScript JSX Source",
+  "profile_uri": "https://capdag.com/schema/jsx",
+  "description": "JavaScript JSX source code",
+  "extensions": [
+    "jsx"
+  ]
+}

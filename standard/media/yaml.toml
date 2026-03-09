@@ -1,0 +1,7 @@
+# YAML document media spec
+urn = "media:yaml;textable;record"
+media_type = "application/yaml"
+title = "YAML Document"
+profile_uri = "https://capdag.com/schema/yaml"
+description = "YAML formatted document"
+extensions = ["yaml"]

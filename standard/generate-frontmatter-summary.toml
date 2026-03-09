@@ -1,0 +1,69 @@
+# Frontmatter Summarization Capability Definition
+
+title = "Summarize Frontmatter"
+cap_description = "Extract and organize bibliographic information from book frontmatter text"
+command = "generate_text"
+
+urn = 'cap:constrained;in="media:frontmatter;textable";language=en;op=generate_frontmatter_summary;out="media:textable"'
+
+[[args]]
+media_urn = "media:frontmatter;textable"
+required = true
+arg_description = "Frontmatter text to process and summarize"
+sources = [
+  { stdin = "media:frontmatter;textable" },
+  { position = 0 }
+]
+[[args]]
+media_urn = "media:output-format;textable"
+required = false
+arg_description = "Output format for the summary"
+default_value = "organized"
+sources = [
+  { cli_flag = "--format" }
+]
+[[args]]
+media_urn = "media:preserve-all-data;textable"
+required = false
+arg_description = "Whether to preserve all factual information"
+default_value = true
+sources = [
+  { cli_flag = "--preserve-all-data" }
+]
+
+[[args]]
+media_urn = "media:remove-boilerplate;textable"
+required = false
+arg_description = "Whether to remove legal boilerplate and formatting chips"
+default_value = true
+sources = [
+  { cli_flag = "--remove-boilerplate" }
+]
+
+[[args]]
+media_urn = "media:language;textable"
+required = false
+arg_description = "Language of the frontmatter text"
+default_value = "en"
+sources = [
+  { cli_flag = "--language" }
+]
+[[args]]
+media_urn = "media:max-tokens;textable;numeric"
+required = false
+arg_description = "Maximum tokens for summary output"
+default_value = 2000
+sources = [
+  { cli_flag = "--max-tokens" }
+]
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Model spec to use for summary generation"
+default_value = "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+sources = [
+  { cli_flag = "--model-spec" }
+]
+[output]
+media_urn = "media:textable"
+output_description = "Organized bibliographic summary with extracted metadata"

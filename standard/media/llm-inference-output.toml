@@ -1,0 +1,6 @@
+# LLM inference output media spec
+urn = "media:generated-text;textable;record"
+media_type = "application/json"
+title = "Generated Text"
+profile_uri = "https://capdag.com/schema/generated-text"
+description = "Generated text structured as a map with metadata."

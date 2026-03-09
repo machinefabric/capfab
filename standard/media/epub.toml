@@ -1,0 +1,7 @@
+# EPUB document media spec
+urn = "media:epub"
+media_type = "application/epub+zip"
+title = "EPUB Document"
+profile_uri = "https://capdag.com/schema/epub"
+description = "EPUB e-book document data"
+extensions = ["epub"]

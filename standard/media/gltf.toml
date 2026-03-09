@@ -1,0 +1,7 @@
+# glTF media spec
+urn = "media:gltf;model;textable"
+media_type = "model/gltf+json"
+title = "glTF Model"
+profile_uri = "https://capdag.com/schema/gltf"
+description = "GL Transmission Format 3D model"
+extensions = ["gltf"]

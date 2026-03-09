@@ -1,0 +1,5 @@
+# Test Edge 4 Argument 1 - Separator for fan-in collection
+title = "Test Edge 4 Arg 1 (Separator)"
+description = "Text to insert between collected items during fan-in"
+media_type="text/plain"
+urn = "media:edge4arg1;textable"

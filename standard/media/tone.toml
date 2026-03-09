@@ -1,0 +1,9 @@
+# Tone media spec
+urn = "media:tone;textable"
+media_type = "text/plain"
+title = "Tone"
+profile_uri = "https://capdag.com/schema/tone"
+description = "Tone value"
+
+[validation]
+allowed_values = ["formal", "casual", "humorous", "serious", "dramatic", "playful", "professional", "academic", "conversational"]

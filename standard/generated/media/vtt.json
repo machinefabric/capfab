@@ -1,0 +1,10 @@
+{
+  "urn": "media:vtt;textable;list",
+  "media_type": "text/vtt",
+  "title": "WebVTT Subtitles",
+  "profile_uri": "https://capdag.com/schema/vtt",
+  "description": "WebVTT subtitle data",
+  "extensions": [
+    "vtt"
+  ]
+}

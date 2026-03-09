@@ -1,0 +1,79 @@
+{
+  "urn": "cap:in=media:textable;op=generate_embeddings;out=\"media:embedding-vector;textable;record\"",
+  "command": "generate_embeddings",
+  "title": "Generate Vector Embeddings for Text",
+  "cap_description": "Generate vector embeddings from text or file input",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to text file to generate embeddings from"
+    },
+    {
+      "media_urn": "media:chunk-size;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--chunk-size"
+        }
+      ],
+      "arg_description": "Chunk size in words for splitting input text",
+      "default_value": 400
+    },
+    {
+      "media_urn": "media:chunk-overlap;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--chunk-overlap"
+        }
+      ],
+      "arg_description": "Chunk overlap in words when splitting input text",
+      "default_value": 50
+    },
+    {
+      "media_urn": "media:include-pattern;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--include"
+        }
+      ],
+      "arg_description": "File include pattern (can be provided multiple times)"
+    },
+    {
+      "media_urn": "media:exclude-pattern;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--exclude"
+        }
+      ],
+      "arg_description": "File exclude pattern (can be provided multiple times)"
+    },
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for embeddings generation",
+      "default_value": "hf:sentence-transformers/all-MiniLM-L6-v2"
+    }
+  ],
+  "output": {
+    "media_urn": "media:embedding-vector;textable;record",
+    "output_description": "JSON file containing embeddings, chunk metadata and model information"
+  }
+}

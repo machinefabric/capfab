@@ -1,0 +1,10 @@
+{
+  "urn": "media:bzip2;archive",
+  "media_type": "application/x-bzip2",
+  "title": "BZIP2 Archive",
+  "profile_uri": "https://capdag.com/schema/bzip2",
+  "description": "BZIP2 compressed archive",
+  "extensions": [
+    "bz2"
+  ]
+}

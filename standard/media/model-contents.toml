@@ -1,0 +1,78 @@
+# Contents output media spec - repository structure and file listing
+urn = "media:model-contents;textable;record"
+media_type = "application/json"
+title = "Model Contents"
+profile_uri = "https://capdag.com/schema/model-contents"
+description = "Complete repository structure with all files and directories for a model"
+
+[schema]
+type = "object"
+required = ["model_name", "repository", "all_files"]
+
+[schema.properties.model_name]
+type = "string"
+description = "Model name/identifier"
+
+[schema.properties.repository]
+type = "string"
+description = "Repository source (e.g., 'huggingface', 'local')"
+
+[schema.properties.total_size_bytes]
+type = "integer"
+description = "Total size of all files in bytes"
+
+[schema.properties.file_count]
+type = "integer"
+description = "Number of files in the repository"
+
+[schema.properties.directory_count]
+type = "integer"
+description = "Number of directories in the repository"
+
+[schema.properties.all_files]
+type = "array"
+description = "Flat list of all files in the repository"
+
+[schema.properties.all_files.items]
+type = "object"
+
+[schema.properties.all_files.items.properties.name]
+type = "string"
+description = "File or directory name"
+
+[schema.properties.all_files.items.properties.entry_type]
+type = "string"
+enum = ["file", "directory", "symlink", "other"]
+description = "Type of entry"
+
+[schema.properties.all_files.items.properties.size_bytes]
+type = "integer"
+description = "File size in bytes (null for directories)"
+
+[schema.properties.all_files.items.properties.checksum]
+type = "string"
+description = "File checksum if available"
+
+[schema.properties.all_files.items.properties.checksum_algorithm]
+type = "string"
+description = "Checksum algorithm (e.g., 'sha256', 'sha1')"
+
+[schema.properties.all_files.items.properties.local_available]
+type = "boolean"
+description = "Whether this file is locally available"
+
+[schema.properties.all_files.items.properties.local_path]
+type = "string"
+description = "Local file path if available"
+
+[schema.properties.all_files.items.properties.blob_id]
+type = "string"
+description = "Repository-specific blob identifier"
+
+[schema.properties.root]
+type = "object"
+description = "Hierarchical directory structure (optional)"
+
+[schema.properties.metadata]
+type = "object"
+description = "Repository-level metadata"

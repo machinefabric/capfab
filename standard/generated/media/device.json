@@ -1,0 +1,15 @@
+{
+  "urn": "media:device;textable",
+  "media_type": "text/plain",
+  "title": "Device",
+  "profile_uri": "https://capdag.com/schema/device",
+  "description": "Device value",
+  "validation": {
+    "allowed_values": [
+      "cpu",
+      "cuda",
+      "mps",
+      "auto"
+    ]
+  }
+}

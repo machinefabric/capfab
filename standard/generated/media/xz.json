@@ -1,0 +1,10 @@
+{
+  "urn": "media:xz;archive",
+  "media_type": "application/x-xz",
+  "title": "XZ Archive",
+  "profile_uri": "https://capdag.com/schema/xz",
+  "description": "XZ compressed archive",
+  "extensions": [
+    "xz"
+  ]
+}

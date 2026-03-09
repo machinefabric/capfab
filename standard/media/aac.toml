@@ -1,0 +1,7 @@
+# AAC Audio media spec
+urn = "media:aac;audio"
+media_type = "audio/aac"
+title = "AAC Audio"
+profile_uri = "https://capdag.com/schema/aac"
+description = "Advanced Audio Coding data"
+extensions = ["aac"]

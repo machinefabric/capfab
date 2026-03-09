@@ -1,0 +1,79 @@
+{
+  "urn": "cap:in=media:textable;language=en;op=conversation;out=\"media:generated-text;textable;record\";unconstrained",
+  "command": "llm_inference",
+  "title": "Converse in English",
+  "cap_description": "Natural conversation and chat responses in English",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "User's conversational input"
+    },
+    {
+      "media_urn": "media:conversation-contextable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--context"
+        }
+      ],
+      "arg_description": "Conversation context and history"
+    },
+    {
+      "media_urn": "media:max-tokens;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum tokens to generate",
+      "default_value": 2000
+    },
+    {
+      "media_urn": "media:temperature;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--temperature"
+        }
+      ],
+      "arg_description": "Sampling temperature for creativity vs consistency",
+      "default_value": 0.7
+    },
+    {
+      "media_urn": "media:system-prompt;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--system-prompt"
+        }
+      ],
+      "arg_description": "System instructions for conversation behavior"
+    },
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for conversation",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:generated-text;textable;record",
+    "output_description": "Generated conversational response with context information"
+  }
+}

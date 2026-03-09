@@ -1,0 +1,7 @@
+# SRT subtitle media spec
+urn = "media:srt;textable;list"
+media_type = "text/plain"
+title = "SRT Subtitles"
+profile_uri = "https://capdag.com/schema/srt"
+description = "SubRip subtitle data"
+extensions = ["srt"]

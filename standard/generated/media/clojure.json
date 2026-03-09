@@ -1,0 +1,13 @@
+{
+  "urn": "media:clojure;textable;code",
+  "media_type": "text/x-clojure",
+  "title": "Clojure Source",
+  "profile_uri": "https://capdag.com/schema/clojure",
+  "description": "Clojure programming language source code",
+  "extensions": [
+    "clj",
+    "cljs",
+    "cljc",
+    "edn"
+  ]
+}

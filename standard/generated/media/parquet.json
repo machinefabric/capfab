@@ -1,0 +1,10 @@
+{
+  "urn": "media:parquet;list;record",
+  "media_type": "application/vnd.apache.parquet",
+  "title": "Parquet Data",
+  "profile_uri": "https://capdag.com/schema/parquet",
+  "description": "Apache Parquet columnar data",
+  "extensions": [
+    "parquet"
+  ]
+}

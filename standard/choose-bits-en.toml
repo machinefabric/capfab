@@ -1,0 +1,60 @@
+# Multiple Bit Choices Capability Definition
+
+title = "Make Multiple Choices"
+cap_description = "Make multiple binary (yes/no, true/false) decisions based on content and multiple questions"
+command = "bit_choices"
+
+urn = 'cap:constrained;in="media:textable";language=en;op=choose_bits;out="media:decision;bool;textable;list"'
+
+[[args]]
+media_urn = "media:textable"
+required = true
+arg_description = "Content to analyze for the binary decisions"
+sources = [
+    { stdin = "media:textable" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:question;textable;list"
+required = true
+arg_description = "Array of binary questions to answer about the content"
+sources = [
+    { cli_flag = "--questions" }
+]
+
+[[args]]
+media_urn = "media:language-code;textable"
+required = false
+arg_description = "Language code for processing"
+default_value = "en"
+sources = [
+    { cli_flag = "--language" }
+]
+[[args]]
+media_urn = "media:max-content-length;textable;numeric"
+required = false
+arg_description = "Maximum content length to consider (for context window management)"
+default_value = 2048
+sources = [
+    { cli_flag = "--max-content-length" }
+]
+[[args]]
+media_urn = "media:confidence-threshold;textable;numeric"
+required = false
+arg_description = "Minimum confidence threshold for decisions"
+default_value = 0.7
+sources = [
+    { cli_flag = "--confidence-threshold" }
+]
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Model spec to use for decision making"
+default_value = "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+[output]
+media_urn = "media:decision;bool;textable;list"
+output_description = "Array of boolean decision results corresponding to each question"

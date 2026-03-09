@@ -1,0 +1,10 @@
+{
+  "urn": "media:zip;archive",
+  "media_type": "application/zip",
+  "title": "ZIP Archive",
+  "profile_uri": "https://capdag.com/schema/zip",
+  "description": "ZIP compressed archive",
+  "extensions": [
+    "zip"
+  ]
+}

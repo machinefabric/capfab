@@ -1,0 +1,10 @@
+{
+  "urn": "media:onnx;model",
+  "media_type": "application/octet-stream",
+  "title": "ONNX Model",
+  "profile_uri": "https://capdag.com/schema/onnx",
+  "description": "ONNX machine learning model",
+  "extensions": [
+    "onnx"
+  ]
+}

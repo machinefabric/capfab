@@ -1,0 +1,77 @@
+{
+  "urn": "cap:constrained;in=\"media:json;json-schema;textable;record\";language=en;op=query_structured;out=\"media:json;textable;record\"",
+  "command": "structured_query",
+  "title": "Execute Structured Query",
+  "cap_description": "Execute structured queries with JSON schema constraints and template rendering",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:query-name;textable",
+      "required": true,
+      "sources": [
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Name of the structured query to execute"
+    },
+    {
+      "media_urn": "media:substitutions;textable;record",
+      "required": true,
+      "sources": [
+        {
+          "cli_flag": "--substitutions"
+        }
+      ],
+      "arg_description": "Template substitutions for the query prompt"
+    },
+    {
+      "media_urn": "media:language-code;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--language"
+        }
+      ],
+      "arg_description": "Language code for the query processing",
+      "default_value": "en"
+    },
+    {
+      "media_urn": "media:schema-variables;textable;record",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--schema-variables"
+        }
+      ],
+      "arg_description": "Variables for dynamic schema generation",
+      "default_value": {}
+    },
+    {
+      "media_urn": "media:callback-enabled-flag;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--callback"
+        }
+      ],
+      "arg_description": "Whether to enable streaming callback updates",
+      "default_value": false
+    },
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for structured query execution",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:json;textable;record",
+    "output_description": "Structured JSON response conforming to the query's schema"
+  }
+}

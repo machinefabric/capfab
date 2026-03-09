@@ -1,0 +1,11 @@
+{
+  "urn": "media:kotlin;textable;code",
+  "media_type": "text/x-kotlin",
+  "title": "Kotlin Source",
+  "profile_uri": "https://capdag.com/schema/kotlin",
+  "description": "Kotlin programming language source code",
+  "extensions": [
+    "kt",
+    "kts"
+  ]
+}

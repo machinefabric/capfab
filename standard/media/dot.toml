@@ -1,0 +1,7 @@
+# DOT graph media spec
+urn = "media:dot;textable"
+media_type = "text/vnd.graphviz"
+title = "DOT Graph"
+profile_uri = "https://capdag.com/schema/dot"
+description = "Graphviz DOT graph description"
+extensions = ["dot", "gv"]

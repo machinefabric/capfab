@@ -1,0 +1,7 @@
+# GPX media spec
+urn = "media:gpx;textable"
+media_type = "application/gpx+xml"
+title = "GPX"
+profile_uri = "https://capdag.com/schema/gpx"
+description = "GPS Exchange Format data"
+extensions = ["gpx"]

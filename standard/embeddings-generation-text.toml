@@ -1,0 +1,59 @@
+# Embeddings Generation Capability Definition
+
+title = "Generate Vector Embeddings for Text"
+cap_description = "Generate vector embeddings from text or file input"
+command = "generate_embeddings"
+
+urn = 'cap:in="media:textable";op=generate_embeddings;out="media:embedding-vector;textable;record"'
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to text file to generate embeddings from"
+sources = [
+    { stdin = "media:textable" },
+    { position = 0 }
+]
+[[args]]
+media_urn = "media:chunk-size;textable;numeric"
+required = false
+arg_description = "Chunk size in words for splitting input text"
+default_value = 400
+sources = [
+    { cli_flag = "--chunk-size" }
+]
+[[args]]
+media_urn = "media:chunk-overlap;textable;numeric"
+required = false
+arg_description = "Chunk overlap in words when splitting input text"
+default_value = 50
+sources = [
+    { cli_flag = "--chunk-overlap" }
+]
+[[args]]
+media_urn = "media:include-pattern;textable"
+required = false
+arg_description = "File include pattern (can be provided multiple times)"
+sources = [
+    { cli_flag = "--include" }
+]
+
+[[args]]
+media_urn = "media:exclude-pattern;textable"
+required = false
+arg_description = "File exclude pattern (can be provided multiple times)"
+sources = [
+    { cli_flag = "--exclude" }
+]
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = false
+arg_description = "Model spec to use for embeddings generation"
+default_value = "hf:sentence-transformers/all-MiniLM-L6-v2"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+[output]
+media_urn = "media:embedding-vector;textable;record"
+output_description = "JSON file containing embeddings, chunk metadata and model information"

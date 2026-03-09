@@ -1,0 +1,11 @@
+{
+  "urn": "media:nim;textable;code",
+  "media_type": "text/x-nim",
+  "title": "Nim Source",
+  "profile_uri": "https://capdag.com/schema/nim",
+  "description": "Nim programming language source code",
+  "extensions": [
+    "nim",
+    "nims"
+  ]
+}

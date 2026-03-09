@@ -1,0 +1,10 @@
+{
+  "urn": "media:wav;audio",
+  "media_type": "audio/wav",
+  "title": "WAV Audio",
+  "profile_uri": "https://capdag.com/schema/wav",
+  "description": "Audio data (WAV, MP3, etc.)",
+  "extensions": [
+    "wav"
+  ]
+}

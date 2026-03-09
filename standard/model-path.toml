@@ -1,0 +1,20 @@
+# Model Path Capability Definition
+
+title = "Get Model Path"
+cap_description = "Get local filesystem path to a cached model."
+command = "path"
+
+urn = 'cap:in="media:model-spec;textable";op=model-path;out="media:model-path;textable;record"'
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = true
+arg_description = "Model spec to get path for"
+sources = [
+    { stdin = "media:model-spec;textable" },
+    { position = 0 }
+]
+
+[output]
+media_urn = "media:model-path;textable;record"
+output_description = "Local filesystem path to the model directory"

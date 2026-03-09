@@ -1,0 +1,23 @@
+{
+  "urn": "cap:gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_model_info;out=\"media:llm-model-info;json;record\"",
+  "command": "inference",
+  "title": "Get Model Info (GGUF)",
+  "cap_description": "Query metadata and capabilities of a GGUF model",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:llm-generation-request;json;record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:llm-generation-request;json;record"
+        }
+      ],
+      "arg_description": "Request with request_type=model_info and model_spec"
+    }
+  ],
+  "output": {
+    "media_urn": "media:llm-model-info;json;record",
+    "output_description": "JSON object with model metadata"
+  }
+}

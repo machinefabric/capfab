@@ -1,0 +1,47 @@
+{
+  "urn": "cap:in=\"media:rst;textable\";op=extract_outline;out=\"media:document-outline;textable;record\"",
+  "command": "extract-outline",
+  "title": "Extract RST Outline",
+  "cap_description": "Extract document outline/table of contents from RST files",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:rst;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the RST file to process"
+    },
+    {
+      "media_urn": "media:max-depth;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-depth"
+        }
+      ],
+      "arg_description": "Maximum outline depth to extract (1-10)"
+    },
+    {
+      "media_urn": "media:include-order-indexes;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--include-order-indexes"
+        }
+      ],
+      "arg_description": "Include page numbers in the outline",
+      "default_value": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable;record",
+    "output_description": "Structured document outline with hierarchical entries"
+  }
+}

@@ -1,0 +1,10 @@
+# Confidence Threshold media spec
+urn = "media:confidence-threshold;textable;numeric"
+media_type = "text/plain"
+title = "Confidence Threshold"
+profile_uri = "https://capdag.com/schema/confidence_threshold"
+description = "Confidence Threshold numeric value"
+
+[validation]
+min = 0.0
+max = 1.0

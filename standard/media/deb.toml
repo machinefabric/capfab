@@ -1,0 +1,7 @@
+# Debian package media spec
+urn = "media:deb;archive"
+media_type = "application/vnd.debian.binary-package"
+title = "Debian Package"
+profile_uri = "https://capdag.com/schema/deb"
+description = "Debian software package"
+extensions = ["deb"]

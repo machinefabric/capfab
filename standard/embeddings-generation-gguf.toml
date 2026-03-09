@@ -1,0 +1,56 @@
+# Embeddings Generation Capability Definition - GGUF Backend
+
+title = "Generate Vector Embeddings (GGUF)"
+cap_description = "Generate vector embeddings from text using GGUF models with llama.cpp backend"
+command = "generate_embeddings"
+
+urn = 'cap:gguf;in="media:textable";ml-model;op=generate_embeddings;out="media:embedding-vector;textable;record"'
+
+[[args]]
+media_urn = "media:model-spec;textable"
+required = true
+arg_description = "GGUF model specification (HuggingFace repo or local path)"
+default_value = "hf:nomic-ai/nomic-embed-text-v1.5-GGUF"
+sources = [
+    { cli_flag = "--model-spec" }
+]
+
+[[args]]
+media_urn = "media:file-path;textable"
+required = true
+arg_description = "Path to text file to generate embeddings from"
+sources = [
+    { stdin = "media:textable" },
+    { position = 0 }
+]
+
+[[args]]
+media_urn = "media:chunk-size;textable;numeric"
+required = false
+arg_description = "Chunk size in words for splitting input text"
+default_value = 400
+sources = [
+    { cli_flag = "--chunk-size" }
+]
+
+[[args]]
+media_urn = "media:chunk-overlap;textable;numeric"
+required = false
+arg_description = "Chunk overlap in words when splitting input text"
+default_value = 50
+sources = [
+    { cli_flag = "--chunk-overlap" }
+]
+
+[[args]]
+media_urn = "media:batch-size;textable;numeric"
+required = false
+arg_description = "Token batch size for model inference (must accommodate tokenized chunk)"
+default_value = 2048
+sources = [
+    { cli_flag = "--batch-size" }
+]
+
+[output]
+media_urn = "media:embedding-vector;textable;record"
+output_description = "JSON containing L2-normalized embeddings, chunk metadata and model information"

@@ -1,0 +1,6 @@
+# Output Format media spec
+urn = "media:output-format;textable"
+media_type = "text/plain"
+title = "Output Format"
+profile_uri = "https://capdag.com/schema/output_format"
+description = "Output Format value"

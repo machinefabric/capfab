@@ -1,0 +1,17 @@
+# mem-enable-model-lifecycle-management.toml
+# Generated from key_reference.csv
+
+urn = "media:mem-enable-model-lifecycle-management;setting;textable"
+media_type = "text/plain"
+title = "Enable model lifecycle management"
+profile_uri = "https://capdag.com/schema/mem-enable-model-lifecycle-management"
+description = "Enable model lifecycle management"
+
+[metadata]
+category = "mem"
+subcategory = "mem_management"
+display_index = 4
+ui_type = "SETTING_UI_TYPE_CHECKBOX"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = true
+overridable_by = ["cap", "model", "user"]

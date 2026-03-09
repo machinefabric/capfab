@@ -1,0 +1,11 @@
+{
+  "urn": "media:mp4;video",
+  "media_type": "video/mp4",
+  "title": "MP4 Video",
+  "profile_uri": "https://capdag.com/schema/mp4",
+  "description": "MPEG-4 video data",
+  "extensions": [
+    "mp4",
+    "m4v"
+  ]
+}

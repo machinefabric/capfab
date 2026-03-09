@@ -1,0 +1,5 @@
+# Test Edge 1 Argument 1 - Prefix text for edge1
+title = "Test Edge 1 Arg 1 (Prefix)"
+description = "Optional text to prepend before input content in edge1 transformation"
+media_type="text/plain"
+urn = "media:edge1arg1;textable"

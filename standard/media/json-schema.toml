@@ -1,0 +1,7 @@
+# JSON document media spec
+urn = "media:json;json-schema;textable;record"
+media_type = "application/json"
+title = "JSON Document"
+profile_uri = "https://capdag.com/schema/json"
+description = "JSON formatted document"
+extensions = ["json"]

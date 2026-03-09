@@ -1,0 +1,12 @@
+{
+  "urn": "media:sqlite",
+  "media_type": "application/vnd.sqlite3",
+  "title": "SQLite Database",
+  "profile_uri": "https://capdag.com/schema/sqlite",
+  "description": "SQLite database file",
+  "extensions": [
+    "sqlite",
+    "sqlite3",
+    "db"
+  ]
+}

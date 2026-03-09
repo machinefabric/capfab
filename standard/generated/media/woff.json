@@ -1,0 +1,10 @@
+{
+  "urn": "media:woff;font",
+  "media_type": "font/woff",
+  "title": "WOFF Font",
+  "profile_uri": "https://capdag.com/schema/woff",
+  "description": "Web Open Font Format data",
+  "extensions": [
+    "woff"
+  ]
+}

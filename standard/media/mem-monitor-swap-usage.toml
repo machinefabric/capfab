@@ -1,0 +1,17 @@
+# mem-monitor-swap-usage.toml
+# Generated from key_reference.csv
+
+urn = "media:mem-monitor-swap-usage;setting;textable"
+media_type = "text/plain"
+title = "Monitor swap usage"
+profile_uri = "https://capdag.com/schema/mem-monitor-swap-usage"
+description = "Monitor swap usage"
+
+[metadata]
+category = "mem"
+subcategory = "mem_monitoring"
+display_index = 4
+ui_type = "SETTING_UI_TYPE_CHECKBOX"
+data_type = "SETTING_DATA_TYPE_BOOLEAN"
+default = true
+overridable_by = ["cap", "model", "user"]

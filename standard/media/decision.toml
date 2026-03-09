@@ -1,0 +1,16 @@
+
+[[media_spec]]
+# Decision media spec
+urn = "media:decision;bool;textable"
+media_type = "text/plain"
+title = "Decision"
+profile_uri = "https://capdag.com/schema/decision"
+description = "Boolean decision value (true/false)"
+
+[[media_spec]]
+# Decisions List media spec
+urn = "media:decision;bool;textable;list"
+media_type = "application/json"
+title = "Decisions List"
+profile_uri = "https://capdag.com/schema/decisions_list"
+description = "List of boolean decision values"

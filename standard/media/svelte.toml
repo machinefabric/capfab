@@ -1,0 +1,7 @@
+# Svelte source media spec
+urn = "media:svelte;textable;code"
+media_type = "text/x-svelte"
+title = "Svelte Component"
+profile_uri = "https://capdag.com/schema/svelte"
+description = "Svelte single-file component"
+extensions = ["svelte"]

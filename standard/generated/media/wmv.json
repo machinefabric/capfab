@@ -1,0 +1,10 @@
+{
+  "urn": "media:wmv;video",
+  "media_type": "video/x-ms-wmv",
+  "title": "WMV Video",
+  "profile_uri": "https://capdag.com/schema/wmv",
+  "description": "Windows Media Video data",
+  "extensions": [
+    "wmv"
+  ]
+}

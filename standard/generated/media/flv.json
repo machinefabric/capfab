@@ -1,0 +1,10 @@
+{
+  "urn": "media:flv;video",
+  "media_type": "video/x-flv",
+  "title": "Flash Video",
+  "profile_uri": "https://capdag.com/schema/flv",
+  "description": "Flash video data",
+  "extensions": [
+    "flv"
+  ]
+}

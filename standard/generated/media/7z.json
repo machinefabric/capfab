@@ -1,0 +1,10 @@
+{
+  "urn": "media:7z;archive",
+  "media_type": "application/x-7z-compressed",
+  "title": "7-Zip Archive",
+  "profile_uri": "https://capdag.com/schema/7z",
+  "description": "7-Zip compressed archive",
+  "extensions": [
+    "7z"
+  ]
+}
