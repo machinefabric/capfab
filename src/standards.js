@@ -143,8 +143,8 @@ async function loadStandardCapabilities(opts = {}) {
     ajv.addSchema(mediaSchema, 'media.schema.json');
     const validate = ajv.compile(capSchema);
 
-    // Find all TOML files in main directory (public registry caps)
-    const publicTomlFiles = fs.readdirSync(standardDir)
+    // Find all TOML files in caps directory (public registry caps)
+    const publicTomlFiles = fs.readdirSync(capsDir)
         .filter(file => file.endsWith('.toml') && file !== 'cap_sample.toml')
         .sort();
 
@@ -173,7 +173,7 @@ async function loadStandardCapabilities(opts = {}) {
 
     // Process public capabilities
     for (const file of publicTomlFiles) {
-        const result = processTomlFile(path.join(standardDir, file), file, validate, { quiet, verbose });
+        const result = processTomlFile(path.join(capsDir, file), file, validate, { quiet, verbose });
         if (result.error) {
             errors.push(result.error);
         } else {
@@ -615,7 +615,7 @@ function clearDirectory(dirPath) {
  */
 function exportCapabilitiesJson(publicCapabilities, machfabCapabilities, opts = {}) {
     const { verbose = false } = opts;
-    const outputDir = path.join(__dirname, 'generated');
+    const outputDir = path.join(__dirname, '..', 'generated');
     const machfabOutputDir = path.join(outputDir, 'machfab');
 
     // Clear generated directory to remove stale files
@@ -1259,7 +1259,7 @@ function processMediaSpecTomlFile(filePath, displayName, validate, opts = {}) {
  */
 function exportMediaSpecsJson(mediaSpecs, opts = {}) {
     const { verbose = false } = opts;
-    const outputDir = path.join(__dirname, 'generated', 'media');
+    const outputDir = path.join(__dirname, '..', 'generated', 'media');
     const rustBundleDir = path.join(__dirname, '..', '..', 'capdag', 'standard', 'media');
 
     if (!fs.existsSync(outputDir)) {
@@ -2323,13 +2323,13 @@ async function runUpload(opts = {}) {
         console.log('Next steps for PUBLIC capabilities:');
         console.log('1. Review generated JSON files in the generated/ directory');
         console.log('2. Set CAPDAG_ADMIN_KEY environment variable');
-        console.log('3. Run: node standard/generated/upload-standards.js');
+        console.log('3. Run: node generated/upload-standards.js');
         console.log();
         console.log('For MACINA-SPECIFIC capabilities:');
         console.log('1. JSON files are in generated/machfab/');
         console.log('2. Set MACINA_USERNAME to the username to register under');
         console.log('3. Set CAPDAG_ADMIN_KEY environment variable');
-        console.log('4. Run: node standard/generated/machfab/upload-machfab-caps.js');
+        console.log('4. Run: node generated/machfab/upload-machfab-caps.js');
         return;
     }
 
@@ -2350,7 +2350,7 @@ async function runUpload(opts = {}) {
             try { fs.unlinkSync(path.join(capsDestDir, f)); } catch (_) {}
         }
         // Copy caps (public, exclude combined bundle)
-        const capsOutDir = path.join(__dirname, 'generated');
+        const capsOutDir = path.join(__dirname, '..', 'generated');
         for (const f of fs.readdirSync(capsOutDir).filter(f => f.endsWith('.json') && f !== 'all-capabilities.json')) {
             fs.copyFileSync(path.join(capsOutDir, f), path.join(capsDestDir, f));
         }
@@ -2367,7 +2367,7 @@ async function runUpload(opts = {}) {
                 try { fs.unlinkSync(path.join(mediaDestDir, f)); } catch (_) {}
             }
             // Copy media specs (exclude combined bundle)
-            const mediaOutDir = path.join(__dirname, 'generated', 'media');
+            const mediaOutDir = path.join(__dirname, '..', 'generated', 'media');
             if (fs.existsSync(mediaOutDir)) {
                 for (const f of fs.readdirSync(mediaOutDir).filter(f => f.endsWith('.json') && f !== 'all-media-specs.json')) {
                     fs.copyFileSync(path.join(mediaOutDir, f), path.join(mediaDestDir, f));
@@ -2552,7 +2552,7 @@ async function runUpload(opts = {}) {
     if (MACINA_USERNAME && machfabCapabilities.length > 0) {
         console.log();
         console.log(`MACINA_USERNAME is set to "${MACINA_USERNAME}" - uploading machfab capabilities...`);
-        const machfabScriptPath = path.join(__dirname, 'generated', 'machfab', 'upload-machfab-caps.js');
+        const machfabScriptPath = path.join(__dirname, '..', 'generated', 'machfab', 'upload-machfab-caps.js');
         const { uploadMacinaCapabilities } = require(machfabScriptPath);
         await uploadMacinaCapabilities();
     }
