@@ -1,7 +1,0 @@
-{
-  "urn": "media:list;textable",
-  "media_type": "application/json",
-  "title": "String Array",
-  "profile_uri": "https://capdag.com/schema/str-array",
-  "description": "Array of string values"
-}

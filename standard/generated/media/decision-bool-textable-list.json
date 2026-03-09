@@ -1,7 +1,0 @@
-{
-  "urn": "media:decision;bool;textable;list",
-  "media_type": "application/json",
-  "title": "Decisions List",
-  "profile_uri": "https://capdag.com/schema/decisions_list",
-  "description": "List of boolean decision values"
-}

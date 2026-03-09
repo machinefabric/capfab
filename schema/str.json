@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://capdag.com/schema/str",
-  "title": "String",
-  "description": "A JSON string value",
-  "type": "string"
-}

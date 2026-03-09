@@ -1,7 +1,0 @@
-{
-  "urn": "media:bool;textable",
-  "media_type": "text/plain",
-  "title": "Boolean",
-  "profile_uri": "https://capdag.com/schema/bool",
-  "description": "Boolean value."
-}

@@ -1,7 +1,0 @@
-{
-  "urn": "media:callback-enabled-flag;textable",
-  "media_type": "text/plain",
-  "title": "Callback Enabled Flag",
-  "profile_uri": "https://capdag.com/schema/callback_enabled_flag",
-  "description": "Callback Enabled Flag value"
-}

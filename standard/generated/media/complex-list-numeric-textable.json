@@ -1,7 +1,0 @@
-{
-  "urn": "media:complex;list;numeric;textable",
-  "media_type": "text/plain",
-  "title": "Complex Array",
-  "profile_uri": "https://capdag.com/schema/complex-array",
-  "description": "Array of complex numeric values."
-}

@@ -1,7 +1,0 @@
-{
-  "urn": "media:file-metadata;textable;record",
-  "media_type": "application/json",
-  "title": "File Metadata",
-  "profile_uri": "https://capdag.com/schema/file-metadata",
-  "description": "File metadata structure"
-}

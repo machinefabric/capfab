@@ -1,7 +1,0 @@
-{
-  "urn": "media:include-comments-flag;textable",
-  "media_type": "text/plain",
-  "title": "Include Comments Flag",
-  "profile_uri": "https://capdag.com/schema/include_comments_flag",
-  "description": "Include Comments Flag value"
-}

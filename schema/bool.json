@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://capdag.com/schema/bool",
-  "title": "Boolean",
-  "description": "A JSON boolean value (true or false)",
-  "type": "boolean"
-}

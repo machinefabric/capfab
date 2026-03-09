@@ -1,6 +1,0 @@
-{
-  "title": "Test Edge 5 Arg 2 (Second Input)",
-  "description": "Path to the second input file for multi-input merge",
-  "media_type": "text/plain",
-  "urn": "media:edge5arg2;textable;file-path"
-}

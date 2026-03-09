@@ -1,7 +1,0 @@
-{
-  "urn": "media:integer;numeric;textable",
-  "media_type": "text/plain",
-  "title": "Integer",
-  "profile_uri": "https://capdag.com/schema/integer",
-  "description": "Signed integer value."
-}

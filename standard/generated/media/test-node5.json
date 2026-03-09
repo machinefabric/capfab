@@ -1,9 +1,0 @@
-{
-  "urn": "media:node5;textable",
-  "media_type": "text/plain",
-  "title": "Test Node 5 (Merged Output)",
-  "description": "Final merged text output from fan-in operations",
-  "extensions": [
-    "testxt"
-  ]
-}

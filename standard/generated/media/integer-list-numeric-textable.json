@@ -1,7 +1,0 @@
-{
-  "urn": "media:integer;list;numeric;textable",
-  "media_type": "text/plain",
-  "title": "Integer Array",
-  "profile_uri": "https://capdag.com/schema/integer-array",
-  "description": "Array of signed integer values."
-}

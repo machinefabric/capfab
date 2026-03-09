@@ -13,3 +13,4 @@ scripts/capdag.js
 package-lock.json
 .scrap/
 diffs/
+generated/

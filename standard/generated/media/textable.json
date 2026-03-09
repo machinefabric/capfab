@@ -1,7 +1,0 @@
-{
-  "urn": "media:textable",
-  "media_type": "text/plain",
-  "title": "String",
-  "profile_uri": "https://capdag.com/schema/string",
-  "description": "UTF-8 string value."
-}

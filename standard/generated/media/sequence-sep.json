@@ -1,7 +1,0 @@
-{
-  "urn": "media:textable;separator",
-  "media_type": "text/plain",
-  "title": "Sequence Separator",
-  "profile_uri": "https://capdag.com/schema/sequence_separator",
-  "description": "Sequence separator"
-}
