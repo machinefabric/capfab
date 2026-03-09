@@ -1,15 +1,15 @@
 {
   "name": "capgraph",
   "version": "0.386.194696",
-  "description": "CAPDAG Standard Definitions - Capability and media URN definitions",
+  "description": "CAPDAG Graph Definitions - Capability and media URN definitions",
   "scripts": {
     "upload": "./upload-standards.sh",
-    "standards": "node standard/standards.js",
-    "validate": "node standard/standards.js validate",
-    "list-urns": "node standard/standards.js list-urns",
-    "list-caps": "node standard/standards.js list-caps",
-    "export-graph": "node standard/standards.js export-graph",
-    "render-graph": "node standard/standards.js export-graph --render --png cap-graph.ignore.png"
+    "standards": "node src/standards.js",
+    "validate": "node src/standards.js validate",
+    "list-urns": "node src/standards.js list-urns",
+    "list-caps": "node src/standards.js list-caps",
+    "export-graph": "node src/standards.js export-graph",
+    "render-graph": "node src/standards.js export-graph --render --png cap-graph.ignore.png"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
