@@ -1157,9 +1157,12 @@ async function loadStandardMediaSpecs(opts = {}) {
 /**
  * Derive a filename-safe slug from a media URN
  * e.g. "media:real;discrete;signed" -> "scalar-real-discrete-signed"
+ * e.g. "media:" -> "identity" (special case for identity URN)
  */
 function mediaUrnToSlug(urn) {
     if (!urn || typeof urn !== 'string') return 'unknown';
+    // Special case: identity URN "media:" becomes "identity"
+    if (urn === 'media:') return 'identity';
     // Remove 'media:' prefix, replace semicolons and other separators with dashes
     return urn
         .replace(/^media:/, '')

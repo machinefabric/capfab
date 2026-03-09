@@ -1,8 +1,8 @@
 [[media_spec]]
 urn = "media:"
 media_type = "application/octet-stream"
-title = "Bytes"
-profile_uri = "https://capdag.com/schema/bytes"
+title = "Identity"
+profile_uri = "https://capdag.com/schema/identity"
 description = "Raw byte sequence."
 
 [[media_spec]]
