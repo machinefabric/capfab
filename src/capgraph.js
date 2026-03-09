@@ -2424,13 +2424,14 @@ async function runUpload(opts = {}) {
         const allMissingMedia = {};
         const verboseLog = verbose ? console.log.bind(console) : () => {};
 
-        // Progress bar helper
+        // Progress bar helper - fits in 60 chars to avoid line wrapping
         const updateProgress = (batchNum) => {
             const percent = Math.round((batchNum / batches) * 100);
-            const barWidth = 30;
+            const barWidth = 20;
             const filled = Math.round((batchNum / batches) * barWidth);
             const bar = '█'.repeat(filled) + '░'.repeat(barWidth - filled);
-            process.stdout.write(`\r  [${bar}] ${percent}% (${totalCreated} created, ${totalErrors} errors)`);
+            const status = `${totalCreated}/${totalErrors}`;
+            process.stdout.write(`\r[${bar}] ${percent.toString().padStart(3)}% ${status}`);
         };
 
         for (let i = 0; i < items.length; i += batchSize) {
@@ -2472,7 +2473,7 @@ async function runUpload(opts = {}) {
             // Log errors from this batch
             if (response.results?.errors?.length > 0) {
                 // Clear progress line if there are errors
-                if (!verbose) process.stdout.write('\r' + ' '.repeat(80) + '\r');
+                if (!verbose) process.stdout.write('\r' + ' '.repeat(50) + '\r');
                 for (const err of response.results.errors) {
                     const urnStr = typeof err.urn === 'string' ? err.urn : JSON.stringify(err.urn) || 'unknown';
                     console.error(`  ERR ${urnStr}: ${err.error}`);
@@ -2495,8 +2496,8 @@ async function runUpload(opts = {}) {
 
         // Clear progress line and print final newline
         if (!verbose) {
-            process.stdout.write('\r' + ' '.repeat(80) + '\r');
-            console.log(`  ✓ Completed: ${totalCreated} created, ${totalErrors} errors`);
+            process.stdout.write('\r' + ' '.repeat(50) + '\r');
+            console.log(`✓ ${totalCreated} created, ${totalErrors} errors`);
         }
         // Report missing media summary
         const missingKeys = Object.keys(allMissingMedia);
