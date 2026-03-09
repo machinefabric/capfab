@@ -1910,13 +1910,6 @@ async function runValidate(opts = {}) {
         process.exit(1);
     } else {
         console.log('\nValidation PASSED');
-
-        // Auto-upload if admin key is set
-        const adminKey = process.env.CAPDAG_ADMIN_KEY || process.env.ADMIN_PASSWORD;
-        if (adminKey) {
-            console.log('\nAdmin key detected - running upload flow...');
-            await runUpload();
-        }
         process.exit(0);
     }
 }
