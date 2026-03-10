@@ -4,7 +4,7 @@ title = "Disbind PDF Into Pages"
 cap_description = "Extract structured page content from PDF document"
 command = "disbind"
 
-urn = 'cap:in="media:pdf";op=disbind;out="media:disbound-page;textable;list"'
+urn = 'cap:in="media:pdf";op=disbind;out="media:disbound-page;list;textable"'
 
 [[args]]
 media_urn = "media:file-path;textable"
@@ -24,5 +24,5 @@ sources = [
 ]
 
 [output]
-media_urn = "media:disbound-page;textable;list"
+media_urn = "media:disbound-page;list;textable"
 output_description = "Array of disbound page objects with text content"
