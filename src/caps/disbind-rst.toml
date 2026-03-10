@@ -3,7 +3,7 @@ title = "Disbind RST Into Pages"
 cap_description = "Disbind RST file into text content from its pages"
 command = "disbind"
 
-urn = 'cap:in="media:rst;textable";op=disbind;out="media:disbound-page;textable;list"'
+urn = 'cap:in="media:rst;textable";op=disbind;out="media:disbound-page;list;textable"'
 
 [[args]]
 media_urn = "media:file-path;textable"
