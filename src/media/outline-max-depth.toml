@@ -1,5 +1,5 @@
 # Max Depth media spec
-urn = "media:max-depth;textable;numeric"
+urn = "media:outline-max-depth;textable;numeric"
 media_type = "text/plain"
 title = "Max Depth"
 profile_uri = "https://capdag.com/schema/max_depth"
