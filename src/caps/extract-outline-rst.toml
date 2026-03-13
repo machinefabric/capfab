@@ -15,9 +15,10 @@ sources = [
 ]
 
 [[args]]
-media_urn = "media:max-depth;textable;numeric"
+media_urn = "media:outline-max-depth;textable;numeric"
 required = false
 arg_description = "Maximum outline depth to extract (1-10)"
+default_value = 4
 sources = [
   { cli_flag = "--max-depth" }
 ]
