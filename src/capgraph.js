@@ -2273,7 +2273,11 @@ async function runExportGraph(options) {
  * @param {object} opts - Options
  * @param {boolean} opts.verbose - Show detailed progress
  */
-async function runUpload(opts = {}) {
+/**
+ * Load, validate, export JSONs, and copy to local destinations.
+ * Used by both `install` (standalone) and `upload` (as first step).
+ */
+async function runInstall(opts = {}) {
     const { verbose = false } = opts;
     const [{ publicCapabilities, machfabCapabilities }, { mediaSpecs, errors: mediaErrors }] = await Promise.all([
         loadStandardCapabilities({ verbose }),
@@ -2292,10 +2296,9 @@ async function runUpload(opts = {}) {
     console.log();
     console.log('OK Standard capabilities and media specs loaded and validated successfully!');
 
-    // New: cross-validate cap media_urn references against loaded media specs and local tables
+    // Cross-validate cap media_urn references against loaded media specs and local tables
     const { errors: crossErrors, localOnlyWarnings } = validateCapMediaReferences(publicCapabilities, mediaSpecs);
 
-    // Log warnings about media URNs only defined locally (not in global registry)
     if (localOnlyWarnings.length > 0) {
         console.warn();
         console.warn('WARNING: Media URNs defined only in capability media_specs (not in global registry):');
@@ -2310,8 +2313,50 @@ async function runUpload(opts = {}) {
         process.exit(1);
     }
 
+    // Copy generated JSONs to local destinations if configured
+    const capsDestDir = process.env.CAPDAG_DEST_PATH || process.env.CAPDAG_DEFS_DIR;
+    const mediaDestDir = process.env.CAPDAG_MEDIA_DEST_PATH || process.env.CAPDAG_MEDIA_DIR || process.env.CAPDAG_MEDIA_CACHE_DIR;
+
+    if (capsDestDir) {
+        console.log(`Copying generated capabilities to ${capsDestDir} ...`);
+        fs.mkdirSync(capsDestDir, { recursive: true });
+        const existingCaps = fs.readdirSync(capsDestDir).filter(f => f.endsWith('.json'));
+        for (const f of existingCaps) {
+            try { fs.unlinkSync(path.join(capsDestDir, f)); } catch (_) {}
+        }
+        const capsOutDir = path.join(__dirname, '..', 'generated');
+        for (const f of fs.readdirSync(capsOutDir).filter(f => f.endsWith('.json') && f !== 'all-capabilities.json')) {
+            fs.copyFileSync(path.join(capsOutDir, f), path.join(capsDestDir, f));
+        }
+    }
+
+    if (mediaDestDir) {
+        if (mediaDestDir === (process.env.CAPDAG_DEST_PATH || process.env.CAPDAG_DEFS_DIR)) {
+            console.warn(`WARNING: CAPDAG_MEDIA_DEST_PATH equals CAPDAG_DEST_PATH; skipping media spec copy to avoid polluting caps directory.`);
+        } else {
+            console.log(`Copying generated media specs to ${mediaDestDir} ...`);
+            fs.mkdirSync(mediaDestDir, { recursive: true });
+            const existingMedia = fs.readdirSync(mediaDestDir).filter(f => f.endsWith('.json'));
+            for (const f of existingMedia) {
+                try { fs.unlinkSync(path.join(mediaDestDir, f)); } catch (_) {}
+            }
+            const mediaOutDir = path.join(__dirname, '..', 'generated', 'media');
+            if (fs.existsSync(mediaOutDir)) {
+                for (const f of fs.readdirSync(mediaOutDir).filter(f => f.endsWith('.json') && f !== 'all-media-specs.json')) {
+                    fs.copyFileSync(path.join(mediaOutDir, f), path.join(mediaDestDir, f));
+                }
+            }
+        }
+    }
+
+    return { publicCapabilities, machfabCapabilities, mediaSpecs };
+}
+
+async function runUpload(opts = {}) {
+    const { verbose = false } = opts;
+    const { publicCapabilities, machfabCapabilities, mediaSpecs } = await runInstall({ verbose });
+
     const adminKey = process.env.CAPDAG_ADMIN_KEY || process.env.ADMIN_PASSWORD;
-    // machfabUsername is referred later; use a single definition name consistently
     const MACINA_USERNAME = process.env.MACINA_USERNAME;
 
     if (!adminKey) {
@@ -2329,55 +2374,8 @@ async function runUpload(opts = {}) {
         return;
     }
 
-    // Admin key is set - do the full upload workflow
     console.log();
     console.log('ADMIN_PASSWORD is set - running full upload workflow...');
-
-    // Step 1+2 (new): Validate then copy generated JSONs to DEST if set, then bulk import via APIs
-    // Separate destinations for caps and media specs
-    const capsDestDir = process.env.CAPDAG_DEST_PATH || process.env.CAPDAG_DEFS_DIR;
-    const mediaDestDir = process.env.CAPDAG_MEDIA_DEST_PATH || process.env.CAPDAG_MEDIA_DIR || process.env.CAPDAG_MEDIA_CACHE_DIR;
-
-    if (capsDestDir) {
-        console.log(`Copying generated capabilities to ${capsDestDir} ...`);
-        fs.mkdirSync(capsDestDir, { recursive: true });
-        const existingCaps = fs.readdirSync(capsDestDir).filter(f => f.endsWith('.json'));
-        for (const f of existingCaps) {
-            try { fs.unlinkSync(path.join(capsDestDir, f)); } catch (_) {}
-        }
-        // Copy caps (public, exclude combined bundle)
-        const capsOutDir = path.join(__dirname, '..', 'generated');
-        for (const f of fs.readdirSync(capsOutDir).filter(f => f.endsWith('.json') && f !== 'all-capabilities.json')) {
-            fs.copyFileSync(path.join(capsOutDir, f), path.join(capsDestDir, f));
-        }
-    }
-
-    if (mediaDestDir) {
-        if (mediaDestDir === (process.env.CAPDAG_DEST_PATH || process.env.CAPDAG_DEFS_DIR)) {
-            console.warn(`WARNING: CAPDAG_MEDIA_DEST_PATH equals CAPDAG_DEST_PATH; skipping media spec copy to avoid polluting caps directory.`);
-        } else {
-            console.log(`Copying generated media specs to ${mediaDestDir} ...`);
-            fs.mkdirSync(mediaDestDir, { recursive: true });
-            const existingMedia = fs.readdirSync(mediaDestDir).filter(f => f.endsWith('.json'));
-            for (const f of existingMedia) {
-                try { fs.unlinkSync(path.join(mediaDestDir, f)); } catch (_) {}
-            }
-            // Copy media specs (exclude combined bundle)
-            const mediaOutDir = path.join(__dirname, '..', 'generated', 'media');
-            if (fs.existsSync(mediaOutDir)) {
-                for (const f of fs.readdirSync(mediaOutDir).filter(f => f.endsWith('.json') && f !== 'all-media-specs.json')) {
-                    fs.copyFileSync(path.join(mediaOutDir, f), path.join(mediaDestDir, f));
-                }
-            }
-        }
-    }
-
-    // If dry-run, stop after validation + copy
-    const DRY_RUN = String(process.env.CAPDAG_DRY_RUN || '').toLowerCase() === 'true' || process.env.CAPDAG_DRY_RUN === '1';
-    if (DRY_RUN) {
-        console.log('CAPDAG_DRY_RUN is set — skipping registry clear and uploads.');
-        return;
-    }
 
     // Bulk import media specs then caps via new API endpoints
     const REGISTRY_URL = process.env.CAPDAG_REGISTRY_URL || 'https://capdag.com';
@@ -2587,6 +2585,9 @@ async function main() {
             break;
         case 'export-graph':
             await runExportGraph(options);
+            break;
+        case 'install':
+            await runInstall({ verbose: options.verbose });
             break;
         case '':
             // Default: run upload flow

@@ -4,10 +4,10 @@ title = "Get Embeddings Dimensions (MLX)"
 cap_description = "Query the dimensionality of embeddings for a given MLX model"
 command = "get_embedding_dimensions"
 
-urn = 'cap:in="media:model-spec;textable";ml-model;mlx;op=embeddings_dimensions;out="media:model-dim;integer;textable;numeric"'
+urn = 'cap:in="media:model-spec;mlx;textable";ml-model;mlx;op=embeddings_dimensions;out="media:model-dim;integer;textable;numeric"'
 
 [[args]]
-media_urn = "media:model-spec;textable"
+media_urn = "media:model-spec;mlx;textable"
 required = false
 arg_description = "Path to MLX embedding model directory"
 default_value = "hf:mlx-community/all-MiniLM-L6-v2-4bit"
