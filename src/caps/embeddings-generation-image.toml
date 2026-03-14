@@ -15,7 +15,7 @@ sources = [
     { position = 0 }
 ]
 [[args]]
-media_urn = "media:model-spec;textable"
+media_urn = "media:model-spec;candle;textable"
 required = false
 arg_description = "CLIP model name from HuggingFace"
 default_value = "hf:openai/clip-vit-base-patch32"

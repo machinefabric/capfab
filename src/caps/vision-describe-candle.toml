@@ -22,7 +22,7 @@ sources = [
     { cli_flag = "--prompt" }
 ]
 [[args]]
-media_urn = "media:model-spec;textable"
+media_urn = "media:model-spec;candle;textable"
 required = false
 arg_description = "BLIP model name from HuggingFace"
 default_value = "hf:Salesforce/blip-image-captioning-large"

@@ -4,10 +4,10 @@ title = "Get Embeddings Dimensions (Candle)"
 cap_description = "Query the dimensionality of embeddings for a given Candle model"
 command = "get_embedding_dimensions"
 
-urn = 'cap:candle;in="media:model-spec;textable";ml-model;op=embeddings_dimensions;out="media:model-dim;integer;textable;numeric"'
+urn = 'cap:candle;in="media:model-spec;candle;textable";ml-model;op=embeddings_dimensions;out="media:model-dim;integer;textable;numeric"'
 
 [[args]]
-media_urn = "media:model-spec;textable"
+media_urn = "media:model-spec;candle;textable"
 required = false
 arg_description = "HuggingFace model name to query dimensions for"
 default_value = "hf:sentence-transformers/all-MiniLM-L6-v2"

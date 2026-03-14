@@ -4,10 +4,10 @@ title = "Get Embeddings Dimensions (GGUF)"
 cap_description = "Query the dimensionality of embeddings for a given GGUF model"
 command = "get_embedding_dimensions"
 
-urn = 'cap:gguf;in="media:model-spec;textable";ml-model;op=embeddings_dimensions;out="media:model-dim;integer;textable;numeric"'
+urn = 'cap:gguf;in="media:model-spec;gguf;textable";ml-model;op=embeddings_dimensions;out="media:model-dim;integer;textable;numeric"'
 
 [[args]]
-media_urn = "media:model-spec;textable"
+media_urn = "media:model-spec;gguf;textable"
 required = false
 arg_description = "GGUF model specification to query dimensions for"
 default_value = "hf:nomic-ai/nomic-embed-text-v1.5-GGUF"

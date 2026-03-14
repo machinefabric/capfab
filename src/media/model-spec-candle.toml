@@ -1,0 +1,11 @@
+# Model Spec (Candle) media spec
+urn = "media:model-spec;candle;textable"
+media_type = "text/plain"
+title = "Model Spec (Candle)"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Candle model specification (HuggingFace repo or local path)"
+
+[validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
