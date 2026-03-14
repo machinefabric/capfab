@@ -7,10 +7,10 @@ command = "describe_image"
 urn = 'cap:gguf;in="media:image;png";ml-model;op=describe_image;out="media:image-description;textable";vision'
 
 [[args]]
-media_urn = "media:model-spec;gguf;textable"
+media_urn = "media:model-spec;gguf;textable;vision"
 required = false
 arg_description = "GGUF vision model specification (HuggingFace repo or local path)"
-default_value = "hf:xtuner/llava-llama-3-8b-v1_1-gguf?include=*f16*"
+default_value = "hf:ggml-org/moondream2-20250414-GGUF"
 sources = [
     { cli_flag = "--model-spec" }
 ]

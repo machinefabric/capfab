@@ -15,7 +15,7 @@ sources = [
     { position = 0 }
 ]
 [[args]]
-media_urn = "media:model-spec;candle;textable"
+media_urn = "media:model-spec;candle;textable;embeddings"
 required = false
 arg_description = "HuggingFace model name for embeddings"
 default_value = "hf:sentence-transformers/all-MiniLM-L6-v2"

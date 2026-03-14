@@ -32,7 +32,7 @@ sources = [
 ]
 
 [[args]]
-media_urn = "media:model-spec;candle;textable"
+media_urn = "media:model-spec;candle;textable;transcription"
 required = false
 arg_description = "Whisper model name from HuggingFace"
 default_value = "hf:openai/whisper-base"

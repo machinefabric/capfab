@@ -7,7 +7,7 @@ command = "generate_embeddings"
 urn = 'cap:in="media:textable";ml-model;mlx;op=generate_embeddings;out="media:embedding-vector;textable;record"'
 
 [[args]]
-media_urn = "media:model-spec;mlx;textable"
+media_urn = "media:model-spec;mlx;textable;embeddings"
 required = false
 arg_description = "Path to MLX embedding model directory"
 default_value = "hf:mlx-community/all-MiniLM-L6-v2-4bit"
