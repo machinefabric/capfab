@@ -1,11 +1,117 @@
-# Model Spec media spec
+# Model Spec media specs — generic and backend/use-case specific variants
+
+[[media_spec]]
 urn = "media:model-spec;textable"
 media_type = "text/plain"
 title = "Model Spec"
 profile_uri = "https://capdag.com/schema/model_spec"
-description = "Model Spec value"
+description = "Model specification (HuggingFace repo or local path). Backend-agnostic."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
 
-[validation]
+# --- GGUF backend ---
+
+[[media_spec]]
+urn = "media:model-spec;gguf;textable;vision"
+media_type = "text/plain"
+title = "GGUF Vision Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "GGUF vision model specification for image description."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:model-spec;gguf;textable;llm"
+media_type = "text/plain"
+title = "GGUF LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "GGUF language model specification for text generation and inference."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:model-spec;gguf;textable;embeddings"
+media_type = "text/plain"
+title = "GGUF Embeddings Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "GGUF model specification for embedding vector generation."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+# --- MLX backend ---
+
+[[media_spec]]
+urn = "media:model-spec;mlx;textable;vision"
+media_type = "text/plain"
+title = "MLX Vision Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "MLX vision model specification for image description on Apple Silicon."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:model-spec;mlx;textable;llm"
+media_type = "text/plain"
+title = "MLX LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "MLX language model specification for text generation on Apple Silicon."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:model-spec;mlx;textable;embeddings"
+media_type = "text/plain"
+title = "MLX Embeddings Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "MLX model specification for embedding vector generation on Apple Silicon."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+# --- Candle backend ---
+
+[[media_spec]]
+urn = "media:model-spec;candle;textable;vision"
+media_type = "text/plain"
+title = "Candle Vision Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Candle vision model specification for image description (BLIP)."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:model-spec;candle;textable;embeddings"
+media_type = "text/plain"
+title = "Candle Embeddings Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Candle model specification for embedding vector generation (BERT, CLIP)."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:model-spec;candle;textable;transcription"
+media_type = "text/plain"
+title = "Candle Transcription Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Candle model specification for audio transcription (Whisper)."
+[media_spec.validation]
 max_length = 512
 min_length = 1
 pattern = ".*:.*"

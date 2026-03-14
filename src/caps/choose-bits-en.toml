@@ -48,7 +48,7 @@ sources = [
 ]
 
 [[args]]
-media_urn = "media:model-spec;gguf;textable"
+media_urn = "media:model-spec;gguf;textable;llm"
 required = false
 arg_description = "Model spec to use for decision making"
 default_value = "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"

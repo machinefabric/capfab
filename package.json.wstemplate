@@ -8,7 +8,8 @@
     "list-urns": "node src/capgraph.js list-urns",
     "list-caps": "node src/capgraph.js list-caps",
     "export-graph": "node src/capgraph.js export-graph",
-    "render-graph": "node src/capgraph.js export-graph --render --png cap-graph.ignore.png"
+    "render-graph": "node src/capgraph.js export-graph --render --png cap-graph.ignore.png",
+    "install": "node src/capgraph.js install"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
