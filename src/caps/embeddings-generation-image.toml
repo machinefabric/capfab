@@ -15,10 +15,10 @@ sources = [
     { position = 0 }
 ]
 [[args]]
-media_urn = "media:model-spec;candle;textable;embeddings"
+media_urn = "media:model-spec;candle;image-embeddings;textable"
 required = false
 arg_description = "CLIP model name from HuggingFace"
-default_value = "hf:openai/clip-vit-base-patch32"
+default_value = "hf:openai/clip-vit-base-patch32?include=*.json,*.safetensors,pytorch_model.bin"
 sources = [
     { cli_flag = "--model" }
 ]
