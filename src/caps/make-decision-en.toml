@@ -1,27 +1,26 @@
-# Multiple Bit Choices Capability Definition
+# Single Bit Choice Capability Definition
 
-title = "Make Multiple Choices"
-cap_description = "Make multiple binary (yes/no, true/false) decisions based on content and multiple questions"
-command = "bit_choices"
+title = "Make a Choice"
+cap_description = "Make a single binary (yes/no, true/false) decision based on content and a question"
+command = "bit_choice"
 
-urn = 'cap:constrained;in="media:textable";language=en;op=choose_bits;out="media:decision;bool;textable;list"'
+urn = 'cap:constrained;in="media:textable";language=en;op=make_decision;out="media:decision;bool;textable"'
 
 [[args]]
 media_urn = "media:textable"
 required = true
-arg_description = "Content to analyze for the binary decisions"
+arg_description = "Content to analyze for the binary decision"
 sources = [
     { stdin = "media:textable" },
     { position = 0 }
 ]
 [[args]]
-media_urn = "media:question;textable;list"
+media_urn = "media:question;textable"
 required = true
-arg_description = "Array of binary questions to answer about the content"
+arg_description = "The binary question to answer about the content"
 sources = [
-    { cli_flag = "--questions" }
+    { cli_flag = "--question" }
 ]
-
 [[args]]
 media_urn = "media:language-code;textable"
 required = false
@@ -56,5 +55,5 @@ sources = [
     { cli_flag = "--model-spec" }
 ]
 [output]
-media_urn = "media:decision;bool;textable;list"
-output_description = "Array of boolean decision results corresponding to each question"
+media_urn = "media:decision;bool;textable"
+output_description = "Binary decision result (true/false)"
