@@ -2349,6 +2349,21 @@ async function runInstall(opts = {}) {
         }
     }
 
+    // Copy all generated JSONs (including all-capabilities.json) to capdag-dot-com if configured
+    const dotComDestDir = process.env.CAPDAG_DOT_COM_DEST_PATH;
+    if (dotComDestDir) {
+        console.log(`Copying generated files to ${dotComDestDir} ...`);
+        fs.mkdirSync(dotComDestDir, { recursive: true });
+        const existingFiles = fs.readdirSync(dotComDestDir).filter(f => f.endsWith('.json'));
+        for (const f of existingFiles) {
+            try { fs.unlinkSync(path.join(dotComDestDir, f)); } catch (_) {}
+        }
+        const capsOutDir = path.join(__dirname, '..', 'generated');
+        for (const f of fs.readdirSync(capsOutDir).filter(f => f.endsWith('.json'))) {
+            fs.copyFileSync(path.join(capsOutDir, f), path.join(dotComDestDir, f));
+        }
+    }
+
     return { publicCapabilities, machfabCapabilities, mediaSpecs };
 }
 
