@@ -2567,8 +2567,45 @@ async function runUpload(opts = {}) {
         await uploadMacinaCapabilities();
     }
 
+    // Trigger registry view rebuild (runs in background on server)
+    console.log();
+    console.log('Triggering registry view rebuild...');
+    await makeRequest('/api/admin/rebuild-view', 'POST', null, ADMIN_KEY);
+    console.log('Registry view rebuild started (runs in background)');
+
     console.log();
     console.log('OK All uploads completed successfully!');
+}
+
+async function runRebuildView() {
+    const https = require('https');
+    const REGISTRY_URL = process.env.CAPDAG_REGISTRY_URL || 'https://capdag.com';
+    const ADMIN_KEY = process.env.CAPDAG_ADMIN_KEY || process.env.ADMIN_PASSWORD;
+    if (!ADMIN_KEY) {
+        throw new Error('CAPDAG_ADMIN_KEY (or ADMIN_PASSWORD) required');
+    }
+
+    function makeRequest(reqPath, method, data = null, authToken = null) {
+        return new Promise((resolve, reject) => {
+            const url = new URL(reqPath, REGISTRY_URL);
+            const options = { method, headers: { 'Content-Type': 'application/json' } };
+            if (authToken) options.headers['Authorization'] = `Bearer ${authToken}`;
+            if (data) options.headers['Content-Length'] = Buffer.byteLength(data);
+            const req = https.request(url, options, (res) => {
+                let responseData = '';
+                res.on('data', c => responseData += c);
+                res.on('end', () => {
+                    try { const parsed = responseData ? JSON.parse(responseData) : {}; if (res.statusCode >= 200 && res.statusCode < 300) resolve(parsed); else reject(new Error(`HTTP ${res.statusCode}: ${parsed.error || responseData}`)); } catch (e) { reject(new Error(`Invalid JSON response: ${responseData}`)); }
+                });
+            });
+            req.on('error', reject); if (data) req.write(data); req.end();
+        });
+    }
+
+    // api-admin.js verifies the raw admin key as bearer token directly
+    console.log('Triggering registry view rebuild...');
+    await makeRequest('/api/admin/rebuild-view', 'POST', null, ADMIN_KEY);
+    console.log('Registry view rebuild started (runs in background)');
 }
 
 // ============================================================================
@@ -2603,6 +2640,9 @@ async function main() {
             break;
         case 'install':
             await runInstall({ verbose: options.verbose });
+            break;
+        case 'rebuild-view':
+            await runRebuildView();
             break;
         case '':
             // Default: run upload flow
