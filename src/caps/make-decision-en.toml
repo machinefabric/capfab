@@ -1,8 +1,8 @@
 # Single Bit Choice Capability Definition
 
-title = "Make a Choice"
+title = "Make a Decision"
 cap_description = "Make a single binary (yes/no, true/false) decision based on content and a question"
-command = "bit_choice"
+command = "make_decision"
 
 urn = 'cap:constrained;in="media:textable";language=en;op=make_decision;out="media:decision;bool;textable"'
 
