@@ -1,15 +1,15 @@
 [[media_spec]]
-# Test Node 1 - Base text input for capchain tests
+# Test Node 1 - Base text input for machine tests
 urn = "media:node1;textable"
 media_type = "text/plain"
 title = "Test Node 1 (Base Text)"
-description = "Base text content for capchain testing - entry point"
+description = "Base text content for machine testing - entry point"
 extensions = ["testxt"]
 
 [[media_spec]]
-# List of Test Node 1 - Base text input for capchain tests
+# List of Test Node 1 - Base text input for machine tests
 urn = "media:node1;textable;list"
 media_type = "text/plain"
 title = "List of Test Node 1 (Base Text)"
-description = "List of base text content for capchain testing - entry point"
+description = "List of base text content for machine testing - entry point"
 extensions = ["testxt"]
