@@ -9,7 +9,8 @@
     "list-caps": "node src/capgraph.js list-caps",
     "export-graph": "node src/capgraph.js export-graph",
     "render-graph": "node src/capgraph.js export-graph --render --png cap-graph.ignore.png",
-    "install": "node src/capgraph.js install"
+    "install": "node src/capgraph.js install",
+    "rebuild-view": "node src/capgraph.js rebuild-view"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
