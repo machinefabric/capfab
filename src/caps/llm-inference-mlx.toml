@@ -1,11 +1,10 @@
-# LLM Inference Cap - GGUF backend
-# ALL execution is streaming - this is not a special mode
+# LLM Inference Cap - MLX backend
 
-title = "LLM Text Generation (GGUF)"
-cap_description = "Generate text using GGUF models with llama.cpp backend. Output is NDJSON streaming tokens."
+title = "LLM Text Generation (MLX)"
+cap_description = "Generate text using MLX models on Apple Silicon. Output is NDJSON streaming tokens."
 command = "inference"
 
-urn = 'cap:gguf;in="media:llm-generation-request;json;record";llm;ml-model;op=llm_inference;out="media:llm-text-stream;ndjson"'
+urn = 'cap:in="media:llm-generation-request;json;record";llm;ml-model;mlx;op=llm_inference;out="media:llm-text-stream;ndjson"'
 
 [[args]]
 media_urn = "media:llm-generation-request;json;record"

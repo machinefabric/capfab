@@ -1,10 +1,10 @@
-# LLM Text Generation Capability Definition - MLX Backend
+# LLM Text Generation Capability Definition - Candle Backend
 
-title = "Generate Text with LLM (MLX)"
-cap_description = "Generate text using MLX-based LLM models on Apple Silicon"
+title = "Generate Text with LLM (Candle)"
+cap_description = "Generate text using Candle transformer models (Mistral/Llama safetensors)"
 command = "run_inference"
 
-urn = 'cap:in="media:textable";llm;ml-model;mlx;op=generate_text;out="media:textable"'
+urn = 'cap:candle;in="media:textable";llm;ml-model;op=generate_text;out="media:textable"'
 
 [[args]]
 media_urn = "media:textable"
@@ -16,10 +16,10 @@ sources = [
 ]
 
 [[args]]
-media_urn = "media:model-spec;mlx;textable;llm"
+media_urn = "media:model-spec;candle;textable;llm"
 required = false
-arg_description = "MLX model specification (HuggingFace model ID or local path)"
-default_value = "hf:mlx-community/Llama-3.2-3B-Instruct-4bit"
+arg_description = "Candle model specification (HuggingFace repo with safetensors)"
+default_value = "hf:mistralai/Mistral-7B-Instruct-v0.3"
 sources = [
     { cli_flag = "--model-spec" }
 ]
@@ -43,6 +43,15 @@ sources = [
 ]
 
 [[args]]
+media_urn = "media:top-k;textable;numeric"
+required = false
+arg_description = "Top-k sampling parameter"
+default_value = 40
+sources = [
+    { cli_flag = "--top-k" }
+]
+
+[[args]]
 media_urn = "media:top-p;textable;numeric"
 required = false
 arg_description = "Top-p (nucleus) sampling parameter"
@@ -52,18 +61,10 @@ sources = [
 ]
 
 [[args]]
-media_urn = "media:repetition-penalty;textable;numeric"
-required = false
-arg_description = "Repetition penalty"
-default_value = 1.1
-sources = [
-    { cli_flag = "--repetition-penalty" }
-]
-
-[[args]]
 media_urn = "media:seed;textable;numeric"
 required = false
 arg_description = "Random seed for reproducibility"
+default_value = 42
 sources = [
     { cli_flag = "--seed" }
 ]

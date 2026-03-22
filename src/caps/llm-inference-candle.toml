@@ -1,11 +1,10 @@
-# LLM Inference Cap - GGUF backend
-# ALL execution is streaming - this is not a special mode
+# LLM Inference Cap - Candle backend
 
-title = "LLM Text Generation (GGUF)"
-cap_description = "Generate text using GGUF models with llama.cpp backend. Output is NDJSON streaming tokens."
+title = "LLM Text Generation (Candle)"
+cap_description = "Generate text using Candle transformer models. Output is NDJSON streaming tokens."
 command = "inference"
 
-urn = 'cap:gguf;in="media:llm-generation-request;json;record";llm;ml-model;op=llm_inference;out="media:llm-text-stream;ndjson"'
+urn = 'cap:candle;in="media:llm-generation-request;json;record";llm;ml-model;op=llm_inference;out="media:llm-text-stream;ndjson"'
 
 [[args]]
 media_urn = "media:llm-generation-request;json;record"

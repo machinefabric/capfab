@@ -11,6 +11,19 @@ max_length = 512
 min_length = 1
 pattern = ".*:.*"
 
+[[media_spec]]
+urn = "media:model-spec;textable;llm"
+media_type = "text/plain"
+title = "LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Backend-agnostic LLM model specification. The model spec string determines which backend handles it."
+[media_spec.metadata]
+default = "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
 # --- GGUF backend ---
 
 [[media_spec]]
@@ -94,6 +107,19 @@ min_length = 1
 pattern = ".*:.*"
 
 # --- Candle backend ---
+
+[[media_spec]]
+urn = "media:model-spec;candle;textable;llm"
+media_type = "text/plain"
+title = "Candle LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Candle language model specification for text generation (Mistral/Llama safetensors)."
+[media_spec.metadata]
+default = "hf:mistralai/Mistral-7B-Instruct-v0.3"
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
 
 [[media_spec]]
 urn = "media:model-spec;candle;textable;vision"
