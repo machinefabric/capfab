@@ -61,7 +61,7 @@ title = "MLX Vision Model Spec"
 profile_uri = "https://capdag.com/schema/model_spec"
 description = "MLX vision model specification for image description on Apple Silicon."
 [media_spec.metadata]
-default = "hf:mlx-community/Qwen2.5-VL-7B-Instruct-4bit"
+default = "hf:mlx-community/Qwen3-VL-4B-Instruct-4bit"
 [media_spec.validation]
 max_length = 512
 min_length = 1

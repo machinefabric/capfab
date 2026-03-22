@@ -10,7 +10,7 @@ urn = 'cap:in="media:image;png";ml-model;mlx;op=describe_image;out="media:image-
 media_urn = "media:model-spec;mlx;textable;vision"
 required = false
 arg_description = "Path to MLX vision model directory"
-default_value = "hf:mlx-community/Qwen2.5-VL-7B-Instruct-4bit"
+default_value = "hf:mlx-community/Qwen3-VL-4B-Instruct-4bit"
 sources = [
     { cli_flag = "--model" }
 ]
