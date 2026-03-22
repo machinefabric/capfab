@@ -1,0 +1,19 @@
+# LLM Inference Cap - Candle backend
+
+title = "LLM Text Generation (Candle)"
+cap_description = "Generate text using Candle transformer models. Output is NDJSON streaming tokens."
+command = "inference"
+
+urn = 'cap:candle;in="media:llm-generation-request;json;record";llm;ml-model;op=llm_inference;out="media:llm-text-stream;ndjson"'
+
+[[args]]
+media_urn = "media:llm-generation-request;json;record"
+required = true
+arg_description = "The generation request containing prompt, model spec, and parameters"
+sources = [
+    { stdin = "media:llm-generation-request;json;record" }
+]
+
+[output]
+media_urn = "media:llm-text-stream;ndjson"
+output_description = "NDJSON stream of tokens, status updates, and completion message"

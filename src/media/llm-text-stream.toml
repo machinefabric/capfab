@@ -1,7 +1,7 @@
 # LLM Text Stream - streaming output from text generation
 # This is NDJSON - newline-delimited JSON messages
 
-urn = "media:llm-text-stream;ndjson;streaming"
+urn = "media:llm-text-stream;ndjson"
 media_type = "application/x-ndjson"
 title = "LLM Text Stream"
 profile_uri = "https://capdag.com/schema/llm-text-stream"

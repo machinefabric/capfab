@@ -5,7 +5,7 @@ title = "Constrained LLM Generation (GGUF)"
 cap_description = "Generate text with LLGuidance constraints (JSON schema, regex, grammar). Output is NDJSON streaming."
 command = "inference"
 
-urn = 'cap:constrained;gguf;in="media:llm-generation-request;json;record";llm;ml-model;op=llm_inference_constrained;out="media:llm-text-stream;ndjson;streaming"'
+urn = 'cap:constrained;gguf;in="media:llm-generation-request;json;record";llm;ml-model;op=llm_inference_constrained;out="media:llm-text-stream;ndjson"'
 
 [[args]]
 media_urn = "media:llm-generation-request;json;record"
@@ -16,5 +16,5 @@ sources = [
 ]
 
 [output]
-media_urn = "media:llm-text-stream;ndjson;streaming"
+media_urn = "media:llm-text-stream;ndjson"
 output_description = "NDJSON stream of constrained tokens and completion"

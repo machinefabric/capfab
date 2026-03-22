@@ -1,0 +1,19 @@
+# LLM Inference Cap - MLX backend
+
+title = "LLM Text Generation (MLX)"
+cap_description = "Generate text using MLX models on Apple Silicon. Output is NDJSON streaming tokens."
+command = "inference"
+
+urn = 'cap:in="media:llm-generation-request;json;record";llm;ml-model;mlx;op=llm_inference;out="media:llm-text-stream;ndjson"'
+
+[[args]]
+media_urn = "media:llm-generation-request;json;record"
+required = true
+arg_description = "The generation request containing prompt, model spec, and parameters"
+sources = [
+    { stdin = "media:llm-generation-request;json;record" }
+]
+
+[output]
+media_urn = "media:llm-text-stream;ndjson"
+output_description = "NDJSON stream of tokens, status updates, and completion message"
