@@ -4,7 +4,7 @@ title = "Generate Vector Embeddings (MLX)"
 cap_description = "Generate vector embeddings from text using MLX-based models on Apple Silicon"
 command = "generate_embeddings"
 
-urn = 'cap:in="media:textable";ml-model;mlx;op=generate_embeddings;out="media:embedding-vector;textable;record"'
+urn = 'cap:mlx;in="media:textable";ml-model;op=generate_embeddings;out="media:embedding-vector;textable;record"'
 
 [[args]]
 media_urn = "media:model-spec;mlx;textable;embeddings"
