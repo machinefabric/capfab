@@ -10,7 +10,7 @@ description = "Maximum length for text selection"
 [metadata]
 category = "inference"
 subcategory = "inference_generation"
-display_index = 19
+display_index = 20
 ui_type = "SETTING_UI_TYPE_NUMBER_FIELD"
 data_type = "SETTING_DATA_TYPE_UNSIGNED_INTEGER"
 default = 4096

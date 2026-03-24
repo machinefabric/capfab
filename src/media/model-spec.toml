@@ -24,6 +24,54 @@ max_length = 512
 min_length = 1
 pattern = ".*:.*"
 
+# --- Model family variants (backend-agnostic) ---
+# These are produced by ValueAdapter content inspection when a model spec
+# string fills an arg slot. The family tag is added to the base URN.
+
+[[media_spec]]
+urn = "media:llm;mistral;model-spec;textable"
+media_type = "text/plain"
+title = "Mistral Family LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Model specification for Mistral-family instruct models. Uses [INST]/[/INST] chat template."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:llama;llm;model-spec;textable"
+media_type = "text/plain"
+title = "Llama Family LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Model specification for Llama-family instruct models. Uses header_id chat template."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:llm;model-spec;phi;textable"
+media_type = "text/plain"
+title = "Phi Family LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Model specification for Phi-family instruct models. Uses user/end chat template."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:llm;model-spec;qwen;textable"
+media_type = "text/plain"
+title = "Qwen Family LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "Model specification for Qwen-family instruct models. Uses ChatML im_start/im_end template."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
 # --- GGUF backend ---
 
 [[media_spec]]
@@ -60,6 +108,52 @@ profile_uri = "https://capdag.com/schema/model_spec"
 description = "GGUF model specification for embedding vector generation."
 [media_spec.metadata]
 default = "hf:nomic-ai/nomic-embed-text-v1.5-GGUF"
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+# --- GGUF backend + model family ---
+
+[[media_spec]]
+urn = "media:gguf;llm;mistral;model-spec;textable"
+media_type = "text/plain"
+title = "GGUF Mistral LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "GGUF model specification for Mistral-family language models."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:gguf;llama;llm;model-spec;textable"
+media_type = "text/plain"
+title = "GGUF Llama LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "GGUF model specification for Llama-family language models."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:gguf;llm;model-spec;phi;textable"
+media_type = "text/plain"
+title = "GGUF Phi LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "GGUF model specification for Phi-family language models."
+[media_spec.validation]
+max_length = 512
+min_length = 1
+pattern = ".*:.*"
+
+[[media_spec]]
+urn = "media:gguf;llm;model-spec;qwen;textable"
+media_type = "text/plain"
+title = "GGUF Qwen LLM Model Spec"
+profile_uri = "https://capdag.com/schema/model_spec"
+description = "GGUF model specification for Qwen-family language models."
 [media_spec.validation]
 max_length = 512
 min_length = 1
