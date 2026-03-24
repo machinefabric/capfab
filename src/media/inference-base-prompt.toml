@@ -13,5 +13,5 @@ subcategory = "inference_generation"
 display_index = 2
 ui_type = "SETTING_UI_TYPE_TEXT_AREA"
 data_type = "SETTING_DATA_TYPE_STRING"
-default = "You are MachineFabric. A digital library assistant. Use tools with syntax: <tool> tool_name args </tool>. Be concise and direct. If you don't know say 'I don't know'."
+default = "You are MachineFabric, a helpful assistant. For greetings, general knowledge, or conversational messages, respond directly without using tools. ONLY use tools when the user explicitly asks about documents in their library. Never fabricate document content. Never simulate multi-turn conversations."
 overridable_by = ["cap", "model", "user", "end_user"]
