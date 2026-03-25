@@ -753,8 +753,8 @@ async function uploadCapabilities() {
     console.log('Authenticating with registry...');
     const token = await authenticate();
 
-    console.log('Clearing existing capabilities...');
-    await clearAllCapabilities(token);
+    // NOTE: Clearing is handled by the background clear function via dx graph upload.
+    // This script only uploads — run dx graph upload for the full clear + upload flow.
 
     console.log('Uploading standard capabilities...');
     successCount = 0;
@@ -788,14 +788,6 @@ async function authenticate() {
     const data = JSON.stringify({ key: ADMIN_KEY });
     const response = await makeRequest('/api/admin/auth', 'POST', data);
     return response.token;
-}
-
-async function clearAllCapabilities(token) {
-    const response = await makeRequest('/api/admin/capabilities/clear', 'POST', null, token);
-    console.log(\`  Cleared \${response.deleted_count} capabilities\`);
-    if (response.error_count > 0) {
-        console.warn(\`  Warning: \${response.error_count} errors during clear\`);
-    }
 }
 
 async function uploadCapability(token, capability) {
@@ -1325,8 +1317,8 @@ async function uploadMediaSpecs() {
     console.log('Authenticating with registry...');
     const token = await authenticate();
 
-    console.log('Clearing existing media specs...');
-    await clearAllMediaSpecs(token);
+    // NOTE: Clearing is handled by the background clear function via dx graph upload.
+    // This script only uploads — run dx graph upload for the full clear + upload flow.
 
     console.log('Uploading standard media specs...');
     let successCount = 0;
@@ -1359,14 +1351,6 @@ async function authenticate() {
     const data = JSON.stringify({ key: ADMIN_KEY });
     const response = await makeRequest('/api/admin/auth', 'POST', data);
     return response.token;
-}
-
-async function clearAllMediaSpecs(token) {
-    const response = await makeRequest('/api/admin/media/clear', 'POST', null, token);
-    console.log(\`  Cleared \${response.deleted_count} media specs\`);
-    if (response.error_count > 0) {
-        console.warn(\`  Warning: \${response.error_count} errors during clear\`);
-    }
 }
 
 async function uploadMediaSpec(token, spec) {
@@ -2533,13 +2517,33 @@ async function runUpload(opts = {}) {
     const mediaItems = mediaSpecs.map(ms => ms.spec);
     const capItems = publicCapabilities.map(c => c.capability);
 
-    // Clear existing in registry before uploading new ones
-    if (mediaItems.length > 0) {
-        console.log('Clearing existing media specs in registry...');
-        await makeRequest('/api/admin/media/clear', 'POST', null, token);
+    // Clear existing caps + media via background function, then poll until done
+    console.log('Triggering background clear of caps + media...');
+    await makeRequest('/api/admin/clear', 'POST', null, ADMIN_KEY);
+    console.log('Background clear started (202 accepted). Waiting 30s before first status check...');
+    await sleep(30000);
+
+    const POLL_INTERVAL_MS = 15000;
+    const POLL_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes max
+    const pollStart = Date.now();
+    while (true) {
+        const status = await makeRequest('/api/admin/clear-status', 'GET', null, token);
+        if (status.state === 'done') {
+            console.log(`Clear completed: ${status.caps_deleted} caps, ${status.media_deleted} media, ${status.users_cleared} users cleared`);
+            break;
+        } else if (status.state === 'error') {
+            throw new Error(`Background clear failed: ${status.error || JSON.stringify(status)}`);
+        } else if (status.state === 'running') {
+            const elapsed = Math.round((Date.now() - pollStart) / 1000);
+            console.log(`Clear still running (${elapsed}s elapsed, phase: ${status.phase})... polling again in ${POLL_INTERVAL_MS / 1000}s`);
+        } else {
+            throw new Error(`Unexpected clear status state: ${status.state}`);
+        }
+        if (Date.now() - pollStart > POLL_TIMEOUT_MS) {
+            throw new Error('Background clear timed out after 10 minutes');
+        }
+        await sleep(POLL_INTERVAL_MS);
     }
-    console.log('Clearing existing capabilities in registry...');
-    await makeRequest('/api/admin/capabilities/clear', 'POST', null, token);
 
     if (mediaItems.length > 0) {
         console.log('Bulk importing media specs...');
