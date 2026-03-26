@@ -1,0 +1,20 @@
+# srv-network-access-mode.toml
+# Generated from key_reference.csv
+
+urn = "media:srv-network-access-mode;setting;textable"
+media_type = "text/plain"
+title = "Network access mode"
+profile_uri = "https://capdag.com/schema/srv-network-access-mode"
+description = "Network access mode"
+
+[metadata]
+category = "srv"
+subcategory = "srv_access"
+display_index = 1
+ui_type = "SETTING_UI_TYPE_DROPDOWN"
+data_type = "SETTING_DATA_TYPE_STRING"
+default = "full"
+overridable_by = ["user", "end_user"]
+
+[validation]
+allowed_values = ["offline", "third_party_only", "no_telemetry", "full"]
