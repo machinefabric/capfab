@@ -1,0 +1,11 @@
+{
+  "urn": "media:rst;textable",
+  "media_type": "text/x-rst",
+  "title": "reStructuredText",
+  "profile_uri": "https://capdag.com/schema/rst",
+  "description": "reStructuredText formatted document",
+  "documentation": "## Purpose\nRepresents a reStructuredText (reST) document, the markup format used by the Python documentation ecosystem and Sphinx. reST provides directives, roles, and cross-referencing features that go beyond what Markdown offers.\n\n## When to use\nUse `media:rst;textable` when a node produces or consumes reST-formatted content, such as documentation generators targeting Sphinx, or extractors that read Python project docs. For simpler Markdown, use [Markdown Document](https://capdag.com/browse/media:md;textable).\n\n## Notes\nreStructuredText syntax is stricter than Markdown and parsers are less interchangeable. Consumers should not attempt to render reST with a Markdown renderer. The `textable` tag allows reST to flow to generic text consumers.\n",
+  "extensions": [
+    "rst"
+  ]
+}

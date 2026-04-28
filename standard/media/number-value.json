@@ -1,0 +1,11 @@
+{
+  "urn": "media:numeric;textable",
+  "media_type": "text/plain",
+  "title": "Number Value",
+  "profile_uri": "https://capdag.com/schema/num",
+  "description": "Floating-point numeric value",
+  "documentation": "## Purpose\nThe [Number Value](https://capdag.com/browse/media:numeric;textable) type represents a single floating-point number encoded as UTF-8 text.\n\n## When to use\nUse this type for scalar numeric outputs — for example, a computed metric, a model confidence score, or a single measurement result. For typed subsets (integer, real, complex) use the corresponding subtype.\n\n## Notes\nThe value must be a single line of text containing a valid floating-point literal. Trailing newlines are permitted. `NaN` and `Inf` / `-Inf` representations should follow IEEE 754 conventions as recognized by the target language's standard library parser.\n",
+  "extensions": [
+    "txt"
+  ]
+}

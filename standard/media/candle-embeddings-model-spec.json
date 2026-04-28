@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;candle;textable;embeddings",
+  "media_type": "text/plain",
+  "title": "Candle Embeddings Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Candle model specification for embedding vector generation (BERT, CLIP).",
+  "documentation": "## Purpose\nIdentifies a safetensors-format text embedding model for use with the Candle backend. Supports BERT-family and CLIP text encoder models for producing dense vector representations.\n\n## When to use\nUse this type when wiring a text embedding cap that uses the Candle runtime. The default points to all-MiniLM-L6-v2, a compact and widely used sentence embedding model.\n\n## Notes\nBERT-family embedding models in safetensors format require `config.json`, `tokenizer.json`, and `model.safetensors` to be present in the repository. For image embeddings use `media:model-spec;candle;image-embeddings;textable`.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:repetition-penalty;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Repetition Penalty",
+  "profile_uri": "https://capdag.com/schema/repetition_penalty",
+  "description": "Repetition Penalty numeric value",
+  "documentation": "## Purpose\nA lightweight repetition penalty parameter for machines that apply token-level discouragement of repeated output without full inference metadata.\n\n## When to use\nUse this type when connecting a simple numeric penalty value to a machine that does not require override-level controls. For full inference configuration, prefer [Repeat Penalty](https://capdag.com/browse/media:repeat-penalty;inference;sampling;user;task;textable;numeric), which includes metadata and override scope.\n\n## Notes\nMinimum value is 1.0 (no penalty). No upper bound is defined in this spec; check the target machine's documentation for practical limits. Values significantly above 1.5 risk degrading output coherence.\n",
+  "validation": {
+    "min": 1
+  }
+}

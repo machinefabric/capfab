@@ -1,0 +1,103 @@
+{
+  "urn": "cap:constrained;in=media:textable;language=en;op=summarization;out=\"media:generated-text;record;textable\"",
+  "command": "llm_inference",
+  "title": "Summarize in English",
+  "cap_description": "Document and text summarization in English",
+  "documentation": "## Purpose\n\nSummarizes text documents or passages using a locally running LLM. Supports abstractive (paraphrased) and extractive summarization, with controls for length, focus area, and document structure preservation.\n\n## Inputs\n\n- The text content to summarize.\n- Summary type (default: `abstractive`). Use `extractive` to surface sentences from the original.\n- Output length (default: `medium`). Values: `short`, `medium`, `long`.\n- Focus area (default: `main_points`). Examples: `conclusions`, `action_items`, `key_facts`.\n- Optional additional context for domain-specific summarization.\n- Max tokens (default 1000).\n- Preserve structure flag: when true, the summary mirrors the section structure of the input.\n\n## Outputs\n\nA JSON record with the summary text and metadata including compression ratio and model information.\n\n## Notes\n\n- Feed this cap the output of [Disbind PDF Into Pages](https://capdag.com/browse/cap:in=\"media:pdf\";op=disbind;out=\"media:textable;page\") to summarize PDFs page by page.\n- For very long documents, chunk them upstream and summarize each chunk, then summarize the summaries.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Text content to summarize"
+    },
+    {
+      "media_urn": "media:summary-type;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--summary-type"
+        }
+      ],
+      "arg_description": "Type of summary to generate",
+      "default_value": "abstractive"
+    },
+    {
+      "media_urn": "media:output-length;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--length"
+        }
+      ],
+      "arg_description": "Desired summary length",
+      "default_value": "medium"
+    },
+    {
+      "media_urn": "media:summary-focus;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--focus"
+        }
+      ],
+      "arg_description": "Summary focus area",
+      "default_value": "main_points"
+    },
+    {
+      "media_urn": "media:summary-contextable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--context"
+        }
+      ],
+      "arg_description": "Additional context for summarization"
+    },
+    {
+      "media_urn": "media:max-tokens;inference;limit;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum tokens for summary output",
+      "default_value": 1000
+    },
+    {
+      "media_urn": "media:preserve-structure-flag;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--preserve-structure"
+        }
+      ],
+      "arg_description": "Whether to preserve document structure",
+      "default_value": false
+    },
+    {
+      "media_urn": "media:model-spec;textable;llm",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for summarization",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:generated-text;textable;record",
+    "output_description": "Summary with metadata including compression metrics"
+  }
+}

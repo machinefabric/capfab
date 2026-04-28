@@ -1,0 +1,12 @@
+{
+  "urn": "media:list;record;textable;yaml",
+  "media_type": "application/yaml",
+  "title": "YAML List of Mappings",
+  "profile_uri": "https://capdag.com/schema/yaml",
+  "description": "YAML sequence where each item is a mapping with key-value structure",
+  "documentation": "## Purpose\nRepresents a YAML sequence in which every item is a mapping with key-value fields. This shape corresponds to tabular or collection data serialised as YAML — for example a list of tasks, records, or configuration entries.\n\n## When to use\nUse `media:list;record;textable;yaml` when a node produces or consumes a homogeneous YAML list of mappings. For a general YAML list without a record constraint, use [YAML List](https://capdag.com/browse/media:list;textable;yaml).\n\n## Notes\nConsumers may assume all items share a common set of keys, but should handle optional or missing keys gracefully. The `textable` tag allows this type to flow to any generic text consumer.\n",
+  "extensions": [
+    "yaml",
+    "yml"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "urn": "media:max-task-attempts;tasks;retry;operator;task;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Maximum number of attempts before a task permanently fails",
+  "profile_uri": "https://capdag.com/schema/task-max-attempts",
+  "description": "Maximum number of attempts before a task permanently fails",
+  "metadata": {
+    "category": "task",
+    "subcategory": "task_retry",
+    "display_index": 2,
+    "ui_type": "SETTING_UI_TYPE_NUMBER_FIELD",
+    "data_type": "SETTING_DATA_TYPE_UNSIGNED_INTEGER",
+    "default": 3,
+    "overridable_by": [
+      "user"
+    ]
+  },
+  "validation": {
+    "min": 1,
+    "max": 10
+  }
+}

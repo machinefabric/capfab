@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:integer;numeric;textable\";op=coerce;out=media:record",
+  "command": "coerce",
+  "title": "Coerce Integer to Object",
+  "cap_description": "Wrap an integer value in a record",
+  "documentation": "## Purpose\n\nWraps an integer value in a record so it can be passed to caps that expect a structured record input.\n\n## Inputs\n\nAn integer value (media type `media:integer;numeric;textable`).\n\n## Outputs\n\nA record containing the integer value.\n\n## Notes\n\n- Type adapter for the capfab planner.\n- Use when connecting an integer-producing cap to a record-consuming cap.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:integer;numeric;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:integer;numeric;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:record",
+    "output_description": "Coerced value"
+  }
+}

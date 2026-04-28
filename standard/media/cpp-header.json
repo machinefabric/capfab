@@ -1,0 +1,14 @@
+{
+  "urn": "media:cpp-header;textable;code",
+  "media_type": "text/x-c++",
+  "title": "C++ Header",
+  "profile_uri": "https://capdag.com/schema/cpp-header",
+  "description": "C++ header file",
+  "documentation": "## Purpose\nC++ header files declare class definitions, template implementations, inline functions, and other interface elements shared across [C++ Source](https://capdag.com/browse/media:cpp;textable;code) files. Unlike C, C++ headers frequently contain full template and inline function bodies.\n\n## When to use\nUse [C++ Header](https://capdag.com/browse/media:cpp-header;textable;code) for files with extensions `.hpp`, `.hh`, `.hxx`, or `.h++`. Plain `.h` files that contain C++ content are covered by [C Header](https://capdag.com/browse/media:c-header;textable;code) unless the context clearly indicates C++.\n\n## Notes\nC++ headers frequently contain substantial implementation code, particularly for templates and inline methods, which makes the traditional header/source split less clear than in C. Header-only libraries are common in modern C++ (e.g., Catch2, nlohmann/json) and consist entirely of this media type. Module interfaces introduced in C++20 (`.ixx`, `.cppm`) represent a new alternative to traditional headers.\n",
+  "extensions": [
+    "hpp",
+    "hh",
+    "hxx",
+    "h++"
+  ]
+}

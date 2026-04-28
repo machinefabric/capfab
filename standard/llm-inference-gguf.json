@@ -1,0 +1,24 @@
+{
+  "urn": "cap:gguf;in=\"media:json;llm-generation-request;record\";llm;ml-model;op=llm_inference;out=\"media:llm-text-stream;ndjson\"",
+  "command": "inference",
+  "title": "LLM Text Generation (GGUF)",
+  "cap_description": "Generate text using GGUF models with llama.cpp backend. Output is NDJSON streaming tokens.",
+  "documentation": "## Purpose\n\nRuns autoregressive text generation using quantized GGUF models via llama.cpp. Accepts a fully-structured generation request and streams output as NDJSON tokens. This is the primary low-level inference cap for GGUF-based pipelines.\n\n## Inputs\n\nA single JSON generation request record containing: the prompt, model spec (HuggingFace GGUF repo or local path), sampling parameters (temperature, top-k, top-p, min-p, repeat penalty, max tokens, seed, context length), and an optional system prompt.\n\n## Outputs\n\nAn NDJSON stream. Each line is a JSON object carrying token text, status events (`started`, `complete`), and a final summary with token counts and timing.\n\n## Notes\n\n- Every execution is streaming — there is no non-streaming mode.\n- GGUF quantization reduces memory requirements significantly. Q8_0 preserves most accuracy; Q4_K_M is a good balance of size and quality.\n- For constrained output (JSON schema, regex), use [Constrained LLM Generation (GGUF)](https://capdag.com/browse/cap:constrained;gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_inference_constrained;out=\"media:llm-text-stream;ndjson\").\n- For Apple Silicon, prefer [LLM Text Generation (MLX)](https://capdag.com/browse/cap:in=\"media:llm-generation-request;json;record\";llm;ml-model;mlx;op=llm_inference;out=\"media:llm-text-stream;ndjson\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:llm-generation-request;json;record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:llm-generation-request;json;record"
+        }
+      ],
+      "arg_description": "The generation request containing prompt, model spec, and parameters"
+    }
+  ],
+  "output": {
+    "media_urn": "media:llm-text-stream;ndjson",
+    "output_description": "NDJSON stream of tokens, status updates, and completion message"
+  }
+}

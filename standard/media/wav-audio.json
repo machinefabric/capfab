@@ -1,0 +1,11 @@
+{
+  "urn": "media:wav;audio",
+  "media_type": "audio/wav",
+  "title": "WAV Audio",
+  "profile_uri": "https://capdag.com/schema/wav",
+  "description": "Audio data (WAV, MP3, etc.)",
+  "documentation": "## Purpose\nGeneric audio media type for WAV-encoded audio without additional semantic constraints. Covers any waveform content regardless of what it contains (music, speech, sound effects, recordings).\n\n## When to use\nUse `media:wav;audio` when the semantic role of the audio is not specified or when the consumer can handle arbitrary audio content. If the content is specifically speech for transcription, prefer [Speech Audio](https://capdag.com/browse/media:audio;speech;wav) instead.\n\n## Notes\nDespite the description mentioning MP3 and other formats, the MIME type and extension for this spec are WAV. Other audio formats have their own dedicated media specs.\n",
+  "extensions": [
+    "wav"
+  ]
+}

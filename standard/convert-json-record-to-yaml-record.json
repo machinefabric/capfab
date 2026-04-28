@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:json;record;textable\";op=convert_format;out=\"media:record;textable;yaml\"",
+  "command": "convert_format",
+  "title": "Convert JSON Object to YAML Mapping",
+  "cap_description": "Convert a JSON object to a YAML mapping",
+  "documentation": "## Purpose\n\nConverts a single JSON object into a YAML mapping. Use this when a downstream cap or configuration system expects a YAML mapping but the upstream produces a JSON object.\n\n## Inputs\n\nA JSON object (record).\n\n## Outputs\n\nA YAML mapping.\n\n## Notes\n\n- Semantically lossless for all JSON types that YAML supports.\n- For the reverse, use [Convert YAML Mapping to JSON Object](https://capdag.com/browse/cap:in=\"media:record;textable;yaml\";op=convert_format;out=\"media:json;record;textable\").\n- For arrays of objects, use [Convert JSON Array of Objects to YAML List of Mappings](https://capdag.com/browse/cap:in=\"media:json;list;record;textable\";op=convert_format;out=\"media:list;record;textable;yaml\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:json;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:json;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "JSON object to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:record;textable;yaml",
+    "output_description": "YAML formatted mapping"
+  }
+}

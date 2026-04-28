@@ -1,0 +1,12 @@
+{
+  "urn": "media:zstd;archive",
+  "media_type": "application/zstd",
+  "title": "Zstandard Archive",
+  "profile_uri": "https://capdag.com/schema/zstd",
+  "description": "Zstandard compressed archive",
+  "documentation": "## Purpose\nZstandard (zstd) is a modern, fast compression algorithm developed by Meta that provides compression ratios comparable to [GZIP](https://capdag.com/browse/media:gzip;archive) or better while operating significantly faster in both compression and decompression. It is designed for real-time compression scenarios.\n\n## When to use\nUse [Zstandard Archive](https://capdag.com/browse/media:zstd;archive) when compression speed and decompression latency matter — for example, in data pipelines, streaming storage backends, or packaging large datasets where wait time affects throughput. Zstd supports trained dictionaries that dramatically improve ratio on small files.\n\n## Notes\nZstd has a configurable compression level from 1 (fastest) to 22 (maximum ratio), with level 3 being the typical balance. It is natively supported in Linux kernels (since 5.1), most modern package managers, and Facebook's RocksDB. For bundling multiple files, pair with [TAR Archive](https://capdag.com/browse/media:tar;archive) to produce `.tar.zst`.\n",
+  "extensions": [
+    "zst",
+    "zstd"
+  ]
+}

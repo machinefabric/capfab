@@ -1,0 +1,17 @@
+{
+  "urn": "media:raw;image",
+  "media_type": "image/x-raw",
+  "title": "RAW Image",
+  "profile_uri": "https://capdag.com/schema/raw",
+  "description": "Camera RAW image data",
+  "documentation": "## Purpose\nRepresents unprocessed sensor data captured directly by a digital camera, before demosaicing and colour processing. RAW files preserve maximum dynamic range and allow full control over white balance, exposure, and noise reduction in post-processing.\n\n## When to use\nUse `media:raw;image` when a node ingests or produces camera RAW files, such as an image ingestion pipeline, a RAW converter, or a photo library management tool. RAW files should be converted to a standard format like [JPEG Image](https://capdag.com/browse/media:jpeg;image) or [TIFF Image](https://capdag.com/browse/media:tiff;image) before passing to nodes that do not support RAW decoding.\n\n## Notes\nRAW formats are vendor-specific and vary widely (CR2 for Canon, NEF for Nikon, ARW for Sony, DNG as an open standard). Nodes that process RAW files should use a library such as LibRaw or dcraw. DNG is preferred when a portable RAW format is required.\n",
+  "extensions": [
+    "raw",
+    "cr2",
+    "nef",
+    "arw",
+    "dng",
+    "orf",
+    "rw2"
+  ]
+}

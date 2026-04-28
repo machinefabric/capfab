@@ -1,0 +1,60 @@
+{
+  "urn": "cap:in=\"media:image;png\";ml-model;mlx;op=describe_image;out=\"media:image-description;textable\";vision",
+  "command": "describe_image",
+  "title": "Describe Image (MLX)",
+  "cap_description": "Generate detailed image descriptions using MLX-based vision-language models on Apple Silicon",
+  "documentation": "## Purpose\n\nGenerates detailed, instruction-following natural-language descriptions of images using MLX-optimized vision-language models on Apple Silicon. Supports local file paths and HTTP(S) URLs as input. Delivers fast, energy-efficient vision inference on Mac M-series hardware.\n\n## Inputs\n\n- A model spec (MLX HuggingFace repo or local path). Defaults to `Qwen3-VL-4B-Instruct-4bit`.\n- A PNG image file (local path or HTTP(S) URL).\n- A text prompt (default: \"Describe this image in detail.\"). Customize to ask specific questions.\n- Max tokens (default 256).\n\n## Outputs\n\nA text description of the image as a plain string.\n\n## Notes\n\n- Requires Apple Silicon (M1 or later).\n- Qwen3-VL and similar vision-language models can answer detailed questions, read text in images (OCR), identify objects, and describe scenes.\n- This cap accepts HTTP(S) URLs directly in the file path argument, unlike the GGUF and Candle variants which require local paths.\n- For cross-platform pipelines, use [Describe Image (GGUF)](https://capdag.com/browse/cap:gguf;in=\"media:image;png\";ml-model;op=describe_image;out=\"media:image-description;textable\";vision).\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;mlx;textable;vision",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model"
+        }
+      ],
+      "arg_description": "Path to MLX vision model directory",
+      "default_value": "hf:mlx-community/Qwen3-VL-4B-Instruct-4bit"
+    },
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:image;png"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the image file to describe (local path or HTTP(S) URL)"
+    },
+    {
+      "media_urn": "media:textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--prompt"
+        }
+      ],
+      "arg_description": "Text prompt for the image description",
+      "default_value": "Describe this image in detail."
+    },
+    {
+      "media_urn": "media:max-tokens;inference;limit;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum number of tokens to generate",
+      "default_value": 256
+    }
+  ],
+  "output": {
+    "media_urn": "media:image-description;textable",
+    "output_description": "Text description of the image"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "urn": "media:clojure;textable;code",
+  "media_type": "text/x-clojure",
+  "title": "Clojure Source",
+  "profile_uri": "https://capdag.com/schema/clojure",
+  "description": "Clojure programming language source code",
+  "documentation": "## Purpose\nClojure source files contain code written in Clojure, a dynamically typed, functional Lisp dialect that runs on the JVM (`.clj`), JavaScript runtimes via ClojureScript (`.cljs`), or both via reader conditionals (`.cljc`). Clojure emphasizes immutable data structures, persistent collections, and software transactional memory.\n\n## When to use\nUse [Clojure Source](https://capdag.com/browse/media:clojure;textable;code) for `.clj` JVM files, `.cljs` ClojureScript files, `.cljc` portable files targeting multiple platforms, and `.edn` Extensible Data Notation data files (used for configuration, data exchange, and Clojure data literals). Clojure projects are typically built with Leiningen or the Clojure CLI (`deps.edn`).\n\n## Notes\nEDN (`.edn`) is a data format, not executable code, but it shares Clojure's reader syntax and is processed by the same toolchain. ClojureScript compiles to JavaScript and targets browser or Node.js environments; platform-specific APIs differ from JVM Clojure. Clojure's macro system and dynamic nature make static analysis harder than for statically typed languages — most Clojure tooling relies on runtime instrumentation or REPL evaluation.\n",
+  "extensions": [
+    "clj",
+    "cljs",
+    "cljc",
+    "edn"
+  ]
+}

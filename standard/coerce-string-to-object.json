@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=media:textable;op=coerce;out=media:record",
+  "command": "coerce",
+  "title": "Coerce String to Object",
+  "cap_description": "Wrap a string value in a record",
+  "documentation": "## Purpose\n\nWraps a string value in a record so it can be passed to caps that expect a structured record input. The string is stored under a standard key in the output record.\n\n## Inputs\n\nA textable string value (media type `media:textable`).\n\n## Outputs\n\nA record containing the string value.\n\n## Notes\n\n- Type adapter for the capfab planner.\n- For the reverse, use [Coerce Object to String](https://capdag.com/browse/cap:in=media:record;op=coerce;out=media:textable).\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:record",
+    "output_description": "Coerced value"
+  }
+}

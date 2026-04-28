@@ -1,0 +1,11 @@
+{
+  "urn": "media:filter-pattern;textable",
+  "media_type": "text/plain",
+  "title": "Filter Pattern",
+  "profile_uri": "https://capdag.com/schema/filter_pattern",
+  "description": "Filter Pattern value",
+  "documentation": "## Purpose\n\nFilter Pattern is a text string that defines a matching rule used to select items from a collection. It acts as a general-purpose selector, and its syntax (glob, regex, or substring) depends on the consuming node.\n\n## When to use\n\nUse this media type when a node needs a caller-supplied pattern to narrow down a set of inputs, files, or results. Combine it with [Include Pattern](https://capdag.com/browse/media:include-pattern;textable) and [Exclude Pattern](https://capdag.com/browse/media:exclude-pattern;textable) for fine-grained control over what passes through.\n\n## Notes\n\nThe validation constraint forbids null bytes, but otherwise any printable string is accepted. Consult the documentation of the consuming node to understand whether the pattern is interpreted as a glob, a regular expression, or a literal substring.\n",
+  "validation": {
+    "pattern": "^[^\\0]*$"
+  }
+}

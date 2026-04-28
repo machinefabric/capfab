@@ -1,0 +1,12 @@
+{
+  "urn": "media:gzip;archive",
+  "media_type": "application/gzip",
+  "title": "GZIP Archive",
+  "profile_uri": "https://capdag.com/schema/gzip",
+  "description": "GNU zip compressed archive",
+  "documentation": "## Purpose\nGZIP is a single-file compression format using the DEFLATE algorithm, defined in RFC 1952. It compresses one input stream and is the most universally available compression format on Unix-like systems.\n\n## When to use\nUse [GZIP Archive](https://capdag.com/browse/media:gzip;archive) when compressing a single file for transfer or storage and broad toolchain compatibility is important. GZIP is the standard compression layer for HTTP content encoding and is natively supported by virtually every operating system and programming language.\n\n## Notes\nGZIP operates on a single stream and cannot bundle multiple files; use [TAR.GZ](https://capdag.com/browse/media:targz;archive) to compress a directory tree. Compression ratio is moderate — [XZ](https://capdag.com/browse/media:xz;archive) and [Zstandard](https://capdag.com/browse/media:zstd;archive) offer better ratios or speed respectively. The `.gz` extension may also appear alongside other extensions (e.g., `.json.gz`) indicating a gzip-wrapped file of another type.\n",
+  "extensions": [
+    "gz",
+    "gzip"
+  ]
+}

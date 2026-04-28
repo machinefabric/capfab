@@ -1,0 +1,11 @@
+{
+  "urn": "media:opus;audio",
+  "media_type": "audio/opus",
+  "title": "Opus Audio",
+  "profile_uri": "https://capdag.com/schema/opus",
+  "description": "Opus audio data",
+  "documentation": "## Purpose\nRepresents an Opus-encoded audio file, an open and patent-free codec designed for low-latency speech and music transmission over networks. Opus delivers excellent quality across a wide range of bitrates and is the recommended codec for WebRTC and internet audio streaming.\n\n## When to use\nUse `media:opus;audio` when a node produces or consumes Opus audio, such as voice communication recordings, WebRTC captures, or streaming audio pipeline outputs. For general compressed audio, see [OGG Audio](https://capdag.com/browse/media:ogg;audio) or [AAC Audio](https://capdag.com/browse/media:aac;audio).\n\n## Notes\nOpus files are typically wrapped in an Ogg container (`.opus` extension). The codec is optimised for low latency and handles both speech and music well. Whisper and similar transcription models can accept Opus audio directly in many implementations.\n",
+  "extensions": [
+    "opus"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "urn": "media:node4;textable",
+  "media_type": "text/plain",
+  "title": "Test Node 4 (Text)",
+  "description": "Text items for fan-out/fan-in testing",
+  "documentation": "Internal test media type. Used only in capfab test scenarios.\n",
+  "extensions": [
+    "testxt"
+  ]
+}

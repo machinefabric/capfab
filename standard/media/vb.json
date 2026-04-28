@@ -1,0 +1,13 @@
+{
+  "urn": "media:vb;textable;code",
+  "media_type": "text/x-vb",
+  "title": "Visual Basic Source",
+  "profile_uri": "https://capdag.com/schema/vb",
+  "description": "Visual Basic programming language source code",
+  "documentation": "## Purpose\nVisual Basic source files contain code written in Visual Basic (VB.NET) or its legacy predecessor Visual Basic 6. VB.NET is a .NET language that offers a gentle syntax for developers coming from classic BASIC, while sharing the full .NET runtime with [C# Source](https://capdag.com/browse/media:csharp;textable;code) and [F# Source](https://capdag.com/browse/media:fsharp;textable;code).\n\n## When to use\nUse [Visual Basic Source](https://capdag.com/browse/media:vb;textable;code) for `.vb` VB.NET files, `.vbs` VBScript files used in Windows automation and legacy web ASP, and `.bas` BASIC module files from Visual Basic 6 projects. Treat `.vbs` files with care as they are often used in scripting contexts distinct from compiled .NET code.\n\n## Notes\nVB.NET and VB6 are syntactically similar but not directly compatible; VB6 lacks many .NET features and its runtime is separate. VBScript (`.vbs`) is an even more restricted subset used in Windows Script Host and Internet Explorer. Implementers should distinguish these three variants based on file extension and context before applying language-specific tooling.\n",
+  "extensions": [
+    "vb",
+    "vbs",
+    "bas"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:woff2;font",
+  "media_type": "font/woff2",
+  "title": "WOFF2 Font",
+  "profile_uri": "https://capdag.com/schema/woff2",
+  "description": "Web Open Font Format 2 data",
+  "documentation": "## Purpose\nWOFF2 (Web Open Font Format 2) is the modern web font container format that uses Brotli compression to achieve significantly smaller file sizes than WOFF 1.0. The [WOFF2 Font](https://capdag.com/browse/media:woff2;font) media type represents any `.woff2` file conforming to the W3C WOFF2 specification.\n\n## When to use\nUse this type when a node produces or consumes web fonts for CSS `@font-face` delivery to modern browsers. WOFF2 is the recommended format for web font distribution, offering 30% smaller files than WOFF on average. All current browsers support it. For environments requiring IE support, also provide a [WOFF](https://capdag.com/browse/media:woff;font) fallback.\n\n## Notes\nWOFF2 uses a custom Brotli-based compression scheme applied to a transformed font table representation, not to raw sfnt tables. Implementers should use the `woff2` C++ library (by Google) or FontTools to convert between WOFF2 and TTF/OTF. The `;font` tag indicates this is a font artifact.\n",
+  "extensions": [
+    "woff2"
+  ]
+}

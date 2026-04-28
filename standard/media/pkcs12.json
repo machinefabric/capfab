@@ -1,0 +1,12 @@
+{
+  "urn": "media:pkcs12",
+  "media_type": "application/x-pkcs12",
+  "title": "PKCS#12 Certificate",
+  "profile_uri": "https://capdag.com/schema/pkcs12",
+  "description": "PKCS#12 certificate bundle",
+  "documentation": "## Purpose\nPKCS#12 (also known as PFX) is a binary format for bundling a private key, its corresponding certificate, and any intermediate CA certificates into a single password-protected file. The [PKCS#12 Certificate](https://capdag.com/browse/media:pkcs12) media type represents any `.p12` or `.pfx` file.\n\n## When to use\nUse this type when a node must transport a complete credential bundle — private key plus certificate chain — as a single artifact, for example when provisioning TLS client certificates for mutual authentication, exporting credentials from a CA, or importing into a Java keystore. For situations where only a certificate or key (without the other) is needed, use [PEM](https://capdag.com/browse/media:pem;textable).\n\n## Notes\nPKCS#12 files are binary DER-encoded ASN.1 structures; they are not human-readable. The file is typically encrypted with a passphrase that must be provided at load time. Implementers should use OpenSSL (`pkcs12` command) or a cryptography library (e.g., Python `cryptography.hazmat.primitives.serialization.pkcs12`) to read and write PKCS#12 files. Passphrases must be handled securely and never embedded in pipeline configurations as plaintext.\n",
+  "extensions": [
+    "p12",
+    "pfx"
+  ]
+}

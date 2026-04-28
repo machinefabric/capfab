@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:integer;numeric;textable\";op=coerce;out=\"media:numeric;textable\"",
+  "command": "coerce",
+  "title": "Coerce Integer to Number",
+  "cap_description": "Widen an integer to a floating-point number",
+  "documentation": "## Purpose\n\nWidens an integer to a floating-point number. Use this when a downstream cap requires a numeric (float) type but the upstream produces an integer.\n\n## Inputs\n\nAn integer value (media type `media:integer;numeric;textable`).\n\n## Outputs\n\nThe same value as a floating-point number.\n\n## Notes\n\n- Widening conversion — no precision is lost for integers that fit in a 64-bit float (which is all practical integer values).\n- For the narrowing direction (float to int), use [Coerce Number to Integer](https://capdag.com/browse/cap:in=\"media:numeric;textable\";op=coerce;out=\"media:integer;numeric;textable\") which truncates.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:integer;numeric;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:integer;numeric;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:numeric;textable",
+    "output_description": "Coerced value"
+  }
+}

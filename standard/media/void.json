@@ -1,0 +1,8 @@
+{
+  "urn": "media:void",
+  "media_type": "application/x-void",
+  "title": "Void Value",
+  "profile_uri": "https://capdag.com/schema/void",
+  "description": "No value / void return type",
+  "documentation": "## Purpose\nThe [Void Value](https://capdag.com/browse/media:void) media type represents the absence of a value — analogous to `void` in programming languages or `null` in type theory. It is used to type ports or outputs that carry no data payload.\n\n## When to use\nUse this type for node outputs that signal completion or success without returning any data — for example, a side-effectful node that writes to a database and has nothing to return, or a terminal sink node. It is also appropriate as the type of an optional input port whose absence is meaningful.\n\n## Notes\nA void value produces no bytes; its byte length is always zero. Implementers should not transmit any payload when producing a void value, and consumers should ignore any payload bytes if present. This type is intentionally distinct from an empty byte sequence (`media:`) to make the semantic \"no output\" explicit in the graph schema.\n"
+}

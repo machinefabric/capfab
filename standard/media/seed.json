@@ -1,0 +1,12 @@
+{
+  "urn": "media:seed;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Seed",
+  "profile_uri": "https://capdag.com/schema/seed",
+  "description": "Seed numeric value",
+  "documentation": "## Purpose\nAn unsigned integer used to initialize the random number generator, making model outputs reproducible across runs when all other parameters are held constant.\n\n## When to use\nSupply a seed when you need deterministic output for testing, debugging, or auditing. Leave it unset in production when varied outputs are desirable.\n\n## Notes\nValid range: 0–4294967295 (32-bit unsigned). Reproducibility depends on the runtime and hardware; results may differ across framework versions or GPU configurations even with the same seed. See [Sampling Seed](https://capdag.com/browse/media:sampling-seed;inference;sampling;user;task;textable;numeric) for the inference-specific variant with richer metadata.\n",
+  "validation": {
+    "min": 0,
+    "max": 4294967295
+  }
+}

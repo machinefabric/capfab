@@ -1,0 +1,11 @@
+{
+  "urn": "media:json;list;record;textable",
+  "media_type": "application/json",
+  "title": "JSON Array of Objects",
+  "profile_uri": "https://capdag.com/schema/json",
+  "description": "JSON array where each element is an object with key-value fields",
+  "documentation": "## Purpose\nRepresents a JSON array in which every element is a JSON object with key-value fields. This is the typical shape of tabular data or collections of structured records serialised as JSON.\n\n## When to use\nUse `media:json;list;record;textable` when a node produces or consumes a homogeneous array of objects — for example a list of search results, database rows, or structured log entries. For a simple array of mixed values, use [JSON Array](https://capdag.com/browse/media:json;textable;list).\n\n## Notes\nConsumers may assume all elements share the same field names, but should handle missing or null fields gracefully. The `textable` tag allows this type to flow to any generic text consumer.\n",
+  "extensions": [
+    "json"
+  ]
+}

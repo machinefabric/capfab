@@ -1,0 +1,11 @@
+{
+  "urn": "media:otf;font",
+  "media_type": "font/otf",
+  "title": "OpenType Font",
+  "profile_uri": "https://capdag.com/schema/otf",
+  "description": "OpenType font data",
+  "documentation": "## Purpose\nOpenType is a font format built on TrueType that adds support for CFF/CFF2 cubic Bezier outlines, advanced typographic features (ligatures, kerning, contextual alternates), and extended Unicode character coverage. The [OpenType Font](https://capdag.com/browse/media:otf;font) media type represents any `.otf` binary font file.\n\n## When to use\nUse this type when a node produces or consumes professional-grade desktop fonts with advanced OpenType layout features — for example, text rendering pipelines, publishing tools, or font packaging workflows. OpenType is the preferred format for high-quality typography; for web delivery use [WOFF2](https://capdag.com/browse/media:woff2;font).\n\n## Notes\nOpenType files share the `sfnt` table structure with TrueType but may use CFF outlines in the `CFF ` or `CFF2` table instead of `glyf`. Implementers can distinguish CFF from TrueType outlines by checking which table is present. FontTools (`fonttools` Python package) and HarfBuzz are the standard open-source libraries for OpenType manipulation. The `;font` tag indicates this is a font artifact.\n",
+  "extensions": [
+    "otf"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:icns;image",
+  "media_type": "image/icns",
+  "title": "ICNS Icon",
+  "profile_uri": "https://capdag.com/schema/icns",
+  "description": "macOS icon image data",
+  "documentation": "## Purpose\nRepresents an Apple ICNS file, the native macOS icon container format. ICNS files store multiple resolutions and pixel densities of an icon in a single file, from 16x16 to 1024x1024, including Retina variants.\n\n## When to use\nUse `media:icns;image` when a node produces or consumes macOS application icons. ICNS files are required when packaging macOS applications and are not used on other platforms. For cross-platform icon formats, see [ICO Icon](https://capdag.com/browse/media:ico;image).\n\n## Notes\nAn ICNS file is a container of multiple image representations. Tools that generate ICNS files typically require PNG source images at each supported resolution. Direct pixel-level access requires parsing the ICNS container structure.\n",
+  "extensions": [
+    "icns"
+  ]
+}

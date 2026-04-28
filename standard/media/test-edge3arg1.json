@@ -1,0 +1,7 @@
+{
+  "title": "Test Edge 3 Arg 1 (Transform)",
+  "description": "Optional text to add to each file during folder fan-out processing",
+  "documentation": "Internal test media type. Used only in capfab test scenarios.\n",
+  "media_type": "text/plain",
+  "urn": "media:edge3arg1;textable"
+}

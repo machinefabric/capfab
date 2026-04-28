@@ -1,0 +1,16 @@
+{
+  "urn": "media:llama;llm;model-spec;textable",
+  "media_type": "text/plain",
+  "title": "Llama Family LLM Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Model specification for Llama-family instruct models. Uses header_id chat template.",
+  "documentation": "## Purpose\nTags a model spec as belonging to the Llama model family, enabling the runtime to apply the `<|header_id|>` / `<|eot_id|>` chat template used by Llama 3 and compatible models.\n\n## When to use\nThis tag is added automatically during content inspection. Use it in cap selectors when you want to explicitly target Llama-family instruct models regardless of backend.\n\n## Notes\nLlama-family GGUF models resolve to `media:gguf;llama;llm;model-spec;textable` after full resolution. Llama 2 and Llama 3 use different template syntax; the runtime should detect the exact variant from the model's embedded chat template.\n",
+  "extensions": [
+    "txt"
+  ],
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

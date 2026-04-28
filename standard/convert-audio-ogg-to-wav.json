@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:audio;ogg\";op=convert_audio;out=\"media:audio;wav\"",
+  "command": "convert-audio",
+  "title": "Convert OGG to WAV",
+  "cap_description": "Decode OGG (Vorbis) to uncompressed WAV (PCM)",
+  "documentation": "## Purpose\n\nDecodes an OGG-Vorbis file and writes it as 16-bit signed PCM WAV.\n\n## Inputs\n\nAn OGG file containing a Vorbis stream.\n\n## Outputs\n\nA 16-bit signed PCM WAV file at the source's native sample rate and channel count.\n\n## Notes\n\nOnly Vorbis streams in OGG are supported. For Opus-in-OGG, use the dedicated Opus conversion cap.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:ogg;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the OGG file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:wav;audio",
+    "output_description": "16-bit PCM WAV"
+  }
+}

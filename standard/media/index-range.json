@@ -1,0 +1,11 @@
+{
+  "urn": "media:index-range;textable",
+  "media_type": "text/plain",
+  "title": "Index Range",
+  "profile_uri": "https://capdag.com/schema/index_range",
+  "description": "Index Range value",
+  "documentation": "## Purpose\nSpecifies a numeric range of indices in the format `N` (single index) or `N-M` (inclusive range from N to M), used to select a subset of items from an ordered collection.\n\n## When to use\nUse this type to select pages, lines, chunks, or records by position. Supply `5` to select index 5 only, or `2-7` to select indices 2 through 7 inclusive.\n\n## Notes\nPattern: `^\\d+(-\\d*)?$`. An open-ended range (e.g., `5-`) means \"from index 5 to the end\"; the machine must define this behavior. See [Pages](https://capdag.com/browse/media:pages) for page-specific document selection and [Outline Max Depth](https://capdag.com/browse/media:outline-max-depth;textable;numeric) for depth-based selection.\n",
+  "validation": {
+    "pattern": "^\\d+(-\\d*)?$"
+  }
+}

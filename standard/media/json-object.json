@@ -1,0 +1,11 @@
+{
+  "urn": "media:json;textable;record",
+  "media_type": "application/json",
+  "title": "JSON Object",
+  "profile_uri": "https://capdag.com/schema/json",
+  "description": "JSON formatted object document",
+  "documentation": "## Purpose\nRepresents a single JSON object (key-value map) as the primary payload. The `record` tag indicates a structured mapping, making this type suitable for configuration objects, API responses, and any structured data with named fields.\n\n## When to use\nUse `media:json;textable;record` when a node produces or consumes a JSON object at the top level. For a JSON array of objects, use [JSON Array of Objects](https://capdag.com/browse/media:json;list;record;textable). For a bare JSON value that may not be an object, use [JSON Value](https://capdag.com/browse/media:json;textable).\n\n## Notes\nThe `textable` tag allows this type to flow to any generic text consumer. Structured nodes should parse the JSON before processing field values.\n",
+  "extensions": [
+    "json"
+  ]
+}

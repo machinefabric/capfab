@@ -1,0 +1,49 @@
+{
+  "urn": "cap:in=\"media:rst;textable\";op=render_page_image;out=\"media:image;png\"",
+  "command": "render-page-image",
+  "title": "Render RST Page Image",
+  "cap_description": "Render a page-like PNG image preview of the RST document",
+  "documentation": "## Purpose\n\nRenders a reStructuredText (RST) file as a page-like PNG image. The RST markup is formatted and laid out, then captured as a PNG. Useful for generating document previews of RST documentation files.\n\n## Inputs\n\n- An RST file (path or stdin, media type `media:rst;textable`).\n- Page width in pixels (default 800).\n- Page height in pixels (default 1200).\n\n## Outputs\n\nA PNG image representing the rendered RST page.\n\n## Notes\n\n- RST is commonly used in Python project documentation (Sphinx). Use this cap when you need a visual preview of `.rst` files.\n- For plain text or Markdown, use [Render Text Page Image](https://capdag.com/browse/cap:in=\"media:txt;textable\";op=render_page_image;out=\"media:image;png\") or [Render Markdown Page Image](https://capdag.com/browse/cap:in=\"media:md;textable\";op=render_page_image;out=\"media:image;png\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:rst;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the RST file to process"
+    },
+    {
+      "media_urn": "media:page-image-width;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--width"
+        }
+      ],
+      "arg_description": "Width of the page image in pixels",
+      "default_value": 800
+    },
+    {
+      "media_urn": "media:page-image-height;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--height"
+        }
+      ],
+      "arg_description": "Height of the page image in pixels",
+      "default_value": 1200
+    }
+  ],
+  "output": {
+    "media_urn": "media:image;png",
+    "output_description": "PNG image data representing the rendered RST page"
+  }
+}

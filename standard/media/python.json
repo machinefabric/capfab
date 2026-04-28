@@ -1,0 +1,13 @@
+{
+  "urn": "media:python;textable;code",
+  "media_type": "text/x-python",
+  "title": "Python Source",
+  "profile_uri": "https://capdag.com/schema/python",
+  "description": "Python programming language source code",
+  "documentation": "## Purpose\nPython source files contain code written in the Python programming language, one of the most widely used general-purpose languages for scripting, data science, machine learning, web development, and automation.\n\n## When to use\nUse [Python Source](https://capdag.com/browse/media:python;textable;code) for any `.py` source file, including application code, scripts, and test files. The `.pyw` extension indicates a Windows GUI script that suppresses the console window; `.pyi` files are stub files used for static type checking and should be treated as Python source.\n\n## Notes\nPython source is plain text encoded in UTF-8 (PEP 3120). The language lacks a compiled binary form distributed to end users; it runs via the CPython interpreter or alternatives such as PyPy. Implementers performing static analysis should account for version differences (Python 2 vs. Python 3) as the syntax is not fully compatible between major versions.\n",
+  "extensions": [
+    "py",
+    "pyw",
+    "pyi"
+  ]
+}

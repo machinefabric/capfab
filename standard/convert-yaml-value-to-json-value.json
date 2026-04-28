@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:textable;yaml\";op=convert_format;out=\"media:json;textable\"",
+  "command": "convert_format",
+  "title": "Convert YAML Value to JSON",
+  "cap_description": "Convert a YAML scalar value to JSON format",
+  "documentation": "## Purpose\n\nConverts a YAML scalar value into its JSON representation. Use this for simple scalar type bridging between YAML-producing and JSON-consuming caps.\n\n## Inputs\n\nA YAML scalar value.\n\n## Outputs\n\nThe value in JSON format.\n\n## Notes\n\n- For mappings, use [Convert YAML Mapping to JSON Object](https://capdag.com/browse/cap:in=\"media:record;textable;yaml\";op=convert_format;out=\"media:json;record;textable\").\n- For sequences, use [Convert YAML List to JSON Array](https://capdag.com/browse/cap:in=\"media:list;textable;yaml\";op=convert_format;out=\"media:json;list;textable\").\n- For the reverse, use [Convert JSON Value to YAML](https://capdag.com/browse/cap:in=\"media:json;textable\";op=convert_format;out=\"media:textable;yaml\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable;yaml",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable;yaml"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "YAML value to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:json;textable",
+    "output_description": "JSON formatted value"
+  }
+}

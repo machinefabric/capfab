@@ -1,0 +1,11 @@
+{
+  "urn": "media:safetensors;model",
+  "media_type": "application/octet-stream",
+  "title": "SafeTensors Model",
+  "profile_uri": "https://capdag.com/schema/safetensors",
+  "description": "SafeTensors machine learning model",
+  "documentation": "## Purpose\nIdentifies a file in the SafeTensors format, a safe and fast alternative to PyTorch pickle files for storing model weights. SafeTensors files are commonly used for models distributed via HuggingFace and are required by the Candle backend.\n\n## When to use\nUse this type when a cap produces or consumes SafeTensors weight files. Models in this format are typically loaded by the Candle backend or any runtime that supports the HuggingFace Transformers ecosystem. See [Candle LLM Model Spec](https://capdag.com/browse/media:model-spec;candle;textable;llm) for the corresponding model reference type.\n\n## Notes\nA complete model in SafeTensors format usually consists of multiple `.safetensors` shards plus JSON configuration files in the same directory. Caps that load SafeTensors models typically expect a directory path rather than a single file path.\n",
+  "extensions": [
+    "safetensors"
+  ]
+}

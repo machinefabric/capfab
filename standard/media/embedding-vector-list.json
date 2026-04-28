@@ -1,0 +1,11 @@
+{
+  "urn": "media:embedding-vector;list;record;textable",
+  "media_type": "application/json",
+  "title": "Embedding Vector List",
+  "profile_uri": "https://capdag.com/schema/embedding-vector-list",
+  "description": "Batch of embedding vectors",
+  "documentation": "## Purpose\nWraps a collection of [Embedding Vector](https://capdag.com/browse/media:embedding-vector;textable;record) records produced from multiple documents or embedding passes in a single batch operation.\n\n## When to use\nUse this type when an embedding cap processes more than one source document in a single invocation and the caller needs all results returned together. Prefer the singular `embedding-vector` type when processing one document at a time.\n\n## Notes\nEach element in the list conforms to the same schema as a standalone embedding vector record. Consumers should iterate over entries and correlate them with their source documents by position or by the chunk metadata embedded in each entry.\n",
+  "extensions": [
+    "json"
+  ]
+}

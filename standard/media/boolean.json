@@ -1,0 +1,11 @@
+{
+  "urn": "media:bool;textable",
+  "media_type": "text/plain",
+  "title": "Boolean",
+  "profile_uri": "https://capdag.com/schema/bool",
+  "description": "Boolean value.",
+  "documentation": "## Purpose\nThe [Boolean](https://capdag.com/browse/media:bool;textable) type represents a single true/false value encoded as UTF-8 text.\n\n## When to use\nUse this type for scalar boolean outputs — for example, a validation result, a feature flag value, a predicate test outcome, or any binary decision. For sequences of booleans, use `media:bool;list;textable`.\n\n## Notes\nAccepted representations include `true`/`false`, `yes`/`no`, and `1`/`0` (case-insensitive). Implementers should normalize to a canonical form on output. The exact accepted vocabulary should be documented at the port if it diverges from this default set.\n",
+  "extensions": [
+    "txt"
+  ]
+}

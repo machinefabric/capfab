@@ -1,0 +1,12 @@
+{
+  "urn": "media:heic;image",
+  "media_type": "image/heic",
+  "title": "HEIC Image",
+  "profile_uri": "https://capdag.com/schema/heic",
+  "description": "High Efficiency Image Container data",
+  "documentation": "## Purpose\nRepresents a HEIC/HEIF image, the High Efficiency Image Container format used by Apple devices and other modern cameras. HEIC uses HEVC (H.265) compression and supports HDR, wide colour gamut, depth maps, and multiple images in a single file.\n\n## When to use\nUse `media:heic;image` when a node processes images captured by iOS devices or other HEIC-capable cameras. Because HEIC support is limited outside Apple platforms, pipelines that need broad compatibility should convert to [JPEG Image](https://capdag.com/browse/media:jpeg;image) or [PNG Image](https://capdag.com/browse/media:png) early in the workflow.\n\n## Notes\nHEIC files may contain multiple still images, live photo sequences, or depth data alongside the primary image. Consumers should handle both `.heic` and `.heif` extensions, as both refer to the same underlying container.\n",
+  "extensions": [
+    "heic",
+    "heif"
+  ]
+}

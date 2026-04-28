@@ -1,0 +1,8 @@
+{
+  "urn": "media:preserve-structure-flag;textable",
+  "media_type": "text/plain",
+  "title": "Preserve Structure Flag",
+  "profile_uri": "https://capdag.com/schema/preserve_structure_flag",
+  "description": "Preserve Structure Flag value",
+  "documentation": "## Purpose\nA boolean flag that instructs a machine to maintain the hierarchical or organizational structure of the input document in its output, even when content is summarized or extracted.\n\n## When to use\nEnable for document conversion, reformatting, or summarization tasks where section hierarchy, list structure, or table layout must be retained. Disable when flat or free-form output is sufficient.\n\n## Notes\nSee [Preserve All Data](https://capdag.com/browse/media:preserve-all-data;textable) when full content fidelity is required in addition to structure. See [Remove Boilerplate](https://capdag.com/browse/media:remove-boilerplate;textable) for the complementary operation of stripping non-essential structural elements.\n"
+}

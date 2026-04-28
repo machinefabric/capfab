@@ -1,0 +1,11 @@
+{
+  "urn": "media:gguf;model",
+  "media_type": "application/octet-stream",
+  "title": "GGUF Model",
+  "profile_uri": "https://capdag.com/schema/gguf",
+  "description": "GGUF machine learning model",
+  "documentation": "## Purpose\nIdentifies a binary file in the GGUF (GGML Universal File) format, the standard container for quantized LLM weights used by llama.cpp and compatible runtimes. GGUF files store model weights, vocabulary, and metadata in a single self-describing binary file.\n\n## When to use\nUse this type when a cap produces or consumes a GGUF model file directly. The GGUF format is the primary format for CPU and hybrid CPU/GPU inference. Use the corresponding model spec type [GGUF LLM Model Spec](https://capdag.com/browse/media:model-spec;gguf;textable;llm) to reference a GGUF model by identifier rather than by file.\n\n## Notes\nGGUF files are identified by the `.gguf` file extension and the `application/octet-stream` MIME type. A model repository may contain multiple GGUF files at different quantization levels; the `model-spec` query string can filter to the desired quantization using `include` and `exclude` glob patterns.\n",
+  "extensions": [
+    "gguf"
+  ]
+}

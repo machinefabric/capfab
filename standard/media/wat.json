@@ -1,0 +1,11 @@
+{
+  "urn": "media:wat;textable;code",
+  "media_type": "text/plain",
+  "title": "WebAssembly Text",
+  "profile_uri": "https://capdag.com/schema/wat",
+  "description": "WebAssembly text format",
+  "documentation": "## Purpose\nCarries WebAssembly Text Format (WAT) source, the human-readable S-expression representation of WebAssembly bytecode. WAT is used for debugging, manual authoring of small Wasm modules, and educational purposes.\n\n## When to use\nUse `media:wat;textable;code` when a pipeline node reads or writes WAT source — for example, a `wat2wasm` compilation step, a disassembly step converting a `.wasm` binary to readable WAT, or an educational tool that generates annotated Wasm examples.\n\n## Notes\nWAT and the binary Wasm format have a 1:1 correspondence; conversion between them is lossless via tools like `wat2wasm` and `wasm2wat` from the WebAssembly Binary Toolkit (WABT). For compiled binary modules, use [WebAssembly Binary](https://capdag.com/browse/media:wasm). See also [WebAssembly Text](https://capdag.com/browse/media:wat;textable;code).\n",
+  "extensions": [
+    "wat"
+  ]
+}

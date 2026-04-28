@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;mlx;textable;embeddings",
+  "media_type": "text/plain",
+  "title": "MLX Embeddings Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "MLX model specification for embedding vector generation on Apple Silicon.",
+  "documentation": "## Purpose\nIdentifies an MLX-format embedding model for producing dense text representations on Apple Silicon. This enables fast, energy-efficient embedding generation without the overhead of a GGUF runtime.\n\n## When to use\nUse this type when wiring an embedding cap that targets the MLX backend on Apple Silicon. The default points to a 4-bit MiniLM-L6-v2 model from mlx-community, suitable for general-purpose text similarity tasks.\n\n## Notes\nMLX embedding models follow the same directory layout as MLX LLM models. Pair with [Embedding Chunk Size](https://capdag.com/browse/media:embedding-chunk-size;search;limit;operator;task;textable;numeric) and [Embedding Chunk Overlap](https://capdag.com/browse/media:embedding-chunk-overlap;search;limit;operator;task;textable;numeric) parameters to control chunking.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:mlx-community/all-MiniLM-L6-v2-4bit"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

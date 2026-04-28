@@ -1,0 +1,50 @@
+name: Add Media Spec
+description: Submit one or more media spec definitions for inclusion in the registry.
+title: "Add media: <short title>"
+labels:
+  - add-media
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a media spec! Media specs describe a typed payload that flows between capabilities — its content type, profile, and any associated documentation.
+
+        Browse the existing specs in [`standard/media/`](https://github.com/machinefabric/capfab/tree/main/standard/media) for live examples of the JSON shape we accept. The schema is at [`media.schema.json`](https://github.com/machinefabric/capfab/blob/main/media.schema.json).
+
+        Each spec must have a unique URN, a `title`, a `media_type`, and clear `documentation` explaining when this type should be used vs. neighbouring types.
+  - type: textarea
+    id: payload
+    attributes:
+      label: Media spec JSON
+      description: One JSON object per media spec. Multiple specs can be wrapped in a JSON array.
+      render: json
+      placeholder: |
+        {
+          "urn": "media:png",
+          "media_type": "image/png",
+          "title": "Image Data",
+          "profile_uri": "https://capdag.com/schema/png",
+          "description": "Image data (PNG)",
+          "documentation": "## Purpose\n…\n## When to use\n…\n## Notes\n…\n",
+          "extensions": ["png"]
+        }
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this media spec needed?
+      description: What flows are blocked today because this type isn't in the registry? Which existing types are too general or too specific to fit your use case?
+      placeholder: |
+        I'm building … which produces … . Today the closest type is `media:…` but it conflates … with … . A separate type for `media:…` would let us route … without confusing it with … .
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I have searched [`standard/media/`](https://github.com/machinefabric/capfab/tree/main/standard/media) for an existing media spec covering this case.
+          required: true
+        - label: I understand that media URNs are tagged URNs, not strings — they are matched by tag presence and direction, never by string equality.
+          required: true

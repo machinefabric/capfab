@@ -1,0 +1,12 @@
+{
+  "urn": "media:chunk-size;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Chunk Size",
+  "profile_uri": "https://capdag.com/schema/chunk_size",
+  "description": "Chunk Size numeric value",
+  "documentation": "## Purpose\nSpecifies the maximum number of tokens or characters in a single chunk when splitting documents for processing. Controls the granularity of content segmentation.\n\n## When to use\nSet this parameter on chunking or ingestion machines that split large documents before passing them to models with limited context windows. Smaller chunks increase retrieval precision; larger chunks preserve more context per segment.\n\n## Notes\nValid range: 10–2000. Pair with [Chunk Overlap](https://capdag.com/browse/media:chunk-overlap;textable;numeric) to retain context across chunk boundaries, and with [Max Content Length](https://capdag.com/browse/media:max-content-length;textable;numeric) to ensure chunks fit within downstream limits.\n",
+  "validation": {
+    "max": 2000,
+    "min": 10
+  }
+}

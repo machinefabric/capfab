@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:video;webm\";op=extract_audio_track;out=\"media:audio;opus\"",
+  "command": "extract-audio",
+  "title": "Extract Audio Track from WebM",
+  "cap_description": "Demux the audio track from a WebM container and write it as an Opus file",
+  "documentation": "## Purpose\n\nExtracts the audio track from a WebM container and writes it as an Opus file (OGG-Opus). WebM uses Opus or Vorbis for audio; this cap targets Opus.\n\n## Inputs\n\nA WebM file with an Opus audio track.\n\n## Outputs\n\nAn Opus file (OGG-Opus). No re-encoding occurs.\n\n## Notes\n\nIf the WebM has a Vorbis audio track instead of Opus, this cap fails hard. There is no codec fallback.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:webm;video"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the WebM file"
+    }
+  ],
+  "output": {
+    "media_urn": "media:opus;audio",
+    "output_description": "Opus audio track"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:xml;textable",
+  "media_type": "application/xml",
+  "title": "XML Document",
+  "profile_uri": "https://capdag.com/schema/xml",
+  "description": "XML formatted document",
+  "documentation": "## Purpose\nRepresents an XML document with a well-formed tree structure of elements, attributes, and text nodes. XML is used for data interchange, configuration, document markup, and protocol payloads across many domains.\n\n## When to use\nUse `media:xml;textable` when a node produces or consumes XML content — for example a web service response, a configuration file, or a document format such as XHTML or SVG source. For SVG specifically, prefer [SVG Image](https://capdag.com/browse/media:svg;image;textable).\n\n## Notes\nConsumers that process XML should use a namespace-aware XML parser. Documents may include an XML declaration, a DOCTYPE, or external entity references; parsers should be configured to handle these safely.\n",
+  "extensions": [
+    "xml"
+  ]
+}

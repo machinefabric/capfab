@@ -1,0 +1,11 @@
+{
+  "urn": "media:pages",
+  "media_type": "application/vnd.apple.pages",
+  "title": "Apple Pages",
+  "profile_uri": "https://capdag.com/schema/pages",
+  "description": "Apple Pages document data",
+  "documentation": "## Purpose\nCarries the binary content of an Apple Pages document (`.pages` file) for processing by machines that support the Pages format.\n\n## When to use\nUse this media type when a pipeline ingests Apple Pages files directly, such as a document conversion or extraction machine. For page-number selection within a document, use [Index Range](https://capdag.com/browse/media:index-range;textable) alongside the appropriate document media type.\n\n## Notes\nMIME type is `application/vnd.apple.pages`. Machines that consume this type typically convert it to a more portable format (PDF, plain text, or HTML) as a first step. Not all document processing machines support the Pages format natively.\n",
+  "extensions": [
+    "pages"
+  ]
+}

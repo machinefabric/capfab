@@ -1,0 +1,12 @@
+{
+  "urn": "media:coreml;model",
+  "media_type": "application/octet-stream",
+  "title": "Core ML Model",
+  "profile_uri": "https://capdag.com/schema/coreml",
+  "description": "Apple Core ML machine learning model",
+  "documentation": "## Purpose\nIdentifies a model in Apple's Core ML format, which is optimised for on-device inference on Apple platforms using the Neural Engine, GPU, and CPU. Core ML models are packaged as `.mlmodel` or `.mlpackage` bundles.\n\n## When to use\nUse this type when a cap targets the Core ML runtime on macOS or iOS. Core ML models offer the best energy efficiency and latency on Apple hardware for tasks that have been compiled to this format. For general Apple Silicon inference with more model flexibility, prefer the MLX backend and [MLX LLM Model Spec](https://capdag.com/browse/media:model-spec;mlx;textable;llm).\n\n## Notes\nThe `.mlpackage` format is the newer bundle-based container preferred for models compiled with the Core ML Tools v5+ toolchain. The `.mlmodel` format is the legacy flat-file format. Both are identified by `application/octet-stream` at the MIME level.\n",
+  "extensions": [
+    "mlmodel",
+    "mlpackage"
+  ]
+}

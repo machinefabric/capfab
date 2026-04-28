@@ -1,0 +1,30 @@
+{
+  "urn": "media:adapter-selection;json;record",
+  "media_type": "application/json",
+  "title": "Adapter Selection Result",
+  "profile_uri": "https://capdag.com/schema/adapter-selection",
+  "description": "Set of media URNs identified by a cartridge content-inspection adapter",
+  "documentation": "## Purpose\nReturned by a cartridge content-inspection adapter (`cap:in=\"media:\";out=\"media:adapter-selection;json;record\"`) to report which media URNs the adapter believes match the inspected file content. The orchestrator uses this to select the most specific matching URN or present choices when multiple URNs are returned.\n\n## When to use\nThis media type is produced exclusively by adapter caps declared in cartridge cap groups. It is not intended for general use in pipelines.\n\n## Schema\nThe payload is a JSON object with a single required field:\n\n- `media_urns` — a non-empty array of media URN strings that the adapter is confident the file content matches.\n\nWhen multiple URNs are returned, the orchestrator selects the most specific one (highest specificity score). If the array is empty or the adapter returns an empty END frame, the orchestrator falls back to extension-based lookup in the media spec registry.\n\n## Example\nA JSON adapter inspecting a file that starts with `[{` might return:\n```json\n{\"media_urns\": [\"media:json;list;record;textable\", \"media:json;list;textable\", \"media:json;textable\"]}\n```\nThe orchestrator would pick `media:json;list;record;textable` as the most specific.\n\nA simpler adapter that only identifies the family:\n```json\n{\"media_urns\": [\"media:json;textable\"]}\n```\n\n## Notes\nThe URNs returned must be URNs that exist in the media spec registry. The orchestrator validates each returned URN and discards any that are not registered. If all are discarded, it falls back to extension-based lookup.\n",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://capdag.com/schema/adapter-selection",
+    "title": "Adapter Selection Result",
+    "description": "Set of media URNs identified by a cartridge content-inspection adapter.",
+    "type": "object",
+    "required": [
+      "media_urns"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "media_urns": {
+        "type": "array",
+        "description": "Media URN strings the adapter is confident match the inspected content. Must reference URNs registered in the media spec registry.",
+        "minItems": 1,
+        "items": {
+          "type": "string",
+          "pattern": "^media:"
+        }
+      }
+    }
+  }
+}

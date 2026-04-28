@@ -1,0 +1,14 @@
+{
+  "urn": "media:pem;textable",
+  "media_type": "application/x-pem-file",
+  "title": "PEM Certificate",
+  "profile_uri": "https://capdag.com/schema/pem",
+  "description": "PEM encoded certificate or key",
+  "documentation": "## Purpose\nPEM (Privacy Enhanced Mail) is a Base64-encoded text encoding of DER-format ASN.1 structures, delimited by `-----BEGIN ...-----` / `-----END ...-----` headers. The [PEM Certificate](https://capdag.com/browse/media:pem;textable) media type represents files containing X.509 certificates, private keys, certificate chains, or certificate signing requests in PEM encoding.\n\n## When to use\nUse this type when a node produces or consumes TLS certificates, private keys, or certificate signing requests — for example, TLS provisioning pipelines, CA automation, secret management workflows, or mTLS configuration. PEM is the standard format used by OpenSSL, nginx, Apache, and most ACME clients.\n\n## Notes\nA single PEM file may contain multiple concatenated PEM objects (e.g., a leaf certificate followed by intermediate certificates). The `;textable` tag reflects that PEM is ASCII-safe. Implementers should treat PEM files as sensitive artifacts containing secrets; private key files should not be logged or stored without encryption. Use OpenSSL or a cryptography library to parse and validate PEM content.\n",
+  "extensions": [
+    "pem",
+    "crt",
+    "cer",
+    "key"
+  ]
+}

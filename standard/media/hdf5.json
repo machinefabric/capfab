@@ -1,0 +1,12 @@
+{
+  "urn": "media:hdf5",
+  "media_type": "application/x-hdf5",
+  "title": "HDF5 Data",
+  "profile_uri": "https://capdag.com/schema/hdf5",
+  "description": "Hierarchical Data Format 5",
+  "documentation": "## Purpose\nHDF5 (Hierarchical Data Format version 5) is a binary format for storing large, complex, multidimensional datasets with rich metadata. The [HDF5 Data](https://capdag.com/browse/media:hdf5) media type represents any `.h5` or `.hdf5` file produced by the HDF5 library.\n\n## When to use\nUse this type when a node produces or consumes scientific or numerical datasets that are too large or multi-dimensional for tabular formats — for example, simulation outputs, telescope observations, climate model data, or neural network weight checkpoints. HDF5 is well suited when the data has a hierarchical group structure with attached attributes.\n\n## Notes\nHDF5 files can contain datasets, groups, named types, and arbitrary metadata attributes. Implementers should use the HDF5 C library or a binding such as `h5py` (Python) or `HDF5.jl` (Julia). Consumers should be aware that parallel HDF5 writes require MPI-enabled builds; single-writer/multiple-reader (SWMR) mode is available for concurrent access patterns.\n",
+  "extensions": [
+    "h5",
+    "hdf5"
+  ]
+}

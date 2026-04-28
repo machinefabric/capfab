@@ -1,0 +1,86 @@
+{
+  "urn": "media:llm-text-stream;ndjson",
+  "media_type": "application/x-ndjson",
+  "title": "LLM Text Stream",
+  "profile_uri": "https://capdag.com/schema/llm-text-stream",
+  "description": "Streaming output from LLM text generation. Each line is a JSON object with a 'type' field (token, status, complete, tool_request, or error).",
+  "documentation": "## Purpose\nProvides incremental LLM output as newline-delimited JSON (NDJSON). Each line is a self-contained JSON object that consumers can parse and act on as tokens arrive, without waiting for the full response.\n\n## When to use\nUse this type for interactive or latency-sensitive applications where displaying tokens as they are generated improves perceived responsiveness. The final `complete` message signals end of stream and carries aggregate statistics. For non-interactive use, prefer [Generated Text](https://capdag.com/browse/media:generated-text;textable;record).\n\n## Notes\nThe `type` discriminator is required on every message. Consumers must handle all five types: `token` (partial text), `status` (progress update), `complete` (final summary), `tool_request` (the model wants to invoke a tool), and `error` (generation failed). Messages of unknown type should be silently skipped to allow forward compatibility.\n",
+  "extensions": [
+    "ndjson"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "type"
+    ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [
+          "token",
+          "status",
+          "complete",
+          "tool_request",
+          "error"
+        ],
+        "description": "Message type discriminator"
+      },
+      "text": {
+        "type": "string",
+        "description": "Token text (for type=token)"
+      },
+      "operation": {
+        "type": "string",
+        "description": "Current operation (for type=status)"
+      },
+      "details": {
+        "type": "string",
+        "description": "Status details (for type=status)"
+      },
+      "progress": {
+        "type": "number",
+        "description": "Progress 0.0 to 1.0 (for type=status)"
+      },
+      "generated_text": {
+        "type": "string",
+        "description": "Full generated text (for type=complete)"
+      },
+      "tokens_generated": {
+        "type": "integer",
+        "description": "Tokens generated count (for type=complete)"
+      },
+      "prompt_tokens": {
+        "type": "integer",
+        "description": "Prompt tokens count (for type=complete)"
+      },
+      "finish_reason": {
+        "type": "string",
+        "description": "Why generation stopped (for type=complete)"
+      },
+      "generation_time_ms": {
+        "type": "number",
+        "description": "Generation time in ms (for type=complete)"
+      },
+      "partial_text": {
+        "type": "string",
+        "description": "Text before tool call (for type=tool_request)"
+      },
+      "tool_name": {
+        "type": "string",
+        "description": "Tool to execute (for type=tool_request)"
+      },
+      "tool_args": {
+        "type": "object",
+        "description": "Tool arguments (for type=tool_request)"
+      },
+      "code": {
+        "type": "string",
+        "description": "Error code (for type=error)"
+      },
+      "message": {
+        "type": "string",
+        "description": "Error message (for type=error)"
+      }
+    }
+  }
+}

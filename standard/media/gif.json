@@ -1,0 +1,11 @@
+{
+  "urn": "media:gif;image",
+  "media_type": "image/gif",
+  "title": "GIF Image",
+  "profile_uri": "https://capdag.com/schema/gif",
+  "description": "GIF image data (static or animated)",
+  "documentation": "## Purpose\nRepresents a GIF image, which may be a static raster image or an animated sequence of frames. GIF supports a maximum palette of 256 colours per frame and lossless compression.\n\n## When to use\nUse `media:gif;image` when a node produces or consumes GIF files, particularly animated GIFs. For static images requiring more colours or better compression, prefer [PNG Image](https://capdag.com/browse/media:png) or [WebP Image](https://capdag.com/browse/media:webp;image).\n\n## Notes\nGIF supports transparency via a single transparent colour index, not an alpha channel. Animated GIFs can have large file sizes; consumers that display or process animations should be prepared for multi-frame content. Modern alternatives such as WebP or AVIF offer better compression for equivalent quality.\n",
+  "extensions": [
+    "gif"
+  ]
+}

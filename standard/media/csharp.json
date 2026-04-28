@@ -1,0 +1,11 @@
+{
+  "urn": "media:csharp;textable;code",
+  "media_type": "text/x-csharp",
+  "title": "C# Source",
+  "profile_uri": "https://capdag.com/schema/csharp",
+  "description": "C# programming language source code",
+  "documentation": "## Purpose\nC# source files contain code written in C#, Microsoft's statically typed, object-oriented language that runs on the .NET runtime. C# is widely used for enterprise applications, game development (Unity), web backends (ASP.NET Core), and desktop applications on Windows.\n\n## When to use\nUse [C# Source](https://capdag.com/browse/media:csharp;textable;code) for `.cs` files in .NET projects. C# projects are organized by `.csproj` solution files that declare framework targets, dependencies, and build configuration. For other .NET languages, see [F# Source](https://capdag.com/browse/media:fsharp;textable;code) and [Visual Basic Source](https://capdag.com/browse/media:vb;textable;code).\n\n## Notes\nC# has evolved substantially from version 1.0 through C# 13; features such as nullable reference types, records, pattern matching, and top-level statements were added progressively. The `LangVersion` property in `.csproj` controls which language features are available. C# source is UTF-8 text with optional byte-order marks.\n",
+  "extensions": [
+    "cs"
+  ]
+}

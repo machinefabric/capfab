@@ -1,0 +1,16 @@
+{
+  "urn": "media:model-spec;textable",
+  "media_type": "text/plain",
+  "title": "Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Model specification (HuggingFace repo or local path). Backend-agnostic.",
+  "documentation": "## Purpose\nA model spec is a compact string that uniquely identifies a machine learning model and tells the system where to find it. The format is `<scheme>:<identifier>` with an optional query string for filtering (e.g. `hf:org/model-name?include=*Q8_0*`). The scheme determines which backend or repository resolves the spec.\n\n## When to use\nUse this type wherever a cap accepts a model identifier as input. Prefer the more specific tagged variants (e.g. `media:model-spec;gguf;textable;llm`) when the backend or task is known, so the routing system can match the most capable cap without ambiguity.\n\n## Notes\nThe `pattern = \".*:.*\"` validation requires the scheme separator colon to be present. Strings of up to 512 characters are allowed to accommodate long query strings. Local paths should use the `local:` prefix to distinguish them from repository references.\n",
+  "extensions": [
+    "txt"
+  ],
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

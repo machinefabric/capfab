@@ -1,0 +1,48 @@
+{
+  "urn": "cap:candle;in=\"media:image;png\";ml-model;op=describe_image;out=\"media:image-description;textable\"",
+  "command": "describe_image",
+  "title": "Describe Image (Candle)",
+  "cap_description": "Generate image descriptions using BLIP models with Candle ML framework",
+  "documentation": "## Purpose\n\nGenerates a natural-language description of a PNG image using BLIP (Bootstrapped Language-Image Pretraining) models running locally via Candle. Suitable for alt-text generation, image indexing, and content moderation pipelines.\n\n## Inputs\n\n- A PNG image file.\n- An optional text prompt to guide the description (e.g. \"What objects are visible?\" or \"Describe the background.\"). Without a prompt, BLIP produces a general caption.\n- A BLIP model spec from HuggingFace. Defaults to `blip-image-captioning-large`.\n\n## Outputs\n\nA text description of the image as a plain string.\n\n## Notes\n\n- BLIP models produce shorter, more caption-like descriptions than vision-language models (LLaVA/Qwen). For detailed, instruction-following descriptions, prefer [Describe Image (GGUF)](https://capdag.com/browse/cap:gguf;in=\"media:image;png\";ml-model;op=describe_image;out=\"media:image-description;textable\";vision) or [Describe Image (MLX)](https://capdag.com/browse/cap:in=\"media:image;png\";ml-model;mlx;op=describe_image;out=\"media:image-description;textable\";vision).\n- Input must be PNG.\n- For embedding an image into a vector space rather than describing it, use [Generate Image Embeddings (Candle)](https://capdag.com/browse/cap:candle;in=\"media:image;png\";ml-model;op=generate_image_embeddings;out=\"media:embedding-vector;textable;record\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:image;png"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the image file to describe"
+    },
+    {
+      "media_urn": "media:prompt;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--prompt"
+        }
+      ],
+      "arg_description": "Optional prompt to guide the image description"
+    },
+    {
+      "media_urn": "media:model-spec;candle;textable;vision",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model"
+        }
+      ],
+      "arg_description": "BLIP model name from HuggingFace",
+      "default_value": "hf:Salesforce/blip-image-captioning-large"
+    }
+  ],
+  "output": {
+    "media_urn": "media:image-description;textable",
+    "output_description": "Generated text description of the image"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "urn": "media:dot;textable",
+  "media_type": "text/vnd.graphviz",
+  "title": "DOT Graph",
+  "profile_uri": "https://capdag.com/schema/dot",
+  "description": "Graphviz DOT graph description",
+  "documentation": "## Purpose\nCarries Graphviz DOT language files that describe directed and undirected graphs using a declarative text syntax. DOT files are rendered to PNG, SVG, PDF, and other formats by Graphviz tools such as `dot`, `neato`, and `fdp`.\n\n## When to use\nUse `media:dot;textable` when a pipeline node produces or renders graph descriptions — for example, a dependency graph exporter that serializes a build DAG as DOT, or a rendering step that invokes `dot -Tsvg` to produce a visual output.\n\n## Notes\nThe `.dot` and `.gv` extensions are interchangeable; `.gv` was introduced to avoid conflicts with Microsoft Word template files on Windows. Graphviz layout engines (`dot`, `neato`, `circo`, `twopi`) produce different spatial arrangements and should be chosen based on graph structure. See also [DOT Graph](https://capdag.com/browse/media:dot;textable).\n",
+  "extensions": [
+    "dot",
+    "gv"
+  ]
+}

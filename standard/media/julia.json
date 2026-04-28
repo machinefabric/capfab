@@ -1,0 +1,11 @@
+{
+  "urn": "media:julia;textable;code",
+  "media_type": "text/x-julia",
+  "title": "Julia Source",
+  "profile_uri": "https://capdag.com/schema/julia",
+  "description": "Julia programming language source code",
+  "documentation": "## Purpose\nJulia source files contain code written in Julia, a high-level, high-performance language designed for numerical and scientific computing. Julia achieves near-C speeds through LLVM-based just-in-time compilation while offering Python-like expressiveness.\n\n## When to use\nUse [Julia Source](https://capdag.com/browse/media:julia;textable;code) for `.jl` files in Julia packages or scripts. Julia is commonly used in scientific research, computational mathematics, machine learning research, and quantitative finance where both performance and interactivity are required.\n\n## Notes\nJulia uses multiple dispatch as its core paradigm — functions are selected based on the types of all arguments, not just the receiver. Julia packages are managed via the built-in `Pkg` system with `Project.toml` and `Manifest.toml` files. The first-run compilation latency (time-to-first-plot problem) was a known issue in earlier versions; Julia 1.9+ significantly improved precompilation.\n",
+  "extensions": [
+    "jl"
+  ]
+}

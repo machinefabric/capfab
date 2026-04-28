@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:bmp;image\";op=convert_image;out=\"media:image;png\"",
+  "command": "convert-image",
+  "title": "Convert BMP to PNG",
+  "cap_description": "Re-encode a BMP image as a PNG",
+  "documentation": "## Purpose\n\nDecodes a Windows BMP file and writes it as a PNG. BMP files are large and uncompressed; PNG is the practical replacement.\n\n## Inputs\n\nA BMP file. Standard 24-bit and 32-bit color depths are supported.\n\n## Outputs\n\nA PNG file with the same pixel content.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:bmp;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the BMP file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:image;png",
+    "output_description": "PNG-encoded image"
+  }
+}

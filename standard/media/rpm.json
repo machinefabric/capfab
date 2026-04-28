@@ -1,0 +1,11 @@
+{
+  "urn": "media:rpm;archive",
+  "media_type": "application/x-rpm",
+  "title": "RPM Package",
+  "profile_uri": "https://capdag.com/schema/rpm",
+  "description": "Red Hat Package Manager package",
+  "documentation": "## Purpose\nRPM (Red Hat Package Manager) is the binary package format for Red Hat-based Linux distributions (RHEL, Fedora, CentOS, Rocky Linux, openSUSE, etc.). An `.rpm` file contains a lead section, signature, header metadata, and a compressed CPIO payload. The [RPM Package](https://capdag.com/browse/media:rpm;archive) media type represents any `.rpm` file.\n\n## When to use\nUse this type when a node produces or consumes RPM-family Linux packages — for example, software build and release pipelines, private YUM/DNF repository management, deployment automation, or security and compliance scanning workflows.\n\n## Notes\nRPM packages use a custom binary format; do not attempt to parse them as ZIP or tar archives. Implementers should use `rpm2cpio` to extract the CPIO payload or use the `rpm` command-line tools and `rpm-python` bindings for metadata access. Packages are signed with GPG; verification requires importing the publisher's public key via `rpm --import`. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "rpm"
+  ]
+}

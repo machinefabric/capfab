@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:integer;list;numeric;textable\";op=coerce;out=media:textable",
+  "command": "coerce",
+  "title": "Coerce Integer Array to String",
+  "cap_description": "Convert an array of integers to its string representation",
+  "documentation": "## Purpose\n\nConverts a list of integers to a single string representation. Use this when a downstream cap expects a text value but the upstream produces an integer array.\n\n## Inputs\n\nA list of integer values (media type `media:integer;list;numeric;textable`).\n\n## Outputs\n\nA string representation of the integer array.\n\n## Notes\n\n- Type adapter for the capfab planner.\n- For converting individual integers, use [Coerce Integer to String](https://capdag.com/browse/cap:in=\"media:integer;numeric;textable\";op=coerce;out=media:textable).\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:integer;list;numeric;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:integer;list;numeric;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Coerced value"
+  }
+}

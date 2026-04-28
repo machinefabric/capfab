@@ -1,0 +1,41 @@
+name: Remove Definition
+description: Request that a capability or media spec be removed from the registry.
+title: "Remove: <urn>"
+labels:
+  - remove-definition
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request that we remove a capability or media spec from the registry.
+
+        Removals are not undertaken lightly — definitions in the registry can be referenced by deployed cartridges, by published capdag.com pages, and by users' saved machine notations. We will weigh the impact on existing consumers before removing anything.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      description: Is this a capability URN or a media spec URN?
+      options:
+        - Capability (cap:…)
+        - Media spec (media:…)
+    validations:
+      required: true
+  - type: textarea
+    id: urns
+    attributes:
+      label: URN(s) to remove
+      description: One URN per line. Use the canonical form as it appears in the published JSON.
+      render: text
+      placeholder: |
+        cap:in="media:foo";op=example;out="media:bar"
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why should this be removed?
+      description: What's wrong with the current definition? Is it superseded by a newer URN, broken by design, never had a working implementation, or something else? If a replacement exists, link it.
+      placeholder: |
+        This URN was added in … but is now superseded by … . No known cartridge implements it. Removing it would …
+    validations:
+      required: true

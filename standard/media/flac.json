@@ -1,0 +1,11 @@
+{
+  "urn": "media:flac;audio",
+  "media_type": "audio/flac",
+  "title": "FLAC Audio",
+  "profile_uri": "https://capdag.com/schema/flac",
+  "description": "FLAC lossless audio data",
+  "documentation": "## Purpose\nRepresents a FLAC (Free Lossless Audio Codec) file, an open-source lossless audio format that compresses audio without any quality loss. FLAC is widely used for archival, music libraries, and audio processing pipelines where fidelity must be preserved.\n\n## When to use\nUse `media:flac;audio` when a node requires lossless audio — for example an archival step, a mixing pipeline, or a transcription node that benefits from full-quality input. For lossy compressed audio, see [MP3 Audio](https://capdag.com/browse/media:mp3;audio) or [AAC Audio](https://capdag.com/browse/media:aac;audio).\n\n## Notes\nFLAC files are larger than lossy equivalents but smaller than uncompressed WAV or AIFF. The format supports embedded metadata (Vorbis comments), album art, and cue sheets. FLAC decoding is computationally light and well-supported across platforms.\n",
+  "extensions": [
+    "flac"
+  ]
+}

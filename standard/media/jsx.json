@@ -1,0 +1,11 @@
+{
+  "urn": "media:jsx;textable;code",
+  "media_type": "text/javascript-jsx",
+  "title": "JavaScript JSX Source",
+  "profile_uri": "https://capdag.com/schema/jsx",
+  "description": "JavaScript JSX source code",
+  "documentation": "## Purpose\nJSX files contain JavaScript with embedded XML-like syntax extensions (JSX) used primarily with the React library to describe user interface trees. JSX is a compile-time syntax transformation and is not valid plain JavaScript.\n\n## When to use\nUse [JavaScript JSX Source](https://capdag.com/browse/media:jsx;textable;code) for React component files with the `.jsx` extension. If the file is TypeScript with JSX, use [TypeScript JSX Source](https://capdag.com/browse/media:tsx;textable;code) instead. Plain JavaScript without JSX should use [JavaScript Source](https://capdag.com/browse/media:javascript;textable;code).\n\n## Notes\nJSX must be transformed to standard JavaScript before execution, typically via Babel, esbuild, or the TypeScript compiler. The JSX transform can target React's `createElement` API (classic) or the newer automatic runtime introduced in React 17. Linters and formatters must be configured to understand JSX syntax.\n",
+  "extensions": [
+    "jsx"
+  ]
+}

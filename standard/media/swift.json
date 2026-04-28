@@ -1,0 +1,11 @@
+{
+  "urn": "media:swift;textable;code",
+  "media_type": "text/x-swift",
+  "title": "Swift Source",
+  "profile_uri": "https://capdag.com/schema/swift",
+  "description": "Swift programming language source code",
+  "documentation": "## Purpose\nSwift source files contain code written in Swift, Apple's modern, statically typed programming language designed for iOS, macOS, watchOS, tvOS, and server-side development. Swift replaced Objective-C as Apple's primary application language and emphasizes safety, expressiveness, and performance.\n\n## When to use\nUse [Swift Source](https://capdag.com/browse/media:swift;textable;code) for any `.swift` file in an Xcode project, Swift Package, or server-side Swift application. Swift is the dominant language for Apple platform development and is often found alongside [Objective-C Source](https://capdag.com/browse/media:objc;textable;code) in projects that have migrated incrementally.\n\n## Notes\nSwift source is UTF-8 text. The language has evolved rapidly across major versions; source written for Swift 4 may require updates for Swift 6 due to changes such as the concurrency model (async/await, actors). Swift packages are declared via `Package.swift`, which is itself a Swift source file.\n",
+  "extensions": [
+    "swift"
+  ]
+}

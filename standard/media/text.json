@@ -1,0 +1,11 @@
+{
+  "urn": "media:textable",
+  "media_type": "text/plain",
+  "title": "Text",
+  "profile_uri": "https://capdag.com/schema/text",
+  "description": "UTF-8 text value.",
+  "documentation": "## Purpose\nThe [Text](https://capdag.com/browse/media:textable) type represents an arbitrary UTF-8 string with no further structure imposed. It is the base textable type in the media hierarchy.\n\n## When to use\nUse this type when a node produces or consumes unstructured plain text — for example, a human-readable summary, a prompt string, a log message, or any freeform text payload. When the text has a more specific structure (JSON record, code, subtitle, etc.) use the appropriate subtype.\n\n## Notes\nContent must be valid UTF-8. Line endings may be LF or CRLF; consumers should normalize if needed. The `;textable` tag in other URNs signals that the type has a canonical human-readable text representation; `media:textable` alone means only unstructured plain text is guaranteed.\n",
+  "extensions": [
+    "txt"
+  ]
+}

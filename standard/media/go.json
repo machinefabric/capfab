@@ -1,0 +1,11 @@
+{
+  "urn": "media:go;textable;code",
+  "media_type": "text/x-go",
+  "title": "Go Source",
+  "profile_uri": "https://capdag.com/schema/go",
+  "description": "Go programming language source code",
+  "documentation": "## Purpose\nGo source files contain code written in the Go programming language (also called Golang), developed by Google. Go is a statically typed, compiled language designed for simplicity, fast build times, and built-in concurrency via goroutines and channels.\n\n## When to use\nUse [Go Source](https://capdag.com/browse/media:go;textable;code) for any `.go` file, including application code, test files (which follow the `_test.go` naming convention), and generated code. Go projects are organized into modules declared by `go.mod`.\n\n## Notes\nGo source is UTF-8 text. The `gofmt` tool enforces a canonical formatting style; unformatted Go code is considered non-idiomatic. Go supports build constraints (formerly `// +build`, now `//go:build`) embedded in source comments, which implementers must parse to understand conditional compilation.\n",
+  "extensions": [
+    "go"
+  ]
+}

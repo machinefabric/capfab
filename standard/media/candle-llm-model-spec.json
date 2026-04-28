@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;candle;textable;llm",
+  "media_type": "text/plain",
+  "title": "Candle LLM Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Candle language model specification for text generation (Mistral/Llama safetensors).",
+  "documentation": "## Purpose\nIdentifies a safetensors-format language model for text generation via the Candle backend. Candle is a lightweight Rust-based ML framework that runs models in safetensors format directly on CPU, Metal, or CUDA.\n\n## When to use\nUse this spec type when targeting the Candle runtime specifically. The default points to Mistral-7B-Instruct-v0.3 in safetensors format. For Apple Silicon deployments prefer the MLX backend; for quantized CPU inference prefer the GGUF backend.\n\n## Notes\nCandle LLM models are loaded from HuggingFace repositories containing `model.safetensors` or sharded safetensors files. The backend also requires `config.json` and `tokenizer.json` to be present in the repository.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:mistralai/Mistral-7B-Instruct-v0.3"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

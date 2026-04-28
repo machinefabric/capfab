@@ -1,0 +1,11 @@
+{
+  "urn": "media:zig;textable;code",
+  "media_type": "text/x-zig",
+  "title": "Zig Source",
+  "profile_uri": "https://capdag.com/schema/zig",
+  "description": "Zig programming language source code",
+  "documentation": "## Purpose\nCarries Zig source files for systems programming tasks where manual memory control and no hidden allocations are required. Zig targets bare-metal, embedded, and high-performance application domains.\n\n## When to use\nUse `media:zig;textable;code` when a pipeline node processes `.zig` source — for example, a cross-compilation step or a build-system integration that invokes `zig build`.\n\n## Notes\nZig has no preprocessor or macros; metaprogramming is done through comptime expressions in the same source file. The `.zig` extension covers both library files and executables. See also [Zig Source](https://capdag.com/browse/media:zig;textable;code).\n",
+  "extensions": [
+    "zig"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "urn": "media:pytorch;model",
+  "media_type": "application/octet-stream",
+  "title": "PyTorch Model",
+  "profile_uri": "https://capdag.com/schema/pytorch",
+  "description": "PyTorch machine learning model",
+  "documentation": "## Purpose\nIdentifies a model checkpoint or weights file saved in PyTorch's native serialization format (pickle-based). PyTorch files are the original distribution format for many open models before they are converted to safer or more portable formats.\n\n## When to use\nUse this type when a cap must consume a raw PyTorch checkpoint. In most deployment scenarios, prefer [SafeTensors](https://capdag.com/browse/media:safetensors;model) over PyTorch files because SafeTensors avoids the security risks of Python pickle deserialization and loads faster.\n\n## Notes\nPyTorch files use the `.pt` or `.pth` extensions and `application/octet-stream` MIME type. They may contain full model state dicts, partial checkpoints, or optimizer states — the exact contents depend on how the file was saved. Implementers should handle both `torch.save` state dicts and full `nn.Module` pickles.\n",
+  "extensions": [
+    "pt",
+    "pth"
+  ]
+}

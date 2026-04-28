@@ -1,0 +1,11 @@
+{
+  "urn": "media:hdr;image",
+  "media_type": "image/vnd.radiance",
+  "title": "HDR Image",
+  "profile_uri": "https://capdag.com/schema/hdr",
+  "description": "Radiance HDR image data",
+  "documentation": "## Purpose\nRepresents a Radiance HDR (RGBE) image, a high dynamic range format commonly used in lighting and environment map workflows. HDR files store floating-point luminance values using a shared exponent encoding.\n\n## When to use\nUse `media:hdr;image` when a node produces or consumes Radiance HDR environment maps or HDR photographs, particularly in 3D rendering or image-based lighting (IBL) pipelines. For higher-fidelity HDR needs, prefer [OpenEXR Image](https://capdag.com/browse/media:exr;image).\n\n## Notes\nRadiance HDR uses a lossy RGBE encoding that trades precision for compact file size compared to full floating-point formats like OpenEXR. HDR images require tone mapping before display on standard dynamic range monitors.\n",
+  "extensions": [
+    "hdr"
+  ]
+}

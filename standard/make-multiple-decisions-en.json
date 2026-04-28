@@ -1,0 +1,83 @@
+{
+  "urn": "cap:constrained;in=media:textable;language=en;op=make_multiple_decisions;out=\"media:decision;json;record;textable\"",
+  "command": "make_multiple_decisions",
+  "title": "Make Multiple Decisions",
+  "cap_description": "Make multiple binary (yes/no, true/false) decisions based on content and multiple questions",
+  "documentation": "## Purpose\n\nClassifies content against multiple yes/no questions in a single model call using constrained LLM generation. More efficient than calling [Make a Decision](https://capdag.com/browse/cap:constrained;in=\"media:textable\";language=en;op=make_decision;out=\"media:decision;json;record;textable\") repeatedly when you have several questions about the same document.\n\n## Inputs\n\n- Content to analyze (text).\n- A sequence of binary questions (one per line, passed as a multi-value argument). All questions are evaluated against the same content in one inference pass.\n- Language code (default: `en`).\n- Max content length (default 2048).\n- Confidence threshold (default 0.7).\n- A model spec (defaults to Mistral-7B-Instruct Q8_0).\n\n## Outputs\n\nA sequence of JSON records, one per question, each containing a question identifier and a boolean `value`.\n\n## Notes\n\n- Output order matches the input question order.\n- All questions share the same content context in a single inference call, which is significantly more efficient than one call per question.\n- Output is guaranteed structured JSON via LLGuidance constraint.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Content to analyze for the binary decisions"
+    },
+    {
+      "media_urn": "media:question;textable",
+      "required": true,
+      "sources": [
+        {
+          "cli_flag": "--questions"
+        }
+      ],
+      "arg_description": "Binary questions to answer about the content (one per line)",
+      "is_sequence": true
+    },
+    {
+      "media_urn": "media:language-code;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--language"
+        }
+      ],
+      "arg_description": "Language code for processing",
+      "default_value": "en"
+    },
+    {
+      "media_urn": "media:max-content-length;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-content-length"
+        }
+      ],
+      "arg_description": "Maximum content length to consider (for context window management)",
+      "default_value": 2048
+    },
+    {
+      "media_urn": "media:confidence-threshold;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--confidence-threshold"
+        }
+      ],
+      "arg_description": "Minimum confidence threshold for decisions",
+      "default_value": 0.7
+    },
+    {
+      "media_urn": "media:model-spec;gguf;textable;llm",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for decision making",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:decision;json;record;textable",
+    "is_sequence": true,
+    "output_description": "One decision per question, each as a JSON object with identifier and value"
+  }
+}

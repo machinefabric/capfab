@@ -1,0 +1,11 @@
+{
+  "urn": "media:csv;list;textable",
+  "media_type": "text/csv",
+  "title": "CSV List",
+  "profile_uri": "https://capdag.com/schema/csv",
+  "description": "Comma-separated values with single column",
+  "documentation": "## Purpose\nA CSV file with a single column containing a list of values. There are no field names; the content is purely a sequence of scalar values, one per row.\n\n## When to use\nUse `media:csv;list;textable` when a node produces a simple enumeration of values without structural fields. For multi-column tabular data, use [CSV Data](https://capdag.com/browse/media:csv;list;record;textable).\n\n## Notes\nA header row may or may not be present. Consumers should confirm this via node metadata. Single-column CSV is often interchangeable with plain newline-delimited text.\n",
+  "extensions": [
+    "csv"
+  ]
+}

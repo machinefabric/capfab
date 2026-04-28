@@ -1,0 +1,12 @@
+{
+  "urn": "media:shell;textable;code",
+  "media_type": "text/x-shellscript",
+  "title": "Shell Script",
+  "profile_uri": "https://capdag.com/schema/shell",
+  "description": "Shell script source code",
+  "documentation": "## Purpose\nCarries POSIX shell and Bash script files used for system automation, build orchestration, and environment setup. Shell scripts are the lowest common denominator for scripting on Unix-compatible systems.\n\n## When to use\nUse `media:shell;textable;code` when a pipeline step runs or analyzes generic shell scripts — for example, a sandboxed executor running `.sh` bootstrap scripts or a static analyzer checking for unsafe patterns. For Zsh-specific scripts, prefer [Zsh Script](https://capdag.com/browse/media:zsh;textable;code); for Fish, prefer [Fish Script](https://capdag.com/browse/media:fish;textable;code).\n\n## Notes\nBoth `.sh` (POSIX shell) and `.bash` (Bash-specific) extensions are covered. Scripts typically declare their interpreter via a shebang line (`#!/bin/sh` or `#!/bin/bash`), which determines runtime behavior independently of the extension. See also [Shell Script](https://capdag.com/browse/media:shell;textable;code).\n",
+  "extensions": [
+    "sh",
+    "bash"
+  ]
+}

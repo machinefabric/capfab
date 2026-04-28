@@ -1,0 +1,11 @@
+{
+  "urn": "media:wma;audio",
+  "media_type": "audio/x-ms-wma",
+  "title": "WMA Audio",
+  "profile_uri": "https://capdag.com/schema/wma",
+  "description": "Windows Media Audio data",
+  "documentation": "## Purpose\nRepresents a WMA (Windows Media Audio) file, Microsoft's proprietary compressed audio format. WMA was widely distributed through the Windows Media Player ecosystem and Windows portable devices.\n\n## When to use\nUse `media:wma;audio` when a node must read legacy WMA files from Windows-based archives or media libraries. WMA is rarely used in new workflows; for interoperability, convert to [MP3 Audio](https://capdag.com/browse/media:mp3;audio) or [AAC Audio](https://capdag.com/browse/media:aac;audio) early in the pipeline.\n\n## Notes\nWMA support outside the Windows ecosystem requires FFmpeg or equivalent libraries. Some WMA files include DRM protection, which prevents decoding without the original Windows Media licence. Lossless WMA (WMA Lossless) is a distinct codec variant from the standard lossy WMA format.\n",
+  "extensions": [
+    "wma"
+  ]
+}

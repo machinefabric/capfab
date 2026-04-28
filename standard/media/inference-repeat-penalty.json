@@ -1,0 +1,25 @@
+{
+  "urn": "media:repeat-penalty;inference;sampling;user;task;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Repetition penalty for token sampling",
+  "profile_uri": "https://capdag.com/schema/inference-repeat-penalty",
+  "description": "Repetition penalty for token sampling",
+  "metadata": {
+    "category": "inference",
+    "subcategory": "inference_generation",
+    "display_index": 14,
+    "ui_type": "SETTING_UI_TYPE_SLIDER",
+    "data_type": "SETTING_DATA_TYPE_FLOAT",
+    "default": 1.1,
+    "overridable_by": [
+      "cap",
+      "model",
+      "user",
+      "end_user"
+    ]
+  },
+  "validation": {
+    "min": 1,
+    "max": 3
+  }
+}

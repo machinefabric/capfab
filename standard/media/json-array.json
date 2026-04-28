@@ -1,0 +1,11 @@
+{
+  "urn": "media:json;textable;list",
+  "media_type": "application/json",
+  "title": "JSON Array",
+  "profile_uri": "https://capdag.com/schema/json",
+  "description": "JSON array containing multiple values or objects",
+  "documentation": "## Purpose\nRepresents a JSON array at the top level. The `list` tag signals that the payload is a sequence of items, which may be values, objects, or mixed types.\n\n## When to use\nUse `media:json;textable;list` when a node produces or expects a JSON array as its root element. If each array element is a JSON object, prefer the more specific [JSON Array of Objects](https://capdag.com/browse/media:json;list;record;textable).\n\n## Notes\nArray element types are not constrained by this media spec alone. Consumers that require homogeneous elements should validate individual items after parsing.\n",
+  "extensions": [
+    "json"
+  ]
+}

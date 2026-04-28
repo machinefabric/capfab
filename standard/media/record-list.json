@@ -1,0 +1,11 @@
+{
+  "urn": "media:list;record",
+  "media_type": "application/octet-stream",
+  "title": "Record List",
+  "profile_uri": "https://capdag.com/schema/list-record",
+  "description": "Ordered list of structured records.",
+  "documentation": "## Purpose\nThe [Record List](https://capdag.com/browse/media:list;record) type represents an ordered collection of structured records in a binary encoding. It is the binary form of a tabular dataset where each row is a key-value record.\n\n## When to use\nUse this type when a node exchanges a sequence of structured objects in a compact binary format — for example, Parquet-like payloads, Protobuf repeated message lists, or any framed sequence of binary records. When the records must be column-oriented or text-readable, use [Parquet Data](https://capdag.com/browse/media:parquet;list;record) or `media:record;textable`.\n\n## Notes\nThe record schema and list framing convention must be documented at the port level. Implementers should specify whether the list is length-prefixed, newline-delimited, or uses a sentinel to indicate end-of-stream.\n",
+  "extensions": [
+    "bin"
+  ]
+}

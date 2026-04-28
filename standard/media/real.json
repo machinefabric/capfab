@@ -1,0 +1,11 @@
+{
+  "urn": "media:numeric;real;textable",
+  "media_type": "text/plain",
+  "title": "Real",
+  "profile_uri": "https://capdag.com/schema/real",
+  "description": "Real numeric value.",
+  "documentation": "## Purpose\nThe [Real](https://capdag.com/browse/media:numeric;real;textable) type represents a single real (non-complex, non-integer-constrained) floating-point value encoded as UTF-8 text. It is a subtype of `media:numeric;textable` that explicitly excludes complex numbers.\n\n## When to use\nUse this type when a node outputs a scalar real-valued measurement — for example, a probability, a physical measurement, a loss value, or a normalized score. Prefer this over the generic `media:numeric;textable` when the port semantics guarantee the value is not complex.\n\n## Notes\nThe value must be a standard floating-point literal. `NaN` and infinity representations are permitted. Implementers should use 64-bit IEEE 754 double precision for parsing unless the port contract specifies otherwise.\n",
+  "extensions": [
+    "txt"
+  ]
+}

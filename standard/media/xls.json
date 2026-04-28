@@ -1,0 +1,11 @@
+{
+  "urn": "media:xls",
+  "media_type": "application/vnd.ms-excel",
+  "title": "Excel Spreadsheet (Legacy)",
+  "profile_uri": "https://capdag.com/schema/xls",
+  "description": "Microsoft Excel legacy spreadsheet data",
+  "documentation": "## Purpose\nCarries legacy Microsoft Excel spreadsheets in the binary BIFF format (`.xls`) used by Excel 97 through Excel 2003. This format is still present in archival datasets and systems that predate the Open XML transition.\n\n## When to use\nUse `media:xls` when a pipeline node must handle old-format Excel files — for example, a data ingestion step using `xlrd` or LibreOffice to read legacy spreadsheets, or an archival conversion step targeting XLSX. For current Excel files, prefer [Excel Spreadsheet](https://capdag.com/browse/media:xlsx).\n\n## Notes\nThe `xlrd` library dropped `.xls` support in newer versions; use `xlrd<2.0` or libraries like `openpyxl` (for XLSX) or `xlwings` when processing legacy files. See also [Excel Spreadsheet (Legacy)](https://capdag.com/browse/media:xls).\n",
+  "extensions": [
+    "xls"
+  ]
+}

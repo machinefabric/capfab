@@ -1,0 +1,11 @@
+{
+  "urn": "media:odp",
+  "media_type": "application/vnd.oasis.opendocument.presentation",
+  "title": "OpenDocument Presentation",
+  "profile_uri": "https://capdag.com/schema/odp",
+  "description": "OpenDocument presentation data",
+  "documentation": "## Purpose\nCarries OpenDocument Presentation files (`.odp`), the ISO-standardized slide format used by LibreOffice Impress and Apache OpenOffice Impress. ODP is a ZIP archive of XML content following the ODF specification.\n\n## When to use\nUse `media:odp` when a pipeline node processes open-format presentations — for example, a slide rendering step via LibreOffice, a content extraction step, or a conversion step targeting PDF or PPTX output. For Microsoft PowerPoint format, see [PowerPoint Presentation](https://capdag.com/browse/media:pptx).\n\n## Notes\nODP follows the OASIS OpenDocument Format standard (ISO/IEC 26300). LibreOffice Impress provides the most complete support, including complex animations and transitions. Conversion to PDF for archival or distribution is a common pipeline operation. See also [OpenDocument Presentation](https://capdag.com/browse/media:odp).\n",
+  "extensions": [
+    "odp"
+  ]
+}

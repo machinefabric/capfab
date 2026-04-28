@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:numeric;textable\";op=coerce;out=\"media:integer;numeric;textable\"",
+  "command": "coerce",
+  "title": "Coerce Number to Integer",
+  "cap_description": "Truncate a numeric value to an integer",
+  "documentation": "## Purpose\n\nTruncates a floating-point number to an integer by discarding the fractional part (toward zero). Use this when a downstream cap requires an integer but the upstream produces a float.\n\n## Inputs\n\nA numeric (float) value (media type `media:numeric;textable`).\n\n## Outputs\n\nThe integer part of the number (fractional part discarded, not rounded).\n\n## Notes\n\n- Truncation, not rounding: `3.9` becomes `3`, `-3.9` becomes `-3`.\n- For the widening direction (no precision loss), use [Coerce Integer to Number](https://capdag.com/browse/cap:in=\"media:integer;numeric;textable\";op=coerce;out=\"media:numeric;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:numeric;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:numeric;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:integer;numeric;textable",
+    "output_description": "Coerced value"
+  }
+}

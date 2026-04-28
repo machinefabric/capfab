@@ -1,0 +1,22 @@
+{
+  "urn": "media:language;textable",
+  "media_type": "text/plain",
+  "title": "Language",
+  "profile_uri": "https://capdag.com/schema/language",
+  "description": "Language value",
+  "documentation": "## Purpose\nIdentifies the natural language in which a machine should produce or expect content. Uses two-letter language codes drawn from the allowed set.\n\n## When to use\nAttach this parameter to translation, summarization, or generation machines that must target a specific language. If the desired language is not in the allowed set, check [Language Code](https://capdag.com/browse/media:language-code;textable) for an equivalent entry.\n\n## Notes\nAllowed values: `en`, `es`, `fr`, `de`, `it`, `pt`, `ru`, `zh`, `ja`, `ko`. This type and [Language Code](https://capdag.com/browse/media:language-code;textable) share the same validation set; prefer `language` for human-readable configuration and `language-code` when the intent is explicitly a BCP 47-style tag.\n",
+  "validation": {
+    "allowed_values": [
+      "en",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "ru",
+      "zh",
+      "ja",
+      "ko"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "urn": "media:question;textable",
+  "media_type": "text/plain",
+  "title": "Question Text",
+  "profile_uri": "https://capdag.com/schema/question_text",
+  "description": "Question Text text input",
+  "documentation": "## Purpose\nA single natural-language question to be answered, evaluated, or routed by a machine. Suitable for Q&A, classification, and decision machines that process one question at a time.\n\n## When to use\nUse `media:question;textable` for single-question inputs. When processing multiple questions in bulk, use the companion `media:list;question;textable` type, which carries one question per line.\n\n## Notes\nLength is constrained to 5–4096 characters. See [Question List](https://capdag.com/browse/media:list;question;textable) for batch inputs and [Decision](https://capdag.com/browse/media:decision;json;record;textable) for the corresponding output type.\n"
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:epub",
+  "media_type": "application/epub+zip",
+  "title": "EPUB Document",
+  "profile_uri": "https://capdag.com/schema/epub",
+  "description": "EPUB e-book document data",
+  "documentation": "## Purpose\nCarries EPUB e-book files, the open standard format for digital publications maintained by the W3C. EPUB is a ZIP archive containing HTML content, CSS stylesheets, images, and a package manifest, supporting reflowable text that adapts to screen size.\n\n## When to use\nUse `media:epub` when a pipeline node produces or processes e-books — for example, a Pandoc conversion step generating EPUB from Markdown or DOCX, a text extraction step for an e-book library, or an e-reader delivery step.\n\n## Notes\nEPUB 3 (current standard) uses HTML5, CSS3, and supports MathML and SVG. EPUB 2 files are also common in older libraries. Tools like `epubcheck` validate conformance. For fixed-layout content (e.g., illustrated books), EPUB fixed layout is an option but has lower reader support than reflowable. See also [EPUB Document](https://capdag.com/browse/media:epub).\n",
+  "extensions": [
+    "epub"
+  ]
+}

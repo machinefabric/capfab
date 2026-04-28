@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:bool;textable\";op=coerce;out=media:record",
+  "command": "coerce",
+  "title": "Coerce Boolean to Object",
+  "cap_description": "Wrap a boolean value in a record",
+  "documentation": "## Purpose\n\nWraps a boolean value in a record (object) so it can be passed to caps that expect a structured record input. The boolean is stored under a standard key in the output record.\n\n## Inputs\n\nA boolean value (media type `media:bool;textable`).\n\n## Outputs\n\nA record containing the boolean value.\n\n## Notes\n\n- Use when a downstream cap requires a record type but the upstream produces a scalar boolean.\n- This is primarily a type adapter for the capfab planner.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:bool;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:bool;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:record",
+    "output_description": "Coerced value"
+  }
+}

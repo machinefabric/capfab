@@ -1,0 +1,13 @@
+{
+  "urn": "media:perl;textable;code",
+  "media_type": "text/x-perl",
+  "title": "Perl Source",
+  "profile_uri": "https://capdag.com/schema/perl",
+  "description": "Perl programming language source code",
+  "documentation": "## Purpose\nCarries Perl source files across all three common roles: executable scripts (`.pl`), reusable modules (`.pm`), and Plain Old Documentation files (`.pod`). Perl is widely used for text processing, system administration, and legacy web applications.\n\n## When to use\nUse `media:perl;textable;code` when a pipeline node consumes or produces Perl source — for example, a linting step using `perlcritic`, a module packaging step for CPAN, or a legacy automation script runner.\n\n## Notes\nPOD files (`.pod`) contain structured documentation embedded in or alongside Perl code and are parsed by tools like `perldoc`. All three extensions share the same media type since they use identical syntax. See also [Perl Source](https://capdag.com/browse/media:perl;textable;code).\n",
+  "extensions": [
+    "pl",
+    "pm",
+    "pod"
+  ]
+}

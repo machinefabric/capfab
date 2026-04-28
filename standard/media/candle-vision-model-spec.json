@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;candle;textable;vision",
+  "media_type": "text/plain",
+  "title": "Candle Vision Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Candle vision model specification for image description (BLIP).",
+  "documentation": "## Purpose\nIdentifies a vision-language model for image captioning via the Candle backend. The default points to Salesforce BLIP, a well-established image captioning model available in safetensors format on HuggingFace.\n\n## When to use\nUse this spec type when wiring an image description cap that targets the Candle runtime. For more capable multimodal models on Apple Silicon, consider `media:model-spec;mlx;textable;vision`.\n\n## Notes\nBLIP requires separate vision encoder and text decoder weights. The Candle backend handles the multi-component loading internally given the HuggingFace repository path.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:Salesforce/blip-image-captioning-large"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

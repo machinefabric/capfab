@@ -1,0 +1,11 @@
+{
+  "urn": "media:7z;archive",
+  "media_type": "application/x-7z-compressed",
+  "title": "7-Zip Archive",
+  "profile_uri": "https://capdag.com/schema/7z",
+  "description": "7-Zip compressed archive",
+  "documentation": "## Purpose\n7-Zip (7z) is a high-ratio archive format that supports LZMA2 compression, AES-256 encryption, and solid compression across multiple files. It consistently achieves some of the highest compression ratios among common archive formats.\n\n## When to use\nUse [7-Zip Archive](https://capdag.com/browse/media:7z;archive) when maximum compression ratio is the priority and the recipient has 7-Zip or a compatible extractor available. It is a good choice for distributing large binary assets or software packages where download size matters.\n\n## Notes\n7z solid archives compress files together as a single block, which greatly improves ratio on collections of similar files but means any single file extraction requires decompressing from the start. While 7z supports encryption, the format is not as universally supported as [ZIP Archive](https://capdag.com/browse/media:zip;archive); verify recipient tooling before using it in automated pipelines.\n",
+  "extensions": [
+    "7z"
+  ]
+}

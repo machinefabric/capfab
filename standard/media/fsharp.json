@@ -1,0 +1,13 @@
+{
+  "urn": "media:fsharp;textable;code",
+  "media_type": "text/x-fsharp",
+  "title": "F# Source",
+  "profile_uri": "https://capdag.com/schema/fsharp",
+  "description": "F# programming language source code",
+  "documentation": "## Purpose\nF# source files contain code written in F#, a functional-first, strongly typed language in the .NET ecosystem developed by Microsoft Research. F# is used for data science, financial modeling, domain-driven design, and any domain that benefits from immutable data and functional composition.\n\n## When to use\nUse [F# Source](https://capdag.com/browse/media:fsharp;textable;code) for `.fs` implementation files, `.fsi` signature files (which declare the public interface of a module, analogous to C headers), and `.fsx` script files that run without a compilation step.\n\n## Notes\nF# source ordering matters: files and declarations within a file must appear before they are used, which is enforced by the compiler. F# interoperates fully with [C# Source](https://capdag.com/browse/media:csharp;textable;code) and other .NET languages at the assembly level. The functional style means heavy use of discriminated unions, pattern matching, and pipeline operators, which may require F#-aware parsers for static analysis.\n",
+  "extensions": [
+    "fs",
+    "fsi",
+    "fsx"
+  ]
+}

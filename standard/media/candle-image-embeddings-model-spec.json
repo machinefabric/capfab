@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;candle;image-embeddings;textable",
+  "media_type": "text/plain",
+  "title": "Candle Image Embeddings Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Candle model specification for image embedding generation (CLIP).",
+  "documentation": "## Purpose\nIdentifies a CLIP model for producing dense vector representations of images via the Candle backend. Image embeddings can be compared with text embeddings in the same CLIP vector space for cross-modal retrieval.\n\n## When to use\nUse this type when wiring an image embedding cap that targets the Candle runtime. The default points to OpenAI's CLIP ViT-B/32 model. For text-only embeddings use `media:model-spec;candle;textable;embeddings`.\n\n## Notes\nThe include query filter (`*.json,*.safetensors,pytorch_model.bin`) selects only the files needed for inference, skipping large optional files such as optimizer states. CLIP repositories often contain both safetensors and PyTorch variants; the filter ensures the lighter safetensors files are preferred.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:openai/clip-vit-base-patch32?include=*.json,*.safetensors,pytorch_model.bin"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "urn": "media:repository;textable",
+  "media_type": "text/plain",
+  "title": "Repository",
+  "profile_uri": "https://capdag.com/schema/repository",
+  "description": "Repository value",
+  "documentation": "## Purpose\n\nRepository identifies the source from which a model or resource should be fetched. It distinguishes between public model hubs, locally stored models, and custom or private registries.\n\n## When to use\n\nUse this media type when a node that loads models needs to know where to retrieve the artifact. Set to `huggingface` for models hosted on Hugging Face Hub, `local` for models already present on disk, and `custom` for any other registry accessible via the node's configuration.\n\n## Notes\n\nWhen `local` is selected, the node typically expects a corresponding path or identifier pointing to the on-disk location. When `custom` is selected, additional configuration (such as a base URL or credentials) is usually required via the operator's settings.\n",
+  "validation": {
+    "allowed_values": [
+      "huggingface",
+      "local",
+      "custom"
+    ]
+  }
+}

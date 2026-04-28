@@ -1,0 +1,24 @@
+{
+  "urn": "cap:in=\"media:json;llm-generation-request;record\";llm;ml-model;mlx;op=llm_inference;out=\"media:llm-text-stream;ndjson\"",
+  "command": "inference",
+  "title": "LLM Text Generation (MLX)",
+  "cap_description": "Generate text using MLX models on Apple Silicon. Output is NDJSON streaming tokens.",
+  "documentation": "## Purpose\n\nRuns autoregressive text generation using MLX-optimized models on Apple Silicon. Accepts a fully-structured generation request and streams output as NDJSON tokens. Designed for fast, energy-efficient inference on Mac M-series hardware.\n\n## Inputs\n\nA single JSON generation request record containing: the prompt, model spec (MLX HuggingFace repo or local path), sampling parameters (temperature, top-p, repeat penalty, max tokens, seed), and an optional system prompt.\n\n## Outputs\n\nAn NDJSON stream. Each line is a JSON object carrying token text, status events (`started`, `complete`), and a final summary with token counts and timing.\n\n## Notes\n\n- Requires Apple Silicon (M1 or later).\n- MLX uses unified memory — models share CPU/GPU memory without copying, giving practical access to large models on machines with ample RAM.\n- Every execution is streaming.\n- For cross-platform pipelines, use [LLM Text Generation (GGUF)](https://capdag.com/browse/cap:gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_inference;out=\"media:llm-text-stream;ndjson\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:llm-generation-request;json;record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:llm-generation-request;json;record"
+        }
+      ],
+      "arg_description": "The generation request containing prompt, model spec, and parameters"
+    }
+  ],
+  "output": {
+    "media_urn": "media:llm-text-stream;ndjson",
+    "output_description": "NDJSON stream of tokens, status updates, and completion message"
+  }
+}

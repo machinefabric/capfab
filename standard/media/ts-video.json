@@ -1,0 +1,13 @@
+{
+  "urn": "media:ts;video",
+  "media_type": "video/mp2t",
+  "title": "MPEG Transport Stream",
+  "profile_uri": "https://capdag.com/schema/ts",
+  "description": "MPEG transport stream video data",
+  "documentation": "## Purpose\nMPEG Transport Stream (TS) is a packetized container designed for transmission over lossy or unreliable channels such as broadcast television, satellite, and IPTV. It multiplexes one or more program streams with error correction and synchronization metadata.\n\n## When to use\nUse [MPEG Transport Stream](https://capdag.com/browse/media:ts;video) when working with video captured from broadcast receivers, satellite tuners, Blu-ray discs (M2TS), or IPTV pipelines. TS is also the standard container for HLS (HTTP Live Streaming) segments, making it common in adaptive streaming infrastructure.\n\n## Notes\nTS files use fixed 188-byte packets and carry PIDs to identify individual streams (video, audio, subtitles, EPG data). The `.mts` and `.m2ts` extensions are used by AVCHD camcorders and Blu-ray respectively, and may carry MPEG-2 or H.264 video. Implementers should use a demuxer that understands PID mapping before extracting elementary streams.\n",
+  "extensions": [
+    "ts",
+    "mts",
+    "m2ts"
+  ]
+}

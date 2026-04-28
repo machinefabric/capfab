@@ -1,0 +1,11 @@
+{
+  "urn": "media:tar;archive",
+  "media_type": "application/x-tar",
+  "title": "TAR Archive",
+  "profile_uri": "https://capdag.com/schema/tar",
+  "description": "Tape archive",
+  "documentation": "## Purpose\nTAR (Tape Archive) is a Unix file bundling format that concatenates files and directories into a single stream while preserving permissions, ownership, and symbolic links. It does not compress data on its own.\n\n## When to use\nUse [TAR Archive](https://capdag.com/browse/media:tar;archive) when you need to bundle files for archival or transfer and want to apply compression separately, or when a downstream tool expects a plain tar stream. On Unix-like systems, TAR is the standard container for source distributions and system backups.\n\n## Notes\nBecause TAR stores no compression, it is commonly combined with a compressor: [TAR.GZ](https://capdag.com/browse/media:targz;archive) for gzip, or XZ/LZMA for higher ratios. TAR preserves POSIX metadata that [ZIP Archive](https://capdag.com/browse/media:zip;archive) does not, making it the preferred choice for Unix software distribution and container image layers.\n",
+  "extensions": [
+    "tar"
+  ]
+}

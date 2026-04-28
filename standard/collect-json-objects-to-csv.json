@@ -1,0 +1,28 @@
+{
+  "urn": "cap:in=\"media:json;record;textable\";op=collect_json_objects;out=\"media:csv;list;record;textable\"",
+  "command": "collect_json_objects",
+  "title": "Collect JSON Objects into CSV",
+  "cap_description": "Collect individual JSON objects into a single CSV file",
+  "documentation": "## Purpose\n\nGathers a sequence of individual JSON objects into a single CSV file. Object keys become column headers; one row is written per object. Use this to produce tabular output from a fan-in of JSON-producing parallel stages.\n\n## Inputs\n\nA sequence of JSON record objects.\n\n## Outputs\n\nA CSV file with headers derived from the union of all object keys, and one row per object.\n\n## Notes\n\n- Objects with missing keys produce empty cells in those columns.\n- Objects with different key sets are merged into a unified column set.\n- For a JSON array output instead, use [Collect JSON Objects into Array](https://capdag.com/browse/cap:in=\"media:json;record;textable\";op=collect_json_objects;out=\"media:json;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:json;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:json;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "JSON objects to collect into a CSV",
+      "is_sequence": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:csv;list;record;textable",
+    "output_description": "CSV file with one row per input object"
+  }
+}

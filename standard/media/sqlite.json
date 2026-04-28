@@ -1,0 +1,13 @@
+{
+  "urn": "media:sqlite",
+  "media_type": "application/vnd.sqlite3",
+  "title": "SQLite Database",
+  "profile_uri": "https://capdag.com/schema/sqlite",
+  "description": "SQLite database file",
+  "documentation": "## Purpose\nSQLite is a self-contained, serverless relational database engine stored as a single file. The [SQLite Database](https://capdag.com/browse/media:sqlite) media type represents any `.sqlite`, `.sqlite3`, or `.db` file that follows the SQLite file format.\n\n## When to use\nUse this type when a node produces or consumes a structured relational dataset that must remain portable as a single file artifact — for example, query results, local caches, or embedded application data stores. It is a better choice than CSV or JSON when the data has multiple tables, foreign keys, or requires SQL querying.\n\n## Notes\nImplementers should use the SQLite C library or a language binding to open files; do not treat them as raw binary blobs. Consumers that only need read access should open the database in read-only mode to avoid unintended writes or WAL file creation.\n",
+  "extensions": [
+    "sqlite",
+    "sqlite3",
+    "db"
+  ]
+}

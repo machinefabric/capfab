@@ -1,0 +1,12 @@
+{
+  "urn": "media:page-image-height;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Page Image Height",
+  "profile_uri": "https://capdag.com/schema/page_image_height",
+  "description": "Page Image Height numeric value",
+  "documentation": "## Purpose\nSpecifies the pixel height to use when rendering a document page as an image. Controls the vertical resolution of the rasterized output.\n\n## When to use\nSet this parameter alongside [Page Image Width](https://capdag.com/browse/media:page-image-width;textable;numeric) when you need to control the full resolution of rendered pages. Increasing height improves vertical detail for tall or portrait-oriented documents.\n\n## Notes\nValid range: 50–4000 pixels. Aspect ratio handling is machine-specific. For most document types, setting only width and allowing the machine to infer height is simpler and avoids distortion.\n",
+  "validation": {
+    "max": 4000,
+    "min": 50
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "urn": "media:decision-type;textable",
+  "media_type": "text/plain",
+  "title": "Decision Type",
+  "profile_uri": "https://capdag.com/schema/decision_type",
+  "description": "Decision Type value",
+  "documentation": "## Purpose\nSpecifies the evaluation strategy a decision machine should apply. The value controls how the model frames and returns its judgment.\n\n## When to use\nSet this parameter on any machine that routes between multiple decision modes. Allowed values are `binary`, `classification`, `reasoning`, `verification`, and `comparison`. If omitted, machines typically default to `binary`.\n\n## Notes\n`binary` returns a true/false answer; `classification` selects from a label set; `reasoning` includes a rationale; `verification` checks a claim; `comparison` ranks two or more items. Pair with [Decision](https://capdag.com/browse/media:decision;json;record;textable) for the output format.\n",
+  "validation": {
+    "allowed_values": [
+      "binary",
+      "classification",
+      "reasoning",
+      "verification",
+      "comparison"
+    ]
+  }
+}

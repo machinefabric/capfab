@@ -1,0 +1,8 @@
+{
+  "urn": "media:include-tests-flag;textable",
+  "media_type": "text/plain",
+  "title": "Include Tests Flag",
+  "profile_uri": "https://capdag.com/schema/include_tests_flag",
+  "description": "Include Tests Flag value",
+  "documentation": "## Purpose\nA boolean flag that controls whether test files, test cases, or test-related content are included when a machine processes or generates code-related output.\n\n## When to use\nEnable when a code analysis, documentation, or extraction machine should account for test coverage or emit test-related artifacts. Disable to limit processing to production source files only.\n\n## Notes\nSee also [Include Comments Flag](https://capdag.com/browse/media:include-comments-flag;textable) for controlling inclusion of code comments. The definition of \"tests\" (unit tests, integration tests, spec files) is machine-specific.\n"
+}

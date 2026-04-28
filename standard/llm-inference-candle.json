@@ -1,0 +1,24 @@
+{
+  "urn": "cap:candle;in=\"media:json;llm-generation-request;record\";llm;ml-model;op=llm_inference;out=\"media:llm-text-stream;ndjson\"",
+  "command": "inference",
+  "title": "LLM Text Generation (Candle)",
+  "cap_description": "Generate text using Candle transformer models. Output is NDJSON streaming tokens.",
+  "documentation": "## Purpose\n\nRuns autoregressive text generation using Candle transformer models (safetensors format). Accepts a fully-structured generation request and streams output as NDJSON tokens. This is the low-level inference cap used by higher-level caps like Summarize and Generate Code.\n\n## Inputs\n\nA single JSON generation request record containing: the prompt, model spec (HuggingFace safetensors repo), sampling parameters (temperature, top-p, max tokens, seed), and an optional system prompt.\n\n## Outputs\n\nAn NDJSON stream. Each line is a JSON object. Lines carry token text, status events (`started`, `complete`), and a final summary with total tokens and timing.\n\n## Notes\n\n- Every execution is streaming — there is no non-streaming mode.\n- Candle runs on CPU or CUDA GPU. GPU is strongly recommended for models larger than 3B parameters.\n- For higher-level tasks (summarization, code generation, creative writing), use the task-specific inference caps rather than this one directly.\n- For constrained output (JSON schema, regex), use [Constrained LLM Generation (GGUF)](https://capdag.com/browse/cap:constrained;gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_inference_constrained;out=\"media:llm-text-stream;ndjson\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:llm-generation-request;json;record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:llm-generation-request;json;record"
+        }
+      ],
+      "arg_description": "The generation request containing prompt, model spec, and parameters"
+    }
+  ],
+  "output": {
+    "media_urn": "media:llm-text-stream;ndjson",
+    "output_description": "NDJSON stream of tokens, status updates, and completion message"
+  }
+}

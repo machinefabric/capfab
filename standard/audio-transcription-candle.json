@@ -1,0 +1,60 @@
+{
+  "urn": "cap:candle;in=\"media:audio;speech;wav\";ml-model;op=transcribe;out=\"media:record;textable;transcription\"",
+  "command": "transcribe",
+  "title": "Transcribe Audio (Candle)",
+  "cap_description": "Transcribe audio files to text using Whisper models with Candle ML framework",
+  "documentation": "## Purpose\n\nConverts spoken audio into text using OpenAI Whisper models running locally via the Candle ML framework. Runs on CPU or GPU without a network dependency after the model is downloaded.\n\n## Inputs\n\n- A WAV audio file containing speech (mono or stereo, any sample rate Whisper supports).\n- An optional language code (e.g. `en`, `fr`, `zh`). Omit to let Whisper auto-detect the language.\n- An optional timestamps flag. When enabled, each segment in the output record includes start and end times.\n- An optional model spec pointing to a HuggingFace Whisper checkpoint. Defaults to `openai/whisper-base`.\n\n## Outputs\n\nA JSON record containing the full transcript text, per-segment breakdown, detected language, and model metadata.\n\n## Notes\n\n- Larger Whisper models (`whisper-small`, `whisper-medium`, `whisper-large-v3`) produce more accurate transcripts at the cost of memory and latency.\n- Input must be WAV. Convert other audio formats upstream before passing to this cap.\n- See also: [Generate Vector Embeddings (Candle)](https://capdag.com/browse/cap:candle;in=\"media:textable\";ml-model;op=generate_embeddings;out=\"media:embedding-vector;textable;record\") to embed the resulting transcript.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:audio;speech;wav"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the audio file (WAV format)"
+    },
+    {
+      "media_urn": "media:language;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--language"
+        }
+      ],
+      "arg_description": "Language code for transcription",
+      "default_value": "en"
+    },
+    {
+      "media_urn": "media:timestamps;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--timestamps"
+        }
+      ],
+      "arg_description": "Include timestamps in output",
+      "default_value": false
+    },
+    {
+      "media_urn": "media:model-spec;candle;textable;transcription",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model"
+        }
+      ],
+      "arg_description": "Whisper model name from HuggingFace",
+      "default_value": "hf:openai/whisper-base"
+    }
+  ],
+  "output": {
+    "media_urn": "media:transcription;textable;record",
+    "output_description": "Transcribed text with optional timestamps and metadata"
+  }
+}

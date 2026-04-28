@@ -1,0 +1,11 @@
+{
+  "urn": "media:transcription;textable;record",
+  "media_type": "application/json",
+  "title": "Audio Transcription",
+  "profile_uri": "https://capdag.com/schema/transcription",
+  "description": "Transcribed text structured as a map with metadata.",
+  "documentation": "## Purpose\nRepresents the structured output of a speech-to-text operation. The payload is a JSON object containing the transcribed text along with metadata such as language, confidence scores, and segment timestamps.\n\n## When to use\nUse `media:transcription;textable;record` as the output type of any node that produces transcription results from audio input, particularly from [Speech Audio](https://capdag.com/browse/media:audio;speech;wav). Downstream nodes that consume plain text should extract the relevant text field before passing it on.\n\n## Notes\nThe `textable` and `record` tags indicate that the payload is both human-readable text and a structured key-value record. Consumers should treat the JSON object as the canonical form; the profile schema at `https://capdag.com/schema/transcription` defines the required and optional fields.\n",
+  "extensions": [
+    "json"
+  ]
+}

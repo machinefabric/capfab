@@ -1,0 +1,11 @@
+{
+  "urn": "media:properties;textable;record",
+  "media_type": "text/x-java-properties",
+  "title": "Java Properties",
+  "profile_uri": "https://capdag.com/schema/properties",
+  "description": "Java properties configuration data",
+  "documentation": "## Purpose\nRepresents a Java `.properties` file, a flat key-value configuration format used throughout the Java ecosystem for application settings, internationalisation strings, and framework configuration.\n\n## When to use\nUse `media:properties;textable;record` when a node produces or consumes Java properties files, such as Spring Boot application properties or resource bundle files. For non-Java key-value configurations, see [INI Configuration](https://capdag.com/browse/media:ini;textable;record).\n\n## Notes\nKeys and values are separated by `=` or `:`. Lines beginning with `#` or `!` are comments. Values may use Unicode escape sequences (`\\\\uXXXX`). The encoding is ISO-8859-1 by default, though UTF-8 is common in modern tooling.\n",
+  "extensions": [
+    "properties"
+  ]
+}

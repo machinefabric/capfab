@@ -1,0 +1,12 @@
+{
+  "urn": "media:page-image-width;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Page Image Width",
+  "profile_uri": "https://capdag.com/schema/page_image_width",
+  "description": "Page Image Width numeric value",
+  "documentation": "## Purpose\nSpecifies the pixel width to use when rendering a document page as an image. Controls the horizontal resolution of the rasterized output.\n\n## When to use\nSet this parameter on page-rendering or PDF-to-image machines when the default resolution is too low for OCR or visual analysis, or too high for bandwidth-constrained pipelines.\n\n## Notes\nValid range: 50–4000 pixels. Pair with [Page Image Height](https://capdag.com/browse/media:page-image-height;textable;numeric) to set both dimensions. Aspect ratio enforcement is machine-specific; some machines may adjust one dimension to preserve proportions.\n",
+  "validation": {
+    "max": 4000,
+    "min": 50
+  }
+}

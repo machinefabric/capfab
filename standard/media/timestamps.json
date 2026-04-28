@@ -1,0 +1,8 @@
+{
+  "urn": "media:timestamps;textable",
+  "media_type": "text/plain",
+  "title": "Timestamps",
+  "profile_uri": "https://capdag.com/schema/timestamps",
+  "description": "Boolean flag indicating whether to include timestamps in output.",
+  "documentation": "## Purpose\nCarries a boolean value indicating whether the receiving machine should include timestamps in its output. Serves as a data-carrying counterpart to the behavioral [Timestamps Flag](https://capdag.com/browse/media:timestamps-flag;textable).\n\n## When to use\nUse this type when a graph passes a timestamps preference as a data value between machines rather than as a static configuration. For static configuration, prefer [Timestamps Flag](https://capdag.com/browse/media:timestamps-flag;textable).\n\n## Notes\nThe exact interpretation of \"timestamps\" (segment start/end times, wall-clock annotations, etc.) is determined by the downstream machine. Ensure the receiving machine documents its timestamp format.\n"
+}

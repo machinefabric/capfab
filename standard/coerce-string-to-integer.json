@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=media:textable;op=coerce;out=\"media:integer;numeric;textable\"",
+  "command": "coerce",
+  "title": "Coerce String to Integer",
+  "cap_description": "Parse a string value as an integer",
+  "documentation": "## Purpose\n\nParses a text string as an integer. Use this when a string-producing cap outputs a number as text (e.g. from a file or LLM output) and a downstream cap requires an integer type.\n\n## Inputs\n\nA textable string value representing an integer (media type `media:textable`).\n\n## Outputs\n\nThe parsed integer.\n\n## Notes\n\n- Fails hard if the input is not a valid integer string. Ensure upstream output is numeric text before using this coerce.\n- For floating-point strings, use [Coerce String to Number](https://capdag.com/browse/cap:in=media:textable;op=coerce;out=\"media:numeric;textable\") instead.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:integer;numeric;textable",
+    "output_description": "Coerced value"
+  }
+}

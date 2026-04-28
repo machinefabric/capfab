@@ -1,0 +1,11 @@
+{
+  "urn": "media:war;archive",
+  "media_type": "application/java-archive",
+  "title": "WAR Archive",
+  "profile_uri": "https://capdag.com/schema/war",
+  "description": "Web application archive",
+  "documentation": "## Purpose\nWAR (Web application ARchive) is a ZIP-format archive containing a Java web application — servlets, JSPs, static resources, and a `WEB-INF/web.xml` deployment descriptor — in the structure required by Java EE / Jakarta EE servlet containers. The [WAR Archive](https://capdag.com/browse/media:war;archive) media type represents any `.war` file.\n\n## When to use\nUse this type when a node produces or consumes Java web application deployments — for example, CI/CD pipelines that build and deploy WAR files to Tomcat, JBoss, WildFly, or Jetty servers. For general-purpose Java archives without a web deployment structure use [JAR](https://capdag.com/browse/media:jar;archive).\n\n## Notes\nWAR files are ZIP archives that follow a specific directory layout: `WEB-INF/web.xml` (deployment descriptor), `WEB-INF/classes/` (compiled servlets), `WEB-INF/lib/` (dependency JARs), and static content at the root. Implementers can inspect WAR contents with any ZIP tool. Servlet containers deploy WAR files by extracting them to a work directory; re-deploying requires replacing the WAR and restarting the context. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "war"
+  ]
+}

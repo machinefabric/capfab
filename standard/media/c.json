@@ -1,0 +1,11 @@
+{
+  "urn": "media:c;textable;code",
+  "media_type": "text/x-c",
+  "title": "C Source",
+  "profile_uri": "https://capdag.com/schema/c",
+  "description": "C programming language source code",
+  "documentation": "## Purpose\nC source files contain implementation code written in the C programming language, a foundational systems language that remains central to operating systems, embedded firmware, compilers, and performance-critical libraries.\n\n## When to use\nUse [C Source](https://capdag.com/browse/media:c;textable;code) for `.c` implementation files. Header declarations are handled by [C Header](https://capdag.com/browse/media:c-header;textable;code). C is the lingua franca of system-level interoperability; most other languages provide FFI bindings to C.\n\n## Notes\nC source is typically plain ASCII or UTF-8 text. The applicable C standard (C89, C99, C11, C17, C23) significantly affects available features; implementations should not assume a specific standard without inspecting compiler flags or project configuration. The `.c` extension is also used by some Objective-C++ files in older codebases; use MIME type and include patterns to disambiguate.\n",
+  "extensions": [
+    "c"
+  ]
+}

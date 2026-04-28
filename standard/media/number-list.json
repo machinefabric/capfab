@@ -1,0 +1,11 @@
+{
+  "urn": "media:list;numeric;textable",
+  "media_type": "text/plain",
+  "title": "Number List",
+  "profile_uri": "https://capdag.com/schema/num-list",
+  "description": "Text file with one floating-point numeric value per line.",
+  "documentation": "## Purpose\nThe [Number List](https://capdag.com/browse/media:list;numeric;textable) type represents an ordered sequence of floating-point numbers encoded as plain text, one value per line.\n\n## When to use\nUse this type when a node produces or consumes a simple sequence of numeric values — for example, a list of loss values from a training loop, a time series of measurements, or a ranked score list. For typed integer or real subsets, prefer `media:integer;list;numeric;textable` or `media:list;numeric;real;textable`.\n\n## Notes\nEach line must contain exactly one number in a format parseable by standard floating-point parsers (e.g., `1.5`, `-3e10`, `NaN`, `Inf`). Lines must be LF-terminated. Blank lines should be treated as errors unless the port contract specifies otherwise.\n",
+  "extensions": [
+    "txt"
+  ]
+}

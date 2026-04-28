@@ -1,0 +1,11 @@
+{
+  "urn": "media:code-contextable",
+  "media_type": "text/plain",
+  "title": "Code Context",
+  "profile_uri": "https://capdag.com/schema/code_context",
+  "description": "Code Context contextual information",
+  "documentation": "## Purpose\n\nCode Context provides background information about the codebase, architecture, or existing code that a model should take into account when generating or analyzing code. It is a free-form text field with a generous character limit.\n\n## When to use\n\nUse this media type to pass snippets of existing code, file structure descriptions, API contracts, or other developer context to a code-focused node. Pair it with [Programming Language](https://capdag.com/browse/media:programming-language;textable) and [Coding Style](https://capdag.com/browse/media:coding-style;textable) for best results.\n\n## Notes\n\nThe maximum length is 65,536 characters. Prioritize the most relevant context rather than including entire files, as excess context can reduce output quality.\n",
+  "validation": {
+    "max_length": 65536
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:bool;textable\";op=coerce;out=\"media:numeric;textable\"",
+  "command": "coerce",
+  "title": "Coerce Boolean to Number",
+  "cap_description": "Convert a boolean to a number (true=1.0, false=0.0)",
+  "documentation": "## Purpose\n\nConverts a boolean value to a floating-point number: `true` becomes `1.0`, `false` becomes `0.0`. Use this when a downstream cap expects a numeric type but the upstream produces a boolean.\n\n## Inputs\n\nA boolean value (media type `media:bool;textable`).\n\n## Outputs\n\nThe float `1.0` (true) or `0.0` (false).\n\n## Notes\n\n- Use when connecting boolean outputs to numeric inputs (e.g. weight or scaling factors).\n- For integer output instead, use [Coerce Boolean to Integer](https://capdag.com/browse/cap:in=\"media:bool;textable\";op=coerce;out=\"media:integer;numeric;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:bool;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:bool;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:numeric;textable",
+    "output_description": "Coerced value"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:json;list;record;textable\";op=convert_format;out=\"media:list;record;textable;yaml\"",
+  "command": "convert_format",
+  "title": "Convert JSON Array of Objects to YAML List of Mappings",
+  "cap_description": "Convert a JSON array of objects to a YAML sequence of mappings",
+  "documentation": "## Purpose\n\nConverts a JSON array of objects into a YAML sequence of mappings. Each JSON object becomes one YAML mapping. Use this when downstream caps or configuration files prefer YAML over JSON.\n\n## Inputs\n\nA JSON array of objects.\n\n## Outputs\n\nA YAML sequence of mappings.\n\n## Notes\n\n- Semantically lossless: all JSON key-value types that YAML supports are preserved.\n- For the reverse, use [Convert YAML List of Mappings to JSON Array of Objects](https://capdag.com/browse/cap:in=\"media:list;record;textable;yaml\";op=convert_format;out=\"media:json;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:json;list;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:json;list;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "JSON array of objects to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:list;record;textable;yaml",
+    "output_description": "YAML formatted sequence of mappings"
+  }
+}

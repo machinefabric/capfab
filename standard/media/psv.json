@@ -1,0 +1,11 @@
+{
+  "urn": "media:psv;textable",
+  "media_type": "text/plain",
+  "title": "PSV Data",
+  "profile_uri": "https://capdag.com/schema/psv",
+  "description": "Pipe-separated values data",
+  "documentation": "## Purpose\nRepresents tabular data where fields are separated by pipe (`|`) characters. PSV is used in contexts where commas and tabs may appear as valid field content, making them unsuitable as delimiters.\n\n## When to use\nUse `media:psv;textable` when a node produces or consumes pipe-delimited tabular data. For comma-delimited data, see [CSV Data](https://capdag.com/browse/media:csv;list;record;textable). For tab-delimited data, see [TSV Data](https://capdag.com/browse/media:tsv;textable).\n\n## Notes\nThere is no universal standard for PSV; consumers should treat the pipe as the sole field delimiter and handle quoting conventions based on the producing node's documentation.\n",
+  "extensions": [
+    "psv"
+  ]
+}

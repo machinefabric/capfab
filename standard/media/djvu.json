@@ -1,0 +1,12 @@
+{
+  "urn": "media:djvu",
+  "media_type": "image/vnd.djvu",
+  "title": "DjVu Document",
+  "profile_uri": "https://capdag.com/schema/djvu",
+  "description": "DjVu scanned document data",
+  "documentation": "## Purpose\nCarries DjVu files, a compressed scanned-document format developed by AT&T Labs specifically for digitized books, journals, and historical documents. DjVu achieves high compression ratios for scanned content by separately encoding foreground text, background, and color layers.\n\n## When to use\nUse `media:djvu` when a pipeline node processes scanned document archives — for example, a text extraction step using `djvulibre` tools for OCR pre-processing, a page rendering step converting DjVu pages to images, or a format conversion step targeting PDF.\n\n## Notes\nDjVu is common in academic and library digitization projects (e.g., Internet Archive). The `djvulibre` toolset provides command-line utilities for rendering, text extraction, and conversion. For native PDF scans, use the PDF media type instead. See also [DjVu Document](https://capdag.com/browse/media:djvu).\n",
+  "extensions": [
+    "djvu",
+    "djv"
+  ]
+}

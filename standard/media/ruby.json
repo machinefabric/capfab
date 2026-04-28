@@ -1,0 +1,13 @@
+{
+  "urn": "media:ruby;textable;code",
+  "media_type": "text/x-ruby",
+  "title": "Ruby Source",
+  "profile_uri": "https://capdag.com/schema/ruby",
+  "description": "Ruby programming language source code",
+  "documentation": "## Purpose\nRuby source files contain code written in Ruby, a dynamic, object-oriented scripting language known for its expressive syntax and the Rails web framework. Ruby is used for web development, scripting, build automation (Rake), and tool development.\n\n## When to use\nUse [Ruby Source](https://capdag.com/browse/media:ruby;textable;code) for `.rb` application files, `Rakefile` and `.rake` task files, and `.gemspec` gem specification files. All are syntactically valid Ruby and can be processed by the same toolchain.\n\n## Notes\nRuby source is UTF-8 text. The language is highly dynamic with pervasive metaprogramming via `method_missing`, `define_method`, and open classes, which limits static analysis accuracy. Ruby version management (rbenv, rvm, asdf) is common in Ruby projects; the required version is typically declared in `.ruby-version` or the `Gemfile`.\n",
+  "extensions": [
+    "rb",
+    "rake",
+    "gemspec"
+  ]
+}

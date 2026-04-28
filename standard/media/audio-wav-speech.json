@@ -1,0 +1,11 @@
+{
+  "urn": "media:audio;speech;wav",
+  "media_type": "audio/wav",
+  "title": "Speech Audio",
+  "profile_uri": "https://capdag.com/schema/audio-speech",
+  "description": "WAV audio data containing human speech for transcription by Whisper or similar models",
+  "documentation": "## Purpose\nRepresents a WAV audio file whose primary content is human speech intended for automatic transcription. The semantic tag distinguishes it from general-purpose audio, allowing pipelines to route the file to speech-to-text services automatically.\n\n## When to use\nUse `media:audio;speech;wav` when producing or consuming WAV recordings that will be fed to a transcription model such as Whisper. Do not use the generic [WAV Audio](https://capdag.com/browse/media:wav;audio) type for this purpose, as it carries no transcription intent.\n\n## Notes\nThe file must be a standard PCM WAV. Whisper and most transcription APIs expect mono or stereo 16-bit PCM at 16 kHz or higher. Callers should resample or convert before passing audio to a model if the source does not meet those requirements.\n",
+  "extensions": [
+    "wav"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=media:record;op=coerce;out=media:textable",
+  "command": "coerce",
+  "title": "Coerce Object to String",
+  "cap_description": "Convert a record/object to its string representation",
+  "documentation": "## Purpose\n\nConverts a record (object) to its string representation. Use this when a downstream cap requires text but the upstream produces a structured record.\n\n## Inputs\n\nA record value (media type `media:record`).\n\n## Outputs\n\nA string representation of the record.\n\n## Notes\n\n- The output format is typically JSON or a similar serialized form.\n- For wrapping a string in a record (the reverse), use [Coerce String to Object](https://capdag.com/browse/cap:in=media:textable;op=coerce;out=media:record).\n- For human-readable text output from a record, a format conversion cap (JSON-to-YAML, etc.) may produce better output than this coerce.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:record"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Coerced value"
+  }
+}

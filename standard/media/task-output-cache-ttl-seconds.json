@@ -1,0 +1,22 @@
+{
+  "urn": "media:output-cache-ttl-seconds;tasks;timing;operator;task;textable;numeric",
+  "media_type": "text/plain",
+  "title": "TTL in seconds for container output cache before cleanup",
+  "profile_uri": "https://capdag.com/schema/task-output-cache-ttl-seconds",
+  "description": "TTL in seconds for container output cache before cleanup",
+  "metadata": {
+    "category": "task",
+    "subcategory": "task_execution",
+    "display_index": 4,
+    "ui_type": "SETTING_UI_TYPE_NUMBER_FIELD",
+    "data_type": "SETTING_DATA_TYPE_UNSIGNED_INTEGER",
+    "default": 1200,
+    "overridable_by": [
+      "user"
+    ]
+  },
+  "validation": {
+    "min": 60,
+    "max": 86400
+  }
+}

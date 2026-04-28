@@ -1,0 +1,12 @@
+{
+  "urn": "media:kotlin;textable;code",
+  "media_type": "text/x-kotlin",
+  "title": "Kotlin Source",
+  "profile_uri": "https://capdag.com/schema/kotlin",
+  "description": "Kotlin programming language source code",
+  "documentation": "## Purpose\nKotlin source files contain code written in Kotlin, a statically typed JVM language developed by JetBrains that is fully interoperable with Java. Kotlin is the preferred language for Android development and is also used for server-side JVM applications and Kotlin Multiplatform targets.\n\n## When to use\nUse [Kotlin Source](https://capdag.com/browse/media:kotlin;textable;code) for `.kt` source files and `.kts` Kotlin script files. Kotlin Script (`.kts`) is used for Gradle build files and standalone scripts that do not require a compilation step; implementations may need to distinguish these from regular source.\n\n## Notes\nKotlin compiles to JVM bytecode, JavaScript, or native binaries depending on the target. The language is null-safe by default, with nullable types expressed explicitly. Kotlin Multiplatform allows sharing code across JVM, iOS, and JS targets from a single source set, which can complicate source analysis that assumes a single compilation target.\n",
+  "extensions": [
+    "kt",
+    "kts"
+  ]
+}

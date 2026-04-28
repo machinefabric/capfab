@@ -1,0 +1,12 @@
+{
+  "urn": "media:file-path;textable",
+  "media_type": "text/plain",
+  "title": "File Path",
+  "profile_uri": "https://capdag.com/schema/file_path",
+  "description": "File Path file system path",
+  "documentation": "## Purpose\nCarries a single file system path as a plain-text string, used to identify the location of an input or output file on disk.\n\n## When to use\nUse this type when a machine needs to read from or write to a specific file, rather than receiving content inline. Prefer inline content media types when the file is small and the path adds unnecessary indirection.\n\n## Notes\nThe path must not contain null bytes. Relative or absolute paths are both valid; the interpretation is determined by the machine's runtime context. For multiple paths, use [File Path Array](https://capdag.com/browse/media:file-path;textable;list) instead.\n",
+  "validation": {
+    "min_length": 1,
+    "pattern": "^[^\\0]+$"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "urn": "media:gguf;llm;model-spec;qwen;textable",
+  "media_type": "text/plain",
+  "title": "GGUF Qwen LLM Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "GGUF model specification for Qwen-family language models.",
+  "documentation": "## Purpose\nCombines the GGUF backend tag with the Qwen family tag, fully resolving the model to a GGUF Qwen instruct model. The runtime applies both the correct GGUF loading path and the ChatML `<|im_start|>` / `<|im_end|>` template.\n\n## When to use\nThis URN is assigned by the ValueAdapter after inspecting a GGUF model file and confirming it is a Qwen-family model. Use it in cap selectors to match only GGUF Qwen models.\n\n## Notes\nThis is a composed tag produced at runtime; it is not typically specified manually by users.\n",
+  "extensions": [
+    "txt"
+  ],
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

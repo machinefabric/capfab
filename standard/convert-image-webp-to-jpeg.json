@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:image;webp\";op=convert_image;out=\"media:image;jpeg\"",
+  "command": "convert-image",
+  "title": "Convert WebP to JPEG",
+  "cap_description": "Re-encode a WebP image as a JPEG",
+  "documentation": "## Purpose\n\nDecodes a WebP image and writes it as a JPEG.\n\n## Inputs\n\nA WebP file (still image; animated WebP first frame is used).\n\n## Outputs\n\nA JPEG file at quality 85.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:webp;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the WebP file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:jpeg;image",
+    "output_description": "JPEG-encoded image"
+  }
+}

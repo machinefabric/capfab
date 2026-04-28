@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:model-spec;textable\";op=download-model;out=\"media:download-result;record;textable\"",
+  "command": "download",
+  "title": "Download Model",
+  "cap_description": "Download a model from repository to local cache.",
+  "documentation": "## Purpose\n\nDownloads a model from a remote repository (e.g. HuggingFace) to the local model cache. Subsequent inference caps will use the cached copy without network access.\n\n## Inputs\n\nA model spec string (e.g. `hf:org/model-name` or `hf:org/model-name?include=*.gguf`). Include/exclude filters in the spec control which files are downloaded.\n\n## Outputs\n\nA JSON record with the local cache path, downloaded file list, and download metadata.\n\n## Notes\n\n- Downloads are resumable. If interrupted, re-running the cap continues from where it stopped.\n- Use `include`/`exclude` filters in the model spec to download only the quantization variant you need rather than the full repository.\n- Check progress of an ongoing download with [Model Status](https://capdag.com/browse/cap:in=\"media:model-spec;textable\";op=model-status;out=\"media:model-status;textable;record\").\n- After downloading, confirm the local path with [Get Model Path](https://capdag.com/browse/cap:in=\"media:model-spec;textable\";op=model-path;out=\"media:model-path;textable;record\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:model-spec;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Model spec (e.g., hf:org/model-name)"
+    }
+  ],
+  "output": {
+    "media_urn": "media:download-result;textable;record",
+    "output_description": "Download result with model path and metadata"
+  }
+}

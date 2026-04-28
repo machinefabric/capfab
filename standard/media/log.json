@@ -1,0 +1,11 @@
+{
+  "urn": "media:log;textable",
+  "media_type": "text/plain",
+  "title": "Log File",
+  "profile_uri": "https://capdag.com/schema/log",
+  "description": "Log file text content",
+  "documentation": "## Purpose\nRepresents the text output of an application or system log. Log files are line-oriented and typically contain timestamps, severity levels, and messages, though the exact format varies by source.\n\n## When to use\nUse `media:log;textable` when a node emits or reads log output, such as a machine execution trace, build output, or server log. For general unstructured text, use [Plain Text](https://capdag.com/browse/media:txt;textable).\n\n## Notes\nLog content is often large and may grow incrementally. Consumers that parse log lines should be tolerant of format variation across different sources. The `textable` tag allows log content to flow to any generic text consumer.\n",
+  "extensions": [
+    "log"
+  ]
+}

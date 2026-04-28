@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:audio;m4a\";op=convert_audio;out=\"media:audio;flac\"",
+  "command": "convert-audio",
+  "title": "Convert M4A to FLAC",
+  "cap_description": "Decode an M4A (AAC-in-MP4) file and re-encode as lossless FLAC",
+  "documentation": "## Purpose\n\nDemuxes the audio track from an M4A container, decodes the AAC bitstream, and writes it as FLAC.\n\n## Inputs\n\nAn M4A file. AAC and ALAC tracks are supported.\n\n## Outputs\n\nA FLAC file.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:m4a;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the M4A file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:flac;audio",
+    "output_description": "FLAC-encoded audio"
+  }
+}

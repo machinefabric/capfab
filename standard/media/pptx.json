@@ -1,0 +1,11 @@
+{
+  "urn": "media:pptx",
+  "media_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  "title": "PowerPoint Presentation",
+  "profile_uri": "https://capdag.com/schema/pptx",
+  "description": "Microsoft PowerPoint presentation data",
+  "documentation": "## Purpose\nCarries Microsoft PowerPoint presentations in the Open XML format (`.pptx`), the current standard for slide-based presentations. PPTX files are ZIP archives containing XML parts for slides, layouts, themes, and embedded media.\n\n## When to use\nUse `media:pptx` when a pipeline node processes PowerPoint presentations — for example, a slide extraction step using `python-pptx`, a PDF rendering step via LibreOffice, or a content analysis step that reads speaker notes and text from each slide.\n\n## Notes\nPPTX is an ISO/IEC 29500 standard. Individual slide XML files are accessible by treating the archive as a ZIP. For the older binary format, see [PowerPoint Presentation (Legacy)](https://capdag.com/browse/media:ppt). See also [PowerPoint Presentation](https://capdag.com/browse/media:pptx).\n",
+  "extensions": [
+    "pptx"
+  ]
+}

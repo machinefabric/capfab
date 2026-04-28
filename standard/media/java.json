@@ -1,0 +1,11 @@
+{
+  "urn": "media:java;textable;code",
+  "media_type": "text/x-java",
+  "title": "Java Source",
+  "profile_uri": "https://capdag.com/schema/java",
+  "description": "Java programming language source code",
+  "documentation": "## Purpose\nJava source files contain code written in the Java programming language, a class-based, object-oriented language designed for platform independence via the Java Virtual Machine (JVM). Java is widely used in enterprise backends, Android development, and large-scale distributed systems.\n\n## When to use\nUse [Java Source](https://capdag.com/browse/media:java;textable;code) for `.java` files containing class, interface, enum, or annotation declarations. Java source is compiled to `.class` bytecode files before execution; this media type covers the source form only.\n\n## Notes\nJava source files are conventionally named after the public class they declare (one public class per file). The Java version (language level) affects available syntax features — records, sealed classes, and pattern matching were introduced in later versions. Build tools such as Maven and Gradle manage compilation and dependency resolution.\n",
+  "extensions": [
+    "java"
+  ]
+}

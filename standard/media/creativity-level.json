@@ -1,0 +1,12 @@
+{
+  "urn": "media:creativity-level;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Creativity Level",
+  "profile_uri": "https://capdag.com/schema/creativity_level",
+  "description": "Creativity Level numeric value",
+  "documentation": "## Purpose\n\nCreativity Level is a normalized float between 0.0 and 1.0 that controls how adventurous or conservative the model's output should be. Lower values favor predictability and accuracy; higher values favor novelty and variation.\n\n## When to use\n\nUse this media type when a creative writing or brainstorming node exposes a creativity dial to callers. Pair it with [Genre](https://capdag.com/browse/media:genre;textable), [Tone](https://capdag.com/browse/media:tone;textable), and [Creative Context](https://capdag.com/browse/media:creative-contextable) to fully parameterize creative output.\n\n## Notes\n\nThis value maps conceptually to a model's temperature parameter but is expressed on a 0–1 scale regardless of the underlying model's native range. Values above 0.8 may produce less coherent output for structured tasks; reserve them for purely generative use cases.\n",
+  "validation": {
+    "min": 0,
+    "max": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:list;textable\";op=coerce;out=media:textable",
+  "command": "coerce",
+  "title": "Coerce String Array to String",
+  "cap_description": "Convert a list of strings to a single string representation",
+  "documentation": "## Purpose\n\nConverts a list of strings to a single string representation. Use this when a downstream cap expects a single text value but the upstream produces multiple strings.\n\n## Inputs\n\nA list of textable strings (media type `media:list;textable`).\n\n## Outputs\n\nA single string representing all items in the list (typically newline-separated or JSON array format).\n\n## Notes\n\n- Type adapter for the capfab planner.\n- If you need the items joined in a specific format (comma-separated, newline-separated, etc.), consider using a more explicit join operation upstream.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:list;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:list;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Coerced value"
+  }
+}

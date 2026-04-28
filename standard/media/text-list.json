@@ -1,0 +1,11 @@
+{
+  "urn": "media:list;textable",
+  "media_type": "text/plain",
+  "title": "Text List",
+  "profile_uri": "https://capdag.com/schema/list",
+  "description": "Ordered list of textable values.",
+  "documentation": "## Purpose\nThe [Text List](https://capdag.com/browse/media:list;textable) type represents an ordered collection of values that are each expressible as UTF-8 text. The canonical serialization is one value per line in a plain-text file.\n\n## When to use\nUse this type when a node produces or consumes a simple line-delimited list of string values — for example, a list of file paths, identifiers, labels, or search terms. When element values have numeric or structured types, use the corresponding typed list variant.\n\n## Notes\nLine endings should be LF (`\\n`). Empty lines are valid list entries. Implementers should define whether trailing newlines are significant. For lists with a specific element type (numbers, booleans, records), prefer the appropriate typed list URN over this generic form.\n",
+  "extensions": [
+    "txt"
+  ]
+}

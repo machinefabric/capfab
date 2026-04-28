@@ -1,0 +1,12 @@
+{
+  "urn": "media:aiff;audio",
+  "media_type": "audio/aiff",
+  "title": "AIFF Audio",
+  "profile_uri": "https://capdag.com/schema/aiff",
+  "description": "Apple AIFF audio data",
+  "documentation": "## Purpose\nRepresents an AIFF (Audio Interchange File Format) file, Apple's native uncompressed audio container. AIFF stores PCM audio with full lossless fidelity and is widely used in professional audio production on macOS.\n\n## When to use\nUse `media:aiff;audio` when a node produces or consumes AIFF audio, particularly in professional audio production or archival workflows on macOS. For lossless but compressed audio, prefer [FLAC Audio](https://capdag.com/browse/media:flac;audio). For general WAV-format PCM, see [WAV Audio](https://capdag.com/browse/media:wav;audio).\n\n## Notes\nAIFF is the macOS equivalent of Windows WAV, both storing uncompressed PCM data. AIFF-C (AIFFC) is a compressed variant; consumers should check the compression type when parsing. Metadata is stored in AIFF chunks, which is distinct from ID3 or Vorbis comment conventions.\n",
+  "extensions": [
+    "aiff",
+    "aif"
+  ]
+}

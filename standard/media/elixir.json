@@ -1,0 +1,12 @@
+{
+  "urn": "media:elixir;textable;code",
+  "media_type": "text/x-elixir",
+  "title": "Elixir Source",
+  "profile_uri": "https://capdag.com/schema/elixir",
+  "description": "Elixir programming language source code",
+  "documentation": "## Purpose\nElixir source files contain code written in Elixir, a dynamic, functional language built on the Erlang VM (BEAM) that inherits Erlang's actor model concurrency and fault tolerance while offering a modern Ruby-inspired syntax. Elixir is widely used for scalable web services via the Phoenix framework and distributed systems.\n\n## When to use\nUse [Elixir Source](https://capdag.com/browse/media:elixir;textable;code) for `.ex` compiled module files and `.exs` Elixir script files. Scripts (`.exs`) are interpreted directly by the Elixir runtime without generating compiled `.beam` files; Mix build scripts and test files commonly use the `.exs` extension.\n\n## Notes\nElixir projects are built with Mix, which uses `mix.exs` as the project definition file. Elixir's macro system (via `defmacro`) enables powerful metaprogramming that can make static analysis challenging. The language interoperates fully with [Erlang Source](https://capdag.com/browse/media:erlang;textable;code) at the module level; Elixir modules compile to the same BEAM bytecode.\n",
+  "extensions": [
+    "ex",
+    "exs"
+  ]
+}

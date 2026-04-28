@@ -1,0 +1,11 @@
+{
+  "urn": "media:image;png",
+  "media_type": "image/png",
+  "title": "PNG Image",
+  "profile_uri": "https://capdag.com/schema/image-png",
+  "description": "PNG image data",
+  "documentation": "## Purpose\nCarries a PNG-encoded raster image with semantic context indicating it is an image ready for vision or display use. Distinguished from the bare [PNG Image](https://capdag.com/browse/media:png) type by the `image` tag, which makes routing to vision inference nodes explicit.\n\n## When to use\nUse `media:image;png` when a pipeline step expects a PNG specifically in the role of a visual artifact — for example as input to a vision model or image description node. For raw PNG bytes without semantic image context, use [PNG Image Data](https://capdag.com/browse/media:png).\n\n## Notes\nPNG supports lossless compression and alpha transparency, making it appropriate for screenshots, diagrams, and UI renderings. For photographic content where file size matters, prefer JPEG or WebP.\n",
+  "extensions": [
+    "png"
+  ]
+}

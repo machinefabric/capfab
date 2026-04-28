@@ -1,0 +1,11 @@
+{
+  "urn": "media:dmg;archive",
+  "media_type": "application/x-apple-diskimage",
+  "title": "macOS Disk Image",
+  "profile_uri": "https://capdag.com/schema/dmg",
+  "description": "macOS disk image",
+  "documentation": "## Purpose\nDMG (Apple Disk Image) is a macOS container format for distributing software as a mountable virtual disk. When opened, macOS mounts the image and presents its contents (typically a `.app` bundle or installer) in Finder. The [macOS Disk Image](https://capdag.com/browse/media:dmg;archive) media type represents any `.dmg` file.\n\n## When to use\nUse this type when a node produces or consumes macOS application distribution images — for example, release artifact pipelines, notarization workflows, or automated testing infrastructure that mounts and inspects DMG contents. DMG is the conventional drag-to-install distribution format for macOS applications.\n\n## Notes\nDMG files commonly use UDIF (Universal Disk Image Format) with optional zlib or bzip2 compression. Implementers can attach (mount) a DMG using `hdiutil attach` on macOS or inspect its contents without mounting using `7-Zip` on other platforms. Apple notarization and stapling (`xcrun stapler staple`) are required for DMGs distributed to end users on macOS 10.15+. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "dmg"
+  ]
+}

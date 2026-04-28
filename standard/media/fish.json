@@ -1,0 +1,11 @@
+{
+  "urn": "media:fish;textable;code",
+  "media_type": "text/x-shellscript",
+  "title": "Fish Script",
+  "profile_uri": "https://capdag.com/schema/fish",
+  "description": "Fish shell script source code",
+  "documentation": "## Purpose\nCarries Fish shell scripts, which use a syntax intentionally distinct from POSIX sh to improve readability and interactive usability. Fish is commonly used as an interactive shell with autosuggestions and syntax highlighting built in.\n\n## When to use\nUse `media:fish;textable;code` when a pipeline node specifically handles `.fish` scripts — for example, a dotfile management step or a shell function installer that targets Fish users. For POSIX-compatible scripts, use [Shell Script](https://capdag.com/browse/media:shell;textable;code).\n\n## Notes\nFish scripts are not POSIX-compatible; they cannot be run by `sh` or `bash`. Functions, completions, and configuration are all stored as `.fish` files, typically under `~/.config/fish/`. See also [Fish Script](https://capdag.com/browse/media:fish;textable;code).\n",
+  "extensions": [
+    "fish"
+  ]
+}

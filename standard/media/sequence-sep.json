@@ -1,0 +1,8 @@
+{
+  "urn": "media:textable;separator",
+  "media_type": "text/plain",
+  "title": "Sequence Separator",
+  "profile_uri": "https://capdag.com/schema/sequence_separator",
+  "description": "Sequence separator",
+  "documentation": "## Purpose\n\nSequence Separator is a plain-text string used to delimit elements when joining or splitting a sequence into or from a single text value. It allows callers to control how list items are serialized or parsed.\n\n## When to use\n\nUse this media type when a node that produces or consumes a flat text representation of a list needs a caller-supplied delimiter. Common values include newline (`\\n`), comma (`,`), or a pipe (`|`).\n\n## Notes\n\nThe separator is interpreted literally by the consuming node. Ensure the chosen separator does not appear within the sequence elements themselves, or the split/join operation will produce incorrect results.\n"
+}

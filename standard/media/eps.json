@@ -1,0 +1,11 @@
+{
+  "urn": "media:eps;image",
+  "media_type": "application/postscript",
+  "title": "EPS Image",
+  "profile_uri": "https://capdag.com/schema/eps",
+  "description": "Encapsulated PostScript image data",
+  "documentation": "## Purpose\nRepresents an EPS (Encapsulated PostScript) file, a vector graphics format historically used in professional print and publishing workflows. EPS files contain PostScript language instructions for rendering graphics at arbitrary resolution.\n\n## When to use\nUse `media:eps;image` when a node produces or consumes EPS files, typically in print prepress pipelines or when working with legacy design assets. For modern vector graphics interchange, prefer [SVG Image](https://capdag.com/browse/media:svg;image;textable).\n\n## Notes\nEPS files may include a low-resolution raster preview alongside the PostScript data. Rendering requires a PostScript interpreter such as Ghostscript. EPS is largely superseded by PDF and SVG for new workflows.\n",
+  "extensions": [
+    "eps"
+  ]
+}

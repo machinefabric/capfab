@@ -1,0 +1,11 @@
+{
+  "urn": "media:tsx;textable;code",
+  "media_type": "text/typescript-jsx",
+  "title": "TypeScript JSX Source",
+  "profile_uri": "https://capdag.com/schema/tsx",
+  "description": "TypeScript JSX source code",
+  "documentation": "## Purpose\nTSX files contain TypeScript source code that uses JSX syntax to define UI components. They combine the static type checking of [TypeScript](https://capdag.com/browse/media:typescript;textable;code) with the declarative component syntax of [JSX](https://capdag.com/browse/media:jsx;textable;code).\n\n## When to use\nUse [TypeScript JSX Source](https://capdag.com/browse/media:tsx;textable;code) for React component files written in TypeScript. The `.tsx` extension signals to the TypeScript compiler that JSX transformations are required; plain TypeScript without JSX should use the `.ts` extension and [TypeScript Source](https://capdag.com/browse/media:typescript;textable;code).\n\n## Notes\nThe TypeScript compiler requires `\"jsx\"` to be set in `tsconfig.json` (e.g., `\"react\"`, `\"react-jsx\"`, `\"preserve\"`) to process `.tsx` files. Generic type parameters in TSX require a trailing comma (`<T,>`) to disambiguate from JSX tags. TSX is the dominant format in modern React applications using TypeScript.\n",
+  "extensions": [
+    "tsx"
+  ]
+}

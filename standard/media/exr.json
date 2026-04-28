@@ -1,0 +1,11 @@
+{
+  "urn": "media:exr;image",
+  "media_type": "image/x-exr",
+  "title": "OpenEXR Image",
+  "profile_uri": "https://capdag.com/schema/exr",
+  "description": "OpenEXR high dynamic range image data",
+  "documentation": "## Purpose\nRepresents an OpenEXR image, the industry-standard HDR format for visual effects and computer-generated imagery. OpenEXR supports 16-bit and 32-bit floating-point channels, multiple layers, and arbitrary channel names.\n\n## When to use\nUse `media:exr;image` when a node produces or consumes OpenEXR files, such as a 3D renderer, a compositing node, or a VFX pipeline step. For standard dynamic range images, prefer [PNG Image](https://capdag.com/browse/media:png) or [JPEG Image](https://capdag.com/browse/media:jpeg;image).\n\n## Notes\nOpenEXR files store linear light values and are not suitable for direct display without tone mapping. The format supports multi-channel data including depth, normals, and motion vectors in addition to RGB colour.\n",
+  "extensions": [
+    "exr"
+  ]
+}

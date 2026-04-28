@@ -1,0 +1,11 @@
+{
+  "urn": "media:vue;textable;code",
+  "media_type": "text/x-vue",
+  "title": "Vue Component",
+  "profile_uri": "https://capdag.com/schema/vue",
+  "description": "Vue.js single-file component",
+  "documentation": "## Purpose\nCarries Vue.js single-file components (SFCs), which combine a `<template>`, `<script>`, and `<style>` block in one `.vue` file. Vue is a progressive framework for building web UIs and supports both Options API and Composition API styles.\n\n## When to use\nUse `media:vue;textable;code` when a pipeline node processes `.vue` files — for example, a Vite build step, an ESLint + vue-eslint-parser analysis step, or an LLM node generating Vue component scaffolding.\n\n## Notes\nVue SFCs require a build tool (Vite, Vue CLI, or webpack with `vue-loader`) to transform them into browser-executable JavaScript. TypeScript is supported in `<script lang=\"ts\">` blocks. See also [Vue Component](https://capdag.com/browse/media:vue;textable;code).\n",
+  "extensions": [
+    "vue"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:integer;list;numeric;textable",
+  "media_type": "text/plain",
+  "title": "Integer List",
+  "profile_uri": "https://capdag.com/schema/integer-list",
+  "description": "Text file with one signed integer value per line.",
+  "documentation": "## Purpose\nThe [Integer List](https://capdag.com/browse/media:integer;list;numeric;textable) type represents an ordered sequence of signed integers encoded as plain text, one value per line.\n\n## When to use\nUse this type when a node produces or consumes a list of whole numbers — for example, token IDs, category labels, page numbers, or sorted index sequences. For lists that may contain fractional values, use `media:list;numeric;textable` instead.\n\n## Notes\nEach line must contain exactly one decimal integer literal. No blank lines, no commas, no headers. Lines must be LF-terminated. Implementers should parse each line with 64-bit signed integer semantics.\n",
+  "extensions": [
+    "txt"
+  ]
+}

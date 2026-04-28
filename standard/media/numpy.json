@@ -1,0 +1,12 @@
+{
+  "urn": "media:numpy",
+  "media_type": "application/x-numpy",
+  "title": "NumPy Array",
+  "profile_uri": "https://capdag.com/schema/numpy",
+  "description": "NumPy array data",
+  "documentation": "## Purpose\nNumPy's native array format stores N-dimensional arrays with a small header describing dtype, shape, and byte order followed by raw array data. The [NumPy Array](https://capdag.com/browse/media:numpy) media type covers both `.npy` (single array) and `.npz` (zip archive of multiple named arrays) files.\n\n## When to use\nUse this type when a node produces or consumes numerical arrays intended for Python-based downstream processing — for example, intermediate feature matrices, model inputs/outputs, or pre-computed embeddings. Prefer HDF5 for hierarchical or very large datasets; use NumPy format when simplicity and direct `np.load` interoperability matter most.\n\n## Notes\n`.npy` files begin with a magic string `\\x93NUMPY` followed by version bytes and a Python-literal header dict. `.npz` archives are standard ZIP files and can be read without NumPy using any ZIP library. Implementers should use `numpy.save` / `numpy.load` for single arrays and `numpy.savez` / `numpy.savez_compressed` for multi-array bundles.\n",
+  "extensions": [
+    "npy",
+    "npz"
+  ]
+}

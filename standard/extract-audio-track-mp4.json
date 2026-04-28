@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:mp4;video\";op=extract_audio_track;out=\"media:audio;m4a\"",
+  "command": "extract-audio",
+  "title": "Extract Audio Track from MP4",
+  "cap_description": "Demux the audio track from an MP4 video and write it as an M4A file",
+  "documentation": "## Purpose\n\nExtracts the AAC audio track from an MP4 container and writes it as an M4A file (the same AAC bitstream, re-containered without re-encoding). This is the canonical first step when you have a video and want to feed its audio into a transcription pipeline.\n\n## Inputs\n\nAn MP4 file with an AAC audio track. Video tracks are ignored.\n\n## Outputs\n\nAn M4A file containing the source's AAC audio track. No re-encoding occurs; the AAC bitstream is bit-exact.\n\n## Notes\n\nIf the MP4 has no AAC audio track, the cap fails hard. There is no audio re-encoding fallback.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:mp4;video"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the MP4 file"
+    }
+  ],
+  "output": {
+    "media_urn": "media:m4a;audio",
+    "output_description": "M4A (AAC-in-MP4) audio track"
+  }
+}

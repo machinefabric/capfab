@@ -1,0 +1,19 @@
+{
+  "urn": "media:cartridge-suggestions-enabled;network;feature;user;app;textable",
+  "media_type": "text/plain",
+  "title": "Enable cartridge suggestions for unavailable caps",
+  "profile_uri": "https://capdag.com/schema/api-cartridge-enable-suggestions",
+  "description": "Enable cartridge suggestions for unavailable caps",
+  "metadata": {
+    "category": "api",
+    "subcategory": "api_cartridges",
+    "display_index": 2,
+    "ui_type": "SETTING_UI_TYPE_SWITCH",
+    "data_type": "SETTING_DATA_TYPE_BOOLEAN",
+    "default": true,
+    "overridable_by": [
+      "user",
+      "end_user"
+    ]
+  }
+}

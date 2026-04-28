@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:image;jpeg\";op=convert_image;out=\"media:image;png\"",
+  "command": "convert-image",
+  "title": "Convert JPEG to PNG",
+  "cap_description": "Re-encode a JPEG image as a PNG",
+  "documentation": "## Purpose\n\nDecodes a JPEG image and re-encodes it as a lossless PNG. Use this when downstream cartridges only accept PNG (for example, [Describe Image (Candle)](https://capdag.com/browse/cap:candle;in=\"media:image;png\";ml-model;op=describe_image;out=\"media:image-description;textable\")), or when archiving JPEGs without further compression loss.\n\n## Inputs\n\nA JPEG file. The decoder accepts standard JFIF and Exif-tagged JPEGs.\n\n## Outputs\n\nA PNG file with the same pixel content.\n\n## Notes\n\nThe conversion is decode-then-encode. JPEG quantization artifacts are preserved exactly as a PNG cannot reverse them. PNG is larger on disk than the source JPEG for typical photographic content.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:jpeg;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the JPEG file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:image;png",
+    "output_description": "PNG-encoded image"
+  }
+}

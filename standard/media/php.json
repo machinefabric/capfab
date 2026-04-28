@@ -1,0 +1,12 @@
+{
+  "urn": "media:php;textable;code",
+  "media_type": "text/x-php",
+  "title": "PHP Source",
+  "profile_uri": "https://capdag.com/schema/php",
+  "description": "PHP programming language source code",
+  "documentation": "## Purpose\nPHP source files contain code written in PHP, a widely deployed server-side scripting language designed primarily for web development. PHP is the language underlying WordPress, Drupal, Laravel, and a large portion of the web's server-side infrastructure.\n\n## When to use\nUse [PHP Source](https://capdag.com/browse/media:php;textable;code) for `.php` files and `.phtml` files (PHP-enhanced HTML templates). PHP files typically contain a mix of PHP code delimited by `<?php ... ?>` tags and HTML, though modern frameworks use pure PHP class files without HTML embedding.\n\n## Notes\nPHP 7 and PHP 8 introduced substantial changes including typed properties, named arguments, enums, and fibers; the PHP version must be known to correctly interpret syntax. PHP source is UTF-8 text. The `declare(strict_types=1)` directive at the top of a file enables strict type checking and affects how the file should be analyzed for type correctness.\n",
+  "extensions": [
+    "php",
+    "phtml"
+  ]
+}

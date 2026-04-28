@@ -1,0 +1,49 @@
+{
+  "urn": "cap:in=\"media:log;textable\";op=render_page_image;out=\"media:image;png\"",
+  "command": "render-page-image",
+  "title": "Render Log Page Image",
+  "cap_description": "Render a page-like PNG image preview of the log document",
+  "documentation": "## Purpose\n\nRenders a log file as a page-like PNG image. Useful for generating visual snapshots of log output for display in dashboards, reports, or image-aware pipeline steps.\n\n## Inputs\n\n- A log file (path or stdin, media type `media:log;textable`).\n- Page width in pixels (default 800).\n- Page height in pixels (default 1200).\n\n## Outputs\n\nA PNG image representing the rendered log page.\n\n## Notes\n\n- For plain text files that are not log files, use [Render Text Page Image](https://capdag.com/browse/cap:in=\"media:txt;textable\";op=render_page_image;out=\"media:image;png\").\n- Long log files will overflow the page. Tail the log upstream if you only need recent entries.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:log;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the log file to process"
+    },
+    {
+      "media_urn": "media:page-image-width;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--width"
+        }
+      ],
+      "arg_description": "Width of the page image in pixels",
+      "default_value": 800
+    },
+    {
+      "media_urn": "media:page-image-height;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--height"
+        }
+      ],
+      "arg_description": "Height of the page image in pixels",
+      "default_value": 1200
+    }
+  ],
+  "output": {
+    "media_urn": "media:image;png",
+    "output_description": "PNG image data representing the rendered log page"
+  }
+}

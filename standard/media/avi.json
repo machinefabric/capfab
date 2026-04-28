@@ -1,0 +1,11 @@
+{
+  "urn": "media:avi;video",
+  "media_type": "video/x-msvideo",
+  "title": "AVI Video",
+  "profile_uri": "https://capdag.com/schema/avi",
+  "description": "AVI video container data",
+  "documentation": "## Purpose\nAVI (Audio Video Interleave) is a legacy Microsoft video container format introduced in 1992. It multiplexes audio and video streams into a single RIFF-structured file and remains widely supported across desktop platforms.\n\n## When to use\nUse [AVI Video](https://capdag.com/browse/media:avi;video) when ingesting or archiving video content sourced from older Windows-based production pipelines, capture cards, or editing tools that produce AVI output by default. Prefer more modern containers such as [MKV Video](https://capdag.com/browse/media:mkv;video) or [MP4](https://capdag.com/browse/media:video) for new content.\n\n## Notes\nAVI does not natively support modern codec features such as B-frames in some encoders, variable frame rates, or embedded subtitles. Files larger than 2 GB require the OpenDML extension. Implementers should be prepared for a wide variety of codec combinations inside AVI containers.\n",
+  "extensions": [
+    "avi"
+  ]
+}

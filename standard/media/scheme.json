@@ -1,0 +1,12 @@
+{
+  "urn": "media:scheme;textable;code",
+  "media_type": "text/x-scheme",
+  "title": "Scheme Source",
+  "profile_uri": "https://capdag.com/schema/scheme",
+  "description": "Scheme programming language source code",
+  "documentation": "## Purpose\nCarries Scheme source files, a minimalist dialect of Lisp characterized by lexical scoping, first-class continuations, and tail-call optimization. Scheme is widely used in academic and research contexts as well as embedded scripting.\n\n## When to use\nUse `media:scheme;textable;code` when a pipeline step processes `.scm` or `.ss` source — for example, a REPL evaluation node or a macro-expansion analysis tool.\n\n## Notes\nMultiple Scheme implementations (Guile, Racket in compatibility mode, Chicken, Chez) share the `.scm` extension but may differ in available libraries and syntax extensions. See also [Scheme Source](https://capdag.com/browse/media:scheme;textable;code).\n",
+  "extensions": [
+    "scm",
+    "ss"
+  ]
+}

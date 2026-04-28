@@ -1,0 +1,12 @@
+{
+  "urn": "media:ogg;audio",
+  "media_type": "audio/ogg",
+  "title": "OGG Audio",
+  "profile_uri": "https://capdag.com/schema/ogg",
+  "description": "Ogg Vorbis audio data",
+  "documentation": "## Purpose\nRepresents an Ogg Vorbis audio file, an open and patent-free compressed audio format comparable in quality to AAC and MP3. Ogg Vorbis is commonly used in open-source games, web audio, and applications that require royalty-free audio compression.\n\n## When to use\nUse `media:ogg;audio` when a node produces or consumes Ogg Vorbis audio. For the modern Opus codec in an Ogg container, see [Opus Audio](https://capdag.com/browse/media:opus;audio). For MP3 or AAC equivalents, see [MP3 Audio](https://capdag.com/browse/media:mp3;audio) or [AAC Audio](https://capdag.com/browse/media:aac;audio).\n\n## Notes\nThe Ogg container can carry multiple codec streams (Vorbis, Opus, Theora). This spec refers specifically to Ogg Vorbis audio. Consumers should confirm the codec before processing if the source may contain Opus or other streams.\n",
+  "extensions": [
+    "ogg",
+    "oga"
+  ]
+}

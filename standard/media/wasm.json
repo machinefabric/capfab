@@ -1,0 +1,11 @@
+{
+  "urn": "media:wasm",
+  "media_type": "application/wasm",
+  "title": "WebAssembly Binary",
+  "profile_uri": "https://capdag.com/schema/wasm",
+  "description": "WebAssembly binary module",
+  "documentation": "## Purpose\nCarries a compiled WebAssembly binary module. Wasm binaries are stack-machine bytecode that run in sandboxed browser environments and standalone runtimes (Wasmtime, WAMR, WasmEdge, Node.js). They are the compilation target for C, C++, Rust, Go, and other languages.\n\n## When to use\nUse `media:wasm` when a pipeline node executes, instruments, or analyzes a compiled Wasm binary — for example, a Wasmtime execution step, a binary analysis tool using `wasm-tools`, or a deployment step uploading a module to an edge runtime.\n\n## Notes\nWasm binaries are not human-readable; for readable text representation, use [WebAssembly Text](https://capdag.com/browse/media:wat;textable;code) (`.wat`). The Wasm binary format begins with the magic bytes `\\0asm` followed by a 4-byte version field. See also [WebAssembly Binary](https://capdag.com/browse/media:wasm).\n",
+  "extensions": [
+    "wasm"
+  ]
+}

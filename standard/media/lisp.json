@@ -1,0 +1,13 @@
+{
+  "urn": "media:lisp;textable;code",
+  "media_type": "text/x-lisp",
+  "title": "Lisp Source",
+  "profile_uri": "https://capdag.com/schema/lisp",
+  "description": "Common Lisp source code",
+  "documentation": "## Purpose\nCarries Common Lisp source files, covering the ANSI-standardized dialect used in production systems (SBCL, CCL, ABCL). Common Lisp supports multiple programming paradigms and has a powerful macro system for domain-specific languages.\n\n## When to use\nUse `media:lisp;textable;code` when a pipeline node processes `.lisp`, `.cl`, or `.lsp` source files — for example, a compilation step targeting a Lisp image or a tool that performs code analysis across a Quicklisp-managed project.\n\n## Notes\nThe `.cl` extension is the most common convention for Common Lisp files; `.lisp` and `.lsp` are also in wide use. This type does not cover Scheme or Clojure, which have their own media types. See also [Lisp Source](https://capdag.com/browse/media:lisp;textable;code).\n",
+  "extensions": [
+    "lisp",
+    "cl",
+    "lsp"
+  ]
+}

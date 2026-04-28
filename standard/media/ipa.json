@@ -1,0 +1,11 @@
+{
+  "urn": "media:ipa;archive",
+  "media_type": "application/octet-stream",
+  "title": "iOS Package",
+  "profile_uri": "https://capdag.com/schema/ipa",
+  "description": "iOS application package",
+  "documentation": "## Purpose\nIPA (iOS App Store Package) is the binary distribution format for iOS, iPadOS, and macOS (on Apple Silicon) applications. Structurally a ZIP archive, it contains a `.app` bundle with Mach-O executables, resources, and Apple-signed metadata. The [iOS Package](https://capdag.com/browse/media:ipa;archive) media type represents any `.ipa` file.\n\n## When to use\nUse this type when a node produces or consumes iOS application binaries — for example, CI/CD build pipelines, App Store submission workflows, enterprise distribution systems, or security analysis toolchains. Distribution requires Apple code signing; unsigned IPA files will not run on real devices.\n\n## Notes\nIPA files can be opened with any ZIP library. The app bundle is located at `Payload/<AppName>.app/`. The main executable is a Mach-O fat binary (ARM64). Implementers that inspect or re-sign IPA files should use `codesign` (macOS) or `zsign` and must re-sign after any modification. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "ipa"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:txt;textable",
+  "media_type": "text/plain",
+  "title": "Plain Text",
+  "profile_uri": "https://capdag.com/schema/txt",
+  "description": "Plain text document",
+  "documentation": "## Purpose\nThe base type for human-readable text without markup or structural encoding. Any content that is UTF-8 text and does not conform to a more specific format (Markdown, HTML, CSV, etc.) should use this type.\n\n## When to use\nUse `media:txt;textable` as the output of nodes that produce raw text, or as the input to nodes that consume generic text such as language models or text summarizers. More specific text types like [Markdown](https://capdag.com/browse/media:md;textable) or [Log File](https://capdag.com/browse/media:log;textable) should be preferred when the structure is known.\n\n## Notes\nThe `textable` tag makes this type compatible with any pipeline node that accepts readable text. Encoding is assumed to be UTF-8 unless stated otherwise in the node's configuration.\n",
+  "extensions": [
+    "txt"
+  ]
+}

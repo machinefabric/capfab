@@ -1,0 +1,11 @@
+{
+  "urn": "media:csv;list;record;textable",
+  "media_type": "text/csv",
+  "title": "CSV Data",
+  "profile_uri": "https://capdag.com/schema/csv",
+  "description": "Comma-separated values with header row and multiple columns",
+  "documentation": "## Purpose\nThe standard CSV type: a header row followed by one or more data rows, where each row is a record with named fields. This is the most common CSV shape produced by spreadsheets, database exports, and data pipelines.\n\n## When to use\nUse `media:csv;list;record;textable` for tabular CSV files with a header. For a single-row CSV file, use [CSV Record](https://capdag.com/browse/media:csv;record;textable). For tab- or pipe-delimited alternatives, see [TSV Data](https://capdag.com/browse/media:tsv;textable) and [PSV Data](https://capdag.com/browse/media:psv;textable).\n\n## Notes\nField quoting follows RFC 4180. Consumers should use a standards-compliant CSV parser to correctly handle quoted fields, embedded commas, and newlines within values.\n",
+  "extensions": [
+    "csv"
+  ]
+}

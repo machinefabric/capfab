@@ -1,0 +1,8 @@
+{
+  "urn": "media:include-order-indexes;textable",
+  "media_type": "text/plain",
+  "title": "Include Order Indexes",
+  "profile_uri": "https://capdag.com/schema/include_order_indexes",
+  "description": "Include Order Indexes value",
+  "documentation": "## Purpose\nA boolean flag that instructs a machine to annotate output items with their ordinal position in the original sequence, preserving ordering information for downstream consumers.\n\n## When to use\nEnable when output items may be reordered, filtered, or merged with other data and the original sequence position must be recoverable. Disable when order is implicit or irrelevant to downstream processing.\n\n## Notes\nOrder indexes are typically zero-based integers attached to each output record. The exact field name and format depend on the machine's output schema.\n"
+}

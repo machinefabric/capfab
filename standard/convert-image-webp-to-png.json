@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:image;webp\";op=convert_image;out=\"media:image;png\"",
+  "command": "convert-image",
+  "title": "Convert WebP to PNG",
+  "cap_description": "Re-encode a WebP image as a PNG",
+  "documentation": "## Purpose\n\nDecodes a WebP image and writes it as a PNG. Lossy and lossless WebP are both supported on input.\n\n## Inputs\n\nA WebP file (still image; animated WebP first frame is used).\n\n## Outputs\n\nA PNG file with the same pixel content.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:webp;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the WebP file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:image;png",
+    "output_description": "PNG-encoded image"
+  }
+}

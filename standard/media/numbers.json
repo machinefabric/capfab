@@ -1,0 +1,11 @@
+{
+  "urn": "media:numbers",
+  "media_type": "application/vnd.apple.numbers",
+  "title": "Apple Numbers",
+  "profile_uri": "https://capdag.com/schema/numbers",
+  "description": "Apple Numbers spreadsheet data",
+  "documentation": "## Purpose\nApple Numbers is a spreadsheet application, and its `.numbers` format is a ZIP-based package containing SNAPPY-compressed Protobuf data alongside image and other resources. The [Apple Numbers](https://capdag.com/browse/media:numbers) media type represents any `.numbers` file produced by Numbers for macOS or iOS.\n\n## When to use\nUse this type when a node produces or consumes spreadsheets originating from the Apple Numbers application — for example, data ingestion from macOS users, document archiving, or conversion pipelines that transform Numbers files into open formats. For cross-platform spreadsheet interchange, XLSX or CSV is preferred.\n\n## Notes\nThe Numbers format is proprietary; there is no publicly documented specification. Implementers that need to extract data should use the `numbers-parser` Python library or convert via Numbers itself (File > Export). The internal structure changed significantly between Numbers 3 and later versions. The format does not include a `content_type` header in the file itself, so format detection must rely on the ZIP magic bytes and the presence of characteristic internal paths.\n",
+  "extensions": [
+    "numbers"
+  ]
+}

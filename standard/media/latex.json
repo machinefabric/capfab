@@ -1,0 +1,12 @@
+{
+  "urn": "media:latex;textable",
+  "media_type": "text/x-latex",
+  "title": "LaTeX Document",
+  "profile_uri": "https://capdag.com/schema/latex",
+  "description": "LaTeX document",
+  "documentation": "## Purpose\nCarries LaTeX source files used for typesetting technical documents, academic papers, theses, and books. LaTeX provides precise control over typography and mathematical notation and is the standard format in many scientific disciplines.\n\n## When to use\nUse `media:latex;textable` when a pipeline node compiles, analyzes, or generates LaTeX — for example, a `pdflatex` or `xelatex` compilation step, a bibliography manager, or an LLM node that produces math-heavy reports in LaTeX syntax.\n\n## Notes\nLaTeX documents are compiled in multiple passes to resolve cross-references and generate a table of contents. The `.tex` extension is standard; `.latex` is less common but accepted. Auxiliary files (`.aux`, `.bbl`, `.log`) are produced during compilation and are not covered by this type. See also [LaTeX Document](https://capdag.com/browse/media:latex;textable).\n",
+  "extensions": [
+    "tex",
+    "latex"
+  ]
+}

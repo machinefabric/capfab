@@ -1,0 +1,12 @@
+{
+  "urn": "media:jpeg;image",
+  "media_type": "image/jpeg",
+  "title": "JPEG Image",
+  "profile_uri": "https://capdag.com/schema/jpeg",
+  "description": "JPEG image data",
+  "documentation": "## Purpose\nRepresents a JPEG-encoded raster image. JPEG is a lossy compression format optimised for photographic content, achieving small file sizes at the cost of some image quality.\n\n## When to use\nUse `media:jpeg;image` when a node produces or consumes JPEG images — for example photographs, camera captures, or compressed image exports. For images requiring lossless quality or transparency, prefer [PNG Image](https://capdag.com/browse/media:png) or [WebP Image](https://capdag.com/browse/media:webp;image).\n\n## Notes\nJPEG does not support transparency. Repeated re-compression degrades quality; nodes that modify JPEG images should work with a lossless intermediate where possible and re-encode only once at the final output step.\n",
+  "extensions": [
+    "jpg",
+    "jpeg"
+  ]
+}

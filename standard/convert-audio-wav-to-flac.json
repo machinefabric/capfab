@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:audio;wav\";op=convert_audio;out=\"media:audio;flac\"",
+  "command": "convert-audio",
+  "title": "Convert WAV to FLAC",
+  "cap_description": "Re-encode WAV as lossless FLAC",
+  "documentation": "## Purpose\n\nEncodes a WAV file as FLAC. Both formats are lossless; FLAC is typically half the size or less for the same audio.\n\n## Inputs\n\nA 16-bit signed PCM WAV file.\n\n## Outputs\n\nA FLAC file with the same audio content.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:wav;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the WAV file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:flac;audio",
+    "output_description": "FLAC-encoded lossless audio"
+  }
+}

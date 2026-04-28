@@ -1,0 +1,12 @@
+{
+  "urn": "media:lzma;archive",
+  "media_type": "application/x-lzma",
+  "title": "LZMA Archive",
+  "profile_uri": "https://capdag.com/schema/lzma",
+  "description": "LZMA compressed archive",
+  "documentation": "## Purpose\nLZMA (Lempel-Ziv-Markov chain Algorithm) is the underlying compression algorithm used by [7-Zip Archive](https://capdag.com/browse/media:7z;archive) and [XZ Archive](https://capdag.com/browse/media:xz;archive). The raw LZMA format wraps this algorithm in a minimal header without the XZ container structure.\n\n## When to use\nUse [LZMA Archive](https://capdag.com/browse/media:lzma;archive) when interoperating with legacy tools or embedded systems that produce raw `.lzma` streams. For new content, prefer [XZ Archive](https://capdag.com/browse/media:xz;archive), which adds integrity checking and better streaming support around the same LZMA2 core.\n\n## Notes\nRaw LZMA files lack the checksums and stream framing present in XZ. The `.lz` extension is associated with the lzip tool, which uses LZMA with its own container format; implementers should verify which variant is present by inspecting the file magic bytes. LZMA2 (used in XZ and 7z) is an improved variant that supports multi-threading and is distinct from original LZMA.\n",
+  "extensions": [
+    "lzma",
+    "lz"
+  ]
+}

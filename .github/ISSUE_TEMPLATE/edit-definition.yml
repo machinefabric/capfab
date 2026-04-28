@@ -1,0 +1,35 @@
+name: Edit Existing Definition
+description: Propose changes to an existing capability or media spec — typo fixes, clarified docs, corrected metadata.
+title: "Edit: <urn>"
+labels:
+  - edit-definition
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to propose edits to an existing definition without changing its URN. Typical edits: fixing typos, improving documentation, correcting `media_type` or `extensions`, clarifying when one type should be used over a neighbour.
+
+        Changes that alter the URN itself are not edits — they are a removal plus a fresh "Add" submission. URNs are identity; once published, the URN of a definition is treated as stable.
+  - type: input
+    id: urn
+    attributes:
+      label: URN being edited
+      description: Paste the URN exactly as it appears in the published JSON.
+      placeholder: 'media:png  or  cap:in="…";op=…;out="…"'
+    validations:
+      required: true
+  - type: textarea
+    id: payload
+    attributes:
+      label: Proposed JSON
+      description: The full updated JSON for this definition. Don't send a diff — paste the complete object you want the published version to become.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: What's changing and why?
+      description: Summarise what you changed (e.g. "fixed a typo in `documentation`; corrected `media_type` from `text/plain` to `application/json`") and why.
+    validations:
+      required: true

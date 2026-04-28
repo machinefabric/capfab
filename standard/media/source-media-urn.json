@@ -1,0 +1,12 @@
+{
+  "urn": "media:source-media-urn;textable",
+  "media_type": "text/plain",
+  "title": "Source Media Urn",
+  "profile_uri": "https://capdag.com/schema/source_media_urn",
+  "description": "Source Media Urn value",
+  "documentation": "## Purpose\nCarries the URN of the media type that was used as the source or input for a derived artifact. Provides provenance information so downstream machines and users can trace what kind of content originated the current output.\n\n## When to use\nAttach this value to output records from conversion, extraction, or transformation machines where consumers need to know the original media type. It is particularly useful in multi-modal pipelines that accept several input formats.\n\n## Notes\nMust match the pattern `^media:.+` with a minimum length of 7. The value should be a valid URN from the capdag media registry. See [File Path](https://capdag.com/browse/media:file-path;textable) for carrying the source file location alongside this URN.\n",
+  "validation": {
+    "pattern": "^media:.+",
+    "min_length": 7
+  }
+}

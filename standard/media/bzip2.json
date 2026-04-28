@@ -1,0 +1,11 @@
+{
+  "urn": "media:bzip2;archive",
+  "media_type": "application/x-bzip2",
+  "title": "BZIP2 Archive",
+  "profile_uri": "https://capdag.com/schema/bzip2",
+  "description": "BZIP2 compressed archive",
+  "documentation": "## Purpose\nBZIP2 is a single-file compression format using the Burrows-Wheeler block-sorting algorithm followed by Huffman coding. It generally achieves better compression than [GZIP](https://capdag.com/browse/media:gzip;archive) at the cost of higher CPU usage and slower speed.\n\n## When to use\nUse [BZIP2 Archive](https://capdag.com/browse/media:bzip2;archive) when compression ratio is more important than speed, and the toolchain supports bzip2. It is commonly found in Linux package repositories (`.tar.bz2`) and some open-source source distributions.\n\n## Notes\nBZIP2 does not support random access or multi-file bundling; pair it with [TAR Archive](https://capdag.com/browse/media:tar;archive) to create `.tar.bz2` archives. For modern use cases, [Zstandard](https://capdag.com/browse/media:zstd;archive) and [XZ](https://capdag.com/browse/media:xz;archive) offer comparable or superior compression with better performance characteristics.\n",
+  "extensions": [
+    "bz2"
+  ]
+}

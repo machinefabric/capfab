@@ -1,0 +1,11 @@
+{
+  "urn": "media:svg;image;textable",
+  "media_type": "image/svg+xml",
+  "title": "SVG Image",
+  "profile_uri": "https://capdag.com/schema/svg",
+  "description": "Scalable Vector Graphics image data",
+  "documentation": "## Purpose\nRepresents an SVG file, an XML-based vector image format that describes graphics using geometric primitives, paths, and text. SVG images scale without quality loss and can be styled and animated with CSS.\n\n## When to use\nUse `media:svg;image;textable` when a node produces or consumes SVG graphics — for example a diagram generator, an icon renderer, or a chart exporter. The `textable` tag indicates the payload is human-readable XML, while the `image` tag routes it to image-aware consumers.\n\n## Notes\nSVG files may embed raster images, reference external fonts, or include JavaScript. Consumers that render SVG should sanitize or sandbox the content to prevent unintended script execution. For raster alternatives, see [PNG Image](https://capdag.com/browse/media:png) or [WebP Image](https://capdag.com/browse/media:webp;image).\n",
+  "extensions": [
+    "svg"
+  ]
+}

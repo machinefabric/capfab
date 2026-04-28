@@ -1,0 +1,11 @@
+{
+  "urn": "media:apk;archive",
+  "media_type": "application/vnd.android.package-archive",
+  "title": "Android Package",
+  "profile_uri": "https://capdag.com/schema/apk",
+  "description": "Android application package",
+  "documentation": "## Purpose\nAPK (Android Package Kit) is the binary distribution format for Android applications. Structurally a ZIP archive, it contains compiled Dalvik bytecode (`classes.dex`), resources, a manifest, and signing metadata. The [Android Package](https://capdag.com/browse/media:apk;archive) media type represents any `.apk` file.\n\n## When to use\nUse this type when a node produces or consumes Android application binaries — for example, CI/CD build artifact pipelines, app distribution workflows, automated testing frameworks, or security analysis tools that inspect APK contents.\n\n## Notes\nAPK files are ZIP archives and can be opened with any ZIP library for inspection. The `AndroidManifest.xml` inside is binary XML (AXML format), not plain text, and requires an Android-aware parser such as `apktool` or `androguard`. Signing must conform to the APK signing scheme (v1/v2/v3) for Android to accept the package; signed APKs should not be re-zipped without re-signing. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "apk"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "urn": "cap:in=\"media:model-repo;record;textable\";op=list-models;out=\"media:model-list;record;textable\"",
+  "command": "list",
+  "title": "List Models",
+  "cap_description": "List all locally cached models.",
+  "documentation": "## Purpose\n\nReturns a list of all models currently in the local model cache, along with their sizes, download status, and metadata. Use this to see what is already available on the current machine.\n\n## Inputs\n\nAn optional model repository identifier (defaults to `huggingface`).\n\n## Outputs\n\nA JSON record with a list of cached models, each including the model spec, local path, file sizes, and last-accessed time.\n\n## Notes\n\n- Only shows locally cached models, not all models available remotely.\n- Use [Check Model Availability](https://capdag.com/browse/cap:in=\"media:model-spec;textable\";op=model-availability;out=\"media:model-availability;textable;record\") to check a specific model.\n- Use [Download Model](https://capdag.com/browse/cap:in=\"media:model-spec;textable\";op=download-model;out=\"media:download-result;textable;record\") to add a model to the local cache.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-repo;textable;record",
+      "required": false,
+      "sources": [
+        {
+          "stdin": "media:model-repo;textable;record"
+        }
+      ],
+      "arg_description": "Model repository to list from",
+      "default_value": "huggingface"
+    }
+  ],
+  "output": {
+    "media_urn": "media:model-list;textable;record",
+    "output_description": "List of models with their metadata and status"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:fbx;model",
+  "media_type": "application/octet-stream",
+  "title": "FBX Model",
+  "profile_uri": "https://capdag.com/schema/fbx",
+  "description": "Filmbox 3D model",
+  "documentation": "## Purpose\nFBX (Filmbox) is a proprietary Autodesk binary format for 3D models, scenes, and animations, widely used in game development, film production, and digital content creation pipelines. The [FBX Model](https://capdag.com/browse/media:fbx;model) media type represents any `.fbx` file in the binary FBX format.\n\n## When to use\nUse this type when exchanging 3D assets with tools in the Autodesk ecosystem (Maya, 3ds Max, MotionBuilder) or game engines (Unity, Unreal Engine) that natively import FBX. For open-standard 3D interchange, [GLB](https://capdag.com/browse/media:glb;model) or [glTF](https://capdag.com/browse/media:gltf;model;textable) are preferred when possible.\n\n## Notes\nThe FBX format is proprietary; Autodesk provides an SDK but the binary format is not publicly documented. There are also ASCII-text FBX variants. Implementers should use the Autodesk FBX SDK or a compatible open-source library such as `ufbx` or Open Asset Import Library (Assimp). The `;model` tag indicates this is a 3D model artifact.\n",
+  "extensions": [
+    "fbx"
+  ]
+}

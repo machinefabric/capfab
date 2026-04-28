@@ -1,0 +1,14 @@
+{
+  "urn": "media:model-dim;integer;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Model Dimensionality",
+  "profile_uri": "https://capdag.com/schema/model-dim",
+  "description": "Dimensionality of a machine learning model (e.g., embedding vector size)",
+  "documentation": "## Purpose\nCarries a single integer that describes the output dimensionality of a model, most commonly the size of its embedding vectors. This allows caps to advertise or negotiate the dimension of their output without needing a full model-info record.\n\n## When to use\nUse this type as a lightweight parameter or output when only the vector dimension is needed — for example, to size a vector database index or validate that an embedding model's output matches a downstream consumer's expected dimension.\n\n## Notes\nThe minimum value is 1. Typical embedding models produce dimensions between 128 and 4096. The value should match the `embedding_dim` field in [LLM Model Info](https://capdag.com/browse/media:llm-model-info;json;record) or the `embedding_dim` field in [Embedding Vector](https://capdag.com/browse/media:embedding-vector;textable;record) for the same model.\n",
+  "extensions": [
+    "txt"
+  ],
+  "validation": {
+    "min": 1
+  }
+}

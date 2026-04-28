@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:bool;list;textable\";op=coerce;out=media:textable",
+  "command": "coerce",
+  "title": "Coerce Boolean Array to String",
+  "cap_description": "Convert an array of booleans to its string representation",
+  "documentation": "## Purpose\n\nConverts a list of boolean values to a single string representation (e.g. `[true, false, true]`). Use this when a downstream cap expects a text value but the upstream produces a boolean array.\n\n## Inputs\n\nA list of boolean values (media type `media:bool;list;textable`).\n\n## Outputs\n\nA string representation of the boolean array.\n\n## Notes\n\n- Type adapter for the capfab planner.\n- For converting individual booleans, use [Coerce Boolean to String](https://capdag.com/browse/cap:in=\"media:bool;textable\";op=coerce;out=media:textable).\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:bool;list;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:bool;list;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Coerced value"
+  }
+}

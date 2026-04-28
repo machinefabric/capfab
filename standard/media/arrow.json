@@ -1,0 +1,12 @@
+{
+  "urn": "media:arrow;list;record",
+  "media_type": "application/vnd.apache.arrow.file",
+  "title": "Arrow Data",
+  "profile_uri": "https://capdag.com/schema/arrow",
+  "description": "Apache Arrow columnar data",
+  "documentation": "## Purpose\nApache Arrow defines an in-memory columnar format and an on-disk IPC file format (also called Feather v2). The [Arrow Data](https://capdag.com/browse/media:arrow;list;record) media type represents files written in the Arrow IPC file format, which stores an ordered list of typed record batches.\n\n## When to use\nUse this type when low-latency data exchange between nodes running in the same process or over shared memory matters, or when you need zero-copy reads into data-science tooling. Arrow is preferable over Parquet when compression overhead is undesirable and when the consumer will process data immediately rather than storing it long term.\n\n## Notes\nArrow IPC files begin with a magic number and contain one or more record batches preceded by a schema message. The `.feather` extension refers to the same format. Implementers should use the Apache Arrow libraries; the PyArrow `ipc.open_file` API is the standard entry point for readers.\n",
+  "extensions": [
+    "arrow",
+    "feather"
+  ]
+}

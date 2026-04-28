@@ -1,0 +1,11 @@
+{
+  "urn": "media:kml;textable",
+  "media_type": "application/vnd.google-earth.kml+xml",
+  "title": "KML",
+  "profile_uri": "https://capdag.com/schema/kml",
+  "description": "Keyhole Markup Language geographic data",
+  "documentation": "## Purpose\nKML (Keyhole Markup Language) is an XML-based format for expressing geographic annotation and visualization within maps and Earth browsers. The [KML](https://capdag.com/browse/media:kml;textable) media type represents `.kml` files conforming to the OGC KML standard.\n\n## When to use\nUse this type when a node produces or consumes geographic data intended for Google Earth, Google Maps, or other KML-capable viewers — for example, annotated maps, tour paths, or overlay layers with styling information. For simpler vector data interchange without styling, [GeoJSON](https://capdag.com/browse/media:geojson;record;textable) is often a lighter alternative.\n\n## Notes\nKML files are UTF-8 XML with namespace `http://www.opengis.net/kml/2.2`. The `;textable` tag indicates the file is human-readable. Key elements include `Placemark`, `Folder`, `GroundOverlay`, and `NetworkLink`. Implementers should note that KML uses longitude-latitude order (not latitude-longitude) in coordinate tuples, and optional altitude is interpreted relative to the `altitudeMode` element.\n",
+  "extensions": [
+    "kml"
+  ]
+}

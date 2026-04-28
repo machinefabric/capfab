@@ -1,0 +1,12 @@
+{
+  "urn": "media:outline-max-depth;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Max Depth",
+  "profile_uri": "https://capdag.com/schema/max_depth",
+  "description": "Max Depth numeric value",
+  "documentation": "## Purpose\nLimits how many levels deep a machine traverses when extracting or generating a document outline or hierarchical structure.\n\n## When to use\nSet this parameter on outline extraction, table-of-contents generation, or tree-traversal machines to control output granularity. A depth of 1 returns only top-level headings; higher values include nested subsections.\n\n## Notes\nValid range: 1–10. A depth of 1 is the shallowest (top-level only). Deep outlines may be large; balance depth against the token budget of downstream machines. See [Inspection Depth](https://capdag.com/browse/media:inspection-depth;textable) for a qualitative depth control.\n",
+  "validation": {
+    "max": 10,
+    "min": 1
+  }
+}

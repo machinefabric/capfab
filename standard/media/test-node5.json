@@ -1,0 +1,10 @@
+{
+  "urn": "media:node5;textable",
+  "media_type": "text/plain",
+  "title": "Test Node 5 (Merged Output)",
+  "description": "Final merged text output from fan-in operations",
+  "documentation": "Internal test media type. Used only in capfab test scenarios.\n",
+  "extensions": [
+    "testxt"
+  ]
+}

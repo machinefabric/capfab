@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;mlx;textable;vision",
+  "media_type": "text/plain",
+  "title": "MLX Vision Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "MLX vision model specification for image description on Apple Silicon.",
+  "documentation": "## Purpose\nIdentifies an MLX-format vision-language model for image captioning and visual question answering on Apple Silicon. The MLX runtime exploits the unified memory architecture of Apple Silicon for fast, energy-efficient multimodal inference.\n\n## When to use\nUse this spec type when targeting the MLX backend for vision tasks on macOS. The default points to a 4-bit quantized Qwen3-VL model from the mlx-community organisation on HuggingFace. For GGUF-based vision inference use `media:model-spec;gguf;textable;vision`.\n\n## Notes\nMLX vision models require the mlx-vlm package in addition to the base mlx library. Ensure the target machine is Apple Silicon (M1 or later); MLX does not run on Intel Macs or non-Apple platforms.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:mlx-community/Qwen3-VL-4B-Instruct-4bit"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

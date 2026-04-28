@@ -1,0 +1,11 @@
+{
+  "urn": "media:json;textable",
+  "media_type": "application/json",
+  "title": "JSON Value",
+  "profile_uri": "https://capdag.com/schema/json",
+  "description": "Single JSON value - can be object, string, number, boolean, or null",
+  "documentation": "## Purpose\nThe most permissive JSON type, representing any valid JSON value at the top level: object, array, string, number, boolean, or null. Use this when the shape of the JSON is unknown or intentionally unconstrained.\n\n## When to use\nUse `media:json;textable` when a node may produce or consume JSON of varying or unknown structure. When the structure is known to be an object, prefer [JSON Object](https://capdag.com/browse/media:json;textable;record). When it is an array, prefer [JSON Array](https://capdag.com/browse/media:json;textable;list).\n\n## Notes\nNodes that accept this type must be prepared to handle any JSON value type. Consumers that require a specific shape should validate the payload against the expected structure before processing.\n",
+  "extensions": [
+    "json"
+  ]
+}

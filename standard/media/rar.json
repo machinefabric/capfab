@@ -1,0 +1,11 @@
+{
+  "urn": "media:rar;archive",
+  "media_type": "application/vnd.rar",
+  "title": "RAR Archive",
+  "profile_uri": "https://capdag.com/schema/rar",
+  "description": "RAR compressed archive",
+  "documentation": "## Purpose\nRAR is a proprietary archive format developed by Eugene Roshal (WinRAR) that supports solid compression, multi-volume splitting, recovery records, and optional AES encryption. It has been widely used for distributing large files on the internet.\n\n## When to use\nUse [RAR Archive](https://capdag.com/browse/media:rar;archive) when processing or archiving content received from external sources that use RAR packaging, particularly split multi-part archives. For producing new archives, prefer open formats such as [ZIP Archive](https://capdag.com/browse/media:zip;archive) or [7-Zip Archive](https://capdag.com/browse/media:7z;archive).\n\n## Notes\nRAR is a proprietary format; creating RAR archives requires a commercial WinRAR license, while extraction is freely available via `unrar`. RAR5 (the current version) is not backward-compatible with RAR4. Implementers should detect the RAR version from the file signature before selecting a decoding library.\n",
+  "extensions": [
+    "rar"
+  ]
+}

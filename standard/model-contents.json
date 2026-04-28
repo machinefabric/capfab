@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:model-spec;textable\";op=model-contents;out=\"media:model-contents;record;textable\"",
+  "command": "contents",
+  "title": "Model Contents",
+  "cap_description": "List contents of a model repository.",
+  "documentation": "## Purpose\n\nLists the files inside a model repository along with their sizes, types, and metadata. Useful for inspecting what shards, config files, and tokenizer assets a model contains before deciding which files to download.\n\n## Inputs\n\nA model spec string (e.g. `hf:org/model-name`).\n\n## Outputs\n\nA JSON record with the list of repository files, their sizes, and metadata.\n\n## Notes\n\n- This lists the remote repository contents; it does not require the model to be downloaded locally.\n- Use this when building a model spec with `include`/`exclude` filters to understand which files are available to filter on.\n- See also: [Check Model Availability](https://capdag.com/browse/cap:in=\"media:model-spec;textable\";op=model-availability;out=\"media:model-availability;textable;record\") and [Download Model](https://capdag.com/browse/cap:in=\"media:model-spec;textable\";op=download-model;out=\"media:download-result;textable;record\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:model-spec;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Model spec to list contents for"
+    }
+  ],
+  "output": {
+    "media_urn": "media:model-contents;textable;record",
+    "output_description": "Model contents including files, layers, parameters and metadata"
+  }
+}

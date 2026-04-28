@@ -1,0 +1,11 @@
+{
+  "urn": "media:xz;archive",
+  "media_type": "application/x-xz",
+  "title": "XZ Archive",
+  "profile_uri": "https://capdag.com/schema/xz",
+  "description": "XZ compressed archive",
+  "documentation": "## Purpose\nXZ is a single-file compression format using the LZMA2 algorithm, offering very high compression ratios at the cost of significant memory and CPU usage during compression. It is the standard compression format for Linux kernel releases and many distribution packages.\n\n## When to use\nUse [XZ Archive](https://capdag.com/browse/media:xz;archive) when distributing large files where download size is critical and compression time is acceptable — for example, release artifacts, database dumps, or firmware images. XZ is frequently combined with [TAR Archive](https://capdag.com/browse/media:tar;archive) as `.tar.xz`.\n\n## Notes\nXZ compression is slow but decompression is reasonably fast. Memory requirements during compression can be large (hundreds of MB at high preset levels). For scenarios where compression speed matters more than ratio, [Zstandard](https://capdag.com/browse/media:zstd;archive) is a better choice. XZ includes integrity checksums (CRC32/CRC64/SHA-256) selectable at creation time.\n",
+  "extensions": [
+    "xz"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "urn": "media:summary-focus;textable",
+  "media_type": "text/plain",
+  "title": "Summary Focus",
+  "profile_uri": "https://capdag.com/schema/summary_focus",
+  "description": "Summary Focus value",
+  "documentation": "## Purpose\n\nSummary Focus narrows the aspect of the source material that the summary should emphasize, ensuring the model highlights the information most relevant to the reader's purpose.\n\n## When to use\n\nUse this media type alongside [Summary Type](https://capdag.com/browse/media:summary-type;textable) when the summarization node supports focused extraction. For general-purpose summaries, `main_points` or `overview` are safe defaults.\n\n## Notes\n\nChoosing `methodology` or `results` is most effective for research documents. `implications` suits strategic or analytical content. When the source does not contain the chosen focus area, the model will fall back to available material and may not produce the expected structure.\n",
+  "validation": {
+    "allowed_values": [
+      "main_points",
+      "key_facts",
+      "conclusions",
+      "methodology",
+      "results",
+      "implications",
+      "overview"
+    ]
+  }
+}

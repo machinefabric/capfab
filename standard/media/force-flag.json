@@ -1,0 +1,8 @@
+{
+  "urn": "media:force-flag;textable",
+  "media_type": "text/plain",
+  "title": "Force Flag",
+  "profile_uri": "https://capdag.com/schema/force_flag",
+  "description": "Force Flag value",
+  "documentation": "## Purpose\nA boolean flag that bypasses safety checks, cache lookups, or confirmation gates in a machine, forcing it to execute unconditionally. The exact behavior is machine-specific.\n\n## When to use\nUse this flag sparingly and only when you have confirmed that the bypassed checks are not needed for the current run (e.g., clearing a cache, re-running a completed step during debugging).\n\n## Notes\nEnabling this flag can have irreversible side effects depending on the machine. Document its intended effect clearly in any graph that uses it. It is separate from [Detailed Flag](https://capdag.com/browse/media:detailed-flag;textable), which controls output verbosity rather than execution behavior.\n"
+}

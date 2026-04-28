@@ -1,0 +1,28 @@
+{
+  "urn": "cap:in=\"media:embeddings;mlx;model-spec;textable\";ml-model;mlx;op=embeddings_dimensions;out=\"media:integer;model-dim;numeric;textable\"",
+  "command": "get_embedding_dimensions",
+  "title": "Get Embeddings Dimensions (MLX)",
+  "cap_description": "Query the dimensionality of embeddings for a given MLX model",
+  "documentation": "## Purpose\n\nReports the vector size that an MLX embedding model produces. Requires Apple Silicon. Use this before creating a vector index so you know how many dimensions to allocate.\n\n## Inputs\n\n- A model spec pointing to an MLX embedding model directory or HuggingFace repo. Defaults to `all-MiniLM-L6-v2-4bit`.\n\n## Outputs\n\nA single integer: the number of dimensions in each embedding vector this model produces.\n\n## Notes\n\n- Reads model configuration only — no inference is run, so it is fast.\n- MLX models are quantized for efficiency on Apple Silicon; verify that the quantization level is compatible with your accuracy requirements.\n- See also: [Generate Vector Embeddings (MLX)](https://capdag.com/browse/cap:mlx;in=\"media:textable\";ml-model;op=generate_embeddings;out=\"media:embedding-vector;textable;record\")\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;mlx;textable;embeddings",
+      "required": false,
+      "sources": [
+        {
+          "position": 0
+        },
+        {
+          "stdin": "media:model-spec;mlx;textable;embeddings"
+        }
+      ],
+      "arg_description": "Path to MLX embedding model directory",
+      "default_value": "hf:mlx-community/all-MiniLM-L6-v2-4bit"
+    }
+  ],
+  "output": {
+    "media_urn": "media:model-dim;integer;textable;numeric",
+    "output_description": "Dimensionality of the embeddings (positive integer)"
+  }
+}

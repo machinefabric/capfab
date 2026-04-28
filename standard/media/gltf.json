@@ -1,0 +1,11 @@
+{
+  "urn": "media:gltf;model;textable",
+  "media_type": "model/gltf+json",
+  "title": "glTF Model",
+  "profile_uri": "https://capdag.com/schema/gltf",
+  "description": "GL Transmission Format 3D model",
+  "documentation": "## Purpose\nglTF (GL Transmission Format) 2.0 is an open standard for efficient transmission and loading of 3D scenes and models, defined by the Khronos Group. The [glTF Model](https://capdag.com/browse/media:gltf;model;textable) media type represents the text (JSON) form of a glTF 2.0 file, which references external binary buffers and textures.\n\n## When to use\nUse this type when a node produces or consumes 3D scene files that may reference external assets — for example, workflows that separately manage textures and geometry, or toolchains where human-readable scene description is needed for inspection and editing. When all assets must be bundled into one file, use [GLB](https://capdag.com/browse/media:glb;model) instead.\n\n## Notes\nA `.gltf` file is UTF-8 JSON. The `;model;textable` tags indicate it is both a 3D model and human-readable. External binary buffers are referenced via URIs in the `buffers` array; textures are referenced similarly. Implementers should resolve relative URIs against the `.gltf` file's base path and load all referenced files before parsing the scene graph.\n",
+  "extensions": [
+    "gltf"
+  ]
+}

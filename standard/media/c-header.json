@@ -1,0 +1,11 @@
+{
+  "urn": "media:c-header;textable;code",
+  "media_type": "text/x-c",
+  "title": "C Header",
+  "profile_uri": "https://capdag.com/schema/c-header",
+  "description": "C header file",
+  "documentation": "## Purpose\nC header files declare the public interface of C libraries and modules: function prototypes, struct definitions, macros, and constants that can be shared across multiple translation units via `#include` directives.\n\n## When to use\nUse [C Header](https://capdag.com/browse/media:c-header;textable;code) for `.h` files that are included by [C Source](https://capdag.com/browse/media:c;textable;code) files. Note that `.h` files are also commonly used for C++ and Objective-C headers; if the content is clearly C++ or Objective-C, the more specific header types should be used: [C++ Header](https://capdag.com/browse/media:cpp-header;textable;code).\n\n## Notes\nHeader files typically use include guards (`#ifndef`/`#define`/`#endif`) or `#pragma once` to prevent multiple inclusion. They should generally not contain definitions (only declarations) to avoid linker errors when included in multiple translation units. Public headers in libraries are often the primary API documentation surface.\n",
+  "extensions": [
+    "h"
+  ]
+}

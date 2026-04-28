@@ -1,0 +1,12 @@
+{
+  "urn": "media:nim;textable;code",
+  "media_type": "text/x-nim",
+  "title": "Nim Source",
+  "profile_uri": "https://capdag.com/schema/nim",
+  "description": "Nim programming language source code",
+  "documentation": "## Purpose\nCarries Nim source files, including both regular modules (`.nim`) and NimScript configuration files (`.nims`). Nim compiles to C, C++, or JavaScript and emphasizes performance and expressiveness.\n\n## When to use\nUse `media:nim;textable;code` when a pipeline step consumes or produces Nim source — for example, a transpilation node targeting C output or a static analysis tool operating on Nim modules.\n\n## Notes\nNimScript (`.nims`) files share the same syntax as Nim but run in a sandboxed interpreter used for build configuration. Both extensions are covered by this media type. See also [Nim Source](https://capdag.com/browse/media:nim;textable;code).\n",
+  "extensions": [
+    "nim",
+    "nims"
+  ]
+}

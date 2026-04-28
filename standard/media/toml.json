@@ -1,0 +1,11 @@
+{
+  "urn": "media:toml;textable;record",
+  "media_type": "application/toml",
+  "title": "TOML Document",
+  "profile_uri": "https://capdag.com/schema/toml",
+  "description": "TOML configuration data",
+  "documentation": "## Purpose\nRepresents a TOML (Tom's Obvious Minimal Language) configuration document. TOML is designed for human-friendly configuration with clear semantics, and is widely used for tool configuration files and application settings.\n\n## When to use\nUse `media:toml;textable;record` when a node produces or consumes TOML-formatted configuration data. For key-value configuration in other formats, see [INI Configuration](https://capdag.com/browse/media:ini;textable;record) or [YAML Document](https://capdag.com/browse/media:record;textable;yaml).\n\n## Notes\nTOML documents map to a single key-value table at the root level. The `record` tag reflects this structure. Consumers should use a TOML-compliant parser; TOML syntax is not compatible with INI or YAML parsers.\n",
+  "extensions": [
+    "toml"
+  ]
+}

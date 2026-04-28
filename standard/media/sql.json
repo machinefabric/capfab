@@ -1,0 +1,11 @@
+{
+  "urn": "media:sql;textable;code",
+  "media_type": "application/sql",
+  "title": "SQL Source",
+  "profile_uri": "https://capdag.com/schema/sql",
+  "description": "SQL query or script",
+  "documentation": "## Purpose\nCarries SQL source files containing queries, DDL statements, stored procedures, or migration scripts. SQL is the standard language for interacting with relational databases across all major engines (PostgreSQL, MySQL, SQLite, SQL Server, and others).\n\n## When to use\nUse `media:sql;textable;code` when a pipeline step executes, validates, or generates SQL — for example, a database migration runner, a query optimizer, or an LLM node asked to produce SQL from natural language.\n\n## Notes\nSQL syntax varies between database engines; a file targeting PostgreSQL-specific features (e.g., `RETURNING`, array types) may not be portable to MySQL or SQLite. Implementers should document which dialect a node expects when dialect matters. See also [SQL Source](https://capdag.com/browse/media:sql;textable;code).\n",
+  "extensions": [
+    "sql"
+  ]
+}

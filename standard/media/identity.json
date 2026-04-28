@@ -1,0 +1,11 @@
+{
+  "urn": "media:",
+  "media_type": "application/octet-stream",
+  "title": "Identity",
+  "profile_uri": "https://capdag.com/schema/identity",
+  "description": "Raw byte sequence.",
+  "documentation": "## Purpose\nThe [Identity](https://capdag.com/browse/media:) type is the base media type representing an opaque sequence of bytes with no further structure imposed. It is the root of the media type hierarchy.\n\n## When to use\nUse this type when a node passes raw binary data whose internal format is irrelevant or unknown — for example, a passthrough relay, a generic storage node, or a node that operates on bytes without interpreting them. When the format is known, use a more specific media type instead.\n\n## Notes\nThe `media:` URN (bare, no suffix) is the identity type. Nodes typed as `media:` accept any byte sequence regardless of content. Implementers should treat it as a wildcard for type compatibility checking: a port typed `media:` is compatible with any other media type.\n",
+  "extensions": [
+    "bin"
+  ]
+}

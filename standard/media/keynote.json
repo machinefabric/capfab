@@ -1,0 +1,12 @@
+{
+  "urn": "media:keynote",
+  "media_type": "application/vnd.apple.keynote",
+  "title": "Apple Keynote",
+  "profile_uri": "https://capdag.com/schema/keynote",
+  "description": "Apple Keynote presentation data",
+  "documentation": "## Purpose\nApple Keynote is a presentation application, and its `.key` / `.keynote` format is a ZIP-based package containing SNAPPY-compressed Protobuf data alongside slide images and other resources. The [Apple Keynote](https://capdag.com/browse/media:keynote) media type represents any Keynote presentation file produced by Keynote for macOS or iOS.\n\n## When to use\nUse this type when a node produces or consumes presentation files originating from the Apple Keynote application — for example, document archiving, slide content extraction, or conversion pipelines that transform Keynote files into PDF or other formats. For cross-platform presentation interchange, PPTX or PDF is preferred.\n\n## Notes\nThe Keynote format is proprietary and uses the same ZIP + Protobuf structure as Numbers. Implementers that need to extract text or thumbnail images should use AppleScript automation on macOS (to export via Keynote itself) or open-source tools such as `keynote-export`. Direct binary parsing is impractical without reverse-engineered Protobuf schemas. Like Numbers, format detection requires checking ZIP magic bytes and internal path structure.\n",
+  "extensions": [
+    "key",
+    "keynote"
+  ]
+}

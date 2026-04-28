@@ -1,0 +1,10 @@
+{
+  "urn": "media:node2;textable",
+  "media_type": "text/plain",
+  "title": "Test Node 2 (Intermediate Text)",
+  "description": "Intermediate text content after first transformation",
+  "documentation": "Internal test media type. Used only in capfab test scenarios.\n",
+  "extensions": [
+    "testxt"
+  ]
+}

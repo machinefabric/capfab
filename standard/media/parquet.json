@@ -1,0 +1,11 @@
+{
+  "urn": "media:parquet;list;record",
+  "media_type": "application/vnd.apache.parquet",
+  "title": "Parquet Data",
+  "profile_uri": "https://capdag.com/schema/parquet",
+  "description": "Apache Parquet columnar data",
+  "documentation": "## Purpose\nApache Parquet is an open-source columnar storage format optimized for analytical workloads. The [Parquet Data](https://capdag.com/browse/media:parquet;list;record) media type represents files that store an ordered list of typed records in Parquet's binary encoding.\n\n## When to use\nUse this type when exchanging large tabular datasets between nodes where column-level compression and predicate pushdown matter — for example, machine-learning feature tables, telemetry exports, or ETL pipeline outputs. Prefer Parquet over CSV or JSON for datasets with millions of rows or where downstream consumers are Spark, DuckDB, Pandas, or similar engines.\n\n## Notes\nParquet files embed their schema in file metadata. Implementers should use the Apache Arrow or PyArrow libraries to read and write files; reading the schema before processing rows is recommended to validate that the expected columns are present. The `;list;record` tags indicate this type carries an ordered collection of structured records.\n",
+  "extensions": [
+    "parquet"
+  ]
+}

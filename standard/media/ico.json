@@ -1,0 +1,11 @@
+{
+  "urn": "media:ico;image",
+  "media_type": "image/x-icon",
+  "title": "ICO Icon",
+  "profile_uri": "https://capdag.com/schema/ico",
+  "description": "Windows icon image data",
+  "documentation": "## Purpose\nRepresents a Windows ICO file, a container format that stores one or more images at multiple sizes and colour depths for use as application or file-type icons on Windows and in web browsers (favicon).\n\n## When to use\nUse `media:ico;image` when a node produces or consumes ICO files, such as a favicon generator or a Windows application packaging step. For macOS icons, see [ICNS Icon](https://capdag.com/browse/media:icns;image).\n\n## Notes\nICO files commonly include 16x16, 32x32, 48x48, and 256x256 PNG or BMP frames. Modern browsers accept PNG-encoded ICO files for favicons. Consumers that extract individual frames should parse the ICO container structure.\n",
+  "extensions": [
+    "ico"
+  ]
+}

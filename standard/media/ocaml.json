@@ -1,0 +1,12 @@
+{
+  "urn": "media:ocaml;textable;code",
+  "media_type": "text/x-ocaml",
+  "title": "OCaml Source",
+  "profile_uri": "https://capdag.com/schema/ocaml",
+  "description": "OCaml programming language source code",
+  "documentation": "## Purpose\nCarries OCaml source files, including both implementation files (`.ml`) and interface files (`.mli`). OCaml combines functional, imperative, and object-oriented styles with a strong static type system and efficient native-code compilation.\n\n## When to use\nUse `media:ocaml;textable;code` when a pipeline step processes OCaml source — for example, a build node invoking `dune` or a type-checking step that separately processes interface files.\n\n## Notes\nInterface files (`.mli`) define module signatures and are compiled independently from their implementation counterparts. Both extensions are covered by this single media type. See also [OCaml Source](https://capdag.com/browse/media:ocaml;textable;code).\n",
+  "extensions": [
+    "ml",
+    "mli"
+  ]
+}

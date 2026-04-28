@@ -1,0 +1,11 @@
+{
+  "urn": "media:reasoning-contextable",
+  "media_type": "text/plain",
+  "title": "Reasoning Context",
+  "profile_uri": "https://capdag.com/schema/reasoning_context",
+  "description": "Reasoning Context contextual information",
+  "documentation": "## Purpose\n\nReasoning Context supplies background knowledge, constraints, or domain rules that a model should apply when performing logical analysis, question answering, or multi-step reasoning tasks.\n\n## When to use\n\nUse this media type when a reasoning or QA node needs grounding beyond its training knowledge. It is particularly valuable for specialized domains such as legal, scientific, or proprietary business logic where the model cannot be expected to reason correctly without explicit context.\n\n## Notes\n\nThe maximum length is 32,768 characters, the largest of the context media types, reflecting the depth of background that complex reasoning tasks may require. Organize the context with numbered facts or labeled sections to help the model reference specific points in its output.\n",
+  "validation": {
+    "max_length": 32768
+  }
+}

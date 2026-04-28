@@ -1,0 +1,12 @@
+{
+  "urn": "media:mp4;video",
+  "media_type": "video/mp4",
+  "title": "MP4 Video",
+  "profile_uri": "https://capdag.com/schema/mp4",
+  "description": "MPEG-4 video data",
+  "documentation": "## Purpose\nRepresents an MP4 video file, the dominant container format for digital video. MP4 typically carries H.264 or H.265 video alongside AAC audio, and is used for everything from internet streaming to camera recordings and screen captures.\n\n## When to use\nUse `media:mp4;video` when a node produces or consumes MP4 video files, such as a screen recorder output, a video transcoder, or a video analysis node. For audio-only MP4 content, see [M4A Audio](https://capdag.com/browse/media:m4a;audio).\n\n## Notes\nMP4 is a container; the actual video and audio codecs vary. H.264 (AVC) and H.265 (HEVC) are the most common video codecs. Nodes that process video content should inspect the codec before decoding. MP4 files may also contain subtitles, chapters, and metadata streams alongside the primary video track.\n",
+  "extensions": [
+    "mp4",
+    "m4v"
+  ]
+}

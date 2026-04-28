@@ -1,0 +1,11 @@
+{
+  "urn": "media:coding-style;textable",
+  "media_type": "text/plain",
+  "title": "Coding Style",
+  "profile_uri": "https://capdag.com/schema/coding_style",
+  "description": "Coding Style value",
+  "documentation": "## Purpose\n\nCoding Style describes the formatting conventions, naming rules, and stylistic preferences that generated or reviewed code should follow. It is a free-form text field, allowing project-specific style guides to be expressed in plain language.\n\n## When to use\n\nUse this media type when a code generation node should adhere to a particular house style, linter configuration, or team convention. It works alongside [Programming Language](https://capdag.com/browse/media:programming-language;textable) and [Code Context](https://capdag.com/browse/media:code-contextable).\n\n## Notes\n\nKeep style descriptions concise and actionable. Examples such as \"use snake_case for variables\", \"prefer early returns\", or \"max line length 100\" are more effective than vague directives.\n",
+  "validation": {
+    "max_length": 4096
+  }
+}

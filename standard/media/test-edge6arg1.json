@@ -1,0 +1,7 @@
+{
+  "title": "Test Edge 6 Arg 1 (Count)",
+  "description": "Number of times to duplicate input when producing list",
+  "documentation": "Internal test media type. Used only in capfab test scenarios.\n",
+  "media_type": "text/plain",
+  "urn": "media:edge6arg1;textable;numeric"
+}

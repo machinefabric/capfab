@@ -1,0 +1,12 @@
+{
+  "urn": "media:batch;textable;code",
+  "media_type": "application/x-bat",
+  "title": "Batch Script",
+  "profile_uri": "https://capdag.com/schema/batch",
+  "description": "Windows batch script",
+  "documentation": "## Purpose\nWindows batch scripts are plain-text files interpreted by the Windows Command Processor (`cmd.exe`), containing a sequence of commands and control-flow statements (IF, FOR, GOTO, CALL). The [Batch Script](https://capdag.com/browse/media:batch;textable;code) media type represents any `.bat` or `.cmd` file.\n\n## When to use\nUse this type when a node produces or consumes Windows automation scripts — for example, legacy build system integration, Windows-specific deployment scripts, CI/CD pipelines targeting Windows agents, or static analysis tools that inspect batch file content.\n\n## Notes\nBatch files are plain text, typically ASCII or Windows-1252 encoded (UTF-8 with BOM is also supported by `cmd.exe`). The `;textable;code` tags indicate the file is both human-readable and executable code. Key behavioral differences from POSIX shells include case-insensitive variable names, `%variable%` expansion syntax, and `^` as the line-continuation character. Implementers running batch files programmatically should use `cmd.exe /C <script>` and capture `ERRORLEVEL` for exit status.\n",
+  "extensions": [
+    "bat",
+    "cmd"
+  ]
+}

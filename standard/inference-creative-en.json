@@ -1,0 +1,103 @@
+{
+  "urn": "cap:constrained;in=media:textable;language=en;op=creative;out=\"media:generated-text;record;textable\"",
+  "command": "llm_inference",
+  "title": "Write Creatively in English",
+  "cap_description": "Creative writing and content generation in English",
+  "documentation": "## Purpose\n\nGenerates creative written content (fiction, poetry, marketing copy, blog posts, scripts, etc.) from a prompt using a locally running LLM. Genre, tone, length, and creativity level are all tunable.\n\n## Inputs\n\n- A creative writing prompt or brief.\n- Genre (default: fiction). Examples: `fiction`, `poetry`, `blog`, `marketing`, `script`.\n- Tone (default: conversational). Examples: `formal`, `humorous`, `dramatic`, `inspirational`.\n- Output length (default: medium). Values: `short`, `medium`, `long`.\n- Optional background context or inspiration material.\n- Max tokens (default 3000).\n- Creativity level 0.0-1.0 (default 0.8 — maps to sampling temperature).\n\n## Outputs\n\nA JSON record with the generated creative content and metadata.\n\n## Notes\n\n- Higher creativity level increases output variety and imagination at the cost of coherence. Values above 0.9 can produce surprising but sometimes incoherent output.\n- Provide detailed context to anchor the model on your specific creative direction.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Creative writing prompt or brief"
+    },
+    {
+      "media_urn": "media:genre;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--genre"
+        }
+      ],
+      "arg_description": "Genre or style of creative content",
+      "default_value": "fiction"
+    },
+    {
+      "media_urn": "media:tone;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--tone"
+        }
+      ],
+      "arg_description": "Tone or mood for the creative content",
+      "default_value": "conversational"
+    },
+    {
+      "media_urn": "media:output-length;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--length"
+        }
+      ],
+      "arg_description": "Desired length of creative output",
+      "default_value": "medium"
+    },
+    {
+      "media_urn": "media:creative-contextable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--context"
+        }
+      ],
+      "arg_description": "Background context or inspiration"
+    },
+    {
+      "media_urn": "media:max-tokens;inference;limit;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum tokens for creative output",
+      "default_value": 3000
+    },
+    {
+      "media_urn": "media:creativity-level;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--creativity-level"
+        }
+      ],
+      "arg_description": "Creativity level (0.0-1.0, higher = more creative)",
+      "default_value": 0.8
+    },
+    {
+      "media_urn": "media:model-spec;textable;llm",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for creative writing",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:generated-text;textable;record",
+    "output_description": "Creative written content with metadata"
+  }
+}

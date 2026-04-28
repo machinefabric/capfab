@@ -1,0 +1,8 @@
+{
+  "urn": "media:substitutions;textable;record",
+  "media_type": "application/json",
+  "title": "Substitutions",
+  "profile_uri": "https://capdag.com/schema/substitutions",
+  "description": "Substitutions object with key-value pairs",
+  "documentation": "## Purpose\n\nSubstitutions carry a JSON object whose keys and values are plain strings. They are used to fill template placeholders in queries, prompts, or other parameterized content before execution.\n\n## When to use\n\nUse this media type when a node needs to receive a dynamic set of variable bindings at runtime. Pair it with [Query Name](https://capdag.com/browse/media:query-name;textable) to identify the query to execute and supply the values that replace its placeholders.\n\n## Notes\n\nKeys and values must both be strings. Nesting is not supported; flatten complex structures into dot-separated or underscore-separated key names before passing them as substitutions.\n"
+}

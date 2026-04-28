@@ -1,0 +1,11 @@
+{
+  "urn": "media:aac;audio",
+  "media_type": "audio/aac",
+  "title": "AAC Audio",
+  "profile_uri": "https://capdag.com/schema/aac",
+  "description": "Advanced Audio Coding data",
+  "documentation": "## Purpose\nRepresents an AAC (Advanced Audio Coding) audio file, the successor to MP3 that achieves better sound quality at equivalent or lower bitrates. AAC is the default audio format on Apple platforms and is widely used in streaming and broadcast.\n\n## When to use\nUse `media:aac;audio` when a node produces or consumes AAC audio, such as audio extracted from video, Apple Music files, or streaming content. For lossless audio, see [FLAC Audio](https://capdag.com/browse/media:flac;audio). For the Apple container variant, see [M4A Audio](https://capdag.com/browse/media:m4a;audio).\n\n## Notes\nAAC is commonly wrapped in an MP4 or M4A container. Bare AAC in an ADTS stream uses the `.aac` extension. Consumers should confirm whether the payload is a raw ADTS stream or a containerised file, as the parsing approach differs.\n",
+  "extensions": [
+    "aac"
+  ]
+}

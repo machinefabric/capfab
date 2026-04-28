@@ -1,0 +1,18 @@
+{
+  "urn": "media:summary-type;textable",
+  "media_type": "text/plain",
+  "title": "Summary Type",
+  "profile_uri": "https://capdag.com/schema/summary_type",
+  "description": "Summary Type value",
+  "documentation": "## Purpose\n\nSummary Type selects the structural approach the model uses when condensing content. The choice affects both the form of the output (prose vs. bullets) and the level of interpretation applied (extractive vs. abstractive).\n\n## When to use\n\nUse this media type as an input to summarization nodes. Combine it with [Summary Focus](https://capdag.com/browse/media:summary-focus;textable) to specify both the method and the aspect of the source material to emphasize, and with [Summary Context](https://capdag.com/browse/media:summary-contextable) to provide framing information.\n\n## Notes\n\n`extractive` summaries quote directly from the source; `abstractive` ones rephrase in the model's own words. `executive` and `brief` are length-oriented presets, while `bullet_points` imposes a list structure regardless of length.\n",
+  "validation": {
+    "allowed_values": [
+      "extractive",
+      "abstractive",
+      "bullet_points",
+      "executive",
+      "detailed",
+      "brief"
+    ]
+  }
+}

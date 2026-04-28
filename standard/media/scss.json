@@ -1,0 +1,12 @@
+{
+  "urn": "media:scss;textable",
+  "media_type": "text/x-scss",
+  "title": "SCSS Stylesheet",
+  "profile_uri": "https://capdag.com/schema/scss",
+  "description": "Sassy CSS stylesheet",
+  "documentation": "## Purpose\nCarries SCSS and Sass stylesheet files, a widely adopted CSS preprocessor that adds variables, nesting, mixins, functions, and partials to CSS. SCSS uses CSS-compatible brace syntax; the older indented Sass syntax uses `.sass` files.\n\n## When to use\nUse `media:scss;textable` when a pipeline node compiles or processes SCSS — for example, a Sass CLI compilation step, a PostCSS pipeline, or a design-token generation step that emits SCSS variable files.\n\n## Notes\nThe `.scss` extension uses CSS-compatible syntax and is the dominant convention in modern projects. The `.sass` extension uses indentation-based syntax without braces or semicolons. Both are compiled by the Dart Sass implementation. See also [SCSS Stylesheet](https://capdag.com/browse/media:scss;textable).\n",
+  "extensions": [
+    "scss",
+    "sass"
+  ]
+}

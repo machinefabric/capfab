@@ -1,0 +1,11 @@
+{
+  "urn": "media:list;question;textable",
+  "media_type": "text/plain",
+  "title": "Question List",
+  "profile_uri": "https://capdag.com/schema/question_list",
+  "description": "Text file with one question per line.",
+  "documentation": "## Purpose\nA newline-delimited list of questions for batch processing. Each line is treated as an independent question by the receiving machine.\n\n## When to use\nUse this type when a machine must evaluate or answer many questions in a single invocation. For single questions, use [Question Text](https://capdag.com/browse/media:question;textable) instead.\n\n## Notes\nEmpty lines should be ignored by consumers. The `.txt` extension is conventional but not required.\n",
+  "extensions": [
+    "txt"
+  ]
+}

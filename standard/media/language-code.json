@@ -1,0 +1,22 @@
+{
+  "urn": "media:language-code;textable",
+  "media_type": "text/plain",
+  "title": "Language Code",
+  "profile_uri": "https://capdag.com/schema/language_code",
+  "description": "Language Code value",
+  "documentation": "## Purpose\nCarries a two-letter language code that machines use to tag or constrain content by language. Functionally equivalent to [Language](https://capdag.com/browse/media:language;textable) but signals explicit BCP 47 intent.\n\n## When to use\nUse this type when a machine port is documented to accept a language code rather than a free-text language name. Both types share the same validation set, so they are interchangeable in most graphs.\n\n## Notes\nAllowed values: `en`, `es`, `fr`, `de`, `it`, `pt`, `ru`, `zh`, `ja`, `ko`. For general language selection, [Language](https://capdag.com/browse/media:language;textable) is preferred unless the downstream machine specifically requires a coded value.\n",
+  "validation": {
+    "allowed_values": [
+      "en",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "ru",
+      "zh",
+      "ja",
+      "ko"
+    ]
+  }
+}

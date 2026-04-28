@@ -1,0 +1,11 @@
+{
+  "urn": "media:generated-text;textable;record",
+  "media_type": "application/json",
+  "title": "Generated Text",
+  "profile_uri": "https://capdag.com/schema/generated-text",
+  "description": "Generated text structured as a map with metadata.",
+  "documentation": "## Purpose\nCarries the complete text generation result from an LLM cap, including the generated text and any associated metadata such as token counts, finish reason, and timing. This is the non-streaming counterpart to [LLM Text Stream](https://capdag.com/browse/media:llm-text-stream;ndjson).\n\n## When to use\nUse this type when a cap returns the full generated output in one shot rather than streaming tokens. Callers that do not need incremental delivery should prefer this simpler interface over the streaming variant.\n\n## Notes\nThe outer object is a flat map; implementations should include at minimum a `text` or `generated_text` key containing the model output. Additional metadata keys such as `tokens_generated`, `finish_reason`, and `generation_time_ms` are recommended for observability.\n",
+  "extensions": [
+    "json"
+  ]
+}

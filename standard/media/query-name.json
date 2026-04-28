@@ -1,0 +1,13 @@
+{
+  "urn": "media:query-name;textable",
+  "media_type": "text/plain",
+  "title": "Query Name",
+  "profile_uri": "https://capdag.com/schema/query_name",
+  "description": "Query Name value",
+  "documentation": "## Purpose\n\nA Query Name identifies a named query within a machine or cap, allowing it to be referenced by other components. It must consist only of alphanumeric characters, hyphens, and underscores, with a maximum length of 128 characters.\n\n## When to use\n\nUse this media type when passing a query identifier as an input to a node that dispatches or looks up a named query. It is commonly used alongside [Substitutions](https://capdag.com/browse/media:substitutions;textable;record) to parameterize the resolved query.\n\n## Notes\n\nThe pattern constraint (`^[a-zA-Z0-9_-]+$`) ensures query names are safe for use as identifiers in URLs, file names, and configuration keys without escaping.\n",
+  "validation": {
+    "max_length": 128,
+    "min_length": 1,
+    "pattern": "^[a-zA-Z0-9_-]+$"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "urn": "media:foreach-partial-failure;tasks;policy;operator;task;textable",
+  "media_type": "text/plain",
+  "title": "ForEach behavior when bodies fail",
+  "profile_uri": "https://capdag.com/schema/task-foreach-partial-failure",
+  "description": "ForEach behavior when bodies fail",
+  "metadata": {
+    "category": "task",
+    "subcategory": "task_execution",
+    "display_index": 5,
+    "ui_type": "SETTING_UI_TYPE_DROPDOWN",
+    "data_type": "SETTING_DATA_TYPE_STRING",
+    "default": "allow",
+    "overridable_by": [
+      "user"
+    ]
+  },
+  "validation": {
+    "allowed_values": [
+      "allow",
+      "fail"
+    ]
+  }
+}

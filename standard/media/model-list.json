@@ -1,0 +1,64 @@
+{
+  "urn": "media:model-list;textable;record",
+  "media_type": "application/json",
+  "title": "Model List",
+  "profile_uri": "https://capdag.com/schema/model-list",
+  "description": "List of available models with their metadata and status",
+  "documentation": "## Purpose\nReturns an enumeration of models known to the system, including their availability state, local paths, and repository metadata. This enables model management UIs and orchestrators to present users with a curated set of options.\n\n## When to use\nUse this type as the output of any cap that lists models, whether filtered by type, availability, or other criteria. Consumers that need fine-grained per-model information should request individual [Model Availability](https://capdag.com/browse/media:model-availability;textable;record) or [Model Status](https://capdag.com/browse/media:model-status;textable;record) records.\n\n## Notes\nThe `count` field should equal the length of the `models` array. The optional `filter` field records the query pattern used to produce the list, enabling consumers to display or log the filter applied. Each entry's `local_available` and `remote_available` flags indicate whether the model can be used immediately or requires a download.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "models"
+    ],
+    "properties": {
+      "models": {
+        "type": "array",
+        "description": "List of model entries",
+        "items": {
+          "type": "object",
+          "properties": {
+            "model_spec": {
+              "type": "string",
+              "description": "Model specification string (e.g., 'hf:org/model-name')"
+            },
+            "name": {
+              "type": "string",
+              "description": "Human-readable model name"
+            },
+            "repository": {
+              "type": "string",
+              "description": "Repository source"
+            },
+            "local_available": {
+              "type": "boolean",
+              "description": "Whether the model is available locally"
+            },
+            "remote_available": {
+              "type": "boolean",
+              "description": "Whether the model is available remotely"
+            },
+            "local_path": {
+              "type": "string",
+              "description": "Local path if available"
+            },
+            "size_bytes": {
+              "type": "integer",
+              "description": "Total size in bytes"
+            }
+          }
+        }
+      },
+      "count": {
+        "type": "integer",
+        "description": "Total number of models in the list"
+      },
+      "filter": {
+        "type": "string",
+        "description": "Filter pattern used if any"
+      }
+    }
+  }
+}

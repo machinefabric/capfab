@@ -1,0 +1,12 @@
+{
+  "urn": "media:midi;audio",
+  "media_type": "audio/midi",
+  "title": "MIDI Audio",
+  "profile_uri": "https://capdag.com/schema/midi",
+  "description": "MIDI sequence data",
+  "documentation": "## Purpose\nRepresents a Standard MIDI File (SMF) containing a sequence of MIDI events — note on/off messages, control changes, tempo, and time signature. MIDI encodes musical performance data rather than audio waveforms.\n\n## When to use\nUse `media:midi;audio` when a node produces or consumes MIDI sequence files, such as a music composition tool, a DAW export step, or a music notation converter. MIDI is not interchangeable with audio waveform formats and requires a synthesiser or sample player for sound output.\n\n## Notes\nMIDI files encode performance instructions, not audio. Playback quality depends entirely on the synthesiser or soundfont used. Nodes that convert MIDI to audio must specify the target synthesiser and instrument mapping.\n",
+  "extensions": [
+    "mid",
+    "midi"
+  ]
+}

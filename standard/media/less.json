@@ -1,0 +1,11 @@
+{
+  "urn": "media:less;textable",
+  "media_type": "text/x-less",
+  "title": "Less Stylesheet",
+  "profile_uri": "https://capdag.com/schema/less",
+  "description": "Less CSS stylesheet",
+  "documentation": "## Purpose\nCarries Less stylesheet files, a CSS preprocessor language that extends plain CSS with variables, nesting, mixins, functions, and arithmetic expressions. Less files are compiled to standard CSS before serving.\n\n## When to use\nUse `media:less;textable` when a pipeline node compiles or analyzes Less — for example, a build step invoking the Less compiler, or a migration tool converting a Less codebase to SCSS or native CSS custom properties.\n\n## Notes\nLess uses `@variable` syntax for variables, which conflicts with CSS at-rules. Modern projects often prefer SCSS or native CSS variables; Less remains common in older Bootstrap-based projects. See also [Less Stylesheet](https://capdag.com/browse/media:less;textable).\n",
+  "extensions": [
+    "less"
+  ]
+}

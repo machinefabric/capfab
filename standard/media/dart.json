@@ -1,0 +1,11 @@
+{
+  "urn": "media:dart;textable;code",
+  "media_type": "text/x-dart",
+  "title": "Dart Source",
+  "profile_uri": "https://capdag.com/schema/dart",
+  "description": "Dart programming language source code",
+  "documentation": "## Purpose\nCarries Dart source files used in Flutter applications, server-side programs, and general-purpose Dart packages. Dart combines a familiar C-style syntax with a sound type system and built-in async/await support.\n\n## When to use\nUse `media:dart;textable;code` when a pipeline node consumes or produces `.dart` source files — for example, a code generation step targeting Flutter widgets or a linter analyzing Dart business logic.\n\n## Notes\nDart supports both ahead-of-time compilation (for native mobile/desktop targets) and just-in-time compilation (for development). The extensions `.dart` covers both library and application entry-point files. See also [Dart Source](https://capdag.com/browse/media:dart;textable;code).\n",
+  "extensions": [
+    "dart"
+  ]
+}

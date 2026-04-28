@@ -1,0 +1,11 @@
+{
+  "urn": "media:dockerignore;textable;list",
+  "media_type": "text/plain",
+  "title": "Docker Ignore",
+  "profile_uri": "https://capdag.com/schema/dockerignore",
+  "description": "Docker ignore pattern file",
+  "documentation": "## Purpose\nCarries a `.dockerignore` file that lists patterns for files and directories to exclude from the Docker build context. Excluding unnecessary files reduces build times and prevents sensitive data from entering container images.\n\n## When to use\nUse `media:dockerignore;textable;list` when a pipeline node reads, generates, or audits a `.dockerignore` file — for example, a build optimization step that recommends exclusion patterns based on a project's file layout.\n\n## Notes\nThe pattern syntax is similar to `.gitignore` but not identical; Docker applies patterns relative to the build context root and has its own negation and wildcard rules. See also [Docker Ignore](https://capdag.com/browse/media:dockerignore;textable;list).\n",
+  "extensions": [
+    "dockerignore"
+  ]
+}

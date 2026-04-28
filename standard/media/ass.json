@@ -1,0 +1,12 @@
+{
+  "urn": "media:ass;textable;list",
+  "media_type": "text/x-ssa",
+  "title": "ASS Subtitles",
+  "profile_uri": "https://capdag.com/schema/ass",
+  "description": "SubStation Alpha subtitle data",
+  "documentation": "## Purpose\nASS/SSA (Advanced SubStation Alpha / SubStation Alpha) is a rich subtitle format that supports complex styling, positioning, karaoke effects, and per-line overrides through an INI-like text structure. The [ASS Subtitles](https://capdag.com/browse/media:ass;textable;list) media type represents `.ass` and `.ssa` files.\n\n## When to use\nUse this type when a node produces or consumes subtitles that require precise typographic control — for example, anime subtitling, karaoke files, or broadcast-quality caption workflows where font, color, border, shadow, and position must be specified per cue. For simpler web delivery use [WebVTT](https://capdag.com/browse/media:vtt;textable;list) or [SRT](https://capdag.com/browse/media:srt;textable;list).\n\n## Notes\nASS files are plain text with sections: `[Script Info]`, `[V4+ Styles]`, and `[Events]`. The `Dialogue:` lines in `[Events]` carry the actual cue entries. The `;textable;list` tags reflect the human-readable ordered-list nature. Implementers should use a library such as `libass` or `ass.js` for rendering, as hand-parsing override tags (`{\\pos(x,y)}`, `{\\fad(in,out)}`, etc.) is complex.\n",
+  "extensions": [
+    "ass",
+    "ssa"
+  ]
+}

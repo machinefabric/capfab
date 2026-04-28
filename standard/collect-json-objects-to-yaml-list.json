@@ -1,0 +1,28 @@
+{
+  "urn": "cap:in=\"media:json;record;textable\";op=collect_json_objects;out=\"media:list;record;textable;yaml\"",
+  "command": "collect_json_objects",
+  "title": "Collect JSON Objects into YAML List",
+  "cap_description": "Collect individual JSON objects into a single YAML sequence",
+  "documentation": "## Purpose\n\nGathers a sequence of individual JSON objects into a single YAML sequence of mappings. Each JSON object becomes one YAML mapping entry. Use this when downstream processing or configuration formats prefer YAML.\n\n## Inputs\n\nA sequence of JSON record objects.\n\n## Outputs\n\nA YAML sequence where each element is a mapping corresponding to one input JSON object.\n\n## Notes\n\n- Key order in the YAML output may differ from the JSON input; YAML mappings are unordered by spec.\n- For a JSON array output, use [Collect JSON Objects into Array](https://capdag.com/browse/cap:in=\"media:json;record;textable\";op=collect_json_objects;out=\"media:json;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:json;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:json;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "JSON objects to collect into a YAML sequence",
+      "is_sequence": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:list;record;textable;yaml",
+    "output_description": "YAML sequence containing all input objects as mappings"
+  }
+}

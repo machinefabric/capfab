@@ -1,0 +1,12 @@
+{
+  "urn": "media:r;textable;code",
+  "media_type": "text/x-r",
+  "title": "R Source",
+  "profile_uri": "https://capdag.com/schema/r",
+  "description": "R programming language source code",
+  "documentation": "## Purpose\nR source files contain code written in R, a language and runtime environment designed for statistical computing, data analysis, and visualization. R is the dominant language in academic statistics, bioinformatics, and data science workflows.\n\n## When to use\nUse [R Source](https://capdag.com/browse/media:r;textable;code) for `.r` script files and `.rmd` R Markdown files. R Markdown (`.rmd`) interleaves prose, code chunks, and output specifications to produce reproducible reports; it requires an R Markdown-aware processor rather than a plain R interpreter.\n\n## Notes\nR is dynamically typed with a functional style and vector-first semantics. The CRAN package ecosystem is central to R workflows; packages are managed via `install.packages()` or the `renv` lockfile system. R Markdown files are processed by the `knitr` and `rmarkdown` packages and may generate HTML, PDF, or Word output depending on the document header.\n",
+  "extensions": [
+    "r",
+    "rmd"
+  ]
+}

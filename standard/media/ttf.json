@@ -1,0 +1,11 @@
+{
+  "urn": "media:ttf;font",
+  "media_type": "font/ttf",
+  "title": "TrueType Font",
+  "profile_uri": "https://capdag.com/schema/ttf",
+  "description": "TrueType font data",
+  "documentation": "## Purpose\nTrueType is a font format developed by Apple and Microsoft that stores glyph outlines using quadratic Bezier curves. The [TrueType Font](https://capdag.com/browse/media:ttf;font) media type represents any `.ttf` binary font file conforming to the TrueType specification.\n\n## When to use\nUse this type when a node produces or consumes desktop or document fonts — for example, font bundling pipelines, PDF generation workflows, or document rendering engines that embed fonts. TrueType remains widely supported across operating systems and applications, though for web use the [WOFF2](https://capdag.com/browse/media:woff2;font) format is preferred.\n\n## Notes\nTrueType files begin with an offset table (`sfnt` wrapper) and contain named font tables (`cmap`, `glyf`, `hmtx`, etc.). Implementers should use a font library such as FreeType, HarfBuzz, or FontTools (`fonttools` Python package) for reliable parsing and subsetting. The `;font` tag indicates this is a font artifact.\n",
+  "extensions": [
+    "ttf"
+  ]
+}

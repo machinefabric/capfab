@@ -1,0 +1,11 @@
+{
+  "urn": "media:mov;video",
+  "media_type": "video/quicktime",
+  "title": "QuickTime Video",
+  "profile_uri": "https://capdag.com/schema/mov",
+  "description": "QuickTime video data",
+  "documentation": "## Purpose\nMOV is Apple's QuickTime container format, which organizes video, audio, and metadata into a track-based structure. It is the native output format of many Apple devices, Final Cut Pro, and other professional macOS production tools.\n\n## When to use\nUse [QuickTime Video](https://capdag.com/browse/media:mov;video) when working with content originating from Apple cameras (iPhone, iPad), macOS screen recordings, or professional editing pipelines that target Final Cut Pro or Motion. MOV files often carry high-quality ProRes or H.264 video and are a natural intermediate format in Apple-centric workflows.\n\n## Notes\nMOV and MP4 share the ISO Base Media File Format heritage and are structurally similar, but MOV supports certain Apple-specific metadata atoms not found in standard MP4. On non-Apple platforms, playback and remuxing support varies by tool; most modern FFmpeg-based pipelines handle MOV without issue.\n",
+  "extensions": [
+    "mov"
+  ]
+}

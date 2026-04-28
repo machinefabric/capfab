@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:image;png\";op=convert_image;out=\"media:image;webp\"",
+  "command": "convert-image",
+  "title": "Convert PNG to WebP",
+  "cap_description": "Re-encode a PNG image as a lossless WebP",
+  "documentation": "## Purpose\n\nDecodes a PNG and writes it as a lossless WebP. Lossless WebP is typically smaller than PNG for the same pixel content.\n\n## Inputs\n\nA PNG file (with or without alpha).\n\n## Outputs\n\nA lossless WebP file with the same pixel content.\n\n## Notes\n\nThis produces lossless WebP only. Lossy WebP encoding is not exposed.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:image;png"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the PNG file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:webp;image",
+    "output_description": "Lossless WebP image"
+  }
+}

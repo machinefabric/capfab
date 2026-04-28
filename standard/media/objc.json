@@ -1,0 +1,11 @@
+{
+  "urn": "media:objc;textable;code",
+  "media_type": "text/x-objective-c",
+  "title": "Objective-C Source",
+  "profile_uri": "https://capdag.com/schema/objc",
+  "description": "Objective-C programming language source code",
+  "documentation": "## Purpose\nObjective-C source files contain implementation code in Objective-C, a dynamically dispatched superset of C that was Apple's primary application programming language before Swift. It remains in use in legacy Apple platform codebases and frameworks.\n\n## When to use\nUse [Objective-C Source](https://capdag.com/browse/media:objc;textable;code) for `.m` implementation files. Header files are covered by [C Header](https://capdag.com/browse/media:c-header;textable;code) since Objective-C headers use the `.h` extension. Files that mix Objective-C and C++ use the `.mm` extension and are handled by [Objective-C++ Source](https://capdag.com/browse/media:objcpp;textable;code).\n\n## Notes\nObjective-C uses a Smalltalk-inspired message-passing syntax (`[receiver message]`) alongside standard C syntax. It supports both manual reference counting (MRC) and Automatic Reference Counting (ARC); the memory management model affects how code must be analyzed. Most modern Apple development uses [Swift Source](https://capdag.com/browse/media:swift;textable;code), but large Objective-C codebases remain common in mature iOS and macOS applications.\n",
+  "extensions": [
+    "m"
+  ]
+}

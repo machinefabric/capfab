@@ -1,0 +1,11 @@
+{
+  "urn": "media:rust;textable;code",
+  "media_type": "text/x-rust",
+  "title": "Rust Source",
+  "profile_uri": "https://capdag.com/schema/rust",
+  "description": "Rust programming language source code",
+  "documentation": "## Purpose\nRust source files contain code written in the Rust systems programming language, which emphasizes memory safety without a garbage collector, zero-cost abstractions, and high performance. Rust is used for systems software, WebAssembly, embedded targets, and high-performance services.\n\n## When to use\nUse [Rust Source](https://capdag.com/browse/media:rust;textable;code) for any `.rs` file in a Rust crate. Rust projects are organized via Cargo; the source tree under `src/` holds the actual Rust files while `Cargo.toml` holds the manifest.\n\n## Notes\nRust source is UTF-8 text. The compiler enforces strict ownership and borrowing rules at compile time, which eliminates many classes of runtime errors. Rust edition (2015, 2018, 2021, 2024) affects syntax and some language semantics; the edition is declared in `Cargo.toml` and should be considered when parsing or analyzing source.\n",
+  "extensions": [
+    "rs"
+  ]
+}

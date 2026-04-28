@@ -1,0 +1,28 @@
+{
+  "urn": "cap:in=\"media:csv;list;record;textable\";op=collect_records;out=\"media:list;record;textable;yaml\"",
+  "command": "collect_records",
+  "title": "Merge CSV Files into YAML List",
+  "cap_description": "Merge multiple CSV files into a single YAML sequence of mappings",
+  "documentation": "## Purpose\n\nMerges a sequence of CSV files into a single YAML sequence of mappings, with each row becoming a YAML mapping and column headers becoming keys. Use this when downstream processing prefers YAML.\n\n## Inputs\n\nA sequence of CSV files (each with a header row and data rows).\n\n## Outputs\n\nA YAML sequence where each element is a mapping with keys from the CSV header.\n\n## Notes\n\n- All input CSVs should have compatible headers.\n- For JSON output, use [Merge CSV Files into JSON Array](https://capdag.com/browse/cap:in=\"media:csv;list;record;textable\";op=collect_records;out=\"media:json;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:csv;list;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:csv;list;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "CSV files to merge",
+      "is_sequence": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:list;record;textable;yaml",
+    "output_description": "YAML sequence with all CSV rows as mappings"
+  }
+}

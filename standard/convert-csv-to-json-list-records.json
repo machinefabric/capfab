@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:csv;list;record;textable\";op=convert_format;out=\"media:json;list;record;textable\"",
+  "command": "convert_format",
+  "title": "Convert CSV to JSON Array of Objects",
+  "cap_description": "Convert CSV data to a JSON array of objects with keys from the header row",
+  "documentation": "## Purpose\n\nConverts a CSV file into a JSON array of objects. Each data row becomes one JSON object; the CSV header row supplies the object keys. Use this when a downstream cap expects JSON but the data source is CSV.\n\n## Inputs\n\nA CSV file with a header row and one or more data rows.\n\n## Outputs\n\nA JSON array of objects, one per CSV row.\n\n## Notes\n\n- Column names from the header row become JSON keys. Sanitize column names upstream if they contain characters that are problematic as JSON keys.\n- For YAML output, use [Convert CSV to YAML List of Mappings](https://capdag.com/browse/cap:in=\"media:csv;list;record;textable\";op=convert_format;out=\"media:list;record;textable;yaml\").\n- For the reverse, use [Convert JSON Array of Objects to CSV](https://capdag.com/browse/cap:in=\"media:json;list;record;textable\";op=convert_format;out=\"media:csv;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:csv;list;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:csv;list;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "CSV data to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:json;list;record;textable",
+    "output_description": "JSON formatted array of objects"
+  }
+}

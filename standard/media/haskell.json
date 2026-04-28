@@ -1,0 +1,12 @@
+{
+  "urn": "media:haskell;textable;code",
+  "media_type": "text/x-haskell",
+  "title": "Haskell Source",
+  "profile_uri": "https://capdag.com/schema/haskell",
+  "description": "Haskell programming language source code",
+  "documentation": "## Purpose\nHaskell source files contain code written in Haskell, a purely functional, statically typed language with lazy evaluation and a strong type system featuring type classes, higher-kinded types, and monads. Haskell is used in compiler research, formal verification, financial systems, and wherever correctness guarantees are paramount.\n\n## When to use\nUse [Haskell Source](https://capdag.com/browse/media:haskell;textable;code) for `.hs` standard source files and `.lhs` literate Haskell files (where code is interspersed with prose in a Bird-style or LaTeX-style format). Haskell projects are typically managed with Cabal or Stack, with `cabal.project` or `stack.yaml` as the project root.\n\n## Notes\nHaskell's lazy evaluation model means expressions are not evaluated until their results are needed, which changes reasoning about performance and memory usage compared to strict languages. The Glasgow Haskell Compiler (GHC) supports numerous language extensions via `{-# LANGUAGE ... #-}` pragmas that significantly expand the type system; tools must account for active extensions when parsing source.\n",
+  "extensions": [
+    "hs",
+    "lhs"
+  ]
+}

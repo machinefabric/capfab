@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:image;png\";op=convert_image;out=\"media:image;jpeg\"",
+  "command": "convert-image",
+  "title": "Convert PNG to JPEG",
+  "cap_description": "Re-encode a PNG image as a JPEG",
+  "documentation": "## Purpose\n\nDecodes a PNG and re-encodes it as a JPEG. Use when a smaller file is preferred and the loss of transparency and the introduction of compression artifacts are acceptable.\n\n## Inputs\n\nA PNG file. RGBA inputs have the alpha channel composited against white.\n\n## Outputs\n\nA JPEG file at quality 85 (default).\n\n## Notes\n\nJPEG does not support transparency. Alpha is composited on a white background. Quality is fixed at 85; if you need different quality, request a feature.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:image;png"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the PNG file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:jpeg;image",
+    "output_description": "JPEG-encoded image"
+  }
+}

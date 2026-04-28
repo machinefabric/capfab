@@ -1,0 +1,11 @@
+{
+  "urn": "media:jupyter;record;textable",
+  "media_type": "application/x-ipynb+json",
+  "title": "Jupyter Notebook",
+  "profile_uri": "https://capdag.com/schema/jupyter",
+  "description": "Jupyter notebook document",
+  "documentation": "## Purpose\nJupyter Notebook files (`.ipynb`) are JSON documents that store an ordered sequence of cells, each containing source code, markdown text, or raw content alongside captured cell outputs. The [Jupyter Notebook](https://capdag.com/browse/media:jupyter;record;textable) media type covers any file conforming to the nbformat specification.\n\n## When to use\nUse this type when a node produces or consumes a reproducible computational document — for example, data analysis reports, model training walkthroughs, or interactive tutorials that mix code and narrative. Jupyter files are the standard exchange format for notebooks in Python, R, and Julia ecosystems.\n\n## Notes\nThe `;record;textable` tags indicate that the notebook is both a structured record and human-readable text. Cells have a `cell_type` field (`code`, `markdown`, or `raw`) and outputs are embedded as JSON. Implementers processing notebooks programmatically should use the `nbformat` library to validate and manipulate cells rather than parsing raw JSON.\n",
+  "extensions": [
+    "ipynb"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:typescript;textable;code",
+  "media_type": "text/typescript",
+  "title": "TypeScript Source",
+  "profile_uri": "https://capdag.com/schema/typescript",
+  "description": "TypeScript programming language source code",
+  "documentation": "## Purpose\nTypeScript source files contain code written in TypeScript, a statically typed superset of JavaScript developed by Microsoft. TypeScript adds optional type annotations, interfaces, generics, and other features that improve tooling support and catch errors at compile time.\n\n## When to use\nUse [TypeScript Source](https://capdag.com/browse/media:typescript;textable;code) for `.ts` files. Note that `.ts` is also used for MPEG Transport Stream video files; context and MIME type must be used to disambiguate. For TypeScript files containing JSX, use [TypeScript JSX Source](https://capdag.com/browse/media:tsx;textable;code).\n\n## Notes\nTypeScript is compiled to JavaScript using the `tsc` compiler or a bundler plugin before execution. Declaration files (`.d.ts`) are a special form of TypeScript that contain only type information without runtime code; they may be processed differently by type-checking pipelines. The language version and compiler options are specified in `tsconfig.json`.\n",
+  "extensions": [
+    "ts"
+  ]
+}

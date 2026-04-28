@@ -1,0 +1,11 @@
+{
+  "urn": "media:vtt;textable;list",
+  "media_type": "text/vtt",
+  "title": "WebVTT Subtitles",
+  "profile_uri": "https://capdag.com/schema/vtt",
+  "description": "WebVTT subtitle data",
+  "documentation": "## Purpose\nWebVTT (Web Video Text Tracks, W3C specification) is a UTF-8 text format for timed cues used in HTML5 `<track>` elements. The [WebVTT Subtitles](https://capdag.com/browse/media:vtt;textable;list) media type represents any `.vtt` file that begins with the `WEBVTT` header line.\n\n## When to use\nUse this type when a node produces or consumes subtitle, caption, or chapter data for web-based video players. WebVTT is the native format for HTML5 video tracks and supports additional features over SRT — including cue positioning, alignment, line settings, and region blocks — making it the preferred format for web delivery.\n\n## Notes\nA WebVTT file begins with the mandatory `WEBVTT` line, optionally followed by a header block, then cue blocks separated by blank lines. Timecodes use `HH:MM:SS.mmm --> HH:MM:SS.mmm` format (with a period before milliseconds, unlike SRT's comma). The `;textable;list` tags reflect the human-readable ordered-list structure. Implementers parsing cue settings should handle the optional `NOTE` and `REGION` blocks that may appear between cues.\n",
+  "extensions": [
+    "vtt"
+  ]
+}

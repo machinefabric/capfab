@@ -1,0 +1,11 @@
+{
+  "urn": "media:integer;numeric;textable",
+  "media_type": "text/plain",
+  "title": "Integer",
+  "profile_uri": "https://capdag.com/schema/integer",
+  "description": "Signed integer value.",
+  "documentation": "## Purpose\nThe [Integer](https://capdag.com/browse/media:integer;numeric;textable) type represents a single signed integer value encoded as UTF-8 text — a subtype of the general numeric type.\n\n## When to use\nUse this type when a node outputs or accepts a single whole-number value — for example, a count, an index, an HTTP status code, or any context where fractional values are meaningless. For sequences of integers, use `media:integer;list;numeric;textable`.\n\n## Notes\nThe value must be a decimal integer literal, optionally prefixed with `-` for negative values. No fractional part, exponent notation, or leading zeros (beyond a single `0`) are permitted. Implementers should parse with 64-bit signed integer semantics by default.\n",
+  "extensions": [
+    "txt"
+  ]
+}

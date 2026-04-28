@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;candle;textable;transcription",
+  "media_type": "text/plain",
+  "title": "Candle Transcription Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Candle model specification for audio transcription (Whisper).",
+  "documentation": "## Purpose\nIdentifies an OpenAI Whisper model for audio-to-text transcription via the Candle backend. Whisper is an encoder-decoder model that accepts mel spectrograms of audio and produces text transcriptions.\n\n## When to use\nUse this type when wiring an audio transcription cap that targets the Candle runtime. The default points to Whisper Base, a compact model suitable for real-time transcription. Larger variants (Small, Medium, Large) offer higher accuracy at greater compute cost.\n\n## Notes\nWhisper models require audio preprocessing (resampling to 16 kHz, mel spectrogram extraction) before the model is invoked. This preprocessing is typically handled by the cap implementation, not the model spec itself.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:openai/whisper-base"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

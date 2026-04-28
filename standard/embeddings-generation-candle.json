@@ -1,0 +1,60 @@
+{
+  "urn": "cap:candle;in=media:textable;ml-model;op=generate_embeddings;out=\"media:embedding-vector;record;textable\"",
+  "command": "generate_embeddings",
+  "title": "Generate Vector Embeddings (Candle)",
+  "cap_description": "Generate vector embeddings from text using Candle ML framework on CPU/GPU",
+  "documentation": "## Purpose\n\nEncodes text into dense floating-point vectors suitable for semantic search, clustering, classification, and retrieval-augmented generation (RAG). Uses sentence-transformers models running locally via Candle on CPU or GPU. Long documents are automatically split into overlapping chunks; each chunk gets its own vector.\n\n## Inputs\n\n- A text file to embed.\n- A model spec (HuggingFace repo). Defaults to `all-MiniLM-L6-v2` (384 dimensions, general-purpose).\n- Chunk size in words (default 400) and chunk overlap in words (default 50). Adjust to match your retrieval granularity.\n\n## Outputs\n\nA JSON record containing an array of embedding objects. Each object includes the chunk text, its position in the document, the embedding vector (array of floats), and model metadata (model name, dimensions).\n\n## Notes\n\n- Choose chunk size based on context: smaller chunks (100-200 words) give precise retrieval; larger chunks (500-800 words) give more context per match.\n- Overlap prevents important content from being cut across chunk boundaries.\n- Candle supports both CPU and CUDA GPU. GPU significantly reduces latency for large documents.\n- Use [Get Embeddings Dimensions (Candle)](https://capdag.com/browse/cap:candle;in=\"media:model-spec;candle;textable;embeddings\";ml-model;op=embeddings_dimensions;out=\"media:model-dim;integer;textable;numeric\") to check the vector size before building an index.\n- For GGUF-quantized models, see [Generate Vector Embeddings (GGUF)](https://capdag.com/browse/cap:gguf;in=\"media:textable\";ml-model;op=generate_embeddings;out=\"media:embedding-vector;textable;record\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to text file to generate embeddings from"
+    },
+    {
+      "media_urn": "media:model-spec;candle;textable;embeddings",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model"
+        }
+      ],
+      "arg_description": "HuggingFace model name for embeddings",
+      "default_value": "hf:sentence-transformers/all-MiniLM-L6-v2"
+    },
+    {
+      "media_urn": "media:chunk-size;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--chunk-size"
+        }
+      ],
+      "arg_description": "Chunk size in words for splitting input text",
+      "default_value": 400
+    },
+    {
+      "media_urn": "media:chunk-overlap;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--chunk-overlap"
+        }
+      ],
+      "arg_description": "Chunk overlap in words when splitting input text",
+      "default_value": 50
+    }
+  ],
+  "output": {
+    "media_urn": "media:embedding-vector;textable;record",
+    "output_description": "JSON containing embeddings, chunk metadata and model information"
+  }
+}

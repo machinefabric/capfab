@@ -1,0 +1,11 @@
+{
+  "urn": "media:cache-dir;textable",
+  "media_type": "text/plain",
+  "title": "Cache Dir",
+  "profile_uri": "https://capdag.com/schema/cache_dir",
+  "description": "Cache Dir value",
+  "documentation": "## Purpose\n\nCache Dir specifies the filesystem path where the application stores cached data, including model artifacts, embeddings, and API response caches. Centralizing the cache directory simplifies backup and disk-space management.\n\n## When to use\n\nSet this when the default cache location (typically a platform-specific application data directory) is unsuitable, such as when a larger or faster disk is available at a different path. Relative paths are resolved from the application's working directory unless documented otherwise.\n\n## Notes\n\nThe path must not contain null bytes. Ensure the process has read and write permission to the specified directory. Changing the cache directory does not migrate existing cached data; the new directory will be populated from scratch on first use.\n",
+  "validation": {
+    "pattern": "^[^\\0]+$"
+  }
+}

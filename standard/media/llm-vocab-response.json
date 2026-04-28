@@ -1,0 +1,27 @@
+{
+  "urn": "media:llm-vocab-response;json;record",
+  "media_type": "application/json",
+  "title": "LLM Vocabulary Response",
+  "profile_uri": "https://capdag.com/schema/llm-vocab-response",
+  "description": "Response containing the model's vocabulary tokens",
+  "documentation": "## Purpose\nReturns the full token vocabulary of a loaded LLM, enabling token-level analysis, prompt engineering tools, and custom tokenization utilities to operate without a separate tokenizer library.\n\n## When to use\nThis is the response to a `get_vocab` request in a [LLM Generation Request](https://capdag.com/browse/media:llm-generation-request;json;record). Use it when you need to enumerate, inspect, or count the tokens the model recognises.\n\n## Notes\nThe `vocab` array is ordered by token ID. The `vocab_size` field should equal the length of `vocab`; include it as a convenience for consumers that only need the count without iterating the full array. Vocabulary extraction is typically slow on large models; cache the result when possible.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "vocab"
+    ],
+    "properties": {
+      "vocab": {
+        "type": "array",
+        "description": "Array of vocabulary tokens"
+      },
+      "vocab_size": {
+        "type": "integer",
+        "description": "Total vocabulary size"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:summary-contextable",
+  "media_type": "text/plain",
+  "title": "Summary Context",
+  "profile_uri": "https://capdag.com/schema/summary_context",
+  "description": "Summary Context contextual information",
+  "documentation": "## Purpose\n\nSummary Context provides framing information that helps the model produce a more targeted summary, such as the intended audience, the reason for the summary, or key terms to prioritize.\n\n## When to use\n\nUse this media type alongside [Summary Type](https://capdag.com/browse/media:summary-type;textable) and [Summary Focus](https://capdag.com/browse/media:summary-focus;textable) when the summarization task requires audience-awareness or domain framing beyond what the source document itself provides.\n\n## Notes\n\nThe maximum length is 8,192 characters. Brief, well-structured context (two to four sentences) is typically more effective than long narrative instructions.\n",
+  "validation": {
+    "max_length": 8192
+  }
+}

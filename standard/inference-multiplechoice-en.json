@@ -1,0 +1,81 @@
+{
+  "urn": "cap:constrained;in=media:textable;language=en;op=multiplechoice;out=\"media:generated-text;record;textable\"",
+  "command": "llm_inference",
+  "title": "Answer Multiple Choice in English",
+  "cap_description": "Logical reasoning and binary decision tasks in English",
+  "documentation": "## Purpose\n\nAnalyzes text and performs logical reasoning to answer a multiple-choice or binary decision question. Returns the decision along with a reasoning explanation and confidence score. Useful for classification, routing, and document analysis pipelines.\n\n## Inputs\n\n- A text prompt containing the question or decision problem.\n- Optional reasoning context (facts, background information).\n- Decision type (default: `binary`). Use `binary` for yes/no decisions; other values for multi-class reasoning.\n- Max tokens (default 1000).\n- A flag to include reasoning explanation in the output (default true).\n\n## Outputs\n\nA JSON record with the decision, reasoning explanation, and confidence score.\n\n## Notes\n\n- For strict binary classification with a guaranteed true/false output and no explanation overhead, use [Make a Decision](https://capdag.com/browse/cap:constrained;in=\"media:textable\";language=en;op=make_decision;out=\"media:decision;json;record;textable\") instead.\n- Include context for better accuracy on domain-specific questions.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Logical query or decision problem"
+    },
+    {
+      "media_urn": "media:reasoning-contextable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--context"
+        }
+      ],
+      "arg_description": "Context and facts for logical reasoning"
+    },
+    {
+      "media_urn": "media:decision-type;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--decision-type"
+        }
+      ],
+      "arg_description": "Type of logical decision required",
+      "default_value": "binary"
+    },
+    {
+      "media_urn": "media:max-tokens;inference;limit;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum tokens for reasoning output",
+      "default_value": 1000
+    },
+    {
+      "media_urn": "media:require-explanation-flag;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--require-explanation"
+        }
+      ],
+      "arg_description": "Whether to include reasoning explanation",
+      "default_value": true
+    },
+    {
+      "media_urn": "media:model-spec;textable;llm",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for decision making",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:generated-text;textable;record",
+    "output_description": "Logical decision with reasoning explanation and confidence"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "urn": "media:output-length;textable",
+  "media_type": "text/plain",
+  "title": "Output Length",
+  "profile_uri": "https://capdag.com/schema/output_length",
+  "description": "Output Length value",
+  "documentation": "## Purpose\nA qualitative or quantitative hint to a machine about the desired verbosity of its output. Common values include `short`, `medium`, `long`, or a specific token count.\n\n## When to use\nUse this parameter when a machine supports multiple verbosity levels and the consumer needs to control response length semantically rather than through a raw token limit. For hard token limits, use [Max Tokens](https://capdag.com/browse/media:max-tokens;inference;limit;user;task;textable;numeric) instead.\n\n## Notes\nAccepted values are machine-specific. See [Output Format](https://capdag.com/browse/media:output-format;textable) for controlling the structure of output, and [Max Tokens](https://capdag.com/browse/media:max-tokens;inference;limit;user;task;textable;numeric) for enforcing a hard generation limit.\n"
+}

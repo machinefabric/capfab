@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;mlx;textable;llm",
+  "media_type": "text/plain",
+  "title": "MLX LLM Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "MLX language model specification for text generation on Apple Silicon.",
+  "documentation": "## Purpose\nIdentifies an MLX-format language model for text generation on Apple Silicon. MLX models run natively in Apple's array framework, offering fast inference on M-series chips without requiring llama.cpp or PyTorch.\n\n## When to use\nPrefer this spec type over the GGUF variant on Apple Silicon machines where MLX is available. The default points to a 4-bit quantized Llama 3.2-3B Instruct model from mlx-community. For cross-platform compatibility use `media:model-spec;textable;llm`.\n\n## Notes\nMLX LLM models are downloaded from HuggingFace repositories maintained by the mlx-community organisation. They store weights as NumPy arrays in safetensors format alongside a `config.json`. The quantization is baked into the weights rather than applied at load time.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:mlx-community/Llama-3.2-3B-Instruct-4bit"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "urn": "media:tiff;image",
+  "media_type": "image/tiff",
+  "title": "TIFF Image",
+  "profile_uri": "https://capdag.com/schema/tiff",
+  "description": "Tagged Image File Format data",
+  "documentation": "## Purpose\nRepresents a TIFF (Tagged Image File Format) raster image. TIFF is a flexible, high-quality format widely used in professional photography, printing, scanning, and document imaging pipelines.\n\n## When to use\nUse `media:tiff;image` when a node produces or consumes TIFF images, particularly in archival, print, or scanner workflows where lossless quality and rich metadata (EXIF, IPTC) must be preserved. For web delivery or general-purpose use, prefer [PNG Image](https://capdag.com/browse/media:png) or [JPEG Image](https://capdag.com/browse/media:jpeg;image).\n\n## Notes\nTIFF supports multiple compression schemes (LZW, ZIP, JPEG, uncompressed) and can store multiple pages in a single file. Consumers should handle multi-page TIFF files and confirm the compression type before processing.\n",
+  "extensions": [
+    "tiff",
+    "tif"
+  ]
+}

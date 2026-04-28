@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:audio;ogg\";op=convert_audio;out=\"media:audio;flac\"",
+  "command": "convert-audio",
+  "title": "Convert OGG to FLAC",
+  "cap_description": "Decode OGG (Vorbis) and re-encode as lossless FLAC",
+  "documentation": "## Purpose\n\nDecodes an OGG-Vorbis file and writes it as FLAC.\n\n## Inputs\n\nAn OGG file containing a Vorbis stream.\n\n## Outputs\n\nA FLAC file containing the decoded PCM.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:ogg;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the OGG file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:flac;audio",
+    "output_description": "FLAC-encoded audio"
+  }
+}

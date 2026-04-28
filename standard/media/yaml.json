@@ -1,0 +1,12 @@
+{
+  "urn": "media:textable;yaml",
+  "media_type": "application/yaml",
+  "title": "YAML",
+  "profile_uri": "https://capdag.com/schema/yaml",
+  "description": "YAML content - may be a scalar value, sequence, or mapping",
+  "documentation": "## Purpose\nThe most permissive YAML type, used when the top-level structure is unknown, a bare scalar, or otherwise unconstrained. Covers any valid YAML document regardless of shape.\n\n## When to use\nUse `media:textable;yaml` when the structure of the YAML payload is not determined ahead of time. When the structure is known, prefer [YAML Document](https://capdag.com/browse/media:record;textable;yaml), [YAML List](https://capdag.com/browse/media:list;textable;yaml), or [YAML List of Mappings](https://capdag.com/browse/media:list;record;textable;yaml).\n\n## Notes\nYAML supports multiple documents in a single file separated by `---`. Consumers that expect a single document should parse only the first one.\n",
+  "extensions": [
+    "yaml",
+    "yml"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:zsh;textable;code",
+  "media_type": "text/x-shellscript",
+  "title": "Zsh Script",
+  "profile_uri": "https://capdag.com/schema/zsh",
+  "description": "Zsh script source code",
+  "documentation": "## Purpose\nCarries Zsh script files, which extend POSIX shell with advanced completion, globbing, and theming features. Zsh is the default shell on macOS and is widely adopted as an interactive shell on Linux.\n\n## When to use\nUse `media:zsh;textable;code` when a pipeline node handles `.zsh` scripts specifically — for example, a dotfile provisioner deploying shell configuration or a linting step checking Zsh-specific syntax. For generic POSIX shell scripts, use [Shell Script](https://capdag.com/browse/media:shell;textable;code).\n\n## Notes\nZsh is largely compatible with Bash but adds features like extended globbing (`**`), associative arrays, and a richer completion system. Scripts often rely on Zsh-specific constructs that would not run under plain `sh`. See also [Zsh Script](https://capdag.com/browse/media:zsh;textable;code).\n",
+  "extensions": [
+    "zsh"
+  ]
+}

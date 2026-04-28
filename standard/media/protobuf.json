@@ -1,0 +1,13 @@
+{
+  "urn": "media:protobuf",
+  "media_type": "application/x-protobuf",
+  "title": "Protocol Buffers",
+  "profile_uri": "https://capdag.com/schema/protobuf",
+  "description": "Google Protocol Buffers data",
+  "documentation": "## Purpose\nCarries Protocol Buffers content across its three common forms: binary-encoded wire format (`.pb`), the generic binary alias (`.protobuf`), and schema definition language source (`.proto`). Protocol Buffers is Google's language-neutral serialization format used extensively in gRPC services and data pipelines.\n\n## When to use\nUse `media:protobuf` when a pipeline node serializes, deserializes, or analyzes protobuf content — for example, a gRPC message encoder/decoder, a schema registry step, or a code generation node that runs `protoc` on `.proto` definitions.\n\n## Notes\nBinary `.pb` files are not human-readable; use `.proto` schema files for text-based analysis. The `proto3` syntax is the current standard; `proto2` files remain in use in legacy services. Code generation via `protoc` and language-specific plugins produces stubs for Go, Python, Java, and other languages. See also [Protocol Buffers](https://capdag.com/browse/media:protobuf).\n",
+  "extensions": [
+    "pb",
+    "protobuf",
+    "proto"
+  ]
+}

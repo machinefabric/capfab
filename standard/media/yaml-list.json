@@ -1,0 +1,12 @@
+{
+  "urn": "media:list;textable;yaml",
+  "media_type": "application/yaml",
+  "title": "YAML List",
+  "profile_uri": "https://capdag.com/schema/yaml",
+  "description": "YAML sequence containing multiple items",
+  "documentation": "## Purpose\nRepresents a YAML document whose root is a sequence (ordered list of items). Items may be scalars, mappings, or nested sequences.\n\n## When to use\nUse `media:list;textable;yaml` when a node produces or expects a YAML sequence as its root element. If each item is a mapping, prefer [YAML List of Mappings](https://capdag.com/browse/media:list;record;textable;yaml) for a more precise type.\n\n## Notes\nItem types within the sequence are unconstrained by this spec. Consumers that require uniform item types should validate each element after parsing.\n",
+  "extensions": [
+    "yaml",
+    "yml"
+  ]
+}

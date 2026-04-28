@@ -1,0 +1,11 @@
+{
+  "urn": "media:srt;textable;list",
+  "media_type": "text/plain",
+  "title": "SRT Subtitles",
+  "profile_uri": "https://capdag.com/schema/srt",
+  "description": "SubRip subtitle data",
+  "documentation": "## Purpose\nSRT (SubRip Text) is a plain-text subtitle format that stores an ordered sequence of cue blocks, each with a sequence number, a timecode range, and one or more lines of text. The [SRT Subtitles](https://capdag.com/browse/media:srt;textable;list) media type represents any `.srt` file following this convention.\n\n## When to use\nUse this type when a node produces or consumes subtitle or caption data — for example, transcription pipelines, video localization workflows, or accessibility tooling. SRT is the most widely supported subtitle format and is accepted by most video players and streaming platforms.\n\n## Notes\nSRT files are plain text (typically UTF-8 or Latin-1). Each block consists of: a 1-based sequence number, a timecode line in `HH:MM:SS,mmm --> HH:MM:SS,mmm` format, and one or more text lines followed by a blank line. The `;textable;list` tags reflect the human-readable ordered-list nature. Implementers should strip HTML-like tags (e.g., `<i>`, `<b>`) if plain text output is required, as many SRT files use them for styling.\n",
+  "extensions": [
+    "srt"
+  ]
+}

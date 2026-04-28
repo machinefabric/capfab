@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:audio;opus\";op=convert_audio;out=\"media:audio;flac\"",
+  "command": "convert-audio",
+  "title": "Convert Opus to FLAC",
+  "cap_description": "Decode Opus and re-encode as FLAC",
+  "documentation": "## Purpose\n\nDecodes an Opus audio file (typically wrapped in an Ogg container) and writes the resulting PCM as a FLAC file.\n\n## Inputs\n\nAn Opus file.\n\n## Outputs\n\nA FLAC file containing the decoded PCM as produced by the Opus decoder at 48 kHz.\n\n## Notes\n\nOpus always decodes to 48 kHz PCM internally. The FLAC output therefore reports a 48 kHz sample rate regardless of the encoder hint embedded in the OpusHead identification packet.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:opus;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the Opus file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:flac;audio",
+    "output_description": "FLAC-encoded audio"
+  }
+}

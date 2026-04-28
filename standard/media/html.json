@@ -1,0 +1,11 @@
+{
+  "urn": "media:html;textable",
+  "media_type": "text/html",
+  "title": "HTML Document",
+  "profile_uri": "https://capdag.com/schema/html",
+  "description": "HTML formatted document",
+  "documentation": "## Purpose\nRepresents an HTML document containing markup for structure, links, and embedded media. HTML is the primary format for web content and is also commonly produced by documentation tools and email renderers.\n\n## When to use\nUse `media:html;textable` when a node produces or consumes HTML content — for example a web scraper output, a rendered documentation page, or a formatted report. For plain prose without markup, use [Plain Text](https://capdag.com/browse/media:txt;textable).\n\n## Notes\nHTML content may reference external resources (stylesheets, images) that are not included in the artifact. Nodes that render HTML should be prepared to handle or ignore external dependencies. The `textable` tag allows HTML to be consumed by any generic text node, though parsing will be needed to extract meaningful text.\n",
+  "extensions": [
+    "html"
+  ]
+}

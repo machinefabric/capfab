@@ -1,0 +1,11 @@
+{
+  "urn": "media:stl;model",
+  "media_type": "model/stl",
+  "title": "STL Model",
+  "profile_uri": "https://capdag.com/schema/stl",
+  "description": "Stereolithography 3D model",
+  "documentation": "## Purpose\nSTL (Stereolithography) is a format for representing the surface geometry of a 3D solid as a collection of triangular facets with normal vectors. The [STL Model](https://capdag.com/browse/media:stl;model) media type represents `.stl` files in either binary or ASCII encoding.\n\n## When to use\nUse this type when a node produces or consumes 3D geometry for additive manufacturing (3D printing), CAD inspection, or mesh repair workflows. STL is the de-facto standard input format for slicing software (PrusaSlicer, Cura, etc.) and is supported universally across CAD and 3D-printing tools.\n\n## Notes\nBinary STL begins with an 80-byte header followed by a triangle count and packed triangle records; ASCII STL begins with `solid`. Implementers should detect the encoding by checking the first bytes rather than relying on a naming convention. STL does not support color, texture, or scene hierarchy — for richer 3D assets use [GLB](https://capdag.com/browse/media:glb;model) or [OBJ](https://capdag.com/browse/media:obj;model). Manifold (watertight) geometry is required for reliable 3D printing.\n",
+  "extensions": [
+    "stl"
+  ]
+}

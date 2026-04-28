@@ -1,0 +1,11 @@
+{
+  "urn": "media:md;textable",
+  "media_type": "text/markdown",
+  "title": "Markdown Document",
+  "profile_uri": "https://capdag.com/schema/md",
+  "description": "Markdown formatted text",
+  "documentation": "## Purpose\nRepresents a Markdown document whose content uses Markdown syntax for headings, lists, links, code blocks, and other formatting. Markdown is widely used for documentation, READMEs, and human-readable reports.\n\n## When to use\nUse `media:md;textable` when a node produces or expects Markdown-formatted output, such as a language model that has been prompted to respond in Markdown or a documentation generator. For unformatted prose, use [Plain Text](https://capdag.com/browse/media:txt;textable).\n\n## Notes\nThe `textable` tag means Markdown content can flow to any node that accepts readable text, though nodes that render or further process Markdown should match on this more specific type. Standard CommonMark is assumed; GitHub Flavored Markdown extensions are common but not guaranteed.\n",
+  "extensions": [
+    "md"
+  ]
+}

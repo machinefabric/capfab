@@ -1,0 +1,11 @@
+{
+  "urn": "media:creative-contextable",
+  "media_type": "text/plain",
+  "title": "Creative Context",
+  "profile_uri": "https://capdag.com/schema/creative_context",
+  "description": "Creative Context contextual information",
+  "documentation": "## Purpose\n\nCreative Context supplies background narrative, world-building details, character notes, or thematic constraints that ground a creative writing task. It is a large free-form text field allowing rich, multi-paragraph briefings.\n\n## When to use\n\nUse this media type when a generative writing node needs domain context beyond a simple prompt. It complements [Genre](https://capdag.com/browse/media:genre;textable), [Tone](https://capdag.com/browse/media:tone;textable), and [Creativity Level](https://capdag.com/browse/media:creativity-level;textable;numeric) by providing the substantive material the model should draw from.\n\n## Notes\n\nThe maximum length is 16,384 characters. Structure the context with clear sections (setting, characters, constraints) to help the model prioritize when the field is densely populated.\n",
+  "validation": {
+    "max_length": 16384
+  }
+}

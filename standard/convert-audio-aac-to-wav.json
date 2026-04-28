@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:aac;audio\";op=convert_audio;out=\"media:audio;wav\"",
+  "command": "convert-audio",
+  "title": "Convert AAC to WAV",
+  "cap_description": "Decode AAC (ADTS) to uncompressed WAV (PCM)",
+  "documentation": "## Purpose\n\nDecodes a raw AAC (ADTS-framed) file and writes it as 16-bit signed PCM WAV.\n\n## Inputs\n\nAn AAC file in ADTS framing. AAC tracks inside MP4 containers should use the M4A converter.\n\n## Outputs\n\nA 16-bit signed PCM WAV file.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:aac;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the AAC file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:wav;audio",
+    "output_description": "16-bit PCM WAV"
+  }
+}

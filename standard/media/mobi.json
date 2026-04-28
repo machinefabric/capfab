@@ -1,0 +1,13 @@
+{
+  "urn": "media:mobi",
+  "media_type": "application/x-mobipocket-ebook",
+  "title": "Kindle eBook",
+  "profile_uri": "https://capdag.com/schema/mobi",
+  "description": "Kindle/Mobipocket eBook data",
+  "documentation": "## Purpose\nCarries Kindle and Mobipocket e-book files used on Amazon Kindle devices and apps. The `.mobi` extension covers the original Mobipocket format; `.azw` and `.azw3` are Amazon's proprietary variants with DRM and enhanced typography features.\n\n## When to use\nUse `media:mobi` when a pipeline node delivers or converts Kindle-targeted e-books — for example, a Calibre conversion step producing MOBI from EPUB, or a publishing pipeline that targets Kindle Direct Publishing.\n\n## Notes\nThe AZW3 (Kindle Format 8) variant supports HTML5 and CSS3 features similar to EPUB 3, while older MOBI/AZW use a more limited markup subset. DRM-protected files cannot be read or converted without authorization keys. For open e-book formats, prefer [EPUB Document](https://capdag.com/browse/media:epub). See also [Kindle eBook](https://capdag.com/browse/media:mobi).\n",
+  "extensions": [
+    "mobi",
+    "azw",
+    "azw3"
+  ]
+}

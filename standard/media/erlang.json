@@ -1,0 +1,12 @@
+{
+  "urn": "media:erlang;textable;code",
+  "media_type": "text/x-erlang",
+  "title": "Erlang Source",
+  "profile_uri": "https://capdag.com/schema/erlang",
+  "description": "Erlang programming language source code",
+  "documentation": "## Purpose\nErlang source files contain code written in Erlang, a concurrent, functional language designed at Ericsson for building fault-tolerant, distributed telecommunications systems. Erlang's process model, OTP framework, and \"let it crash\" philosophy underpin highly available services with nine-nines uptime targets.\n\n## When to use\nUse [Erlang Source](https://capdag.com/browse/media:erlang;textable;code) for `.erl` module implementation files and `.hrl` header files (which declare record types, macros, and constants shared across modules). Erlang projects are built with `rebar3` or `erlang.mk`.\n\n## Notes\nErlang modules are compiled to `.beam` bytecode that runs on the BEAM virtual machine, the same runtime used by [Elixir Source](https://capdag.com/browse/media:elixir;textable;code). The language uses single-assignment variables and pattern matching extensively. OTP behaviors (gen_server, gen_statem, supervisor) are the primary structuring mechanism for production Erlang applications.\n",
+  "extensions": [
+    "erl",
+    "hrl"
+  ]
+}

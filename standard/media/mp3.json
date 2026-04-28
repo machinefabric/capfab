@@ -1,0 +1,11 @@
+{
+  "urn": "media:mp3;audio",
+  "media_type": "audio/mpeg",
+  "title": "MP3 Audio",
+  "profile_uri": "https://capdag.com/schema/mp3",
+  "description": "MP3 audio data",
+  "documentation": "## Purpose\nRepresents an MP3-encoded audio file, the most widely supported compressed audio format. MP3 uses lossy compression to achieve small file sizes while maintaining perceptually acceptable audio quality.\n\n## When to use\nUse `media:mp3;audio` when a node produces or consumes MP3 audio — for example a music file, a podcast episode, or a compressed voice recording. For lossless audio, see [FLAC Audio](https://capdag.com/browse/media:flac;audio). For speech intended for transcription, see [Speech Audio](https://capdag.com/browse/media:audio;speech;wav).\n\n## Notes\nMP3 quality is determined by the bitrate (typically 128–320 kbps). Re-encoding MP3 to MP3 accumulates quality loss; pipeline steps that modify audio should decode to PCM first and re-encode only at the final output stage.\n",
+  "extensions": [
+    "mp3"
+  ]
+}

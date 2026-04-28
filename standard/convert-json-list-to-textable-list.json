@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:json;list;textable\";op=convert_format;out=\"media:list;textable\"",
+  "command": "convert_format",
+  "title": "Convert JSON Array to Text List",
+  "cap_description": "Convert a JSON array to a list of textable values",
+  "documentation": "## Purpose\n\nConverts a JSON array of scalar values into a list of textable strings. Use this when a downstream cap expects a plain text list but the upstream produces a JSON array of strings or numbers.\n\n## Inputs\n\nA JSON array of scalar values.\n\n## Outputs\n\nA list of textable values (one per array element).\n\n## Notes\n\n- Non-string elements are converted to their string representations.\n- For the reverse, use [Convert Text List to JSON Array](https://capdag.com/browse/cap:in=\"media:list;textable\";op=convert_format;out=\"media:json;list;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:json;list;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:json;list;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "JSON array to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:list;textable",
+    "output_description": "List of textable values"
+  }
+}

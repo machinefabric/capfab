@@ -1,0 +1,11 @@
+{
+  "urn": "media:gpx;textable",
+  "media_type": "application/gpx+xml",
+  "title": "GPX",
+  "profile_uri": "https://capdag.com/schema/gpx",
+  "description": "GPS Exchange Format data",
+  "documentation": "## Purpose\nGPX (GPS Exchange Format) is an XML schema for representing GPS tracks, routes, and waypoints with coordinates, elevation, and timestamps. The [GPX](https://capdag.com/browse/media:gpx;textable) media type represents any `.gpx` file conforming to the GPX 1.0 or 1.1 schema.\n\n## When to use\nUse this type when a node produces or consumes GPS-recorded data — for example, fitness tracking exports, survey route recordings, vehicle telemetry, or hiking trail datasets. GPX is the standard output format of GPS devices and applications such as Garmin devices, Strava, and OpenStreetMap tools.\n\n## Notes\nGPX files are UTF-8 XML. The `;textable` tag indicates the file is human-readable. The three main elements are `<wpt>` (waypoints), `<rte>` (routes), and `<trk>` (tracks with segments). Implementers should use an XML parser with namespace awareness; the GPX 1.1 namespace is `http://www.topografix.com/GPX/1/1`.\n",
+  "extensions": [
+    "gpx"
+  ]
+}

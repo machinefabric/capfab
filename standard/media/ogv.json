@@ -1,0 +1,11 @@
+{
+  "urn": "media:ogv;video",
+  "media_type": "video/ogg",
+  "title": "OGG Video",
+  "profile_uri": "https://capdag.com/schema/ogv",
+  "description": "Ogg video data",
+  "documentation": "## Purpose\nOGV is the video-carrying variant of the Ogg container format, developed by Xiph.Org. It typically holds Theora video with Vorbis audio, and was an early royalty-free web video option before VP8/VP9 became available.\n\n## When to use\nUse [OGG Video](https://capdag.com/browse/media:ogv;video) when working with legacy open-source video content or when content was originally encoded in the Theora/Vorbis combination. For royalty-free web video today, [WebM Video](https://capdag.com/browse/media:webm;video) is the preferred alternative.\n\n## Notes\nTheora video quality at equivalent bitrates is generally lower than VP9 or H.264. The Ogg container is also used for audio-only content (`.ogg`, `.oga`) and should not be confused with OGV. Browser support for OGV has declined as WebM has superseded it in most HTML5 video scenarios.\n",
+  "extensions": [
+    "ogv"
+  ]
+}

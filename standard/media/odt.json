@@ -1,0 +1,11 @@
+{
+  "urn": "media:odt",
+  "media_type": "application/vnd.oasis.opendocument.text",
+  "title": "OpenDocument Text",
+  "profile_uri": "https://capdag.com/schema/odt",
+  "description": "OpenDocument text document data",
+  "documentation": "## Purpose\nCarries OpenDocument Text files (`.odt`), the ISO-standardized word processing format used by LibreOffice Writer, Apache OpenOffice, and Google Docs. ODT is a ZIP archive of XML content and assets following the ODF specification.\n\n## When to use\nUse `media:odt` when a pipeline node processes open-format word documents — for example, a text extraction step, a cross-format conversion step via LibreOffice, or a template rendering step generating reports in an open standard format. For Microsoft Word format, see [Word Document](https://capdag.com/browse/media:docx).\n\n## Notes\nODT is defined by the OASIS OpenDocument Format standard (ISO/IEC 26300). Content is stored in `content.xml` within the archive. LibreOffice provides the most complete support for ODT, including complex styles and embedded objects. See also [OpenDocument Text](https://capdag.com/browse/media:odt).\n",
+  "extensions": [
+    "odt"
+  ]
+}

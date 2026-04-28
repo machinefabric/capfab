@@ -1,0 +1,8 @@
+{
+  "urn": "media:require-explanation-flag;textable",
+  "media_type": "text/plain",
+  "title": "Require Explanation Flag",
+  "profile_uri": "https://capdag.com/schema/require_explanation_flag",
+  "description": "Require Explanation Flag value",
+  "documentation": "## Purpose\nA boolean flag that instructs a machine to accompany its primary output with a natural-language explanation of how or why that output was produced.\n\n## When to use\nEnable in evaluation, audit, or user-facing pipelines where human reviewers need to understand model reasoning. Explanations increase output length; disable in high-throughput pipelines where latency is critical and rationale is not needed.\n\n## Notes\nSee [Detailed Flag](https://capdag.com/browse/media:detailed-flag;textable) for broader verbosity control and [Decision](https://capdag.com/browse/media:decision;json;record;textable) for the canonical output type that may carry explanations alongside binary verdicts.\n"
+}

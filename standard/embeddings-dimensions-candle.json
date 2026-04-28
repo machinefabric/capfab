@@ -1,0 +1,28 @@
+{
+  "urn": "cap:candle;in=\"media:candle;embeddings;model-spec;textable\";ml-model;op=embeddings_dimensions;out=\"media:integer;model-dim;numeric;textable\"",
+  "command": "get_embedding_dimensions",
+  "title": "Get Embeddings Dimensions (Candle)",
+  "cap_description": "Query the dimensionality of embeddings for a given Candle model",
+  "documentation": "## Purpose\n\nReports the vector size that a Candle-based embedding model produces. Use this before creating a vector index so you know how many dimensions to allocate.\n\n## Inputs\n\n- A model spec pointing to a HuggingFace embedding model. Defaults to `all-MiniLM-L6-v2` (384 dimensions).\n\n## Outputs\n\nA single integer: the number of dimensions in each embedding vector this model produces.\n\n## Notes\n\n- The result is read from the model's saved configuration, not from running inference, so it is fast and requires no GPU memory.\n- Use at pipeline setup time to parameterize downstream vector store caps.\n- See also: [Generate Vector Embeddings (Candle)](https://capdag.com/browse/cap:candle;in=\"media:textable\";ml-model;op=generate_embeddings;out=\"media:embedding-vector;textable;record\")\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;candle;textable;embeddings",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model"
+        },
+        {
+          "stdin": "media:model-spec;candle;textable;embeddings"
+        }
+      ],
+      "arg_description": "HuggingFace model name to query dimensions for",
+      "default_value": "hf:sentence-transformers/all-MiniLM-L6-v2"
+    }
+  ],
+  "output": {
+    "media_urn": "media:model-dim;integer;textable;numeric",
+    "output_description": "Dimensionality of the embeddings (positive integer)"
+  }
+}

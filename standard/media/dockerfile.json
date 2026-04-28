@@ -1,0 +1,11 @@
+{
+  "urn": "media:dockerfile;textable",
+  "media_type": "text/x-dockerfile",
+  "title": "Dockerfile",
+  "profile_uri": "https://capdag.com/schema/dockerfile",
+  "description": "Docker container definition",
+  "documentation": "## Purpose\nCarries a Dockerfile that describes how to build a container image layer by layer. Dockerfiles are the primary artifact for reproducible containerization of applications and services.\n\n## When to use\nUse `media:dockerfile;textable` when a pipeline node builds, lints, or generates a Dockerfile — for example, a `docker build` executor node, a Hadolint analysis step, or an LLM node asked to containerize a given application.\n\n## Notes\nDockerfiles have no standard file extension; the conventional filename is `Dockerfile` (no extension) or `Dockerfile.<variant>`. The `.dockerfile` extension registered here is used when the file must have an explicit extension. See also [Dockerfile](https://capdag.com/browse/media:dockerfile;textable).\n",
+  "extensions": [
+    "dockerfile"
+  ]
+}

@@ -1,0 +1,70 @@
+name: Add Capability
+description: Submit one or more capability definitions for inclusion in the registry.
+title: "Add: <short capability title>"
+labels:
+  - add-cap
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a capability! We curate every submission by hand. Once we accept it, the definition is added to the [CAPDAG registry](https://capdag.com) and to the published [`standard/`](https://github.com/machinefabric/capfab/tree/main/standard) directory in this repository.
+
+        Browse the existing capabilities in [`standard/`](https://github.com/machinefabric/capfab/tree/main/standard) for live examples of the JSON shape we accept. The capability schema is published at [`cap.schema.json`](https://github.com/machinefabric/capfab/blob/main/cap.schema.json).
+
+        Please paste the capability JSON below. One JSON object per capability, multiple objects are fine. Don't truncate documentation — the `documentation` field is part of how a capability is presented on capdag.com and to end-users discovering it.
+  - type: textarea
+    id: payload
+    attributes:
+      label: Capability JSON
+      description: One JSON object per capability. Multiple capabilities can be wrapped in a JSON array.
+      render: json
+      placeholder: |
+        {
+          "urn": "cap:in=\"media:bool;textable\";op=coerce;out=media:textable",
+          "command": "coerce",
+          "title": "Coerce Boolean to String",
+          "cap_description": "Convert a boolean value to its string representation",
+          "documentation": "## Purpose\n…\n## Inputs\n…\n## Outputs\n…\n",
+          "metadata": {},
+          "args": [
+            {
+              "media_urn": "media:bool;textable",
+              "required": true,
+              "sources": [{ "stdin": "media:bool;textable" }, { "position": 0 }],
+              "arg_description": "Input value to coerce"
+            }
+          ],
+          "output": {
+            "media_urn": "media:textable",
+            "output_description": "Coerced value"
+          }
+        }
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this capability useful?
+      description: A short paragraph on the use case. Who runs this cap, what is upstream, what is downstream, and what does it unlock that the existing capabilities don't already cover?
+      placeholder: |
+        I want to … because … . The closest existing cap is `cap:…` but it doesn't cover … .
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Where is this cap implemented?
+      description: Optional. If you (or someone you know of) already have a working implementation — a cartridge, a binary, a script, an internal service — link to it. We don't require a working implementation to accept a cap into the registry, but it helps us understand the shape.
+      placeholder: |
+        Cartridge: https://github.com/<owner>/<repo>
+        or
+        Reference implementation: <link>
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I have searched [`standard/`](https://github.com/machinefabric/capfab/tree/main/standard) for an existing capability covering this case.
+          required: true
+        - label: I understand that capability and media URNs are tagged URNs, not strings, and that the `in` and `out` direction tags carry routing semantics while other tags do not.
+          required: true

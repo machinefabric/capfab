@@ -1,0 +1,11 @@
+{
+  "urn": "media:decision;json;record;textable",
+  "media_type": "application/json",
+  "title": "Decision",
+  "profile_uri": "https://capdag.com/schema/decision",
+  "description": "Boolean decision as a JSON object with identifier and value fields.",
+  "documentation": "## Purpose\nEncodes the result of a binary evaluation as a structured JSON record. The `identifier` field records the question or criterion that was assessed; `value` holds the boolean answer.\n\n## When to use\nUse this type as the output of machines that perform yes/no classification, verification, or filtering. It is the canonical output for [Decision Type](https://capdag.com/browse/media:decision-type;textable) `binary` and `verification` modes.\n\n## Notes\nSchema requires exactly two fields: `identifier` (string) and `value` (boolean). No additional properties are allowed. For multi-class outputs, consider a classification-specific media type.\n",
+  "extensions": [
+    "json"
+  ]
+}

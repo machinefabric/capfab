@@ -1,0 +1,13 @@
+{
+  "urn": "media:javascript;textable;code",
+  "media_type": "text/javascript",
+  "title": "JavaScript Source",
+  "profile_uri": "https://capdag.com/schema/javascript",
+  "description": "JavaScript programming language source code",
+  "documentation": "## Purpose\nJavaScript source files contain code written in ECMAScript, the scripting language that powers web browser interactivity and Node.js server-side applications. JavaScript is the dominant language of the web and a common choice for full-stack development.\n\n## When to use\nUse [JavaScript Source](https://capdag.com/browse/media:javascript;textable;code) for `.js`, `.mjs`, and `.cjs` files. The `.mjs` extension signals ES module format (using `import`/`export`), while `.cjs` signals CommonJS format (using `require`). For React JSX files, use [JavaScript JSX Source](https://capdag.com/browse/media:jsx;textable;code) instead.\n\n## Notes\nJavaScript is dynamically typed and interpreted; no compilation step is required for execution in a browser or Node.js environment, though bundlers (Webpack, Rollup, esbuild) and transpilers (Babel) are common in production workflows. TypeScript files (`.ts`) are distinct — see [TypeScript Source](https://capdag.com/browse/media:typescript;textable;code).\n",
+  "extensions": [
+    "js",
+    "mjs",
+    "cjs"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:mov;video\";op=extract_audio_track;out=\"media:audio;m4a\"",
+  "command": "extract-audio",
+  "title": "Extract Audio Track from MOV",
+  "cap_description": "Demux the audio track from a QuickTime MOV and write it as an M4A file",
+  "documentation": "## Purpose\n\nExtracts the AAC audio track from a QuickTime MOV file and writes it as an M4A. The MOV container is structurally identical to MP4 for the audio remux path.\n\n## Inputs\n\nA MOV file with an AAC audio track.\n\n## Outputs\n\nAn M4A file containing the source's AAC audio track. No re-encoding occurs.\n\n## Notes\n\nIf the MOV has no AAC audio track, the cap fails hard. There is no audio re-encoding fallback.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:mov;video"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the MOV file"
+    }
+  ],
+  "output": {
+    "media_urn": "media:m4a;audio",
+    "output_description": "M4A (AAC-in-MP4) audio track"
+  }
+}

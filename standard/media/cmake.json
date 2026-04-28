@@ -1,0 +1,11 @@
+{
+  "urn": "media:cmake;textable",
+  "media_type": "text/x-cmake",
+  "title": "CMake File",
+  "profile_uri": "https://capdag.com/schema/cmake",
+  "description": "CMake build file",
+  "documentation": "## Purpose\nCarries CMake build scripts that describe how to configure, build, and package C/C++ projects (and projects in other compiled languages). CMake generates native build files — Makefiles, Ninja files, Visual Studio projects — from a single cross-platform description.\n\n## When to use\nUse `media:cmake;textable` when a pipeline node processes `.cmake` files or `CMakeLists.txt` — for example, a configuration step invoking `cmake ..`, a linting step using `cmake-lint`, or a project generator that emits CMake scaffolding.\n\n## Notes\nThe primary filename `CMakeLists.txt` uses no `.cmake` extension; this type covers reusable module and toolchain files (`.cmake`). Both are semantically equivalent and parsed by the same CMake interpreter. See also [CMake File](https://capdag.com/browse/media:cmake;textable).\n",
+  "extensions": [
+    "cmake"
+  ]
+}

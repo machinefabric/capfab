@@ -1,0 +1,48 @@
+{
+  "urn": "media:download-result;textable;record",
+  "media_type": "application/json",
+  "title": "Model Download Result",
+  "profile_uri": "https://capdag.com/schema/download-result",
+  "description": "Result from a model download operation, including the local path and download metadata",
+  "documentation": "## Purpose\nReports the outcome of a completed model download, confirming whether it succeeded, where the model was saved, and how much data was transferred. This gives callers all the information they need to proceed with loading or verifying the downloaded model.\n\n## When to use\nReturn this type from any cap that performs a model download operation. Downstream caps that need the local path to load the model can consume the `path` field directly. For in-progress download state, use [Model Status](https://capdag.com/browse/media:model-status;textable;record) instead.\n\n## Notes\n`path` and `success` are required. When `success` is `false`, the `error` field should contain a human-readable explanation. The `total_bytes` and `file_count` fields summarise the download scope and are useful for logging and audit purposes.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "path",
+      "success"
+    ],
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "Whether the download completed successfully"
+      },
+      "path": {
+        "type": "string",
+        "description": "Local filesystem path where the model was downloaded"
+      },
+      "model_spec": {
+        "type": "string",
+        "description": "The model specification that was downloaded (e.g., 'hf:org/model-name')"
+      },
+      "total_bytes": {
+        "type": "integer",
+        "description": "Total bytes downloaded"
+      },
+      "file_count": {
+        "type": "integer",
+        "description": "Number of files downloaded"
+      },
+      "duration_ms": {
+        "type": "integer",
+        "description": "Download duration in milliseconds"
+      },
+      "error": {
+        "type": "string",
+        "description": "Error message if download failed"
+      }
+    }
+  }
+}

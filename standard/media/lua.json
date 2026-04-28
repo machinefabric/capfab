@@ -1,0 +1,11 @@
+{
+  "urn": "media:lua;textable;code",
+  "media_type": "text/x-lua",
+  "title": "Lua Source",
+  "profile_uri": "https://capdag.com/schema/lua",
+  "description": "Lua programming language source code",
+  "documentation": "## Purpose\nLua source files contain code written in Lua, a lightweight, embeddable scripting language designed for easy integration into host applications. Lua is the dominant scripting language for game engines (Roblox, World of Warcraft, Love2D), embedded systems, and configuration systems.\n\n## When to use\nUse [Lua Source](https://capdag.com/browse/media:lua;textable;code) for `.lua` files, whether standalone scripts or embedded scripts loaded by a host application. Lua is commonly found alongside C/C++ projects that expose a Lua API for scripting and configuration.\n\n## Notes\nLua 5.1, 5.2, 5.3, and 5.4 are not fully compatible with each other; the integer/float split introduced in 5.3 and bitwise operators in 5.3 are common compatibility boundaries. LuaJIT (a JIT compiler for Lua) targets Lua 5.1 semantics with extensions and is widely used in performance-sensitive game contexts. The `luarocks` package manager handles Lua library distribution.\n",
+  "extensions": [
+    "lua"
+  ]
+}

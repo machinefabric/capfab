@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:gif;image\";op=convert_image;out=\"media:image;jpeg\"",
+  "command": "convert-image",
+  "title": "Convert GIF to JPEG",
+  "cap_description": "Re-encode a GIF image as a JPEG",
+  "documentation": "## Purpose\n\nDecodes a GIF (first frame for animated GIFs) and writes it as a JPEG.\n\n## Inputs\n\nA GIF file. For animated GIFs, the first frame is used.\n\n## Outputs\n\nA JPEG file at quality 85.\n\n## Notes\n\nGIF transparency is composited against white. Animation frames are dropped.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:gif;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the GIF file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:jpeg;image",
+    "output_description": "JPEG-encoded image"
+  }
+}

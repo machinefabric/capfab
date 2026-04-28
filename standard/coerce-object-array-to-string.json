@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:list;record\";op=coerce;out=media:textable",
+  "command": "coerce",
+  "title": "Coerce Object Array to String",
+  "cap_description": "Convert an array of records to its string representation",
+  "documentation": "## Purpose\n\nConverts a list of records to a single string representation. Use this when a downstream cap expects text but the upstream produces a list of objects.\n\n## Inputs\n\nA list of records (media type `media:list;record`).\n\n## Outputs\n\nA string representation of the record array.\n\n## Notes\n\n- Type adapter for the capfab planner.\n- Output is typically serialized as a JSON array.\n- For converting individual records, use [Coerce Object to String](https://capdag.com/browse/cap:in=media:record;op=coerce;out=media:textable).\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:list;record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:list;record"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Coerced value"
+  }
+}

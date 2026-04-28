@@ -1,0 +1,12 @@
+{
+  "urn": "media:3gp;video",
+  "media_type": "video/3gpp",
+  "title": "3GP Video",
+  "profile_uri": "https://capdag.com/schema/3gp",
+  "description": "3GPP mobile video data",
+  "documentation": "## Purpose\n3GP is a multimedia container format defined by the Third Generation Partnership Project (3GPP) for delivering audio and video over 3G mobile networks. It is based on the MPEG-4 Part 12 container and optimized for low-bandwidth, constrained-device environments.\n\n## When to use\nUse [3GP Video](https://capdag.com/browse/media:3gp;video) when ingesting video recorded on older mobile handsets or multimedia messaging service (MMS) content. The closely related 3G2 variant was introduced by 3GPP2 for CDMA networks; both extensions are covered by this media type.\n\n## Notes\n3GP files carry H.263 or MPEG-4 Part 2 video and AMR or AAC audio at low resolutions and bitrates suited to early mobile hardware. Modern smartphones no longer produce 3GP; they use [MOV](https://capdag.com/browse/media:mov;video) or [MP4](https://capdag.com/browse/media:video) instead. Implementers should expect very small frame sizes (typically 176x144 or 320x240) and limited metadata.\n",
+  "extensions": [
+    "3gp",
+    "3g2"
+  ]
+}

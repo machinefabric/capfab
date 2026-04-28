@@ -1,0 +1,19 @@
+name: Bug, Feature Request, or Question
+description: Anything that isn't a definition submission — a bug in a published definition's metadata, a question about how the registry works, a feature suggestion.
+title: "<short summary>"
+labels:
+  - question
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For definition submissions please use the "Add Capability", "Add Media Spec", "Remove Definition", or "Edit Existing Definition" templates instead — they have the structure we need.
+
+        This template is for everything else: a bug in an existing definition that isn't a removal request, a question about why two URNs are shaped a particular way, a feature request for the registry, or anything else that doesn't fit the structured templates.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What's going on?
+      description: Describe the bug, question, or request as clearly as you can. If you're reporting something specific, include URNs, links to capdag.com pages, and steps to reproduce.
+    validations:
+      required: true

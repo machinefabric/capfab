@@ -1,0 +1,13 @@
+{
+  "urn": "media:ini;textable;record",
+  "media_type": "text/plain",
+  "title": "INI Configuration",
+  "profile_uri": "https://capdag.com/schema/ini",
+  "description": "INI configuration data",
+  "documentation": "## Purpose\nRepresents a configuration file in INI format, which organises key-value pairs under named sections. INI files are widely used for application and tool configuration across many platforms.\n\n## When to use\nUse `media:ini;textable;record` when a node produces or consumes INI-formatted configuration. For more structured configuration formats, see [TOML Document](https://capdag.com/browse/media:toml;textable;record) or [YAML Document](https://capdag.com/browse/media:record;textable;yaml).\n\n## Notes\nThe INI format has no universal specification; conventions for handling comments, multi-line values, and duplicate keys vary across parsers. Consumers should confirm parser compatibility with the producing node's dialect.\n",
+  "extensions": [
+    "ini",
+    "cfg",
+    "conf"
+  ]
+}

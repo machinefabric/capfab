@@ -1,0 +1,56 @@
+{
+  "urn": "media:llm-model-info;json;record",
+  "media_type": "application/json",
+  "title": "LLM Model Info",
+  "profile_uri": "https://capdag.com/schema/llm-model-info",
+  "description": "Information about a loaded LLM model including capabilities and parameters",
+  "documentation": "## Purpose\nDescribes a loaded LLM's structural properties and capabilities, including vocabulary size, maximum context length, embedding dimensions, and feature flags such as chat template and tool-use support.\n\n## When to use\nRetrieve this type when a cap or orchestrator needs to know model capabilities before issuing a generation request. It is the response to a `get_info` request in a [LLM Generation Request](https://capdag.com/browse/media:llm-generation-request;json;record).\n\n## Notes\nThe `model_spec` and `vocab_size` fields are required. All other fields are optional and may be absent if the model file does not expose the corresponding metadata. Callers should treat missing fields as unknown rather than assuming a default value.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "model_spec",
+      "vocab_size"
+    ],
+    "properties": {
+      "model_spec": {
+        "type": "string",
+        "description": "Model specification identifier"
+      },
+      "vocab_size": {
+        "type": "integer",
+        "description": "Size of the model's vocabulary"
+      },
+      "context_length": {
+        "type": "integer",
+        "description": "Maximum context length the model supports"
+      },
+      "embedding_dim": {
+        "type": "integer",
+        "description": "Dimension of embedding vectors"
+      },
+      "file_size_bytes": {
+        "type": "integer",
+        "description": "Model file size in bytes"
+      },
+      "head_count": {
+        "type": "integer",
+        "description": "Number of attention heads"
+      },
+      "layer_count": {
+        "type": "integer",
+        "description": "Number of transformer layers"
+      },
+      "supports_chat": {
+        "type": "boolean",
+        "description": "Whether the model has a chat template"
+      },
+      "supports_tools": {
+        "type": "boolean",
+        "description": "Whether the model supports tool use"
+      }
+    }
+  }
+}

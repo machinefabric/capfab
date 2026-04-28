@@ -1,0 +1,11 @@
+{
+  "urn": "media:mlx-model-path;textable",
+  "media_type": "text/plain",
+  "title": "Mlx Model Path",
+  "profile_uri": "https://capdag.com/schema/mlx_model_path",
+  "description": "Mlx Model Path file system path",
+  "documentation": "## Purpose\nCarries the local filesystem path to an MLX-format model directory on Apple Silicon. MLX models have a specific directory layout that differs from GGUF or safetensors formats, so a dedicated type allows caps to route MLX-specific paths without ambiguity.\n\n## When to use\nUse this type when passing a model path between caps that are specifically designed for the MLX backend, such as an MLX download cap and an MLX inference cap. For backend-agnostic path passing use [Model Path](https://capdag.com/browse/media:model-path;textable;record).\n\n## Notes\nThe path must be non-empty (min_length = 1). The directory at this path must conform to the MLX model layout expected by the target cap. This type is only meaningful on macOS with Apple Silicon; on other platforms the MLX backend is unavailable.\n",
+  "validation": {
+    "min_length": 1
+  }
+}

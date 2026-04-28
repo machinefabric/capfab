@@ -1,0 +1,12 @@
+{
+  "urn": "media:ndjson;textable",
+  "media_type": "application/x-ndjson",
+  "title": "NDJSON Data",
+  "profile_uri": "https://capdag.com/schema/ndjson",
+  "description": "Newline-delimited JSON data",
+  "documentation": "## Purpose\nRepresents a file where each line is a complete, self-contained JSON value. NDJSON (also known as JSON Lines) is commonly used for streaming data, log exports, and large datasets that cannot be loaded into memory as a single JSON array.\n\n## When to use\nUse `media:ndjson;textable` when a node produces or consumes a stream of JSON records, one per line, such as event logs, batch inference outputs, or database export streams. For a JSON array in a single document, use [JSON Array](https://capdag.com/browse/media:json;textable;list).\n\n## Notes\nEach line must be valid JSON on its own; blank lines and trailing newlines should be ignored by consumers. NDJSON is well-suited for incremental processing because records can be parsed without loading the entire file.\n",
+  "extensions": [
+    "ndjson",
+    "jsonl"
+  ]
+}

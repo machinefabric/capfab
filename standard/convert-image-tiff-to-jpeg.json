@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:image;tiff\";op=convert_image;out=\"media:image;jpeg\"",
+  "command": "convert-image",
+  "title": "Convert TIFF to JPEG",
+  "cap_description": "Re-encode a TIFF image as a JPEG",
+  "documentation": "## Purpose\n\nDecodes a TIFF (the first image in a multi-image TIFF) and writes it as a JPEG.\n\n## Inputs\n\nA TIFF file (uncompressed, LZW, PackBits or Deflate). Multi-page TIFFs use the first page.\n\n## Outputs\n\nA JPEG file at quality 85.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:tiff;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the TIFF file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:jpeg;image",
+    "output_description": "JPEG-encoded image"
+  }
+}

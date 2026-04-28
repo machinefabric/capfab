@@ -1,0 +1,21 @@
+{
+  "urn": "media:cartridge-repository-urls;network;endpoint;operator;app;textable;list",
+  "media_type": "text/plain",
+  "title": "Cartridge repository URLs",
+  "profile_uri": "https://capdag.com/schema/api-cartridge-repo-urls",
+  "description": "Cartridge repository URLs",
+  "metadata": {
+    "category": "api",
+    "subcategory": "api_cartridges",
+    "display_index": 1,
+    "ui_type": "SETTING_UI_TYPE_ARRAY_EDITOR",
+    "data_type": "SETTING_DATA_TYPE_ARRAY_STRING",
+    "default": [
+      "https://cartridges.machinefabric.com/manifest"
+    ],
+    "overridable_by": [
+      "user",
+      "end_user"
+    ]
+  }
+}

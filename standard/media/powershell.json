@@ -1,0 +1,13 @@
+{
+  "urn": "media:powershell;textable;code",
+  "media_type": "application/x-powershell",
+  "title": "PowerShell Script",
+  "profile_uri": "https://capdag.com/schema/powershell",
+  "description": "PowerShell script source code",
+  "documentation": "## Purpose\nCarries PowerShell source files in their three common roles: runnable scripts (`.ps1`), module implementations (`.psm1`), and module manifest declarations (`.psd1`). PowerShell runs on Windows, macOS, and Linux via PowerShell Core.\n\n## When to use\nUse `media:powershell;textable;code` when a pipeline node executes or analyzes PowerShell — for example, a CI automation step invoking `.ps1` scripts or a policy analysis tool scanning module manifests.\n\n## Notes\nModule manifests (`.psd1`) are data files in PowerShell syntax describing module metadata, dependencies, and exported members. All three extensions share this media type. See also [PowerShell Script](https://capdag.com/browse/media:powershell;textable;code).\n",
+  "extensions": [
+    "ps1",
+    "psm1",
+    "psd1"
+  ]
+}

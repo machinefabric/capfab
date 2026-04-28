@@ -1,0 +1,39 @@
+{
+  "urn": "cap:in=media:pdf;op=disbind;out=\"media:page;textable\"",
+  "command": "disbind",
+  "title": "Disbind PDF Into Pages",
+  "cap_description": "Extract plain text content from each PDF page",
+  "documentation": "## Purpose\n\nSplits a PDF into its individual pages and extracts the plain text content from each page. The output is a sequence of text items, one per page. Use this as the first step in any PDF processing pipeline — text extraction, summarization, search indexing, or embedding.\n\n## Inputs\n\n- A PDF file (path or stdin).\n- An optional index range (default: `1-`, meaning all pages). Format: `1` (single page), `1-5` (pages 1 to 5), `3-` (page 3 to end).\n\n## Outputs\n\nA sequence of plain text values, one item per extracted page.\n\n## Notes\n\n- Text extraction works on digitally-created PDFs. Scanned PDFs (image-only) will produce empty or near-empty pages. Run an OCR step first for scanned documents.\n- For visual rendering of pages as images (e.g. to feed into vision models), use [Render PDF Page Images](https://capdag.com/browse/cap:in=\"media:pdf\";op=render_page_image;out=\"media:image;png\").\n- Page numbers in the index range are 1-based.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:pdf"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the document file to process"
+    },
+    {
+      "media_urn": "media:index-range;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--index-range"
+        }
+      ],
+      "arg_description": "Index Range to extract (e.g., '1-5' or '10-')",
+      "default_value": "1-"
+    }
+  ],
+  "output": {
+    "media_urn": "media:page;textable",
+    "is_sequence": true,
+    "output_description": "Plain text pages, one per page in the document"
+  }
+}

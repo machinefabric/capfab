@@ -1,0 +1,11 @@
+{
+  "urn": "media:deb;archive",
+  "media_type": "application/vnd.debian.binary-package",
+  "title": "Debian Package",
+  "profile_uri": "https://capdag.com/schema/deb",
+  "description": "Debian software package",
+  "documentation": "## Purpose\nDEB is the binary package format for Debian-based Linux distributions (Debian, Ubuntu, Linux Mint, etc.). A `.deb` file is an `ar` archive containing control metadata, file lists, and a compressed data archive. The [Debian Package](https://capdag.com/browse/media:deb;archive) media type represents any `.deb` file.\n\n## When to use\nUse this type when a node produces or consumes Debian-family Linux packages — for example, software build pipelines, private APT repository management, automated deployment tools, or security scanning workflows that inspect package contents.\n\n## Notes\nA `.deb` archive contains three members: `debian-binary` (format version), `control.tar.*` (package metadata and scripts), and `data.tar.*` (actual files). Implementers can extract content using `dpkg-deb --extract` or by using the `ar` and `tar` utilities directly. Signing uses a detached `Release.gpg` file in the repository rather than within the `.deb` itself. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "deb"
+  ]
+}

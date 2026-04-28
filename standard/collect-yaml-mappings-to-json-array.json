@@ -1,0 +1,28 @@
+{
+  "urn": "cap:in=\"media:record;textable;yaml\";op=collect_records;out=\"media:json;list;record;textable\"",
+  "command": "collect_records",
+  "title": "Merge YAML Mappings into JSON Array",
+  "cap_description": "Merge multiple YAML mapping files into a single JSON array of objects",
+  "documentation": "## Purpose\n\nMerges a sequence of YAML mapping files into a single JSON array of objects. Each YAML mapping becomes one JSON object. Use this to convert YAML-structured pipeline outputs into JSON for downstream caps that consume JSON arrays.\n\n## Inputs\n\nA sequence of YAML mapping files (each file is a single YAML mapping).\n\n## Outputs\n\nA JSON array where each element is an object derived from one input YAML mapping.\n\n## Notes\n\n- For YAML output, use [Merge YAML Mappings](https://capdag.com/browse/cap:in=\"media:record;textable;yaml\";op=collect_records;out=\"media:list;record;textable;yaml\").\n- For CSV output, use [Merge YAML Mappings into CSV](https://capdag.com/browse/cap:in=\"media:record;textable;yaml\";op=collect_records;out=\"media:csv;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:record;textable;yaml",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:record;textable;yaml"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "YAML mapping files to merge",
+      "is_sequence": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:json;list;record;textable",
+    "output_description": "JSON array containing all YAML mappings as objects"
+  }
+}

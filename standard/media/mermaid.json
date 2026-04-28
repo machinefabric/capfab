@@ -1,0 +1,12 @@
+{
+  "urn": "media:mermaid;textable",
+  "media_type": "text/plain",
+  "title": "Mermaid Diagram",
+  "profile_uri": "https://capdag.com/schema/mermaid",
+  "description": "Mermaid diagram definition",
+  "documentation": "## Purpose\nCarries Mermaid diagram source, a text-based syntax for declaring flowcharts, sequence diagrams, Gantt charts, ER diagrams, and other visual artifacts. Mermaid diagrams are rendered to SVG or PNG by the Mermaid CLI or embedded directly in Markdown-aware renderers like GitHub.\n\n## When to use\nUse `media:mermaid;textable` when a pipeline node generates or renders Mermaid diagrams — for example, an LLM node that produces architecture diagrams from natural language, or a rendering step converting `.mmd` files to SVG for documentation.\n\n## Notes\nMermaid syntax is case-sensitive for diagram type keywords. Supported diagram types include `flowchart`, `sequenceDiagram`, `classDiagram`, `stateDiagram`, `erDiagram`, `gantt`, and `pie`. See also [Mermaid Diagram](https://capdag.com/browse/media:mermaid;textable).\n",
+  "extensions": [
+    "mermaid",
+    "mmd"
+  ]
+}

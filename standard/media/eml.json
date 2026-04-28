@@ -1,0 +1,11 @@
+{
+  "urn": "media:eml;textable;record",
+  "media_type": "message/rfc822",
+  "title": "Email Message",
+  "profile_uri": "https://capdag.com/schema/eml",
+  "description": "Email message data",
+  "documentation": "## Purpose\nEML files represent individual email messages in the RFC 822 / RFC 5322 internet message format, including headers and a MIME body. The [Email Message](https://capdag.com/browse/media:eml;textable;record) media type covers any single message file following this standard.\n\n## When to use\nUse this type when a node produces or consumes individual email messages — for example, email archiving pipelines, message parsing nodes, or notification delivery systems. For collections of messages use the [Mbox Archive](https://capdag.com/browse/media:mbox;textable;list) type instead.\n\n## Notes\nThe `;textable;record` tags indicate that the message is human-readable text and has a structured record shape (headers as key-value pairs, body as content). MIME multipart bodies may contain attachments encoded in Base64. Implementers should use an RFC 5322 parser (e.g., Python's `email` module) to reliably extract headers and body parts rather than splitting on raw newlines.\n",
+  "extensions": [
+    "eml"
+  ]
+}

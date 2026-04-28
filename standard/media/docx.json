@@ -1,0 +1,11 @@
+{
+  "urn": "media:docx",
+  "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "title": "Word Document",
+  "profile_uri": "https://capdag.com/schema/docx",
+  "description": "Microsoft Word document data",
+  "documentation": "## Purpose\nCarries Microsoft Word documents in the Open XML format (`.docx`), the current standard for word processing introduced with Office 2007. DOCX files are ZIP archives containing XML parts for content, styles, relationships, and embedded media.\n\n## When to use\nUse `media:docx` when a pipeline node processes Word documents — for example, a text extraction step, a template rendering step using `python-docx`, a document comparison tool, or a conversion step targeting PDF or HTML output.\n\n## Notes\nDOCX is an ISO/IEC 29500 standard and is supported by LibreOffice, Google Docs, and many other tools. Because it is a ZIP-based format, individual XML parts can be accessed by renaming the file to `.zip`. For the older binary format, see [Word Document (Legacy)](https://capdag.com/browse/media:doc). See also [Word Document](https://capdag.com/browse/media:docx).\n",
+  "extensions": [
+    "docx"
+  ]
+}

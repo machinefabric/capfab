@@ -1,0 +1,8 @@
+{
+  "urn": "media:preserve-all-data;textable",
+  "media_type": "text/plain",
+  "title": "Preserve All Data",
+  "profile_uri": "https://capdag.com/schema/preserve_all_data",
+  "description": "Preserve All Data value",
+  "documentation": "## Purpose\nA boolean flag that prevents a machine from discarding any input data during transformation, summarization, or extraction. When enabled, all source content is carried through to the output.\n\n## When to use\nEnable when data loss is unacceptable, such as in archival workflows, compliance processing, or when a downstream machine requires the full original content alongside derived results.\n\n## Notes\nEnabling this flag typically increases output size and may conflict with token-limit or size constraints. See [Preserve Structure Flag](https://capdag.com/browse/media:preserve-structure-flag;textable) for a related flag that preserves document structure without necessarily retaining all content.\n"
+}

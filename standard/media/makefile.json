@@ -1,0 +1,11 @@
+{
+  "urn": "media:makefile;textable",
+  "media_type": "text/x-makefile",
+  "title": "Makefile",
+  "profile_uri": "https://capdag.com/schema/makefile",
+  "description": "Make build file",
+  "documentation": "## Purpose\nCarries Makefile source that defines targets, dependencies, and build recipes for the `make` utility. Makefiles are used across nearly every software project for compiling code, running tests, and automating repetitive tasks.\n\n## When to use\nUse `media:makefile;textable` when a pipeline node reads or generates a Makefile — for example, a build executor invoking `make`, a dependency graph extractor, or a code generation step that produces a project scaffold with a Makefile included.\n\n## Notes\nThe primary filename `Makefile` (no extension) is not registered here; this type covers fragment files with the `.mk` extension that are included into a main Makefile. Tab characters are required for recipe lines — spaces are a syntax error. See also [Makefile](https://capdag.com/browse/media:makefile;textable).\n",
+  "extensions": [
+    "mk"
+  ]
+}

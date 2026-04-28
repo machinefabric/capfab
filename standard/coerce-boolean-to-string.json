@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:bool;textable\";op=coerce;out=media:textable",
+  "command": "coerce",
+  "title": "Coerce Boolean to String",
+  "cap_description": "Convert a boolean value to its string representation",
+  "documentation": "## Purpose\n\nConverts a boolean media value to its textable string form (`\"true\"` or `\"false\"`). Use this when a downstream cap requires a string type but the upstream cap produces a boolean.\n\n## Inputs\n\nA boolean value (media type `media:bool;textable`).\n\n## Outputs\n\nThe string `\"true\"` or `\"false\"`.\n\n## Notes\n\n- This is a type-level adapter for the capfab planner. The planner inserts coerce caps automatically when a boolean output needs to connect to a string input.\n- For the reverse, see [Coerce String to Integer](https://capdag.com/browse/cap:in=media:textable;op=coerce;out=\"media:integer;numeric;textable\") or parse the string downstream.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:bool;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:bool;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Coerced value"
+  }
+}

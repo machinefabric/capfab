@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:aiff;audio\";op=convert_audio;out=\"media:audio;wav\"",
+  "command": "convert-audio",
+  "title": "Convert AIFF to WAV",
+  "cap_description": "Decode an AIFF file to uncompressed WAV (PCM)",
+  "documentation": "## Purpose\n\nDecodes an AIFF (Audio Interchange File Format) file and writes it as 16-bit signed PCM WAV. AIFF and WAV are both PCM containers; this is a re-container.\n\n## Inputs\n\nAn AIFF file. AIFF-C with PCM payload is supported. AIFF-C with compressed payloads is not.\n\n## Outputs\n\nA 16-bit signed PCM WAV file.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:aiff;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the AIFF file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:wav;audio",
+    "output_description": "16-bit PCM WAV"
+  }
+}

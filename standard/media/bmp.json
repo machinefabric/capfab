@@ -1,0 +1,11 @@
+{
+  "urn": "media:bmp;image",
+  "media_type": "image/bmp",
+  "title": "BMP Image",
+  "profile_uri": "https://capdag.com/schema/bmp",
+  "description": "Bitmap image data",
+  "documentation": "## Purpose\nRepresents an uncompressed or minimally compressed Windows BMP raster image. BMP is a simple format with broad compatibility and no lossy compression, though it produces large file sizes.\n\n## When to use\nUse `media:bmp;image` when a node must produce or consume BMP files, typically for compatibility with legacy Windows applications or imaging pipelines that require uncompressed pixel data. For most other purposes, PNG or JPEG are preferable.\n\n## Notes\nBMP files store pixel data directly with little or no compression, resulting in file sizes much larger than PNG or JPEG equivalents. Consumers should convert BMP to a more efficient format before storage or transmission when file size is a concern.\n",
+  "extensions": [
+    "bmp"
+  ]
+}

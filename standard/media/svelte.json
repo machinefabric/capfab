@@ -1,0 +1,11 @@
+{
+  "urn": "media:svelte;textable;code",
+  "media_type": "text/x-svelte",
+  "title": "Svelte Component",
+  "profile_uri": "https://capdag.com/schema/svelte",
+  "description": "Svelte single-file component",
+  "documentation": "## Purpose\nCarries Svelte single-file components that colocate template markup, scoped styles, and reactive JavaScript in one `.svelte` file. Svelte compiles components to vanilla JavaScript at build time rather than shipping a runtime framework.\n\n## When to use\nUse `media:svelte;textable;code` when a pipeline node handles `.svelte` files — for example, a SvelteKit build step, a component linting tool using `svelte-check`, or an LLM node generating Svelte UI components.\n\n## Notes\nSvelte's reactivity model uses a compiler transform rather than a virtual DOM, which produces smaller and faster output than equivalent React or Vue code. SvelteKit extends Svelte with file-based routing and server-side rendering. See also [Svelte Component](https://capdag.com/browse/media:svelte;textable;code).\n",
+  "extensions": [
+    "svelte"
+  ]
+}

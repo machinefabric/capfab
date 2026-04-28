@@ -1,0 +1,11 @@
+{
+  "urn": "media:caf;audio",
+  "media_type": "audio/x-caf",
+  "title": "CAF Audio",
+  "profile_uri": "https://capdag.com/schema/caf",
+  "description": "Core Audio Format data",
+  "documentation": "## Purpose\nRepresents a CAF (Core Audio Format) file, Apple's flexible audio container designed to overcome size limitations of older formats. CAF can store any codec supported by Core Audio, along with rich metadata, markers, and regions.\n\n## When to use\nUse `media:caf;audio` when a node produces or consumes CAF files, typically from Apple development tools, iOS audio recordings, or macOS system audio APIs. CAF is rarely used outside the Apple ecosystem; consider converting to [AIFF Audio](https://capdag.com/browse/media:aiff;audio) or [FLAC Audio](https://capdag.com/browse/media:flac;audio) for broader compatibility.\n\n## Notes\nCAF has no 4 GB file size limit, unlike WAV and AIFF. The codec embedded in the container varies; `afconvert` on macOS can inspect and convert CAF files. Consumers on non-Apple platforms require a CAF-aware library for decoding.\n",
+  "extensions": [
+    "caf"
+  ]
+}

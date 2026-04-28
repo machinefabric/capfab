@@ -1,0 +1,11 @@
+{
+  "urn": "media:jar;archive",
+  "media_type": "application/java-archive",
+  "title": "JAR Archive",
+  "profile_uri": "https://capdag.com/schema/jar",
+  "description": "Java archive",
+  "documentation": "## Purpose\nJAR (Java ARchive) is a ZIP-format archive containing compiled Java `.class` files, resources, and optional metadata in `META-INF/MANIFEST.MF`. The [JAR Archive](https://capdag.com/browse/media:jar;archive) media type represents any `.jar` file used for Java library or application distribution.\n\n## When to use\nUse this type when a node produces or consumes Java libraries or standalone executable JARs — for example, Maven/Gradle build artifact pipelines, dependency distribution, Java agent deployment, or security scanning workflows that inspect bytecode. For Java web application bundles use [WAR](https://capdag.com/browse/media:war;archive).\n\n## Notes\nJAR files are ZIP archives and can be opened with any ZIP library. Executable JARs specify a `Main-Class` attribute in `MANIFEST.MF`. Signed JARs include `.SF` and `.RSA`/`.DSA` files in `META-INF/`; re-zipping breaks the signature. Implementers should use the JDK `jar` tool or libraries such as `java.util.jar` for reliable manifest handling. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "jar"
+  ]
+}

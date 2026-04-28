@@ -1,0 +1,8 @@
+{
+  "urn": "media:detailed-flag;textable",
+  "media_type": "text/plain",
+  "title": "Detailed Flag",
+  "profile_uri": "https://capdag.com/schema/detailed_flag",
+  "description": "Detailed Flag value",
+  "documentation": "## Purpose\nA boolean flag that switches a machine's output from a summary or compact form to a fully detailed form, including additional fields, reasoning steps, or metadata.\n\n## When to use\nEnable when debugging a pipeline, generating audit logs, or when downstream consumers need richer output for further processing. Disable in production paths where compact output is sufficient and verbosity adds latency or cost.\n\n## Notes\nThe additional fields produced when this flag is set are machine-specific. See [Output Length](https://capdag.com/browse/media:output-length;textable) for qualitative length control and [Require Explanation Flag](https://capdag.com/browse/media:require-explanation-flag;textable) when you specifically need the model to justify its answer.\n"
+}

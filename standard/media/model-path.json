@@ -1,0 +1,31 @@
+{
+  "urn": "media:model-path;textable;record",
+  "media_type": "application/json",
+  "title": "Model Path",
+  "profile_uri": "https://capdag.com/schema/model-path",
+  "description": "Local filesystem path to a model directory",
+  "documentation": "## Purpose\nCarries the resolved local path to a model directory after a model has been downloaded or located on disk. It pairs the filesystem path with the originating model spec and an existence flag so consumers know whether the model is actually present.\n\n## When to use\nPass this type between caps that download a model and caps that load or inspect it. A download cap produces a [Model Download Result](https://capdag.com/browse/media:download-result;textable;record); a path-only reference uses this type when no additional download metadata is needed.\n\n## Notes\nThe `path` field is required. The `exists` flag allows callers to distinguish between a path that was computed but not yet downloaded versus one that is on disk and ready to use. Use [Model Availability](https://capdag.com/browse/media:model-availability;textable;record) when you need both local and remote availability in one response.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "path"
+    ],
+    "properties": {
+      "path": {
+        "type": "string",
+        "description": "Local filesystem path to the model directory"
+      },
+      "model_spec": {
+        "type": "string",
+        "description": "The model specification (e.g., 'hf:org/model-name')"
+      },
+      "exists": {
+        "type": "boolean",
+        "description": "Whether the path exists on the filesystem"
+      }
+    }
+  }
+}

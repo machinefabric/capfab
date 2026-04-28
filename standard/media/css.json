@@ -1,0 +1,11 @@
+{
+  "urn": "media:css;textable",
+  "media_type": "text/css",
+  "title": "CSS Stylesheet",
+  "profile_uri": "https://capdag.com/schema/css",
+  "description": "Cascading Style Sheet",
+  "documentation": "## Purpose\nCarries standard CSS stylesheets that define the visual presentation of HTML documents. CSS is the fundamental styling language of the web, supported natively in all browsers without a compilation step.\n\n## When to use\nUse `media:css;textable` when a pipeline node consumes or produces CSS — for example, a PostCSS transformation step, a CSS minifier, a design-token exporter, or an LLM node generating component styles. For preprocessor source, use [Less Stylesheet](https://capdag.com/browse/media:less;textable) or [SCSS Stylesheet](https://capdag.com/browse/media:scss;textable).\n\n## Notes\nModern CSS includes custom properties (variables), container queries, cascade layers, and native nesting, reducing the gap with preprocessors. Minified CSS is still CSS and can be carried by this type, though it is not human-readable. See also [CSS Stylesheet](https://capdag.com/browse/media:css;textable).\n",
+  "extensions": [
+    "css"
+  ]
+}

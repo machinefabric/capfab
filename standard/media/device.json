@@ -1,0 +1,16 @@
+{
+  "urn": "media:device;textable",
+  "media_type": "text/plain",
+  "title": "Device",
+  "profile_uri": "https://capdag.com/schema/device",
+  "description": "Device value",
+  "documentation": "## Purpose\n\nDevice specifies the hardware target on which model inference or computation should run. It determines whether the workload is dispatched to the CPU, an NVIDIA CUDA GPU, an Apple MPS GPU, or selected automatically by the runtime.\n\n## When to use\n\nUse this media type when a node wraps a local model and the caller needs explicit control over hardware placement. In most deployments, `auto` is the appropriate choice; use `cpu`, `cuda`, or `mps` only when hardware availability is known and pinning is required.\n\n## Notes\n\n`mps` requires macOS with Apple Silicon. `cuda` requires an NVIDIA GPU with appropriate drivers. Specifying a device that is unavailable at runtime will cause the node to fail rather than fall back silently.\n",
+  "validation": {
+    "allowed_values": [
+      "cpu",
+      "cuda",
+      "mps",
+      "auto"
+    ]
+  }
+}

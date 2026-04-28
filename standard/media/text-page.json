@@ -1,0 +1,11 @@
+{
+  "urn": "media:textable;page",
+  "media_type": "text/plain",
+  "title": "Text Page",
+  "profile_uri": "https://capdag.com/schema/text-page",
+  "description": "Plain text content representing a single page of a document",
+  "documentation": "## Purpose\nRepresents a single page extracted from a multi-page document as plain text. The `page` tag signals that the content is a positional unit within a larger document rather than a standalone text file.\n\n## When to use\nUse `media:textable;page` when a node produces or consumes one page of text extracted from a PDF or similar paginated source. For the full plain-text content of a document, use [Plain Text](https://capdag.com/browse/media:txt;textable).\n\n## Notes\nPage boundaries and whitespace are preserved where possible to maintain layout fidelity. Consumers should not assume any particular page numbering scheme; that context should be carried in the node's output metadata.\n",
+  "extensions": [
+    "txt"
+  ]
+}

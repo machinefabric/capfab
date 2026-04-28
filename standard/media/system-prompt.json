@@ -1,0 +1,12 @@
+{
+  "urn": "media:system-prompt;textable",
+  "media_type": "text/plain",
+  "title": "System Prompt",
+  "profile_uri": "https://capdag.com/schema/system_prompt",
+  "description": "System Prompt value",
+  "documentation": "## Purpose\nThe system prompt establishes the model's persona, constraints, and operational rules for a session. It is injected before user messages and is not typically visible to end users.\n\n## When to use\nUse this media type when a machine port accepts a session-level instruction block that governs all subsequent turns. Prefer [Base Prompt](https://capdag.com/browse/media:base-prompt;inference;policy;user;task;textable) for operator-defined default behaviors; reserve the system prompt for cap-specific or deployment-specific overrides.\n\n## Notes\nMaximum length is 8192 characters. Changes to the system prompt affect the entire session, so treat it as a high-trust input. See [Prompt](https://capdag.com/browse/media:prompt;textable) for per-request instructions.\n",
+  "validation": {
+    "max_length": 8192,
+    "min_length": 1
+  }
+}

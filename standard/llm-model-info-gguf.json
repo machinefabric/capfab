@@ -1,0 +1,24 @@
+{
+  "urn": "cap:gguf;in=\"media:json;llm-generation-request;record\";llm;ml-model;op=llm_model_info;out=\"media:json;llm-model-info;record\"",
+  "command": "inference",
+  "title": "Get Model Info (GGUF)",
+  "cap_description": "Query metadata and capabilities of a GGUF model",
+  "documentation": "## Purpose\n\nReturns metadata stored in a GGUF model file's header: architecture, parameter count, quantization type, context length, vocabulary size, and other configuration fields. Use this to inspect a model before using it in a pipeline.\n\n## Inputs\n\nA generation request JSON record with `request_type` set to `model_info` and the model spec to inspect.\n\n## Outputs\n\nA JSON object with model metadata fields extracted from the GGUF header.\n\n## Notes\n\n- No inference is run; this reads the GGUF file metadata only.\n- Use this cap to verify that a model's context length and architecture are compatible with your pipeline before committing to a full inference run.\n- For vocabulary extraction (needed by constrained generation), use [Get Model Vocabulary (GGUF)](https://capdag.com/browse/cap:gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_vocab;out=\"media:llm-vocab-response;json;record\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:llm-generation-request;json;record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:llm-generation-request;json;record"
+        }
+      ],
+      "arg_description": "Request with request_type=model_info and model_spec"
+    }
+  ],
+  "output": {
+    "media_urn": "media:llm-model-info;json;record",
+    "output_description": "JSON object with model metadata"
+  }
+}

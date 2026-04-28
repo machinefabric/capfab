@@ -1,0 +1,11 @@
+{
+  "urn": "media:flv;video",
+  "media_type": "video/x-flv",
+  "title": "Flash Video",
+  "profile_uri": "https://capdag.com/schema/flv",
+  "description": "Flash video data",
+  "documentation": "## Purpose\nFLV (Flash Video) is a container format developed by Adobe for delivering video over the internet via the Flash Player plugin. It was the dominant web video format from the mid-2000s until HTML5 video became widespread.\n\n## When to use\nUse [Flash Video](https://capdag.com/browse/media:flv;video) only when processing or archiving legacy content from platforms that historically used Flash-based players. FLV is not suitable for new production; prefer [WebM Video](https://capdag.com/browse/media:webm;video) or [MP4](https://capdag.com/browse/media:video) for current web delivery.\n\n## Notes\nFLV files may contain Sorenson Spark (H.263), VP6, or H.264 video and MP3 or AAC audio. The related F4V format uses an MPEG-4 container but is often produced by the same Adobe tools. Adobe ended Flash Player support in December 2020; most modern browsers no longer play FLV natively.\n",
+  "extensions": [
+    "flv"
+  ]
+}

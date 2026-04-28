@@ -1,0 +1,11 @@
+{
+  "urn": "media:msgpack",
+  "media_type": "application/msgpack",
+  "title": "MessagePack",
+  "profile_uri": "https://capdag.com/schema/msgpack",
+  "description": "MessagePack serialized data",
+  "documentation": "## Purpose\nMessagePack is a compact binary serialization format that encodes the same data model as JSON but in fewer bytes. The [MessagePack](https://capdag.com/browse/media:msgpack) media type represents files or byte streams containing a single top-level MessagePack value (which may be a map, array, or scalar).\n\n## When to use\nUse this type when a node exchanges structured data with tight size or throughput constraints and JSON's verbosity is prohibitive — for example, IoT sensor payloads, inter-service RPC messages, or cache entries. MessagePack is a good alternative to CBOR when ecosystem libraries in the target language are more mature.\n\n## Notes\nMessagePack does not embed a schema; both producer and consumer must agree on the structure out of band. The format supports extension types for custom data (timestamps, binary blobs). Implementers should use a language-native library such as `msgpack` (Python), `msgpack-rust`, or `msgpack-java`. When storing multiple messages in a single file, prefix each with its byte length or use a newline-delimited framing convention.\n",
+  "extensions": [
+    "msgpack"
+  ]
+}

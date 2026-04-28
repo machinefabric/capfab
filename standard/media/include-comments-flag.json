@@ -1,0 +1,8 @@
+{
+  "urn": "media:include-comments-flag;textable",
+  "media_type": "text/plain",
+  "title": "Include Comments Flag",
+  "profile_uri": "https://capdag.com/schema/include_comments_flag",
+  "description": "Include Comments Flag value",
+  "documentation": "## Purpose\nA boolean flag that controls whether inline code comments are retained or stripped when a machine processes source code. Affects both analysis accuracy and token budget.\n\n## When to use\nEnable when comments contain intent, documentation, or context that the model should consider. Disable to reduce token usage or to focus processing on executable code only.\n\n## Notes\nSee also [Include Tests Flag](https://capdag.com/browse/media:include-tests-flag;textable) for controlling test file inclusion and [Remove Boilerplate](https://capdag.com/browse/media:remove-boilerplate;textable) for stripping standard boilerplate patterns.\n"
+}

@@ -1,0 +1,14 @@
+{
+  "urn": "media:cpp;textable;code",
+  "media_type": "text/x-c++",
+  "title": "C++ Source",
+  "profile_uri": "https://capdag.com/schema/cpp",
+  "description": "C++ programming language source code",
+  "documentation": "## Purpose\nC++ source files contain implementation code written in C++, a systems-level language that extends C with object-oriented programming, templates, and the standard library. C++ is used for game engines, real-time systems, compilers, high-performance libraries, and any domain where low-level control and high performance are both required.\n\n## When to use\nUse [C++ Source](https://capdag.com/browse/media:cpp;textable;code) for implementation files with extensions `.cpp`, `.cc`, `.cxx`, or `.c++`. Header declarations belong in [C++ Header](https://capdag.com/browse/media:cpp-header;textable;code). For files mixing C++ with Objective-C, see [Objective-C++ Source](https://capdag.com/browse/media:objcpp;textable;code).\n\n## Notes\nC++ standard versions (C++11, 14, 17, 20, 23) introduce significant language changes; tools must know the applicable standard to parse source correctly. Template-heavy code and metaprogramming patterns can be challenging for static analysis tools. Build systems (CMake, Meson, Bazel) control compilation flags and the C++ standard version used.\n",
+  "extensions": [
+    "cpp",
+    "cc",
+    "cxx",
+    "c++"
+  ]
+}

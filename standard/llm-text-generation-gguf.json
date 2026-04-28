@@ -1,0 +1,137 @@
+{
+  "urn": "cap:gguf;in=media:textable;llm;ml-model;op=generate_text;out=media:textable",
+  "command": "run_inference",
+  "title": "Generate Text with LLM (GGUF)",
+  "cap_description": "Generate text using GGUF models with llama.cpp backend",
+  "documentation": "## Purpose\n\nAccepts a raw text prompt and generates a text continuation using a quantized GGUF model via llama.cpp. This is a simpler prompt-in / text-out interface. Offers more sampling controls than the Candle equivalent (top-k, min-p, repetition penalty, context length).\n\n## Inputs\n\n- A text prompt (plain text).\n- A GGUF model spec (HuggingFace repo or local path). Defaults to Mistral-7B-Instruct Q8_0.\n- Sampling parameters: max tokens (512), temperature (0.7), top-k (40), top-p (0.9), min-p (0.05), repetition penalty (1.1), seed (42), max context length (4096), batch size (2048).\n\n## Outputs\n\nGenerated text streamed as raw text chunks (not NDJSON).\n\n## Notes\n\n- For structured output, system prompts, or streaming JSON events, use [LLM Text Generation (GGUF)](https://capdag.com/browse/cap:gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_inference;out=\"media:llm-text-stream;ndjson\") instead.\n- Increase context length and batch size for long-form generation with large prompts.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input text prompt for generation"
+    },
+    {
+      "media_urn": "media:model-spec;gguf;textable;llm",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "GGUF model specification (HuggingFace repo or local path)",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    },
+    {
+      "media_urn": "media:max-tokens;inference;limit;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum number of tokens to generate",
+      "default_value": 512
+    },
+    {
+      "media_urn": "media:temperature;inference;sampling;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--temperature"
+        }
+      ],
+      "arg_description": "Sampling temperature (0.0-2.0)",
+      "default_value": 0.7
+    },
+    {
+      "media_urn": "media:top-k;inference;sampling;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--top-k"
+        }
+      ],
+      "arg_description": "Top-k sampling parameter",
+      "default_value": 40
+    },
+    {
+      "media_urn": "media:top-p;inference;sampling;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--top-p"
+        }
+      ],
+      "arg_description": "Top-p (nucleus) sampling parameter",
+      "default_value": 0.9
+    },
+    {
+      "media_urn": "media:min-p;inference;sampling;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--min-p"
+        }
+      ],
+      "arg_description": "Min-p sampling parameter",
+      "default_value": 0.05
+    },
+    {
+      "media_urn": "media:seed;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--seed"
+        }
+      ],
+      "arg_description": "Random seed for reproducibility",
+      "default_value": 42
+    },
+    {
+      "media_urn": "media:max-context-length;inference;limit;operator;model;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-context-length"
+        }
+      ],
+      "arg_description": "Maximum context length",
+      "default_value": 4096
+    },
+    {
+      "media_urn": "media:batch-size;inference;limit;operator;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--batch-size"
+        }
+      ],
+      "arg_description": "Batch size for processing",
+      "default_value": 2048
+    },
+    {
+      "media_urn": "media:repetition-penalty;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--repetition-penalty"
+        }
+      ],
+      "arg_description": "Repetition penalty",
+      "default_value": 1.1
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Generated text streamed as raw text chunks"
+  }
+}

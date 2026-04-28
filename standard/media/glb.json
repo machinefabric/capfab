@@ -1,0 +1,11 @@
+{
+  "urn": "media:glb;model",
+  "media_type": "model/gltf-binary",
+  "title": "GLB Model",
+  "profile_uri": "https://capdag.com/schema/glb",
+  "description": "GL Transmission Format binary 3D model",
+  "documentation": "## Purpose\nGLB is the binary container form of the glTF 2.0 format, packing JSON scene description, binary geometry/animation data, and embedded textures into a single self-contained file. The [GLB Model](https://capdag.com/browse/media:glb;model) media type represents any `.glb` file conforming to the glTF 2.0 specification.\n\n## When to use\nUse this type when a node produces or consumes 3D assets for real-time rendering — for example, web-based 3D viewers (three.js, Babylon.js), AR/VR pipelines, or game engines. GLB is the preferred packaging over [glTF](https://capdag.com/browse/media:gltf;model;textable) when all assets must travel as a single opaque artifact without external file references.\n\n## Notes\nA GLB file starts with a 12-byte header (`glTF`, version 2, total length) followed by a JSON chunk and an optional binary chunk. Implementers should use a glTF 2.0-compliant loader; the Khronos glTF-Validator tool can detect structural errors before processing. The `;model` tag indicates this is a 3D model artifact.\n",
+  "extensions": [
+    "glb"
+  ]
+}

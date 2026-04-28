@@ -1,0 +1,8 @@
+{
+  "urn": "media:output-format;textable",
+  "media_type": "text/plain",
+  "title": "Output Format",
+  "profile_uri": "https://capdag.com/schema/output_format",
+  "description": "Output Format value",
+  "documentation": "## Purpose\nInstructs a machine to produce its results in a specific format (e.g., `json`, `markdown`, `plain`, `csv`). The accepted values depend on the target machine's implementation.\n\n## When to use\nAttach this parameter when a machine supports multiple output formats and the downstream consumer requires a specific one. If a machine has a fixed output format, this parameter is unnecessary.\n\n## Notes\nThis type carries a free-text value; consult each machine's documentation for its supported format identifiers. See [Output Length](https://capdag.com/browse/media:output-length;textable) for controlling verbosity rather than structure.\n"
+}

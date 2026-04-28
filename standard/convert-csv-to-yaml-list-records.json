@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:csv;list;record;textable\";op=convert_format;out=\"media:list;record;textable;yaml\"",
+  "command": "convert_format",
+  "title": "Convert CSV to YAML List of Mappings",
+  "cap_description": "Convert CSV data to a YAML sequence of mappings with keys from the header row",
+  "documentation": "## Purpose\n\nConverts a CSV file into a YAML sequence of mappings. Each data row becomes one YAML mapping; the CSV header row supplies the keys. Use this when a downstream cap or tool expects YAML but the data source is CSV.\n\n## Inputs\n\nA CSV file with a header row and one or more data rows.\n\n## Outputs\n\nA YAML sequence of mappings, one per CSV row.\n\n## Notes\n\n- For JSON output instead, use [Convert CSV to JSON Array of Objects](https://capdag.com/browse/cap:in=\"media:csv;list;record;textable\";op=convert_format;out=\"media:json;list;record;textable\").\n- For the reverse, use [Convert YAML List of Mappings to CSV](https://capdag.com/browse/cap:in=\"media:list;record;textable;yaml\";op=convert_format;out=\"media:csv;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:csv;list;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:csv;list;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "CSV data to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:list;record;textable;yaml",
+    "output_description": "YAML formatted sequence of mappings"
+  }
+}

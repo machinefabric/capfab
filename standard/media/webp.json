@@ -1,0 +1,11 @@
+{
+  "urn": "media:webp;image",
+  "media_type": "image/webp",
+  "title": "WebP Image",
+  "profile_uri": "https://capdag.com/schema/webp",
+  "description": "WebP image data",
+  "documentation": "## Purpose\nRepresents a WebP image, a modern format developed by Google that supports both lossy and lossless compression as well as alpha transparency and animation. WebP typically achieves significantly smaller file sizes than JPEG or PNG at equivalent quality.\n\n## When to use\nUse `media:webp;image` when a node produces or consumes WebP images, particularly for web delivery or when storage efficiency is important. WebP is a good default for both photographic and graphical content where broad codec support is available.\n\n## Notes\nWebP support is now universal in modern browsers and operating systems. Older toolchains or embedded systems may lack native WebP decoding; consider providing a JPEG or PNG fallback when targeting those environments.\n",
+  "extensions": [
+    "webp"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:mbox;textable;list",
+  "media_type": "application/mbox",
+  "title": "Mbox Archive",
+  "profile_uri": "https://capdag.com/schema/mbox",
+  "description": "Unix mailbox archive",
+  "documentation": "## Purpose\nMbox is a family of file formats for storing a collection of email messages as a plain-text file, where each message is delimited by a `From ` separator line. The [Mbox Archive](https://capdag.com/browse/media:mbox;textable;list) media type represents any file following this convention.\n\n## When to use\nUse this type when a node exports or imports a batch of email messages as a single file — for example, mailbox backups, email dataset dumps, or migrations between mail servers. For single messages use the [Email Message](https://capdag.com/browse/media:eml;textable;record) type instead.\n\n## Notes\nThere are several mbox variants (mboxo, mboxrd, mboxcl, mboxcl2) that differ in how they escape embedded `From ` lines. Implementers should use a library that handles the chosen variant's quoting rules rather than splitting on `From ` naively. The `;textable;list` tags indicate this is a human-readable ordered list of messages.\n",
+  "extensions": [
+    "mbox"
+  ]
+}

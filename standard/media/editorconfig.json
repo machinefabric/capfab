@@ -1,0 +1,11 @@
+{
+  "urn": "media:editorconfig;textable;record",
+  "media_type": "text/plain",
+  "title": "EditorConfig",
+  "profile_uri": "https://capdag.com/schema/editorconfig",
+  "description": "Editor configuration file",
+  "documentation": "## Purpose\nCarries an `.editorconfig` file that declares per-file-glob formatting rules (indentation style, line endings, character encoding, trailing whitespace) consumed directly by editors and IDE plugins to enforce consistent style without per-developer configuration.\n\n## When to use\nUse `media:editorconfig;textable;record` when a pipeline node reads or generates an `.editorconfig` — for example, a project scaffolder that adds editor configuration alongside other dotfiles, or a style audit step that checks for rule consistency.\n\n## Notes\nEditorConfig is supported natively or via plugin in virtually all modern editors (VS Code, JetBrains IDEs, Vim, Emacs, Sublime Text). Rules are hierarchical: inner directories override outer ones, and `root = true` stops the upward directory search. See also [EditorConfig](https://capdag.com/browse/media:editorconfig;textable;record).\n",
+  "extensions": [
+    "editorconfig"
+  ]
+}

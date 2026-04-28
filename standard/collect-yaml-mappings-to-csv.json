@@ -1,0 +1,28 @@
+{
+  "urn": "cap:in=\"media:record;textable;yaml\";op=collect_records;out=\"media:csv;list;record;textable\"",
+  "command": "collect_records",
+  "title": "Merge YAML Mappings into CSV",
+  "cap_description": "Merge multiple YAML mapping files into a single CSV file",
+  "documentation": "## Purpose\n\nMerges a sequence of YAML mapping files into a single CSV file. Each YAML mapping becomes one row; mapping keys become column headers. Use this to convert YAML-structured data from parallel processing stages into a tabular CSV for analysis or export.\n\n## Inputs\n\nA sequence of YAML mapping files (each file is a single YAML mapping, not a list).\n\n## Outputs\n\nA CSV file with headers from the union of all mapping keys and one row per input file.\n\n## Notes\n\n- Mappings with missing keys produce empty cells.\n- For JSON array output, use [Merge YAML Mappings into JSON Array](https://capdag.com/browse/cap:in=\"media:record;textable;yaml\";op=collect_records;out=\"media:json;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:record;textable;yaml",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:record;textable;yaml"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "YAML mapping files to merge",
+      "is_sequence": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:csv;list;record;textable",
+    "output_description": "CSV file with one row per YAML mapping"
+  }
+}

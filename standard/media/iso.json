@@ -1,0 +1,11 @@
+{
+  "urn": "media:iso;archive",
+  "media_type": "application/x-iso9660-image",
+  "title": "ISO Disk Image",
+  "profile_uri": "https://capdag.com/schema/iso",
+  "description": "ISO 9660 disk image",
+  "documentation": "## Purpose\nISO 9660 is the standard file system format for optical disc images (CD-ROM, DVD). An `.iso` file is a sector-by-sector image of a disc, typically containing a bootable operating system, software distribution, or read-only data archive. The [ISO Disk Image](https://capdag.com/browse/media:iso;archive) media type represents any `.iso` image file.\n\n## When to use\nUse this type when a node produces or consumes optical disc images — for example, OS distribution pipelines, virtual machine provisioning workflows, bootable media creation, or long-term data archiving. ISO images are the standard delivery format for Linux distributions, Windows installation media, and software that historically shipped on physical media.\n\n## Notes\nISO 9660 images may also include supplemental file systems (Joliet for Windows long filenames, Rock Ridge for POSIX attributes, El Torito for bootability). Implementers can mount ISO files on Linux with `mount -o loop`, on macOS with `hdiutil attach`, or on Windows natively. The `xorriso` and `genisoimage` tools support creating ISO images with custom boot records. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "iso"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "urn": "media:model-spec;textable;llm",
+  "media_type": "text/plain",
+  "title": "LLM Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Backend-agnostic LLM model specification. The model spec string determines which backend handles it.",
+  "documentation": "## Purpose\nIdentifies an LLM model without committing to a specific inference backend. The runtime inspects the model files and routes the request to the appropriate backend (GGUF, MLX, Candle, etc.) based on what is available.\n\n## When to use\nUse this variant when the cap or workflow should remain backend-agnostic and let the runtime select the best available backend for the current hardware. Use a backend-specific variant such as `media:model-spec;gguf;textable;llm` when you need to target a particular runtime.\n\n## Notes\nThe default points to a Mistral-7B GGUF repository with filters for Q8_0 quantization. Operators should override this default to match the models they have provisioned.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "default": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+  },
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

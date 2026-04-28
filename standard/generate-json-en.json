@@ -1,0 +1,59 @@
+{
+  "urn": "cap:constrained;in=media:textable;language=en;op=generate_json;out=\"media:json;record;textable\"",
+  "command": "generate_json",
+  "title": "Generate JSON",
+  "cap_description": "Generate JSON from text content, constrained to validate against a caller-supplied JSON schema.",
+  "documentation": "## Purpose\n\nRuns constrained LLM generation over the supplied content to produce a JSON\nobject that validates against the supplied JSON schema. Token-level schema\nenforcement (via LLGuidance on the GGUF backend) guarantees the output parses\nand satisfies the schema — downstream code can `serde_json::from_str::<T>` or\nits equivalent without defensive error handling.\n\n## Inputs\n\n- Content to analyze — plain text (the cap's stdin-flowing input).\n- `--schema`: a JSON Schema object describing the required output shape.\n- Language code (default: `en`).\n- A model spec (defaults to Mistral-7B-Instruct Q8_0 GGUF).\n\n## Outputs\n\nA JSON object conforming to the supplied schema.\n\n## Notes\n\n- The output schema is supplied per-call, not looked up from any registry.\n  Callers who want a fixed-shape \"named query\" endpoint should define their\n  own cap that wraps this one with a baked-in schema.\n- Constraint enforcement is at the token-sampling level — the model cannot\n  emit tokens that would violate the schema.\n- See also: [Make a Decision](https://capdag.com/browse/cap:constrained;in=\"media:textable\";language=en;op=make_decision;out=\"media:decision;json;record;textable\")\n  and [Make Multiple Decisions](https://capdag.com/browse/cap:constrained;in=\"media:textable\";language=en;op=make_multiple_decisions;out=\"media:decision;json;record;textable\")\n  for fixed-shape boolean classification caps.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Text content for the model to analyze."
+    },
+    {
+      "media_urn": "media:json;json-schema;textable;record",
+      "required": true,
+      "sources": [
+        {
+          "cli_flag": "--schema"
+        }
+      ],
+      "arg_description": "JSON Schema the generated output must validate against."
+    },
+    {
+      "media_urn": "media:language-code;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--language"
+        }
+      ],
+      "arg_description": "Language code for query processing.",
+      "default_value": "en"
+    },
+    {
+      "media_urn": "media:model-spec;gguf;textable;llm",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for constrained generation.",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:json;textable;record",
+    "output_description": "JSON object conforming to the supplied schema."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "urn": "media:model-availability;textable;record",
+  "media_type": "application/json",
+  "title": "Model Availability",
+  "profile_uri": "https://capdag.com/schema/model-availability",
+  "description": "Information about a model's availability both locally and in remote repositories",
+  "documentation": "## Purpose\nAnswers whether a given model is present on the local filesystem and whether it exists in its source repository. This is the lightweight check a cap can perform before deciding whether to download, load, or surface a model to the user.\n\n## When to use\nUse this type as the output of an availability-check cap when you need a simple yes/no answer before committing to a full download or load operation. For richer per-file inventory use [Model Contents](https://capdag.com/browse/media:model-contents;textable;record); for download progress use [Model Status](https://capdag.com/browse/media:model-status;textable;record).\n\n## Notes\n`local_available` and `remote_available` are both required. The `local_path` and `size_bytes` fields are optional and populated only when the model is locally present. The `last_modified` timestamp follows ISO 8601 and reflects the local file's modification time.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "local_available",
+      "remote_available"
+    ],
+    "properties": {
+      "model_spec": {
+        "type": "string",
+        "description": "The model specification that was checked"
+      },
+      "local_available": {
+        "type": "boolean",
+        "description": "Whether the model is available locally"
+      },
+      "remote_available": {
+        "type": "boolean",
+        "description": "Whether the model is available in the remote repository"
+      },
+      "local_path": {
+        "type": "string",
+        "description": "Local filesystem path if available locally"
+      },
+      "size_bytes": {
+        "type": "integer",
+        "description": "Size in bytes if known"
+      },
+      "last_modified": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Last modification time if available locally (ISO 8601)"
+      }
+    }
+  }
+}

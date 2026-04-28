@@ -1,0 +1,29 @@
+{
+  "urn": "media:programming-language;textable",
+  "media_type": "text/plain",
+  "title": "Programming Language",
+  "profile_uri": "https://capdag.com/schema/programming_language",
+  "description": "Programming Language value",
+  "documentation": "## Purpose\n\nProgramming Language specifies the target or source language for a code-related operation. It constrains generation, analysis, and formatting to the syntax and idioms of the selected language.\n\n## When to use\n\nUse this media type as an input to code generation, code explanation, or syntax highlighting nodes. Combine it with [Code Context](https://capdag.com/browse/media:code-contextable) and [Coding Style](https://capdag.com/browse/media:coding-style;textable) to give the model a complete picture of the coding environment.\n\n## Notes\n\nThe allowed values are a fixed enumeration. If the target language is not listed, use the closest equivalent or leave the field absent and rely on the model's inference from [Code Context](https://capdag.com/browse/media:code-contextable).\n",
+  "validation": {
+    "allowed_values": [
+      "rust",
+      "python",
+      "javascript",
+      "typescript",
+      "go",
+      "java",
+      "c",
+      "cpp",
+      "swift",
+      "kotlin",
+      "sql",
+      "shell",
+      "html",
+      "css",
+      "json",
+      "yaml",
+      "toml"
+    ]
+  }
+}

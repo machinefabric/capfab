@@ -1,0 +1,8 @@
+{
+  "urn": "media:timestamps-flag;textable",
+  "media_type": "text/plain",
+  "title": "Timestamps Flag",
+  "profile_uri": "https://capdag.com/schema/timestamps_flag",
+  "description": "Timestamps Flag value",
+  "documentation": "## Purpose\nA boolean flag that instructs a machine to annotate its output with timestamps, typically indicating when each segment was produced or what time range it corresponds to.\n\n## When to use\nEnable for audio transcription, log processing, or time-series analysis machines where temporal anchoring of output segments is required. Disable when timestamps would clutter or complicate downstream parsing.\n\n## Notes\nSee also [Timestamps](https://capdag.com/browse/media:timestamps;textable), which carries timestamp data as a media value rather than as a flag controlling output behavior. Timestamp format is machine-specific.\n"
+}

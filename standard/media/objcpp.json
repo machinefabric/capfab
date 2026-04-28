@@ -1,0 +1,11 @@
+{
+  "urn": "media:objcpp;textable;code",
+  "media_type": "text/x-objective-c++",
+  "title": "Objective-C++ Source",
+  "profile_uri": "https://capdag.com/schema/objcpp",
+  "description": "Objective-C++ programming language source code",
+  "documentation": "## Purpose\nObjective-C++ source files contain code that blends Objective-C and C++ in a single translation unit. This combination is common in Apple platform projects that need to interface high-level Objective-C frameworks with C++ libraries or game engines.\n\n## When to use\nUse [Objective-C++ Source](https://capdag.com/browse/media:objcpp;textable;code) for `.mm` files. These files can freely intermix Objective-C classes, C++ classes, and plain C, making them the primary bridging mechanism between Apple's Cocoa/UIKit APIs and C++ codebases such as rendering engines or audio DSP libraries.\n\n## Notes\nObjective-C++ imposes restrictions on how Objective-C and C++ interact: Objective-C objects cannot inherit from C++ classes and vice versa, and C++ exceptions and Objective-C exceptions have distinct propagation rules. Compilers treat `.mm` files as Objective-C++ automatically; the file extension is the primary indicator of this mixed mode.\n",
+  "extensions": [
+    "mm"
+  ]
+}

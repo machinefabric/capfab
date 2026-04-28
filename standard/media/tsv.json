@@ -1,0 +1,11 @@
+{
+  "urn": "media:tsv;textable",
+  "media_type": "text/tab-separated-values",
+  "title": "TSV Data",
+  "profile_uri": "https://capdag.com/schema/tsv",
+  "description": "Tab-separated values data",
+  "documentation": "## Purpose\nRepresents tabular data where fields are separated by tab characters. TSV is a common interchange format for spreadsheets and database exports, and is often easier to parse than CSV because tab characters rarely appear in field values.\n\n## When to use\nUse `media:tsv;textable` when a node produces or consumes tab-delimited tabular data. For comma-delimited tabular data, see [CSV Data](https://capdag.com/browse/media:csv;list;record;textable). For pipe-delimited data, see [PSV Data](https://capdag.com/browse/media:psv;textable).\n\n## Notes\nTSV files may or may not include a header row; consumers should confirm this via node configuration or metadata. The `textable` tag allows TSV content to flow to any generic text consumer, though structured parsing will be needed to work with individual fields.\n",
+  "extensions": [
+    "tsv"
+  ]
+}

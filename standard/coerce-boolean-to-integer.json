@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:bool;textable\";op=coerce;out=\"media:integer;numeric;textable\"",
+  "command": "coerce",
+  "title": "Coerce Boolean to Integer",
+  "cap_description": "Convert a boolean to an integer (true=1, false=0)",
+  "documentation": "## Purpose\n\nConverts a boolean value to an integer: `true` becomes `1`, `false` becomes `0`. Use this when a downstream cap expects an integer flag or count but the upstream produces a boolean.\n\n## Inputs\n\nA boolean value (media type `media:bool;textable`).\n\n## Outputs\n\nThe integer `1` (true) or `0` (false).\n\n## Notes\n\n- Standard boolean-to-int mapping used across most programming contexts.\n- To widen further to a float, chain with [Coerce Integer to Number](https://capdag.com/browse/cap:in=\"media:integer;numeric;textable\";op=coerce;out=\"media:numeric;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:bool;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:bool;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:integer;numeric;textable",
+    "output_description": "Coerced value"
+  }
+}

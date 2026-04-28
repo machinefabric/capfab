@@ -1,0 +1,11 @@
+{
+  "urn": "media:targz;archive",
+  "media_type": "application/gzip",
+  "title": "Tarball (gzipped)",
+  "profile_uri": "https://capdag.com/schema/targz",
+  "description": "TAR archive compressed with gzip",
+  "documentation": "## Purpose\nA tarball (`.tgz` or `.tar.gz`) combines TAR bundling with gzip compression into a single file. It is the most common distribution format for Unix and Linux software packages, source code, and container layers.\n\n## When to use\nUse [Tarball (gzipped)](https://capdag.com/browse/media:targz;archive) when distributing source code, binaries, or data sets for Unix-like systems where POSIX metadata (permissions, symlinks) must be preserved and good compression is desired. It is the standard output format for `git archive` and many build systems.\n\n## Notes\nGzip compression is solid — it compresses the entire archive stream rather than individual files — which gives better ratios than [ZIP Archive](https://capdag.com/browse/media:zip;archive) on collections of similar files. However, unlike ZIP, individual files cannot be extracted without reading from the start of the stream. For higher compression ratios at the cost of speed, consider [XZ](https://capdag.com/browse/media:xz;archive) or [Zstandard](https://capdag.com/browse/media:zstd;archive).\n",
+  "extensions": [
+    "tgz"
+  ]
+}

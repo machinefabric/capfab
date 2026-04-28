@@ -1,0 +1,199 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://capdag.com/schema/cap.schema.json",
+  "title": "CAPDAG Capability Definition Schema",
+  "description": "Schema for capability definitions across all language implementations",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["urn", "command", "title"],
+  "properties": {
+    "urn": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^cap:",
+          "description": "Capability URN string (e.g., 'cap:in=\"media:...\";op=...;out=\"media:...\"')"
+        },
+        {
+          "type": "object",
+          "description": "Capability URN with tag-based format (deprecated - use string format)",
+          "additionalProperties": false,
+          "required": ["tags"],
+          "properties": {
+            "tags": {
+              "type": "object",
+              "description": "Key-value tags defining the capability. Must include 'in' (input spec ID) and 'out' (output spec ID) as required direction specifiers.",
+              "propertyNames": {
+                "pattern": "^[a-z0-9_\\-/:\\.]+$"
+              },
+              "additionalProperties": {
+                "type": "string"
+              },
+              "required": ["in", "out"],
+              "properties": {
+                "in": {
+                  "type": "string",
+                  "description": "Input media URN - required."
+                },
+                "out": {
+                  "type": "string",
+                  "description": "Output media URN - required."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title of the capability",
+      "maxLength": 200
+    },
+    "cap_description": {
+      "type": "string",
+      "description": "Human-readable description of what this capability does",
+      "maxLength": 1000
+    },
+    "documentation": {
+      "type": "string",
+      "description": "Optional long-form markdown documentation. Rendered in capability info panels, the cap navigator, capdag-dot-com, and anywhere else a rich-text explanation of the cap is useful. In TOML sources, author this as a triple-quoted literal string (''') so newlines and markdown punctuation pass through unchanged; the JSON generator re-escapes newlines per JSON rules on output."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata as key-value pairs",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "media_specs": {
+      "type": "array",
+      "description": "Inline media spec definitions. Each item is a full media spec object with its own urn. Duplicate URNs are not allowed.",
+      "items": {
+        "$ref": "media.schema.json"
+      }
+    },
+    "command": {
+      "type": "string",
+      "description": "Command string for CLI execution",
+      "minLength": 1
+    },
+    "args": {
+      "type": "array",
+      "description": "Capability arguments with sources - media_urn is the unique identifier",
+      "items": {
+        "$ref": "#/definitions/cap_arg"
+      }
+    },
+    "output": {
+      "type": "object",
+      "description": "Output definition",
+      "additionalProperties": false,
+      "required": ["media_urn", "output_description"],
+      "properties": {
+        "media_urn": {
+          "type": "string",
+          "description": "Media URN reference (e.g., 'media:object' for built-in, or custom URN from media_specs)"
+        },
+        "output_description": {
+          "type": "string",
+          "description": "Description of the output"
+        },
+        "is_sequence": {
+          "type": "boolean",
+          "description": "Whether this output produces a sequence of items (true) or a single item (false, default)",
+          "default": false
+        }
+      }
+    },
+    "metadata_json": {
+      "type": "object",
+      "description": "Arbitrary metadata as JSON object for application-specific use",
+      "additionalProperties": true
+    },
+    "registered_by": {
+      "type": "object",
+      "description": "Registration attribution - who registered this capability and when",
+      "additionalProperties": false,
+      "required": ["username", "registered_at"],
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "Username of the user who registered this capability",
+          "minLength": 1
+        },
+        "registered_at": {
+          "type": "string",
+          "description": "ISO 8601 timestamp of when the capability was registered (format: YYYY-MM-DDTHH:MM:SSZ)"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "cap_arg": {
+      "type": "object",
+      "description": "Argument definition - media_urn is the unique identifier",
+      "additionalProperties": false,
+      "required": ["media_urn", "required", "sources"],
+      "properties": {
+        "media_urn": {
+          "type": "string",
+          "description": "Unique media URN for this argument (e.g., 'media:file-path;textable;scalar')"
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether this argument is required"
+        },
+        "is_sequence": {
+          "type": "boolean",
+          "description": "Whether this argument carries a sequence of items (true) or a single item (false, default)",
+          "default": false
+        },
+        "sources": {
+          "type": "array",
+          "description": "How this argument can be provided (stdin, position, cli_flag)",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/arg_source"
+          }
+        },
+        "arg_description": {
+          "type": "string",
+          "description": "Human-readable description of the argument"
+        },
+        "default_value": {
+          "description": "Default value for optional arguments"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Arbitrary metadata for this argument"
+        }
+      }
+    },
+    "arg_source": {
+      "type": "object",
+      "description": "Source specification for argument input - must have exactly one of: stdin, position, cli_flag",
+      "properties": {
+        "stdin": {
+          "type": "string",
+          "description": "Media URN for stdin input (e.g., 'media:pdf;binary')"
+        },
+        "position": {
+          "type": "integer",
+          "description": "Positional argument index (0-based)",
+          "minimum": 0
+        },
+        "cli_flag": {
+          "type": "string",
+          "description": "CLI flag for this argument"
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        { "required": ["stdin"] },
+        { "required": ["position"] },
+        { "required": ["cli_flag"] }
+      ]
+    }
+  }
+}

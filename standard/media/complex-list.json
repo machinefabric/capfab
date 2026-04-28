@@ -1,0 +1,11 @@
+{
+  "urn": "media:complex;list;numeric;textable",
+  "media_type": "text/plain",
+  "title": "Complex List",
+  "profile_uri": "https://capdag.com/schema/complex-list",
+  "description": "Text file with one complex numeric value per line.",
+  "documentation": "## Purpose\nThe [Complex List](https://capdag.com/browse/media:complex;list;numeric;textable) type represents an ordered sequence of complex numbers encoded as plain text, one value per line.\n\n## When to use\nUse this type when a node produces or consumes a sequence of complex-valued data — for example, FFT output bins, IQ samples from a software-defined radio, or eigenvectors from complex matrix operations.\n\n## Notes\nEach line must contain one complex number in a consistent notation (e.g., `a+bj`). The notation convention must be agreed upon between producer and consumer and documented at the port. Blank lines are errors. Implementers should parse each value using the target language's complex number type (e.g., Python `complex`, C++ `std::complex<double>`).\n",
+  "extensions": [
+    "txt"
+  ]
+}

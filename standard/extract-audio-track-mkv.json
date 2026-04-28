@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:mkv;video\";op=extract_audio_track;out=\"media:audio;opus\"",
+  "command": "extract-audio",
+  "title": "Extract Audio Track from MKV",
+  "cap_description": "Demux the audio track from a Matroska MKV and write it as an Opus file",
+  "documentation": "## Purpose\n\nExtracts the audio track from a Matroska MKV container and writes it as an Opus file.\n\n## Inputs\n\nAn MKV file with an Opus audio track.\n\n## Outputs\n\nAn Opus file (OGG-Opus). No re-encoding occurs.\n\n## Notes\n\nIf the MKV has any audio codec other than Opus, this cap fails hard. Other codec adapters can be added as separate caps.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:mkv;video"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the MKV file"
+    }
+  ],
+  "output": {
+    "media_urn": "media:opus;audio",
+    "output_description": "Opus audio track"
+  }
+}

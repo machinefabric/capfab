@@ -1,0 +1,49 @@
+{
+  "urn": "cap:in=\"media:md;textable\";op=render_page_image;out=\"media:image;png\"",
+  "command": "render-page-image",
+  "title": "Render Markdown Page Image",
+  "cap_description": "Render a page-like PNG image preview of the markdown document",
+  "documentation": "## Purpose\n\nRenders a Markdown file as a page-like PNG image. The Markdown is formatted and laid out as it would appear in a reader, then captured as a PNG. Useful for generating document previews and thumbnails of Markdown content.\n\n## Inputs\n\n- A Markdown file (path or stdin).\n- Page width in pixels (default 800).\n- Page height in pixels (default 1200).\n\n## Outputs\n\nA PNG image representing the rendered Markdown page.\n\n## Notes\n\n- Unlike the PDF renderer, this produces a single image (not a sequence) because Markdown files are treated as single-page documents.\n- For ingesting Markdown text into LLM or embedding pipelines, read the raw `.md` file directly rather than rendering it to an image first.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:md;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the markdown file to process"
+    },
+    {
+      "media_urn": "media:page-image-width;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--width"
+        }
+      ],
+      "arg_description": "Width of the page image in pixels",
+      "default_value": 800
+    },
+    {
+      "media_urn": "media:page-image-height;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--height"
+        }
+      ],
+      "arg_description": "Height of the page image in pixels",
+      "default_value": 1200
+    }
+  ],
+  "output": {
+    "media_urn": "media:image;png",
+    "output_description": "PNG image data representing the rendered markdown page"
+  }
+}

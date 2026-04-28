@@ -1,0 +1,11 @@
+{
+  "urn": "media:ods",
+  "media_type": "application/vnd.oasis.opendocument.spreadsheet",
+  "title": "OpenDocument Spreadsheet",
+  "profile_uri": "https://capdag.com/schema/ods",
+  "description": "OpenDocument spreadsheet data",
+  "documentation": "## Purpose\nCarries OpenDocument Spreadsheet files (`.ods`), the ISO-standardized spreadsheet format used by LibreOffice Calc, Apache OpenOffice Calc, and Google Sheets. ODS is a ZIP archive of XML content following the ODF specification.\n\n## When to use\nUse `media:ods` when a pipeline node processes open-format spreadsheets — for example, a data extraction step using `odfpy` or LibreOffice, or a step that produces tabular reports in an open standard format. For Microsoft Excel format, see [Excel Spreadsheet](https://capdag.com/browse/media:xlsx).\n\n## Notes\nODS supports formulas, charts, and multiple sheets in the same manner as XLSX. The `odfpy` Python library provides programmatic access. LibreOffice can convert ODS to CSV, XLSX, or PDF. See also [OpenDocument Spreadsheet](https://capdag.com/browse/media:ods).\n",
+  "extensions": [
+    "ods"
+  ]
+}

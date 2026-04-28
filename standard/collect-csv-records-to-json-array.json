@@ -1,0 +1,28 @@
+{
+  "urn": "cap:in=\"media:csv;list;record;textable\";op=collect_records;out=\"media:json;list;record;textable\"",
+  "command": "collect_records",
+  "title": "Merge CSV Files into JSON Array",
+  "cap_description": "Merge multiple CSV files into a single JSON array of objects",
+  "documentation": "## Purpose\n\nMerges a sequence of CSV files into a single JSON array of objects, with each row becoming a JSON object and column headers becoming keys. Use this when downstream processing prefers JSON over CSV.\n\n## Inputs\n\nA sequence of CSV files (each with a header row and data rows).\n\n## Outputs\n\nA JSON array where each element is an object with keys from the CSV header and values from the row.\n\n## Notes\n\n- All input CSVs should have compatible headers.\n- Useful for feeding CSV data into JSON-consuming caps or APIs.\n- For keeping the output as CSV, use [Merge CSV Files](https://capdag.com/browse/cap:in=\"media:csv;list;record;textable\";op=collect_records;out=\"media:csv;list;record;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:csv;list;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:csv;list;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "CSV files to merge",
+      "is_sequence": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:json;list;record;textable",
+    "output_description": "JSON array with all CSV rows as objects"
+  }
+}

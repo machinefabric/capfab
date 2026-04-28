@@ -1,0 +1,12 @@
+{
+  "urn": "media:scala;textable;code",
+  "media_type": "text/x-scala",
+  "title": "Scala Source",
+  "profile_uri": "https://capdag.com/schema/scala",
+  "description": "Scala programming language source code",
+  "documentation": "## Purpose\nScala source files contain code written in Scala, a statically typed language that combines object-oriented and functional programming on the JVM. Scala is widely used in big data (Apache Spark is written in Scala), distributed systems, and domain-specific language construction.\n\n## When to use\nUse [Scala Source](https://capdag.com/browse/media:scala;textable;code) for `.scala` source files and `.sc` Scala script files (used by tools like Ammonite and sbt's scripting mode). Scala projects are typically built with sbt, Maven, or Mill.\n\n## Notes\nScala 2 and Scala 3 (Dotty) have significant syntax and macro system differences; tools and libraries often target one major version specifically. Scala source is UTF-8 text. The rich type system with implicits (Scala 2) or `given`/`using` (Scala 3) is central to the library ecosystem and requires Scala-aware tooling to reason about correctly.\n",
+  "extensions": [
+    "scala",
+    "sc"
+  ]
+}

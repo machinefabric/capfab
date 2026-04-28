@@ -1,0 +1,11 @@
+{
+  "urn": "media:gomod;textable",
+  "media_type": "text/plain",
+  "title": "Go Module",
+  "profile_uri": "https://capdag.com/schema/gomod",
+  "description": "Go module definition",
+  "documentation": "## Purpose\nCarries a `go.mod` file that declares a Go module's identity, the minimum Go toolchain version, and its direct and indirect dependencies with their required minimum versions. Every Go module must have a `go.mod` at its root.\n\n## When to use\nUse `media:gomod;textable` when a pipeline node reads or updates Go module metadata — for example, a dependency update step running `go get`, a vulnerability scanner checking declared versions, or a build step that parses the module path to resolve imports.\n\n## Notes\nThe `go.mod` format is managed by the `go` command and should not be edited by hand beyond simple version pins. Changes to `go.mod` are always accompanied by corresponding changes to [Go Checksum](https://capdag.com/browse/media:gosum;textable;list) (`go.sum`). See also [Go Module](https://capdag.com/browse/media:gomod;textable).\n",
+  "extensions": [
+    "mod"
+  ]
+}

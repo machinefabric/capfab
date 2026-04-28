@@ -1,0 +1,11 @@
+{
+  "urn": "media:gitignore;textable;list",
+  "media_type": "text/plain",
+  "title": "Git Ignore",
+  "profile_uri": "https://capdag.com/schema/gitignore",
+  "description": "Git ignore pattern file",
+  "documentation": "## Purpose\nCarries a `.gitignore` file containing patterns that tell Git which files and directories to exclude from version control. Proper ignore rules prevent build artifacts, secrets, and editor clutter from polluting the repository history.\n\n## When to use\nUse `media:gitignore;textable;list` when a pipeline node reads, generates, or merges `.gitignore` files — for example, a project scaffolder that assembles a language-specific ignore file or a security audit step checking whether sensitive paths are excluded.\n\n## Notes\nGit evaluates ignore patterns from multiple files: the repository-level `.gitignore`, per-directory `.gitignore` files, and a global user ignore file. Patterns support `*`, `**`, `?`, and negation with `!`. See also [Git Ignore](https://capdag.com/browse/media:gitignore;textable;list).\n",
+  "extensions": [
+    "gitignore"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:pdf",
+  "media_type": "application/pdf",
+  "title": "PDF Document",
+  "profile_uri": "https://capdag.com/schema/pdf",
+  "description": "PDF document data",
+  "documentation": "## Purpose\nRepresents a Portable Document Format file containing text, images, and layout information. PDF is the canonical format for documents that must preserve visual fidelity across systems.\n\n## When to use\nUse `media:pdf` when a pipeline step produces or consumes a full PDF document — for example as the source input to a text extraction or page-rendering node. For individual pages extracted as text, see [Text Page](https://capdag.com/browse/media:textable;page).\n\n## Notes\nPDF files may contain selectable text, scanned raster images, or a combination of both. Nodes that extract text should handle the image-only case by invoking an OCR step when no text layer is present.\n",
+  "extensions": [
+    "pdf"
+  ]
+}

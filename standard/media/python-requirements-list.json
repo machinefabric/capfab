@@ -1,0 +1,11 @@
+{
+  "urn": "media:requirements;textable;list",
+  "media_type": "text/plain",
+  "title": "Python Requirements List",
+  "profile_uri": "https://capdag.com/schema/requirements",
+  "description": "Python requirements file with multiple package entries",
+  "documentation": "## Purpose\nCarries a `requirements.txt` file as a structured list, where each entry is a separate package specifier. This variant is used when the pipeline needs to iterate over, filter, or modify individual dependency entries.\n\n## When to use\nUse `media:requirements;textable;list` when a pipeline step processes individual dependency lines — for example, a vulnerability scanner that checks each package version, a dependency updater that pins versions, or a resolver that validates compatibility.\n\n## Notes\nEach line in a requirements file is a PEP 508 specifier, a comment, or a directive (`-r`, `-c`, `-e`). Blank lines and comment lines (`#`) should be handled gracefully. For treating the entire file as one text value, use [Python Requirements](https://capdag.com/browse/media:requirements;textable). See also [Python Requirements List](https://capdag.com/browse/media:requirements;textable;list).\n",
+  "extensions": [
+    "txt"
+  ]
+}

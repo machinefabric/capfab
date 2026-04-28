@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:audio;mp3\";op=convert_audio;out=\"media:audio;flac\"",
+  "command": "convert-audio",
+  "title": "Convert MP3 to FLAC",
+  "cap_description": "Decode MP3 and re-encode as lossless FLAC",
+  "documentation": "## Purpose\n\nDecodes an MP3 file and writes it as FLAC. Useful for archiving the decoded MP3 without further generation loss.\n\n## Inputs\n\nAn MP3 file.\n\n## Outputs\n\nA FLAC file containing the decoded PCM exactly as the MP3 decoder produced it.\n\n## Notes\n\nThe output preserves the MP3 decoder's PCM exactly; no further lossy compression is applied.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:mp3;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the MP3 file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:flac;audio",
+    "output_description": "FLAC-encoded audio"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "urn": "media:stream-flag;textable",
+  "media_type": "text/plain",
+  "title": "Stream Flag",
+  "profile_uri": "https://capdag.com/schema/stream_flag",
+  "description": "Stream Flag value",
+  "documentation": "## Purpose\nA boolean flag that instructs a machine to emit output incrementally as tokens are generated, rather than buffering the complete response before returning it.\n\n## When to use\nEnable streaming for user-facing interfaces where progressive display improves perceived responsiveness. Disable it (the default) for batch pipelines, post-processing chains, or any consumer that requires the full output before proceeding.\n\n## Notes\nStreaming behavior is transport-dependent. Not all machine hosts or output ports support streaming; check the runtime documentation. When streaming is enabled, intermediate output frames may not conform to the final content type's schema.\n"
+}

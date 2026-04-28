@@ -1,0 +1,7 @@
+{
+  "title": "Test Edge 1 Arg 1 (Prefix)",
+  "description": "Optional text to prepend before input content in edge1 transformation",
+  "documentation": "Internal test media type. Used only in capfab test scenarios.\n",
+  "media_type": "text/plain",
+  "urn": "media:edge1arg1;textable"
+}

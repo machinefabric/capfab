@@ -1,0 +1,11 @@
+{
+  "urn": "media:requirements;textable",
+  "media_type": "text/plain",
+  "title": "Python Requirements",
+  "profile_uri": "https://capdag.com/schema/requirements",
+  "description": "Python requirements content",
+  "documentation": "## Purpose\nCarries a single Python package requirement specifier or the full text of a `requirements.txt` file as a scalar value. This variant is used when the content is treated as an opaque string rather than a parsed list of entries.\n\n## When to use\nUse `media:requirements;textable` when a pipeline node passes requirements content as a single text blob — for example, an LLM node that generates or edits a requirements file as raw text. For structured access to individual package entries, use [Python Requirements List](https://capdag.com/browse/media:requirements;textable;list).\n\n## Notes\nPython package specifiers follow PEP 508 syntax (e.g., `requests>=2.28,<3`). Requirements files also support `-r` includes, `-c` constraints, and URL-based installs, which a list parser may need to handle separately. See also [Python Requirements](https://capdag.com/browse/media:requirements;textable).\n",
+  "extensions": [
+    "txt"
+  ]
+}

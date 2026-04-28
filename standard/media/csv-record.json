@@ -1,0 +1,11 @@
+{
+  "urn": "media:csv;record;textable",
+  "media_type": "text/csv",
+  "title": "CSV Record",
+  "profile_uri": "https://capdag.com/schema/csv",
+  "description": "Single CSV record with header row and one data row",
+  "documentation": "## Purpose\nA CSV file containing exactly two lines: a header row and one data row. This represents a single named record rather than a collection, and is useful when a pipeline step produces exactly one result per run.\n\n## When to use\nUse `media:csv;record;textable` when a node is guaranteed to produce a single result row with column names. For multi-row tabular data, use [CSV Data](https://capdag.com/browse/media:csv;list;record;textable).\n\n## Notes\nConsumers receiving this type can safely assume at most one data row after the header. A file with only a header row and no data row is degenerate and should be treated as an error.\n",
+  "extensions": [
+    "csv"
+  ]
+}

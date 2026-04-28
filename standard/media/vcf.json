@@ -1,0 +1,11 @@
+{
+  "urn": "media:vcf;textable;list",
+  "media_type": "text/vcard",
+  "title": "vCard",
+  "profile_uri": "https://capdag.com/schema/vcf",
+  "description": "vCard contact data",
+  "documentation": "## Purpose\nvCard (RFC 6350) is a text format for representing contact information — names, addresses, phone numbers, email addresses, and other properties. The [vCard](https://capdag.com/browse/media:vcf;textable;list) media type represents `.vcf` files that may contain one or more vCard records.\n\n## When to use\nUse this type when a node produces or consumes contact data — for example, address-book exports, CRM integrations, contact synchronization pipelines, or QR-code contact cards. vCard is the standard format for contact exchange across Apple Contacts, Google Contacts, and Microsoft Outlook.\n\n## Notes\nA single `.vcf` file may contain multiple contacts, each delimited by `BEGIN:VCARD` / `END:VCARD`. The `;textable;list` tags reflect that the file is human-readable text containing an ordered list of contact records. Implementers should use an RFC 6350-compliant parser to handle property encoding, parameter quoting, and multi-line folding correctly.\n",
+  "extensions": [
+    "vcf"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:woff;font",
+  "media_type": "font/woff",
+  "title": "WOFF Font",
+  "profile_uri": "https://capdag.com/schema/woff",
+  "description": "Web Open Font Format data",
+  "documentation": "## Purpose\nWOFF (Web Open Font Format) is a compressed container for TrueType or OpenType fonts designed for efficient web delivery, compressing font tables with zlib. The [WOFF Font](https://capdag.com/browse/media:woff;font) media type represents any `.woff` file conforming to the W3C WOFF 1.0 specification.\n\n## When to use\nUse this type when a node produces or consumes web fonts for CSS `@font-face` rules in environments that must support older browsers (IE 9+). For modern deployments, [WOFF2](https://capdag.com/browse/media:woff2;font) provides better compression and is now universally supported in current browsers.\n\n## Notes\nWOFF wraps the underlying sfnt font tables with a short header and per-table zlib compression. Metadata and private data blocks are optional. Implementers can convert between WOFF and raw TTF/OTF using FontTools (`fonttools woff`) or `sfnt2woff`. The `;font` tag indicates this is a font artifact.\n",
+  "extensions": [
+    "woff"
+  ]
+}

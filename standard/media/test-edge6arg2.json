@@ -1,0 +1,7 @@
+{
+  "title": "Test Edge 6 Arg 2 (Item Prefix)",
+  "description": "Text to prepend to each list item",
+  "documentation": "Internal test media type. Used only in capfab test scenarios.\n",
+  "media_type": "text/plain",
+  "urn": "media:edge6arg2;textable"
+}

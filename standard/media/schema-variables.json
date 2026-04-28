@@ -1,0 +1,8 @@
+{
+  "urn": "media:schema-variables;textable;record",
+  "media_type": "application/json",
+  "title": "Schema Variables",
+  "profile_uri": "https://capdag.com/schema/schema_variables",
+  "description": "Schema Variables object with key-value pairs",
+  "documentation": "## Purpose\n\nSchema Variables carry a JSON object of key-value pairs that are injected into a schema before validation or generation. They allow schemas to be templated and reused across different contexts by varying only the variable bindings.\n\n## When to use\n\nUse this media type when a node consumes a parameterized schema and needs the variable bindings resolved at runtime. It is similar in structure to [Substitutions](https://capdag.com/browse/media:substitutions;textable;record) but scoped specifically to schema processing.\n\n## Notes\n\nVariable names should match the placeholder tokens defined in the schema. Unresolved variables may cause validation failures, so ensure all required keys are present before passing this value downstream.\n"
+}

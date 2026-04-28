@@ -1,0 +1,8 @@
+{
+  "urn": "media:remove-boilerplate;textable",
+  "media_type": "text/plain",
+  "title": "Remove Boilerplate",
+  "profile_uri": "https://capdag.com/schema/remove_boilerplate",
+  "description": "Remove Boilerplate value",
+  "documentation": "## Purpose\nA boolean flag that tells a machine to strip standard boilerplate content from its input or output — such as legal disclaimers, headers, footers, or repeated standard clauses — before further processing.\n\n## When to use\nEnable when processing documents that contain recurring non-informative content that would consume token budget without adding analytical value (e.g., contract preambles, cookie banners, standard license headers).\n\n## Notes\nThe definition of \"boilerplate\" is machine-specific. See [Include Comments Flag](https://capdag.com/browse/media:include-comments-flag;textable) for the analogous control over code comments and [Preserve Structure Flag](https://capdag.com/browse/media:preserve-structure-flag;textable) for retaining document structure.\n"
+}

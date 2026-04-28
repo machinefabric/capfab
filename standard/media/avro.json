@@ -1,0 +1,11 @@
+{
+  "urn": "media:avro;list;record",
+  "media_type": "application/avro",
+  "title": "Avro",
+  "profile_uri": "https://capdag.com/schema/avro",
+  "description": "Apache Avro serialized data",
+  "documentation": "## Purpose\nApache Avro is a row-oriented binary serialization format that embeds its schema as JSON in the file header. The [Avro](https://capdag.com/browse/media:avro;list;record) media type represents files that store an ordered list of records encoded under a shared Avro schema.\n\n## When to use\nUse this type when schema evolution is a priority — Avro's reader/writer schema resolution allows producers and consumers to evolve their schemas independently. It is commonly used in event streaming pipelines (Kafka), Hadoop-based data lakes, and RPC frameworks that need compact, self-describing records.\n\n## Notes\nThe embedded schema allows readers to decode the file without any out-of-band schema registry, though many production deployments use a separate registry for schema management. Implementers should use the official Apache Avro library for the target language; schema fingerprinting via the `avro.schema.Schema` fingerprint methods helps detect incompatible changes.\n",
+  "extensions": [
+    "avro"
+  ]
+}

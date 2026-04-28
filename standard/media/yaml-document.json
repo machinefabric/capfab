@@ -1,0 +1,12 @@
+{
+  "urn": "media:record;textable;yaml",
+  "media_type": "application/yaml",
+  "title": "YAML Document",
+  "profile_uri": "https://capdag.com/schema/yaml",
+  "description": "YAML mapping with key-value structure",
+  "documentation": "## Purpose\nRepresents a YAML document whose root is a mapping (key-value pairs). This is the most common YAML shape for configuration files and structured data.\n\n## When to use\nUse `media:record;textable;yaml` when a node produces or consumes a YAML mapping at the top level, such as a configuration file, a machine definition, or a metadata document. For a sequence of mappings, use [YAML List of Mappings](https://capdag.com/browse/media:list;record;textable;yaml).\n\n## Notes\nYAML mappings allow nested structures and references (anchors and aliases). Consumers should use a full YAML parser rather than simple line-by-line processing.\n",
+  "extensions": [
+    "yaml",
+    "yml"
+  ]
+}

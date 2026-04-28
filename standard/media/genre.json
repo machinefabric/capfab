@@ -1,0 +1,23 @@
+{
+  "urn": "media:genre;textable",
+  "media_type": "text/plain",
+  "title": "Genre",
+  "profile_uri": "https://capdag.com/schema/genre",
+  "description": "Genre value",
+  "documentation": "## Purpose\n\nGenre specifies the literary or content category of the text to be generated, guiding the model toward appropriate structural and stylistic conventions for that form.\n\n## When to use\n\nUse this media type as an input to creative or editorial writing nodes. Combine it with [Tone](https://capdag.com/browse/media:tone;textable) and [Creativity Level](https://capdag.com/browse/media:creativity-level;textable;numeric) to fully shape the character of the output.\n\n## Notes\n\nThe allowed values span a range from purely creative forms (fiction, poetry) to professional forms (technical, academic, marketing). Choose the value that best matches the intended audience and publication context.\n",
+  "validation": {
+    "allowed_values": [
+      "fiction",
+      "poetry",
+      "essay",
+      "story",
+      "dialogue",
+      "script",
+      "article",
+      "blog",
+      "marketing",
+      "technical",
+      "academic"
+    ]
+  }
+}

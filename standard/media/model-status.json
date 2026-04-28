@@ -1,0 +1,69 @@
+{
+  "urn": "media:model-status;textable;record",
+  "media_type": "application/json",
+  "title": "Model Status",
+  "profile_uri": "https://capdag.com/schema/model-status",
+  "description": "Detailed model status including state, download progress, and health information",
+  "documentation": "## Purpose\nReports the lifecycle state of a model including whether it is not yet downloaded, actively downloading, paused, ready for use, or in an error state. When a download is in progress it also carries progress metrics such as bytes transferred and estimated time remaining.\n\n## When to use\nPoll or stream this type from a model management cap to track download or loading progress. UIs and orchestrators can use the `state` field to drive state machines and display progress bars, and inspect `error_message` on failure.\n\n## Notes\nThe `state` field is required. Progress fields (`downloaded_bytes`, `total_bytes`, `progress`, `speed_bps`, `eta_seconds`) are only meaningful when `state` is `downloading`. The `local_path` field is populated once the model reaches the `ready` state. See [Model Availability](https://capdag.com/browse/media:model-availability;textable;record) for a simpler availability snapshot.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "state"
+    ],
+    "properties": {
+      "state": {
+        "type": "string",
+        "enum": [
+          "not_found",
+          "available",
+          "downloading",
+          "paused",
+          "ready",
+          "failed"
+        ],
+        "description": "Current state of the model"
+      },
+      "total_bytes": {
+        "type": "integer",
+        "description": "Total bytes to download (if known)"
+      },
+      "downloaded_bytes": {
+        "type": "integer",
+        "description": "Bytes downloaded so far"
+      },
+      "progress": {
+        "type": "number",
+        "description": "Download progress as a percentage (0.0 to 1.0)"
+      },
+      "speed_bps": {
+        "type": "number",
+        "description": "Download speed in bytes per second"
+      },
+      "eta_seconds": {
+        "type": "integer",
+        "description": "Estimated time remaining in seconds"
+      },
+      "error_message": {
+        "type": "string",
+        "description": "Error message if download/load failed"
+      },
+      "started_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When the download/operation started (ISO 8601)"
+      },
+      "finished_at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "When the download/operation completed or failed (ISO 8601)"
+      },
+      "local_path": {
+        "type": "string",
+        "description": "Local filesystem path if model is available locally"
+      }
+    }
+  }
+}

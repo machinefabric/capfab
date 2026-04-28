@@ -1,0 +1,11 @@
+{
+  "urn": "media:psd;image",
+  "media_type": "image/vnd.adobe.photoshop",
+  "title": "Photoshop Document",
+  "profile_uri": "https://capdag.com/schema/psd",
+  "description": "Adobe Photoshop document data",
+  "documentation": "## Purpose\nRepresents an Adobe Photoshop PSD file, a layered image format that preserves editing state including layers, masks, adjustment layers, and blending modes. PSD is the native working format for Photoshop-based design workflows.\n\n## When to use\nUse `media:psd;image` when a node must read or produce a full Photoshop document with its layer structure intact, such as a design export step or a compositing tool. When only the flattened image is needed, export to [PNG Image](https://capdag.com/browse/media:png) or [JPEG Image](https://capdag.com/browse/media:jpeg;image) instead.\n\n## Notes\nPSD files can be large due to uncompressed layer data. Parsing requires a PSD-aware library; most general image libraries can only read the flattened composite embedded in the file. The related PSB format extends PSD for files larger than 2 GB.\n",
+  "extensions": [
+    "psd"
+  ]
+}

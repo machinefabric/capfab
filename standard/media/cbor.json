@@ -1,0 +1,11 @@
+{
+  "urn": "media:cbor",
+  "media_type": "application/cbor",
+  "title": "CBOR",
+  "profile_uri": "https://capdag.com/schema/cbor",
+  "description": "Concise Binary Object Representation data",
+  "documentation": "## Purpose\nCBOR (Concise Binary Object Representation, RFC 8949) is a binary data format derived from JSON's data model, designed for small message size and deterministic encoding. The [CBOR](https://capdag.com/browse/media:cbor) media type represents files or byte streams containing a single top-level CBOR data item.\n\n## When to use\nUse this type when interoperability with IETF standards is required — CBOR is the wire format for COSE (signing/encryption), CWT (tokens), and CBOR-LD (linked data). It is also appropriate for constrained-device protocols (CoAP, Matter) and anywhere an IETF-standardized binary JSON equivalent is preferred over MessagePack.\n\n## Notes\nCBOR supports deterministic encoding (RFC 8949 Section 4.2) which is required for cryptographic use cases. Tag numbers extend the type system; commonly used tags include 0 (datetime string), 1 (epoch timestamp), and 37 (UUID). Implementers should validate that input data conforms to the expected CBOR diagnostic notation or schema when security is a concern.\n",
+  "extensions": [
+    "cbor"
+  ]
+}

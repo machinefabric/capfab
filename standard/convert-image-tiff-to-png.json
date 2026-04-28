@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:image;tiff\";op=convert_image;out=\"media:image;png\"",
+  "command": "convert-image",
+  "title": "Convert TIFF to PNG",
+  "cap_description": "Re-encode a TIFF image as a PNG",
+  "documentation": "## Purpose\n\nDecodes a TIFF (the first image in a multi-image TIFF) and writes it as a PNG. Useful when downstream caps require PNG input.\n\n## Inputs\n\nA TIFF file. For multi-page TIFFs, only the first page is used.\n\n## Outputs\n\nA PNG file with the same pixel content.\n\n## Notes\n\nUncompressed, LZW, PackBits and Deflate-compressed TIFFs are supported. JPEG-in-TIFF and CCITT fax compressions are not supported and will fail hard.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:tiff;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the TIFF file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:image;png",
+    "output_description": "PNG-encoded image"
+  }
+}

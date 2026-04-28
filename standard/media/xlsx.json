@@ -1,0 +1,11 @@
+{
+  "urn": "media:xlsx",
+  "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "title": "Excel Spreadsheet",
+  "profile_uri": "https://capdag.com/schema/xlsx",
+  "description": "Microsoft Excel spreadsheet data",
+  "documentation": "## Purpose\nCarries Microsoft Excel spreadsheets in the Open XML format (`.xlsx`), the current standard for tabular data with formulas, charts, and formatting. XLSX files are ZIP archives containing XML parts for worksheets, styles, shared strings, and relationships.\n\n## When to use\nUse `media:xlsx` when a pipeline node reads or produces Excel spreadsheets — for example, a data extraction step using `openpyxl`, a report generation step that writes formatted tables, or a conversion step producing CSV from a given sheet.\n\n## Notes\nXLSX is an ISO/IEC 29500 standard and is supported by LibreOffice, Google Sheets, and most BI tools. The ZIP structure can be inspected by renaming the file to `.zip`. For the older binary format, see [Excel Spreadsheet (Legacy)](https://capdag.com/browse/media:xls). See also [Excel Spreadsheet](https://capdag.com/browse/media:xlsx).\n",
+  "extensions": [
+    "xlsx"
+  ]
+}

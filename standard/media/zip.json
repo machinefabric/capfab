@@ -1,0 +1,11 @@
+{
+  "urn": "media:zip;archive",
+  "media_type": "application/zip",
+  "title": "ZIP Archive",
+  "profile_uri": "https://capdag.com/schema/zip",
+  "description": "ZIP compressed archive",
+  "documentation": "## Purpose\nZIP is a widely supported archive format that stores one or more files with per-file deflate compression and an end-of-central-directory index. It is the de facto standard for distributing collections of files across all major platforms.\n\n## When to use\nUse [ZIP Archive](https://capdag.com/browse/media:zip;archive) when packaging multiple files for distribution, upload, or handoff where the recipient is expected to extract the contents. ZIP is the correct choice when broad compatibility is essential, including with Windows Explorer, macOS Finder, and mobile operating systems without additional software.\n\n## Notes\nZIP supports individual file extraction without decompressing the entire archive, which makes it efficient for large bundles where only a subset of files is needed. Compression ratio is generally lower than [TAR.GZ](https://capdag.com/browse/media:targz;archive) or [7-Zip](https://capdag.com/browse/media:7z;archive) because compression is applied per-file rather than across the whole archive. The format supports 64-bit extensions (ZIP64) for archives exceeding 4 GB.\n",
+  "extensions": [
+    "zip"
+  ]
+}

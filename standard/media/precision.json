@@ -1,0 +1,16 @@
+{
+  "urn": "media:precision;textable",
+  "media_type": "text/plain",
+  "title": "Precision",
+  "profile_uri": "https://capdag.com/schema/precision",
+  "description": "Precision value",
+  "documentation": "## Purpose\nSpecifies the numeric precision used when loading or running a model. Controls the trade-off between computation speed, memory usage, and output quality.\n\n## When to use\nSet this parameter when deploying models to hardware with specific memory constraints or when optimizing for inference throughput. `float32` offers maximum accuracy; `int4` offers maximum compression with some quality loss.\n\n## Notes\nAllowed values: `float32`, `float16`, `int8`, `int4`. Not all models support all precision levels; check the target model's quantization support. Lower precision reduces VRAM usage and increases throughput but may introduce rounding artifacts in sensitive tasks.\n",
+  "validation": {
+    "allowed_values": [
+      "float32",
+      "float16",
+      "int8",
+      "int4"
+    ]
+  }
+}

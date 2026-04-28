@@ -1,0 +1,11 @@
+{
+  "urn": "media:m4a;audio",
+  "media_type": "audio/mp4",
+  "title": "M4A Audio",
+  "profile_uri": "https://capdag.com/schema/m4a",
+  "description": "MPEG-4 audio data",
+  "documentation": "## Purpose\nRepresents an M4A file, an audio-only MPEG-4 container typically carrying AAC-encoded audio. M4A is the default format for purchased or downloaded audio on Apple platforms and is widely used in iTunes and Apple Music libraries.\n\n## When to use\nUse `media:m4a;audio` when a node produces or consumes M4A files, such as Apple Music exports or iOS audio recordings. For the raw AAC stream without the MP4 container, see [AAC Audio](https://capdag.com/browse/media:aac;audio). For lossless audio, see [FLAC Audio](https://capdag.com/browse/media:flac;audio) or [AIFF Audio](https://capdag.com/browse/media:aiff;audio).\n\n## Notes\nM4A files use the `.m4a` extension but are technically MP4 containers. Consumers that handle MP4 video can generally demux M4A files as well. DRM-protected M4A files (M4P) cannot be decoded without the appropriate licence.\n",
+  "extensions": [
+    "m4a"
+  ]
+}

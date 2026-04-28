@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:audio;opus\";op=convert_audio;out=\"media:audio;wav\"",
+  "command": "convert-audio",
+  "title": "Convert Opus to WAV",
+  "cap_description": "Decode an Opus file to uncompressed WAV (PCM)",
+  "documentation": "## Purpose\n\nDecodes an Opus stream (in OGG container) and writes it as 16-bit signed PCM WAV. Opus is the modern lossy codec used by WebRTC and many browser-recorded audio streams.\n\n## Inputs\n\nAn Opus file (OGG-Opus container).\n\n## Outputs\n\nA 16-bit signed PCM WAV file at 48 kHz (Opus's native rate).\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:opus;audio"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the Opus file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:wav;audio",
+    "output_description": "16-bit PCM WAV at 48 kHz"
+  }
+}

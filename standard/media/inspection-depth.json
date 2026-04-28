@@ -1,0 +1,15 @@
+{
+  "urn": "media:inspection-depth;textable",
+  "media_type": "text/plain",
+  "title": "Inspection Depth",
+  "profile_uri": "https://capdag.com/schema/inspection_depth",
+  "description": "Inspection Depth value",
+  "documentation": "## Purpose\nA qualitative selector that controls how thoroughly a machine examines its input. The three levels (`summary`, `detailed`, `full`) trade off speed and token usage against completeness of analysis.\n\n## When to use\nUse `summary` for quick triage or routing decisions. Use `detailed` for standard analysis where most relevant content should be surfaced. Use `full` when exhaustive inspection is required, such as compliance review or deep extraction tasks.\n\n## Notes\nAllowed values: `summary`, `detailed`, `full`. For numeric depth control in hierarchical documents, use [Outline Max Depth](https://capdag.com/browse/media:outline-max-depth;textable;numeric). The computational cost typically scales with depth level.\n",
+  "validation": {
+    "allowed_values": [
+      "summary",
+      "detailed",
+      "full"
+    ]
+  }
+}

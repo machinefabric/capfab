@@ -1,0 +1,11 @@
+{
+  "urn": "media:list",
+  "media_type": "application/octet-stream",
+  "title": "Untyped List",
+  "profile_uri": "https://capdag.com/schema/list-untyped",
+  "description": "Ordered list of opaque byte sequences.",
+  "documentation": "## Purpose\nThe [Untyped List](https://capdag.com/browse/media:list) type represents an ordered collection of opaque byte sequences where the element type is unspecified. It is the binary form of a list with no textability constraint.\n\n## When to use\nUse this type when a node produces or consumes an ordered series of binary blobs whose individual element format is either unknown or irrelevant. When the elements have a known structure, use a more specific list type such as `media:list;record` or a domain-specific variant.\n\n## Notes\nThe list framing format (length-prefix, delimiter, etc.) is determined by the runtime or protocol layer, not by this media type. Implementers should document the framing convention used at each port.\n",
+  "extensions": [
+    "bin"
+  ]
+}

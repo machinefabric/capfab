@@ -1,0 +1,11 @@
+{
+  "urn": "media:mkv;video",
+  "media_type": "video/x-matroska",
+  "title": "MKV Video",
+  "profile_uri": "https://capdag.com/schema/mkv",
+  "description": "Matroska video container data",
+  "documentation": "## Purpose\nMKV (Matroska Video) is an open-standard multimedia container based on the Extensible Binary Meta Language (EBML). It supports virtually any combination of video, audio, subtitle, and chapter tracks in a single file.\n\n## When to use\nUse [MKV Video](https://capdag.com/browse/media:mkv;video) when storing high-quality video with multiple audio tracks, subtitle streams, or chapter markers — common in media archiving, home theater, and distribution workflows. MKV is well-suited for lossless and high-definition content where flexibility matters more than broad legacy compatibility.\n\n## Notes\nMKV files are self-describing and resilient to corruption: the container can be partially recovered even when truncated. Because MKV is a wrapper, the actual codec capabilities and quality depend entirely on the enclosed streams. Implementers must inspect inner codec types (H.264, HEVC, AV1, etc.) to determine processing requirements.\n",
+  "extensions": [
+    "mkv"
+  ]
+}

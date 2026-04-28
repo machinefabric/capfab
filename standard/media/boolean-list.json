@@ -1,0 +1,11 @@
+{
+  "urn": "media:bool;list;textable",
+  "media_type": "text/plain",
+  "title": "Boolean List",
+  "profile_uri": "https://capdag.com/schema/bool-list",
+  "description": "Text file with one boolean value per line.",
+  "documentation": "## Purpose\nThe [Boolean List](https://capdag.com/browse/media:bool;list;textable) type represents an ordered sequence of true/false values encoded as plain text, one value per line.\n\n## When to use\nUse this type when a node produces or consumes a sequence of boolean decisions — for example, a mask array, a sequence of pass/fail results, or a list of feature flags. For a single boolean value, use `media:bool;textable`.\n\n## Notes\nEach line must contain exactly one boolean literal. Accepted values are `true`/`false`, `yes`/`no`, and `1`/`0` (case-insensitive). Lines must be LF-terminated. Blank lines are errors unless the port contract specifies otherwise.\n",
+  "extensions": [
+    "txt"
+  ]
+}

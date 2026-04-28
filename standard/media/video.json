@@ -1,0 +1,8 @@
+{
+  "urn": "media:video",
+  "media_type": "video/mp4",
+  "title": "Video Data",
+  "profile_uri": "https://capdag.com/schema/video",
+  "description": "Video data (MP4, WebM, etc.)",
+  "documentation": "## Purpose\nThis is the generic video semantic type covering any video content regardless of specific container or codec. It acts as a broad category for video data when the precise format is unknown, unimportant, or when a pipeline accepts multiple video types under a single type reference.\n\n## When to use\nUse [Video Data](https://capdag.com/browse/media:video) as a catch-all media type in graph nodes or machine inputs that can accept any video format. When the specific container is known, prefer the format-specific type such as [MKV Video](https://capdag.com/browse/media:mkv;video), [WebM Video](https://capdag.com/browse/media:webm;video), or [MOV](https://capdag.com/browse/media:mov;video).\n\n## Notes\nThe representative MIME type is `video/mp4` but this type is not limited to MP4 files. Implementers matching on this type should apply container detection at runtime. This type is useful in schema definitions where any video input is acceptable and strict format enforcement is deferred to the processing stage.\n"
+}

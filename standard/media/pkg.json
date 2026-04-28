@@ -1,0 +1,11 @@
+{
+  "urn": "media:pkg;archive",
+  "media_type": "application/x-xar",
+  "title": "macOS Package",
+  "profile_uri": "https://capdag.com/schema/pkg",
+  "description": "macOS installer package",
+  "documentation": "## Purpose\nmacOS `.pkg` files are XAR-format archives used by macOS Installer to install software, scripts, and resources onto a macOS system. The [macOS Package](https://capdag.com/browse/media:pkg;archive) media type represents any macOS installer package produced by `pkgbuild` or `productbuild`.\n\n## When to use\nUse this type when a node produces or consumes macOS installer packages — for example, macOS application distribution pipelines, enterprise deployment tools (Jamf, Munki), notarization workflows, or package signing automation.\n\n## Notes\nPKG files are XAR archives (the `media_type` is `application/x-xar`). They contain a distribution XML or a flat package with a Bom (bill of materials) and a compressed payload. Implementers can inspect contents using `pkgutil --expand` on macOS or the open-source `xar` tool on other platforms. Apple notarization is required for packages distributed outside the Mac App Store on macOS 10.15+. The `;archive` tag indicates this is a packaged archive artifact.\n",
+  "extensions": [
+    "pkg"
+  ]
+}

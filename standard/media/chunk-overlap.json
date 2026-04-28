@@ -1,0 +1,12 @@
+{
+  "urn": "media:chunk-overlap;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Chunk Overlap",
+  "profile_uri": "https://capdag.com/schema/chunk_overlap",
+  "description": "Chunk Overlap numeric value",
+  "documentation": "## Purpose\nDefines the number of tokens or characters shared between consecutive chunks when splitting a document. Overlap preserves context at chunk boundaries, reducing the risk of information loss.\n\n## When to use\nUse alongside [Chunk Size](https://capdag.com/browse/media:chunk-size;textable;numeric) on any machine that segments documents. A typical overlap is 10–20% of the chunk size. Set to 0 when strict non-overlapping segments are required (e.g., when deduplication is critical).\n\n## Notes\nValid range: 0–500. Overlap must be less than chunk size. Larger overlaps increase index size and redundancy, which can reduce retrieval precision in embedding-based search.\n",
+  "validation": {
+    "max": 500,
+    "min": 0
+  }
+}

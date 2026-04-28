@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:bmp;image\";op=convert_image;out=\"media:image;jpeg\"",
+  "command": "convert-image",
+  "title": "Convert BMP to JPEG",
+  "cap_description": "Re-encode a BMP image as a JPEG",
+  "documentation": "## Purpose\n\nDecodes a BMP and writes it as a JPEG, drastically reducing file size for photographic content.\n\n## Inputs\n\nA BMP file.\n\n## Outputs\n\nA JPEG file at quality 85.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:bmp;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the BMP file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:jpeg;image",
+    "output_description": "JPEG-encoded image"
+  }
+}

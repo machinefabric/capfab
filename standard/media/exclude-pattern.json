@@ -1,0 +1,8 @@
+{
+  "urn": "media:exclude-pattern;textable",
+  "media_type": "text/plain",
+  "title": "Exclude Pattern",
+  "profile_uri": "https://capdag.com/schema/exclude_pattern",
+  "description": "Exclude Pattern value",
+  "documentation": "## Purpose\n\nExclude Pattern specifies items that should be removed from a collection even if they match other selection criteria. It acts as a deny-list filter applied after inclusion rules.\n\n## When to use\n\nUse this media type together with [Include Pattern](https://capdag.com/browse/media:include-pattern;textable) and [Filter Pattern](https://capdag.com/browse/media:filter-pattern;textable) when a node supports a layered matching strategy. Exclude patterns are evaluated last, so they take precedence over include patterns.\n\n## Notes\n\nThe pattern syntax is determined by the consuming node. A common convention is glob-style wildcards (e.g., `*.tmp`, `build/**`). Verify the node's documentation before relying on regular expression syntax.\n"
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:list;numeric;real;textable",
+  "media_type": "text/plain",
+  "title": "Real List",
+  "profile_uri": "https://capdag.com/schema/real-list",
+  "description": "Text file with one real numeric value per line.",
+  "documentation": "## Purpose\nThe [Real List](https://capdag.com/browse/media:list;numeric;real;textable) type represents an ordered sequence of real (non-complex) floating-point values encoded as plain text, one per line.\n\n## When to use\nUse this type when a node produces or consumes a sequence of real-valued measurements — for example, a time series of sensor readings, a list of probabilities, or an array of distances. For values that may be complex, use `media:complex;list;numeric;textable`.\n\n## Notes\nEach line must contain exactly one real-valued floating-point literal. Blank lines and non-numeric content are errors. Implementers should parse each value as a 64-bit IEEE 754 double unless the port contract specifies a different precision.\n",
+  "extensions": [
+    "txt"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:wmv;video",
+  "media_type": "video/x-ms-wmv",
+  "title": "WMV Video",
+  "profile_uri": "https://capdag.com/schema/wmv",
+  "description": "Windows Media Video data",
+  "documentation": "## Purpose\nWMV (Windows Media Video) is Microsoft's proprietary video container and codec family, part of the Windows Media framework. It was widely used for video distribution on Windows platforms and embedded in Microsoft Office documents and Windows Media Player.\n\n## When to use\nUse [WMV Video](https://capdag.com/browse/media:wmv;video) when ingesting video sourced from Windows-based capture tools, legacy corporate media libraries, or content delivered via Microsoft Silverlight or Windows Media Player. For cross-platform delivery, transcode to [MP4](https://capdag.com/browse/media:video).\n\n## Notes\nWMV wraps the VC-1 (or older WMV7/8/9) codec using the Advanced Systems Format (ASF) container. Playback on non-Windows platforms requires third-party codec support. DRM-protected WMV files are common in legacy digital distribution and require license acquisition before decoding.\n",
+  "extensions": [
+    "wmv"
+  ]
+}

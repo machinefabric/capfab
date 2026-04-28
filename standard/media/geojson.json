@@ -1,0 +1,11 @@
+{
+  "urn": "media:geojson;record;textable",
+  "media_type": "application/geo+json",
+  "title": "GeoJSON",
+  "profile_uri": "https://capdag.com/schema/geojson",
+  "description": "GeoJSON geographic data",
+  "documentation": "## Purpose\nGeoJSON (RFC 7946) is a JSON-based format for encoding geographic features — points, lines, polygons, and their properties — in a coordinate reference system (WGS 84 by default). The [GeoJSON](https://capdag.com/browse/media:geojson;record;textable) media type represents any `.geojson` file containing a valid GeoJSON object.\n\n## When to use\nUse this type when a node produces or consumes geographic vector data — for example, map layers, location datasets, geofencing boundaries, or route geometries. GeoJSON is the standard interchange format for web mapping tools such as Leaflet, Mapbox, and the Google Maps API.\n\n## Notes\nThe top-level object is one of `FeatureCollection`, `Feature`, or a geometry type (`Point`, `LineString`, `Polygon`, etc.). The `;record;textable` tags indicate that the file is a structured record and human-readable text. Implementers should validate coordinate winding order (counterclockwise for exterior rings) as required by RFC 7946 and handle antimeridian-crossing geometries explicitly.\n",
+  "extensions": [
+    "geojson"
+  ]
+}

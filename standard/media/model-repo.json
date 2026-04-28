@@ -1,0 +1,16 @@
+{
+  "urn": "media:model-repo;textable;record",
+  "media_type": "application/json",
+  "title": "Model Repository",
+  "profile_uri": "https://capdag.com/schema/model-repo",
+  "description": "Model repository(e.g., huggingface)",
+  "documentation": "## Purpose\nIdentifies which external model repository a model spec resolves against. Currently the only supported value is `huggingface`, which causes the system to resolve model specifications against the HuggingFace Hub API and download infrastructure.\n\n## When to use\nUse this type as a parameter when a cap needs to know which registry to query. Most model specs encode the repository in their prefix (e.g. `hf:` for HuggingFace), so this type is primarily useful when the repository must be specified separately from the spec string.\n\n## Notes\nThe allowed value is `huggingface`. Additional repository types may be added in future; implementations should reject unknown values rather than silently defaulting. See [Model Spec](https://capdag.com/browse/media:model-spec;textable) for the combined spec format.\n",
+  "extensions": [
+    "json"
+  ],
+  "validation": {
+    "allowed_values": [
+      "huggingface"
+    ]
+  }
+}

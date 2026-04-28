@@ -1,0 +1,12 @@
+{
+  "urn": "media:mpeg;video",
+  "media_type": "video/mpeg",
+  "title": "MPEG Video",
+  "profile_uri": "https://capdag.com/schema/mpeg",
+  "description": "MPEG video data",
+  "documentation": "## Purpose\nMPEG refers to the family of video standards defined by the Moving Picture Experts Group, including MPEG-1 and MPEG-2 program streams. These formats were foundational for VCD, DVD, digital broadcast, and early internet video distribution.\n\n## When to use\nUse [MPEG Video](https://capdag.com/browse/media:mpeg;video) when ingesting legacy video content from DVD rips, broadcast capture, or archival sources that use `.mpeg` or `.mpg` files. For new production or distribution, prefer [MP4](https://capdag.com/browse/media:video) or [MKV Video](https://capdag.com/browse/media:mkv;video) which carry more capable codecs.\n\n## Notes\nThe `.mpeg` and `.mpg` extensions are ambiguous — they may contain MPEG-1 (up to 352x240 at 1.5 Mbit/s) or MPEG-2 video (DVD-quality up to 10 Mbit/s). Implementers should probe the bitstream to determine the exact stream type. MPEG-2 transport streams are handled separately under [MPEG Transport Stream](https://capdag.com/browse/media:ts;video).\n",
+  "extensions": [
+    "mpeg",
+    "mpg"
+  ]
+}

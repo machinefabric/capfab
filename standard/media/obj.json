@@ -1,0 +1,11 @@
+{
+  "urn": "media:obj;model",
+  "media_type": "model/obj",
+  "title": "OBJ Model",
+  "profile_uri": "https://capdag.com/schema/obj",
+  "description": "Wavefront OBJ 3D model",
+  "documentation": "## Purpose\nWavefront OBJ is a plain-text format for describing 3D geometry — vertices, normals, texture coordinates, and faces — originally developed by Wavefront Technologies. The [OBJ Model](https://capdag.com/browse/media:obj;model) media type represents any `.obj` file following this convention.\n\n## When to use\nUse this type when a node produces or consumes simple 3D mesh geometry in a widely-supported, human-readable format — for example, 3D printing preparation, mesh inspection, or interchange with geometry-processing tools. OBJ does not support animations or complex scene graphs; use [FBX](https://capdag.com/browse/media:fbx;model) or [GLB](https://capdag.com/browse/media:glb;model) when those features are needed.\n\n## Notes\nOBJ files are UTF-8 (or ASCII) text; material properties are referenced via a companion `.mtl` file. The `;model` tag indicates this is a 3D model artifact. Implementers should be aware that face indices in OBJ are 1-based, not 0-based. When processing large meshes, streaming line-by-line parsing is more memory efficient than loading the entire file at once.\n",
+  "extensions": [
+    "obj"
+  ]
+}

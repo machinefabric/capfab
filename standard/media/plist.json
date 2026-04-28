@@ -1,0 +1,11 @@
+{
+  "urn": "media:plist;record",
+  "media_type": "application/x-plist",
+  "title": "Property List",
+  "profile_uri": "https://capdag.com/schema/plist",
+  "description": "Apple property list data",
+  "documentation": "## Purpose\nCarries Apple Property List files used throughout macOS and iOS for configuration, preferences, and metadata. Plist files can be serialized in XML, binary, or JSON formats; the `application/x-plist` type covers all three variants.\n\n## When to use\nUse `media:plist;record` when a pipeline node reads or generates plist data — for example, an Xcode project configuration step, an app bundle inspector, a code-signing step that reads entitlements, or a tool that converts plist to JSON for cross-platform processing.\n\n## Notes\nBinary plists can be converted to XML using `plutil -convert xml1` on macOS. XML plists are human-readable but verbose. Common plist consumers include macOS preference domains (`defaults`), `Info.plist` in app bundles, and Xcode project files. See also [Property List](https://capdag.com/browse/media:plist;record).\n",
+  "extensions": [
+    "plist"
+  ]
+}

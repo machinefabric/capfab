@@ -1,0 +1,8 @@
+{
+  "urn": "media:textable;key",
+  "media_type": "text/plain",
+  "title": "Dictionary Key",
+  "profile_uri": "https://capdag.com/schema/dictionary_key",
+  "description": "Dictionary key",
+  "documentation": "## Purpose\n\nDictionary Key is a plain-text string that identifies an entry within a key-value dictionary or record. It is used by nodes that read from or write to structured data by specifying which slot to access.\n\n## When to use\n\nUse this media type when a node must address a specific field within a dictionary-shaped payload. It pairs naturally with [Substitutions](https://capdag.com/browse/media:substitutions;textable;record) or [Schema Variables](https://capdag.com/browse/media:schema-variables;textable;record) when a single key needs to be extracted or overridden.\n\n## Notes\n\nKey values are opaque strings; the system does not interpret dots or brackets as path separators unless the consuming node explicitly documents that behavior. Use a consistent naming convention across your pipeline to avoid ambiguity.\n"
+}

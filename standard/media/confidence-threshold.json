@@ -1,0 +1,12 @@
+{
+  "urn": "media:confidence-threshold;textable;numeric",
+  "media_type": "text/plain",
+  "title": "Confidence Threshold",
+  "profile_uri": "https://capdag.com/schema/confidence_threshold",
+  "description": "Confidence Threshold numeric value",
+  "documentation": "## Purpose\nA probability cutoff below which a machine's output is considered unreliable and should be suppressed, flagged, or sent to a fallback path. Typically used in classification or decision machines.\n\n## When to use\nSet a confidence threshold when downstream processes require a minimum certainty level. Results with scores below the threshold can be routed for human review or discarded. A common starting point is 0.7–0.9 for high-precision tasks.\n\n## Notes\nValid range: 0.0–1.0. A threshold of 0.0 accepts all results; 1.0 requires perfect certainty and will suppress most output. Pair with [Decision](https://capdag.com/browse/media:decision;json;record;textable) or classification output types that carry probability scores.\n",
+  "validation": {
+    "min": 0,
+    "max": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:complex;numeric;textable",
+  "media_type": "text/plain",
+  "title": "Complex",
+  "profile_uri": "https://capdag.com/schema/complex",
+  "description": "Complex numeric value.",
+  "documentation": "## Purpose\nThe [Complex](https://capdag.com/browse/media:complex;numeric;textable) type represents a single complex number (with real and imaginary parts) encoded as UTF-8 text.\n\n## When to use\nUse this type when a node produces or consumes complex-valued scalars — for example, outputs from FFT analysis, signal processing nodes, or quantum computing simulations.\n\n## Notes\nThe canonical text representation is `a+bj` (Python-style) or `a+bi`, where `a` is the real part and `b` is the imaginary part. Implementers should document the exact notation convention at the port. For sequences of complex values, use `media:complex;list;numeric;textable`.\n",
+  "extensions": [
+    "txt"
+  ]
+}

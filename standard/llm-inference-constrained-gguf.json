@@ -1,0 +1,24 @@
+{
+  "urn": "cap:constrained;gguf;in=\"media:json;llm-generation-request;record\";llm;ml-model;op=llm_inference_constrained;out=\"media:llm-text-stream;ndjson\"",
+  "command": "inference",
+  "title": "Constrained LLM Generation (GGUF)",
+  "cap_description": "Generate text with LLGuidance constraints (JSON schema, regex, grammar). Output is NDJSON streaming.",
+  "documentation": "## Purpose\n\nRuns autoregressive text generation with hard structural constraints using LLGuidance. The model is guaranteed to produce output that matches the supplied JSON schema, regular expression, or grammar — making this the right cap when downstream code must parse the LLM output without error handling for malformed text.\n\n## Inputs\n\nA JSON generation request record that additionally includes a `constraint` field. The constraint can be one of:\n- `json_schema`: a JSON Schema object the output must validate against\n- `regex`: a regular expression string the output must match\n- `grammar`: a context-free grammar in GBNF or LLGuidance format\n\n## Outputs\n\nAn NDJSON stream of constrained tokens and a final completion message, same format as the unconstrained inference caps.\n\n## Notes\n\n- Constraint enforcement happens at the token-sampling level via LLGuidance — the model cannot produce tokens that would violate the constraint.\n- Structured output via JSON schema is the most common use case: specify the exact fields and types you need and receive valid JSON every time.\n- Performance overhead compared to unconstrained inference is small for simple schemas; complex grammars may add latency.\n- Use this cap when building pipelines where a downstream cap expects well-formed JSON and you cannot tolerate parse failures.\n- See also: [Make a Decision](https://capdag.com/browse/cap:constrained;in=\"media:textable\";language=en;op=make_decision;out=\"media:decision;json;record;textable\") and [Generate JSON](https://capdag.com/browse/cap:constrained;in=\"media:textable\";language=en;op=generate_json;out=\"media:json;textable;record\") for higher-level constrained tasks.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:llm-generation-request;json;record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:llm-generation-request;json;record"
+        }
+      ],
+      "arg_description": "The generation request with constraint field (json_schema, regex, or grammar)"
+    }
+  ],
+  "output": {
+    "media_urn": "media:llm-text-stream;ndjson",
+    "output_description": "NDJSON stream of constrained tokens and completion"
+  }
+}

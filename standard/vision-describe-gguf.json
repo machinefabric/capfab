@@ -1,0 +1,71 @@
+{
+  "urn": "cap:gguf;in=\"media:image;png\";ml-model;op=describe_image;out=\"media:image-description;textable\";vision",
+  "command": "describe_image",
+  "title": "Describe Image (GGUF)",
+  "cap_description": "Generate detailed image descriptions using GGUF multimodal models (LLaVA, BakLLaVA) with llama.cpp backend",
+  "documentation": "## Purpose\n\nGenerates detailed, instruction-following natural-language descriptions of PNG images using GGUF multimodal (vision-language) models via llama.cpp. Supports models like moondream2, LLaVA, and BakLLaVA. The prompt can ask specific questions about image content.\n\n## Inputs\n\n- A GGUF vision model spec (HuggingFace repo or local path). Defaults to `moondream2-20250414-GGUF`.\n- A PNG image file.\n- A text prompt (default: \"Describe this image in detail.\"). Customize to ask specific questions.\n- Max tokens (default 256) and temperature (default 0.6).\n\n## Outputs\n\nA text description of the image as a plain string.\n\n## Notes\n\n- Vision-language models follow instructions in the prompt, making them more flexible than BLIP-style captioning models.\n- Lower temperature (0.3-0.5) produces more factual, less creative descriptions.\n- For Apple Silicon, prefer [Describe Image (MLX)](https://capdag.com/browse/cap:in=\"media:image;png\";ml-model;mlx;op=describe_image;out=\"media:image-description;textable\";vision) for better performance.\n- Input must be PNG.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-spec;gguf;textable;vision",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "GGUF vision model specification (HuggingFace repo or local path)",
+      "default_value": "hf:ggml-org/moondream2-20250414-GGUF"
+    },
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:image;png"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the image file to describe"
+    },
+    {
+      "media_urn": "media:textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--prompt"
+        }
+      ],
+      "arg_description": "Text prompt for the image description",
+      "default_value": "Describe this image in detail."
+    },
+    {
+      "media_urn": "media:max-tokens;inference;limit;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum number of tokens to generate",
+      "default_value": 256
+    },
+    {
+      "media_urn": "media:temperature;inference;sampling;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--temperature"
+        }
+      ],
+      "arg_description": "Sampling temperature (0.0-2.0)",
+      "default_value": 0.6
+    }
+  ],
+  "output": {
+    "media_urn": "media:image-description;textable",
+    "output_description": "Text description of the image"
+  }
+}

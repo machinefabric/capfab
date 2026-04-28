@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:csv;list;record;textable\";op=convert_format;out=\"media:list;textable\"",
+  "command": "convert_format",
+  "title": "Convert CSV to Text List",
+  "cap_description": "Convert CSV data to a list of textable values",
+  "documentation": "## Purpose\n\nConverts CSV data into a flat list of textable values. Use this when you need the raw cell values from a CSV as individual text items, discarding the row/column structure.\n\n## Inputs\n\nA CSV file.\n\n## Outputs\n\nA list of textable string values (cells flattened from the CSV).\n\n## Notes\n\n- Row and column structure is lost; the output is a flat sequence of cell values.\n- If you need to preserve row structure, use [Convert CSV to JSON Array of Objects](https://capdag.com/browse/cap:in=\"media:csv;list;record;textable\";op=convert_format;out=\"media:json;list;record;textable\") instead.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:csv;list;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:csv;list;record;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "CSV data to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:list;textable",
+    "output_description": "List of textable values"
+  }
+}

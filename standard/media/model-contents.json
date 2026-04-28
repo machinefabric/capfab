@@ -1,0 +1,96 @@
+{
+  "urn": "media:model-contents;textable;record",
+  "media_type": "application/json",
+  "title": "Model Contents",
+  "profile_uri": "https://capdag.com/schema/model-contents",
+  "description": "Complete repository structure with all files and directories for a model",
+  "documentation": "## Purpose\nProvides a detailed inventory of all files and directories in a model repository, including sizes, checksums, and local availability. This allows callers to inspect exactly what a model package contains before or after downloading.\n\n## When to use\nUse this type when a user or orchestrator needs to understand which files make up a model, verify checksums, or determine which files have already been downloaded. It is the output of a model-contents inspection cap.\n\n## Notes\nThe `all_files` array is a flat listing of every entry in the repository. The optional `root` object provides the same information as a hierarchy for UIs that need a tree view. The `metadata` object contains repository-level information such as tags or licence identifiers if the repository exposes them.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "model_name",
+      "repository",
+      "all_files"
+    ],
+    "properties": {
+      "model_name": {
+        "type": "string",
+        "description": "Model name/identifier"
+      },
+      "repository": {
+        "type": "string",
+        "description": "Repository source (e.g., 'huggingface', 'local')"
+      },
+      "total_size_bytes": {
+        "type": "integer",
+        "description": "Total size of all files in bytes"
+      },
+      "file_count": {
+        "type": "integer",
+        "description": "Number of files in the repository"
+      },
+      "directory_count": {
+        "type": "integer",
+        "description": "Number of directories in the repository"
+      },
+      "all_files": {
+        "type": "array",
+        "description": "Flat list of all files in the repository",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "File or directory name"
+            },
+            "entry_type": {
+              "type": "string",
+              "enum": [
+                "file",
+                "directory",
+                "symlink",
+                "other"
+              ],
+              "description": "Type of entry"
+            },
+            "size_bytes": {
+              "type": "integer",
+              "description": "File size in bytes (null for directories)"
+            },
+            "checksum": {
+              "type": "string",
+              "description": "File checksum if available"
+            },
+            "checksum_algorithm": {
+              "type": "string",
+              "description": "Checksum algorithm (e.g., 'sha256', 'sha1')"
+            },
+            "local_available": {
+              "type": "boolean",
+              "description": "Whether this file is locally available"
+            },
+            "local_path": {
+              "type": "string",
+              "description": "Local file path if available"
+            },
+            "blob_id": {
+              "type": "string",
+              "description": "Repository-specific blob identifier"
+            }
+          }
+        }
+      },
+      "root": {
+        "type": "object",
+        "description": "Hierarchical directory structure (optional)"
+      },
+      "metadata": {
+        "type": "object",
+        "description": "Repository-level metadata"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "urn": "media:asciidoc;textable",
+  "media_type": "text/x-asciidoc",
+  "title": "AsciiDoc",
+  "profile_uri": "https://capdag.com/schema/asciidoc",
+  "description": "AsciiDoc markup document",
+  "documentation": "## Purpose\nCarries AsciiDoc source documents used for technical writing, API documentation, and books. AsciiDoc is a lightweight markup language with richer semantics than Markdown, supporting tables, admonitions, cross-references, and multi-file includes natively.\n\n## When to use\nUse `media:asciidoc;textable` when a pipeline node renders, converts, or analyzes AsciiDoc — for example, an Asciidoctor HTML rendering step, a documentation site builder, or a prose style-checking tool.\n\n## Notes\nAsciiDoc is processed by Asciidoctor (Ruby) or AsciidoctorJ (JVM) and can target HTML, PDF, DocBook, and EPUB output. The `.adoc` extension is most common in modern projects; `.asciidoc` is the original but less frequently used extension. See also [AsciiDoc](https://capdag.com/browse/media:asciidoc;textable).\n",
+  "extensions": [
+    "adoc",
+    "asciidoc"
+  ]
+}

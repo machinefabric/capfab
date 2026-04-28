@@ -1,0 +1,11 @@
+{
+  "urn": "media:astro;textable;code",
+  "media_type": "text/x-astro",
+  "title": "Astro Component",
+  "profile_uri": "https://capdag.com/schema/astro",
+  "description": "Astro component source",
+  "documentation": "## Purpose\nCarries Astro component files, which combine a frontmatter script block (TypeScript/JavaScript), HTML-like templating, and optional client-side component islands from any supported UI framework (React, Vue, Svelte, Solid). Astro targets high-performance static and server-rendered websites.\n\n## When to use\nUse `media:astro;textable;code` when a pipeline node processes `.astro` files — for example, a build step invoking the Astro CLI, a component analysis tool, or an LLM node generating Astro page templates.\n\n## Notes\nAstro's component model renders to HTML by default with zero JavaScript shipped unless an explicit `client:*` directive is used. The `.astro` file format is specific to the Astro framework and requires the Astro compiler for transformation. See also [Astro Component](https://capdag.com/browse/media:astro;textable;code).\n",
+  "extensions": [
+    "astro"
+  ]
+}

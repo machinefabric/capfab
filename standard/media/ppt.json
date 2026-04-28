@@ -1,0 +1,11 @@
+{
+  "urn": "media:ppt",
+  "media_type": "application/vnd.ms-powerpoint",
+  "title": "PowerPoint Presentation (Legacy)",
+  "profile_uri": "https://capdag.com/schema/ppt",
+  "description": "Microsoft PowerPoint legacy presentation data",
+  "documentation": "## Purpose\nCarries legacy Microsoft PowerPoint presentations in the binary format (`.ppt`) used by PowerPoint 97 through PowerPoint 2003. This format is encountered in archival collections and older enterprise document stores.\n\n## When to use\nUse `media:ppt` when a pipeline node must process old-format presentations — for example, a document conversion step using LibreOffice to render slides as images or PDF. For current presentations, prefer [PowerPoint Presentation](https://capdag.com/browse/media:pptx).\n\n## Notes\nThe binary `.ppt` format has limited open-source tooling support. LibreOffice provides the most complete conversion path. Text and image extraction from `.ppt` files is less reliable than from PPTX. See also [PowerPoint Presentation (Legacy)](https://capdag.com/browse/media:ppt).\n",
+  "extensions": [
+    "ppt"
+  ]
+}

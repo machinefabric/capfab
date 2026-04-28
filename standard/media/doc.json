@@ -1,0 +1,11 @@
+{
+  "urn": "media:doc",
+  "media_type": "application/msword",
+  "title": "Word Document (Legacy)",
+  "profile_uri": "https://capdag.com/schema/doc",
+  "description": "Microsoft Word legacy document data",
+  "documentation": "## Purpose\nCarries legacy Microsoft Word documents in the binary Compound Document File Format (`.doc`) used by Word 97 through Word 2003. This format predates the Open XML standard and is still encountered in archival and enterprise contexts.\n\n## When to use\nUse `media:doc` when a pipeline node processes legacy Word files — for example, a document conversion step using LibreOffice or `antiword` to extract text, or an archival ingestion step that needs to distinguish legacy from modern Word format. For current Word documents, prefer [Word Document](https://capdag.com/browse/media:docx).\n\n## Notes\nThe binary `.doc` format is proprietary and complex; open-source support is incomplete compared to DOCX. Conversion to DOCX or PDF is recommended before performing text extraction or rendering. See also [Word Document (Legacy)](https://capdag.com/browse/media:doc).\n",
+  "extensions": [
+    "doc"
+  ]
+}

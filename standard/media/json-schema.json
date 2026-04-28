@@ -1,0 +1,11 @@
+{
+  "urn": "media:json;json-schema;textable;record",
+  "media_type": "application/json",
+  "title": "JSON Document",
+  "profile_uri": "https://capdag.com/schema/json",
+  "description": "JSON formatted document",
+  "documentation": "## Purpose\nRepresents a JSON document that also conforms to the JSON Schema specification. The `json-schema` tag signals that the payload can be used to validate other JSON documents, not merely that it is valid JSON itself.\n\n## When to use\nUse `media:json;json-schema;textable;record` when a node produces or requires a JSON Schema — for example a schema generator, a validator configuration, or a tool that introspects API contracts. For ordinary JSON objects, use [JSON Object](https://capdag.com/browse/media:json;textable;record).\n\n## Notes\nJSON Schema documents are themselves JSON objects, so this type inherits the `record` and `textable` traits. Consumers that simply need to read or display the content may treat this as a standard [JSON Object](https://capdag.com/browse/media:json;textable;record).\n",
+  "extensions": [
+    "json"
+  ]
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: MachineFabric homepage
+    url: https://machinefabric.com
+    about: Background on the wider MachineFabric project that CapFab is part of.
+  - name: CAPDAG registry
+    url: https://capdag.com
+    about: The live registry where the definitions in this repository are published.

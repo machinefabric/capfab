@@ -1,0 +1,16 @@
+{
+  "urn": "media:llm;mistral;model-spec;textable",
+  "media_type": "text/plain",
+  "title": "Mistral Family LLM Model Spec",
+  "profile_uri": "https://capdag.com/schema/model_spec",
+  "description": "Model specification for Mistral-family instruct models. Uses [INST]/[/INST] chat template.",
+  "documentation": "## Purpose\nTags a model spec as belonging to the Mistral model family, allowing the runtime to apply the correct `[INST]/[/INST]` chat template and any Mistral-specific inference optimisations automatically.\n\n## When to use\nThis tag is added by the ValueAdapter when model content inspection identifies a Mistral-family model. Do not set it manually unless you are certain the model uses the Mistral chat template.\n\n## Notes\nThe tag is backend-agnostic. Mistral-family GGUF models will carry `media:gguf;llm;mistral;model-spec;textable` after full resolution.\n",
+  "extensions": [
+    "txt"
+  ],
+  "validation": {
+    "max_length": 512,
+    "min_length": 1,
+    "pattern": ".*:.*"
+  }
+}

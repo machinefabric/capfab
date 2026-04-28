@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:json;list;textable\";op=convert_format;out=\"media:list;textable;yaml\"",
+  "command": "convert_format",
+  "title": "Convert JSON Array to YAML List",
+  "cap_description": "Convert a JSON array to a YAML sequence",
+  "documentation": "## Purpose\n\nConverts a JSON array into a YAML sequence. Use this when downstream caps or configuration files expect YAML but the upstream produces a JSON array.\n\n## Inputs\n\nA JSON array.\n\n## Outputs\n\nA YAML sequence.\n\n## Notes\n\n- Semantically lossless for all JSON scalar types.\n- For the reverse, use [Convert YAML List to JSON Array](https://capdag.com/browse/cap:in=\"media:list;textable;yaml\";op=convert_format;out=\"media:json;list;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:json;list;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:json;list;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "JSON array to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:list;textable;yaml",
+    "output_description": "YAML formatted sequence"
+  }
+}

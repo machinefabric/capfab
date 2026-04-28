@@ -1,0 +1,11 @@
+{
+  "urn": "media:gosum;textable;list",
+  "media_type": "text/plain",
+  "title": "Go Checksum",
+  "profile_uri": "https://capdag.com/schema/gosum",
+  "description": "Go module checksums",
+  "documentation": "## Purpose\nCarries a `go.sum` file that records the cryptographic hashes of all module zip archives and `go.mod` files that a Go module depends on, either directly or transitively. The Go toolchain verifies these hashes on every build to detect tampering or supply chain corruption.\n\n## When to use\nUse `media:gosum;textable;list` when a pipeline node audits, regenerates, or validates Go dependency checksums — for example, a security scan step that cross-references hashes against a transparency log, or a CI step verifying that `go.sum` is consistent with `go.mod`.\n\n## Notes\nThe `go.sum` file is maintained automatically by `go mod tidy` and related commands. It should be committed to version control alongside [Go Module](https://capdag.com/browse/media:gomod;textable) (`go.mod`). Removing or editing entries manually can break builds. See also [Go Checksum](https://capdag.com/browse/media:gosum;textable;list).\n",
+  "extensions": [
+    "sum"
+  ]
+}

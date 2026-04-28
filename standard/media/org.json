@@ -1,0 +1,11 @@
+{
+  "urn": "media:org;textable",
+  "media_type": "text/x-org",
+  "title": "Org-mode Document",
+  "profile_uri": "https://capdag.com/schema/org",
+  "description": "Emacs Org-mode document",
+  "documentation": "## Purpose\nCarries Emacs Org-mode files, which combine plain-text markup, structured outlines, TODO task management, literate programming (Babel code blocks), and tabular data in a single format. Org-mode is primarily used within Emacs but can be exported and processed by external tools.\n\n## When to use\nUse `media:org;textable` when a pipeline node processes `.org` files — for example, a Pandoc conversion step targeting HTML or Markdown output, a task extraction step reading TODO entries, or a literate-programming executor running embedded code blocks.\n\n## Notes\nOrg-mode's export and Babel subsystems require Emacs for full fidelity. Standalone parsers (e.g., `org-ruby`, `orgparse`) support a subset of the format. Org files can embed code blocks in any language, making them a general-purpose literate programming format. See also [Org-mode Document](https://capdag.com/browse/media:org;textable).\n",
+  "extensions": [
+    "org"
+  ]
+}

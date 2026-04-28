@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:integer;numeric;textable\";op=coerce;out=media:textable",
+  "command": "coerce",
+  "title": "Coerce Integer to String",
+  "cap_description": "Convert an integer value to its string representation",
+  "documentation": "## Purpose\n\nConverts an integer to its decimal string representation. Use this when a downstream cap requires a text value but the upstream produces an integer.\n\n## Inputs\n\nAn integer value (media type `media:integer;numeric;textable`).\n\n## Outputs\n\nThe decimal string representation of the integer (e.g. `42` becomes `\"42\"`).\n\n## Notes\n\n- No locale-specific formatting — output is always plain decimal digits.\n- For the reverse conversion, use [Coerce String to Integer](https://capdag.com/browse/cap:in=media:textable;op=coerce;out=\"media:integer;numeric;textable\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:integer;numeric;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:integer;numeric;textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input value to coerce"
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Coerced value"
+  }
+}

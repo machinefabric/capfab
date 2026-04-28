@@ -1,0 +1,8 @@
+{
+  "urn": "media:callback-enabled-flag;textable",
+  "media_type": "text/plain",
+  "title": "Callback Enabled Flag",
+  "profile_uri": "https://capdag.com/schema/callback_enabled_flag",
+  "description": "Callback Enabled Flag value",
+  "documentation": "## Purpose\nA boolean flag that controls whether a machine emits progress or result notifications to a registered callback endpoint during or after execution.\n\n## When to use\nEnable when a long-running machine should notify an external system of completion or intermediate results without requiring the caller to poll. Disable for synchronous, request-response pipelines where callbacks add unnecessary complexity.\n\n## Notes\nCallback endpoint configuration is managed separately from this flag. Enabling callbacks requires that the runtime supports the callback mechanism and that a valid endpoint is registered. See [Stream Flag](https://capdag.com/browse/media:stream-flag;textable) for token-level streaming as an alternative to callbacks.\n"
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:onnx;model",
+  "media_type": "application/octet-stream",
+  "title": "ONNX Model",
+  "profile_uri": "https://capdag.com/schema/onnx",
+  "description": "ONNX machine learning model",
+  "documentation": "## Purpose\nIdentifies a model in the Open Neural Network Exchange (ONNX) format, a cross-platform intermediate representation for machine learning models. ONNX models can be run by any compatible runtime including ONNX Runtime, TensorRT, and others.\n\n## When to use\nUse this type when a cap produces or consumes an ONNX model file. ONNX is particularly common for optimised encoder models used in embedding generation and for models exported from PyTorch or TensorFlow for deployment in production runtimes.\n\n## Notes\nLarge models may be split across multiple `.onnx` files with external data files. Caps that load ONNX models should document whether they accept single-file or multi-file models. The ONNX format does not impose a chat template convention; these details are handled by the surrounding cap logic.\n",
+  "extensions": [
+    "onnx"
+  ]
+}

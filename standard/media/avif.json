@@ -1,0 +1,11 @@
+{
+  "urn": "media:avif;image",
+  "media_type": "image/avif",
+  "title": "AVIF Image",
+  "profile_uri": "https://capdag.com/schema/avif",
+  "description": "AV1 Image File Format data",
+  "documentation": "## Purpose\nRepresents an AVIF image, a next-generation format based on the AV1 video codec. AVIF provides superior compression compared to JPEG, PNG, and WebP, with support for HDR, wide colour gamut, lossless compression, and alpha transparency.\n\n## When to use\nUse `media:avif;image` when a node produces or consumes AVIF images, especially where maximum compression efficiency or HDR support is required. For broader compatibility with older systems, prefer [WebP Image](https://capdag.com/browse/media:webp;image) or [JPEG Image](https://capdag.com/browse/media:jpeg;image).\n\n## Notes\nAVIF encoding is computationally intensive compared to older formats. Decoding support is available in modern browsers and operating systems but may be absent in older toolchains. Verify codec availability in the target environment before adopting AVIF as a pipeline format.\n",
+  "extensions": [
+    "avif"
+  ]
+}

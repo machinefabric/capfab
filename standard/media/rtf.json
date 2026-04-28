@@ -1,0 +1,11 @@
+{
+  "urn": "media:rtf;textable",
+  "media_type": "application/rtf",
+  "title": "Rich Text Format",
+  "profile_uri": "https://capdag.com/schema/rtf",
+  "description": "Rich Text Format document data",
+  "documentation": "## Purpose\nCarries Rich Text Format documents (`.rtf`), a Microsoft-developed cross-platform document format that encodes text with formatting using ASCII control words. RTF is supported by virtually all word processors and has been widely used for formatted document interchange since the late 1980s.\n\n## When to use\nUse `media:rtf;textable` when a pipeline node processes RTF documents — for example, a text extraction step using `python-rtf` or LibreOffice, an email attachment handler that renders RTF bodies, or a legacy document conversion step.\n\n## Notes\nRTF is technically a plain-text format (ASCII control codes), making it `textable` even though it carries rich formatted content. LibreOffice and most word processors can convert RTF to DOCX or PDF. The format is largely superseded by DOCX but remains common in legal and email contexts. See also [Rich Text Format](https://capdag.com/browse/media:rtf;textable).\n",
+  "extensions": [
+    "rtf"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:ics;textable;list",
+  "media_type": "text/calendar",
+  "title": "iCalendar",
+  "profile_uri": "https://capdag.com/schema/ics",
+  "description": "iCalendar event data",
+  "documentation": "## Purpose\niCalendar (RFC 5545) is a text format for representing calendar events, tasks, and scheduling data. The [iCalendar](https://capdag.com/browse/media:ics;textable;list) media type represents `.ics` files that may contain one or more `VEVENT`, `VTODO`, or `VJOURNAL` components.\n\n## When to use\nUse this type when a node produces or consumes calendar data — for example, scheduling automation, event import/export, meeting invitations, or calendar feed aggregation. It is the universal interchange format supported by Google Calendar, Apple Calendar, Outlook, and most other calendar applications.\n\n## Notes\nAn iCalendar file begins with `BEGIN:VCALENDAR` and ends with `END:VCALENDAR`. The `;textable;list` tags reflect that the file is human-readable text containing an ordered list of calendar components. Implementers should use an RFC 5545-compliant parser (e.g., `icalendar` in Python) to handle recurrence rules, time zone definitions, and property parameter encoding correctly.\n",
+  "extensions": [
+    "ics"
+  ]
+}

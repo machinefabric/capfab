@@ -1,0 +1,82 @@
+{
+  "urn": "cap:candle;in=media:textable;llm;ml-model;op=generate_text;out=media:textable",
+  "command": "run_inference",
+  "title": "Generate Text with LLM (Candle)",
+  "cap_description": "Generate text using Candle transformer models (Mistral/Llama safetensors)",
+  "documentation": "## Purpose\n\nAccepts a raw text prompt and generates a text continuation using a Candle safetensors LLM. This is a simpler, prompt-in / text-out interface compared to the structured request used by the llm-inference caps. Suitable for quick text generation without building a full generation request object.\n\n## Inputs\n\n- A text prompt (plain text, passed via stdin or positional arg).\n- A model spec (HuggingFace safetensors repo). Defaults to `Mistral-7B-Instruct-v0.3`.\n- Sampling parameters: max tokens (512), temperature (0.7), top-p (0.9), seed (42).\n\n## Outputs\n\nGenerated text streamed as raw text chunks (not NDJSON).\n\n## Notes\n\n- Use this cap for simple prompt-in / text-out pipelines. For structured output, system prompts, or streaming JSON events, use [LLM Text Generation (Candle)](https://capdag.com/browse/cap:candle;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_inference;out=\"media:llm-text-stream;ndjson\") instead.\n- Requires safetensors model weights (not GGUF).\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Input text prompt for generation"
+    },
+    {
+      "media_urn": "media:model-spec;candle;textable;llm",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Candle model specification (HuggingFace repo with safetensors)",
+      "default_value": "hf:mistralai/Mistral-7B-Instruct-v0.3"
+    },
+    {
+      "media_urn": "media:max-tokens;inference;limit;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-tokens"
+        }
+      ],
+      "arg_description": "Maximum number of tokens to generate",
+      "default_value": 512
+    },
+    {
+      "media_urn": "media:temperature;inference;sampling;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--temperature"
+        }
+      ],
+      "arg_description": "Sampling temperature (0.0-2.0)",
+      "default_value": 0.7
+    },
+    {
+      "media_urn": "media:top-p;inference;sampling;user;task;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--top-p"
+        }
+      ],
+      "arg_description": "Top-p (nucleus) sampling parameter",
+      "default_value": 0.9
+    },
+    {
+      "media_urn": "media:seed;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--seed"
+        }
+      ],
+      "arg_description": "Random seed for reproducibility",
+      "default_value": 42
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Generated text streamed as raw text chunks"
+  }
+}

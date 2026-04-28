@@ -1,0 +1,27 @@
+{
+  "urn": "cap:in=\"media:image;jpeg\";op=convert_image;out=\"media:image;webp\"",
+  "command": "convert-image",
+  "title": "Convert JPEG to WebP",
+  "cap_description": "Re-encode a JPEG image as a lossless WebP",
+  "documentation": "## Purpose\n\nDecodes a JPEG and writes it as a lossless WebP. Useful for archiving JPEGs without introducing further generation loss while reducing file size relative to PNG.\n\n## Inputs\n\nA JPEG file.\n\n## Outputs\n\nA lossless WebP file with the same pixel content.\n\n## Notes\n\nThe original JPEG quantization is preserved exactly; the WebP is lossless.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:jpeg;image"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the JPEG file to convert"
+    }
+  ],
+  "output": {
+    "media_urn": "media:webp;image",
+    "output_description": "Lossless WebP image"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "urn": "media:record;textable",
+  "media_type": "application/json",
+  "title": "Record",
+  "profile_uri": "https://capdag.com/schema/record",
+  "description": "Structured record with key-value fields.",
+  "documentation": "## Purpose\nThe [Record](https://capdag.com/browse/media:record;textable) type (textable form) represents a structured object with named fields encoded as a JSON object. It is the human-readable counterpart to the binary `media:record` type.\n\n## When to use\nUse this type when a node produces or consumes a single structured JSON object — for example, a configuration record, an API response payload, a metadata envelope, or a node's output parameters. For collections of records, use `media:list;record` or domain-specific types such as [Parquet Data](https://capdag.com/browse/media:parquet;list;record).\n\n## Notes\nThe JSON encoding must be a top-level object (`{...}`), not an array or scalar. The `;textable` tag indicates the value is human-readable UTF-8 text. Implementers should validate the JSON against the port's schema before processing, and use a streaming JSON parser for large objects to avoid excessive memory usage.\n",
+  "extensions": [
+    "json"
+  ]
+}

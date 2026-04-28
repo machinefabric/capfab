@@ -1,0 +1,81 @@
+{
+  "urn": "cap:constrained;in=media:textable;language=en;op=make_decision;out=\"media:decision;json;record;textable\"",
+  "command": "make_decision",
+  "title": "Make a Decision",
+  "cap_description": "Make a single binary (yes/no, true/false) decision based on content and a question",
+  "documentation": "## Purpose\n\nClassifies content against a single yes/no question using constrained LLM generation, guaranteeing a structured JSON boolean output. Use this for routing, filtering, and classification steps in pipelines where downstream code expects a machine-readable true/false value.\n\n## Inputs\n\n- Content to analyze (text).\n- A binary question about that content (e.g. \"Does this document contain personally identifiable information?\").\n- Language code (default: `en`).\n- Max content length (default 2048 characters — content is truncated to fit the context window).\n- Confidence threshold (default 0.7) — decisions below this threshold may be flagged.\n- A model spec (defaults to Mistral-7B-Instruct Q8_0).\n\n## Outputs\n\nA JSON record with a `value` boolean field and a confidence score.\n\n## Notes\n\n- Output is guaranteed to be valid JSON (via LLGuidance constraint) — no parsing of free-form text required.\n- For multiple simultaneous questions against the same content, use [Make Multiple Decisions](https://capdag.com/browse/cap:constrained;in=\"media:textable\";language=en;op=make_multiple_decisions;out=\"media:decision;json;record;textable\") to avoid redundant model loads.\n- For decisions with natural-language explanations, use [Answer Multiple Choice in English](https://capdag.com/browse/cap:constrained;in=\"media:textable\";language=en;op=multiplechoice;out=\"media:generated-text;textable;record\").\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Content to analyze for the binary decision"
+    },
+    {
+      "media_urn": "media:question;textable",
+      "required": true,
+      "sources": [
+        {
+          "cli_flag": "--question"
+        }
+      ],
+      "arg_description": "The binary question to answer about the content"
+    },
+    {
+      "media_urn": "media:language-code;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--language"
+        }
+      ],
+      "arg_description": "Language code for processing",
+      "default_value": "en"
+    },
+    {
+      "media_urn": "media:max-content-length;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--max-content-length"
+        }
+      ],
+      "arg_description": "Maximum content length to consider (for context window management)",
+      "default_value": 2048
+    },
+    {
+      "media_urn": "media:confidence-threshold;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--confidence-threshold"
+        }
+      ],
+      "arg_description": "Minimum confidence threshold for decisions",
+      "default_value": 0.7
+    },
+    {
+      "media_urn": "media:model-spec;gguf;textable;llm",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--model-spec"
+        }
+      ],
+      "arg_description": "Model spec to use for decision making",
+      "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
+    }
+  ],
+  "output": {
+    "media_urn": "media:decision;json;record;textable",
+    "output_description": "Binary decision result (true/false)"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "urn": "cap:gguf;in=\"media:json;llm-generation-request;record\";llm;ml-model;op=llm_vocab;out=\"media:json;llm-vocab-response;record\"",
+  "command": "inference",
+  "title": "Get Model Vocabulary (GGUF)",
+  "cap_description": "Extract vocabulary tokens from a GGUF model for constraint initialization",
+  "documentation": "## Purpose\n\nExtracts the full token vocabulary from a GGUF model. The vocabulary is required by LLGuidance and other constrained decoding backends before they can compile JSON schemas, regexes, or grammars into token-level masks.\n\n## Inputs\n\nA generation request JSON record with `request_type` set to `vocab` and the model spec to read.\n\n## Outputs\n\nA JSON object with a `vocab` array (list of token strings) and a `vocab_size` integer.\n\n## Notes\n\n- This cap is typically called once per model at constraint initialization time, not per inference request.\n- The vocab array indices correspond to token IDs used internally by the model's tokenizer.\n- See also: [Constrained LLM Generation (GGUF)](https://capdag.com/browse/cap:constrained;gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_inference_constrained;out=\"media:llm-text-stream;ndjson\") which depends on this vocabulary.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:llm-generation-request;json;record",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:llm-generation-request;json;record"
+        }
+      ],
+      "arg_description": "Request with request_type=vocab and model_spec"
+    }
+  ],
+  "output": {
+    "media_urn": "media:llm-vocab-response;json;record",
+    "output_description": "JSON object with vocab array and vocab_size"
+  }
+}
