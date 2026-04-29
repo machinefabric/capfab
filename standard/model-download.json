@@ -18,6 +18,16 @@
         }
       ],
       "arg_description": "Model spec (e.g., hf:org/model-name)"
+    },
+    {
+      "media_urn": "media:hf-token;secret;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--hf-token"
+        }
+      ],
+      "arg_description": "HuggingFace bearer token. Required when downloading a gated repository (license-protected models). Without it, gated downloads fail with a clear authentication error rather than silently falling back to anonymous access."
     }
   ],
   "output": {

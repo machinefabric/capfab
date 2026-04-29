@@ -1,0 +1,11 @@
+{
+  "urn": "media:record",
+  "media_type": "application/octet-stream",
+  "title": "Untyped Record",
+  "profile_uri": "https://capdag.com/schema/record-untyped",
+  "description": "Structured record with key-value fields.",
+  "documentation": "## Purpose\nThe [Record](https://capdag.com/browse/media:record) type (untyped binary form) represents a structured object with named fields stored as an opaque binary encoding. It is the binary counterpart to `media:record;textable`.\n\n## When to use\nUse this type when a node exchanges structured records in a binary encoding without a text-readable representation — for example, Protobuf messages, packed structs, or any custom binary record format. When the record must be human-readable, use `media:record;textable` (JSON) instead.\n\n## Notes\nThe specific encoding and field schema are defined by the port contract, not by this media type. Implementers should document the encoding format (e.g., Protobuf schema, MessagePack map structure) alongside any port typed as `media:record`.\n",
+  "extensions": [
+    "bin"
+  ]
+}

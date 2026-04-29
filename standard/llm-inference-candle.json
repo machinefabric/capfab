@@ -3,7 +3,7 @@
   "command": "inference",
   "title": "LLM Text Generation (Candle)",
   "cap_description": "Generate text using Candle transformer models. Output is NDJSON streaming tokens.",
-  "documentation": "## Purpose\n\nRuns autoregressive text generation using Candle transformer models (safetensors format). Accepts a fully-structured generation request and streams output as NDJSON tokens. This is the low-level inference cap used by higher-level caps like Summarize and Generate Code.\n\n## Inputs\n\nA single JSON generation request record containing: the prompt, model spec (HuggingFace safetensors repo), sampling parameters (temperature, top-p, max tokens, seed), and an optional system prompt.\n\n## Outputs\n\nAn NDJSON stream. Each line is a JSON object. Lines carry token text, status events (`started`, `complete`), and a final summary with total tokens and timing.\n\n## Notes\n\n- Every execution is streaming — there is no non-streaming mode.\n- Candle runs on CPU or CUDA GPU. GPU is strongly recommended for models larger than 3B parameters.\n- For higher-level tasks (summarization, code generation, creative writing), use the task-specific inference caps rather than this one directly.\n- For constrained output (JSON schema, regex), use [Constrained LLM Generation (GGUF)](https://capdag.com/browse/cap:constrained;gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_inference_constrained;out=\"media:llm-text-stream;ndjson\").\n",
+  "documentation": "## Purpose\n\nRuns autoregressive text generation using Candle transformer models (safetensors format). Accepts a fully-structured generation request and streams output as NDJSON tokens. This is the low-level inference cap used by higher-level caps like Summarize and Generate Code.\n\n## Inputs\n\nA single JSON generation request record containing: the prompt, model spec (HuggingFace safetensors repo), sampling parameters (temperature, top-p, max tokens, seed), and an optional system prompt.\n\nOptional HuggingFace bearer token (`hf_token`) for gated repositories — required for `gemma`, `gemma2`, `gemma3` and any other licence-protected model.\n\n## Outputs\n\nAn NDJSON stream. Each line is a JSON object. Lines carry token text, status events (`started`, `complete`), and a final summary with total tokens and timing.\n\n## Notes\n\n- Every execution is streaming — there is no non-streaming mode.\n- Candle runs on CPU, Metal, or CUDA. GPU is strongly recommended for models larger than 3B parameters.\n- Architectures supported: mistral, llama, qwen2, qwen3, phi, phi3, gemma, gemma2, gemma3, falcon, olmo, olmo2. The architecture is detected from the model's `config.json` `model_type` — pickers driven by `supported_model_types` will reject any model whose architecture is outside this list. Yi is unsupported in this cap because `candle-transformers` 0.9.2 ships a non-deserialisable `yi::Config`; use the GGUF or MLX backends for Yi.\n- For higher-level tasks (summarization, code generation, creative writing), use the task-specific inference caps rather than this one directly.\n- For constrained output (JSON schema, regex), use [Constrained LLM Generation (GGUF)](https://capdag.com/browse/cap:constrained;gguf;in=\"media:llm-generation-request;json;record\";llm;ml-model;op=llm_inference_constrained;out=\"media:llm-text-stream;ndjson\").\n",
   "metadata": {},
   "args": [
     {
@@ -15,6 +15,16 @@
         }
       ],
       "arg_description": "The generation request containing prompt, model spec, and parameters"
+    },
+    {
+      "media_urn": "media:hf-token;secret;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--hf-token"
+        }
+      ],
+      "arg_description": "HuggingFace bearer token. Required when targeting a gated repository (license-protected models). Without it, gated downloads fail with a clear authentication error."
     }
   ],
   "output": {

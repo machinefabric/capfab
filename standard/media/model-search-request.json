@@ -1,0 +1,48 @@
+{
+  "urn": "media:model-search-request;json;record;textable",
+  "media_type": "application/json",
+  "title": "Model Search Request",
+  "profile_uri": "https://capdag.com/schema/model-search-request",
+  "description": "JSON record carrying a remote-model search query, optionally restricted by architecture.",
+  "documentation": "## Purpose\nInput record for `cap:op=search-models`. Drives the wizard's first page: the user enters a query, the calling cap forwards its `supported_model_types` set as `architectures`, and the response is pre-filtered to runnable models.\n\n## When to use\nWhenever a cap needs to drive a model-picker UI against a remote repository. Wire the cap's `supported_model_types` into the `architectures` field so the user cannot select an incompatible model.\n\n## Notes\n- `architectures` is the structural architecture set (`config.json` `model_type`), not pipeline tags.\n- An empty `architectures` array applies no architecture restriction.\n- `cursor` carries the pagination state from a previous response's `next_cursor`.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "Free-text search query."
+      },
+      "limit": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100,
+        "description": "Maximum number of results to return."
+      },
+      "tags": {
+        "type": "array",
+        "description": "Tag filters.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "sort": {
+        "type": "string",
+        "description": "Sort order (one of: trending, downloads, likes, recent)."
+      },
+      "cursor": {
+        "type": "string",
+        "description": "Pagination cursor from a previous response."
+      },
+      "architectures": {
+        "type": "array",
+        "description": "Architecture identifiers (config.json model_type) to restrict the result set to.",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

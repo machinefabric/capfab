@@ -412,7 +412,7 @@
   {
     "urn": "media:record",
     "media_type": "application/octet-stream",
-    "title": "Record",
+    "title": "Untyped Record",
     "profile_uri": "https://capdag.com/schema/record-untyped",
     "description": "Structured record with key-value fields.",
     "documentation": "## Purpose\nThe [Record](https://capdag.com/browse/media:record) type (untyped binary form) represents a structured object with named fields stored as an opaque binary encoding. It is the binary counterpart to `media:record;textable`.\n\n## When to use\nUse this type when a node exchanges structured records in a binary encoding without a text-readable representation — for example, Protobuf messages, packed structs, or any custom binary record format. When the record must be human-readable, use `media:record;textable` (JSON) instead.\n\n## Notes\nThe specific encoding and field schema are defined by the port contract, not by this media type. Implementers should document the encoding format (e.g., Protobuf schema, MessagePack map structure) alongside any port typed as `media:record`.\n",
@@ -1535,6 +1535,24 @@
       "heic",
       "heif"
     ]
+  },
+  {
+    "urn": "media:hf-token;secret;textable",
+    "media_type": "text/plain",
+    "title": "HuggingFace Token",
+    "profile_uri": "https://capdag.com/schema/hf-token",
+    "description": "Bearer token for the HuggingFace Hub API.",
+    "documentation": "## Purpose\nCarries a HuggingFace Hub bearer token between caps. The token is forwarded as `Authorization: Bearer <token>` to the HuggingFace API for the call's duration only — no implicit fallback to the `HF_TOKEN` environment variable, no global state.\n\n## When to use\nUse this media type for any cap argument that must reach gated HuggingFace repositories (license-protected models such as the `gemma-*` family). Caps that do not provide a token to a gated download fail hard with a clear authentication error.\n\n## Notes\n- The `secret` tag instructs UIs and logs to mask the value.\n- An empty string is treated as \"no token\". Pass a non-empty string to authenticate.\n",
+    "extensions": [
+      "txt"
+    ],
+    "metadata": {
+      "secret": "true"
+    },
+    "validation": {
+      "max_length": 4096,
+      "min_length": 0
+    }
   },
   {
     "urn": "media:html;textable",
@@ -3130,6 +3148,33 @@
     ]
   },
   {
+    "urn": "media:model-arch-list;json;record;textable",
+    "media_type": "application/json",
+    "title": "Model Architecture List",
+    "profile_uri": "https://capdag.com/schema/model-arch-list",
+    "description": "JSON record carrying a set of `config.json` `model_type` values used to filter cached models by architecture.",
+    "documentation": "## Purpose\nCarries the set of architecture identifiers a cap supports (its `supported_model_types`). Used by `list-compatible-models` and similar caps to drive cap-aware model pickers — the user is presented only with models whose detected architecture is in this set.\n\n## When to use\nPass this record from a cap's `supported_model_types` declaration to `cap:op=list-compatible-models` to retrieve the cached models the cap can run. The same shape is reused by the `architectures` field of `media:model-search-request`.\n\n## Notes\nArchitecture identifiers are HuggingFace `config.json` `model_type` values (e.g. `mistral`, `llama`, `qwen2`, `phi3`, `gemma2`). They are NOT pipeline tags — `text-generation` is a pipeline tag, not an architecture.\n",
+    "extensions": [
+      "json"
+    ],
+    "schema": {
+      "type": "object",
+      "required": [
+        "architectures"
+      ],
+      "properties": {
+        "architectures": {
+          "type": "array",
+          "description": "Architecture identifiers the calling cap supports.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  {
     "urn": "media:model-availability;textable;record",
     "media_type": "application/json",
     "title": "Model Availability",
@@ -3285,6 +3330,72 @@
     }
   },
   {
+    "urn": "media:model-filter-resolution;json;record;textable",
+    "media_type": "application/json",
+    "title": "Model Filter Resolution",
+    "profile_uri": "https://capdag.com/schema/model-filter-resolution",
+    "description": "Dry-run preview of which files modelcartridge would download for a model spec, including any architecture-driven additions on top of the user's filters.",
+    "documentation": "## Purpose\nOutput record for `cap:op=resolve-model-filters`. Surfaces both the user-supplied include/exclude filter and the modelcartridge-added mandatory files (driven by the detected architecture's `config.json` `model_type`) so the wizard UI can show the user exactly what will be downloaded before they commit.\n\n## When to use\nAs the response of `resolve-model-filters` calls preceding any download. The same shape is also embedded as `applied_filters` in `download-result` records for post-hoc verification.\n",
+    "extensions": [
+      "json"
+    ],
+    "schema": {
+      "type": "object",
+      "required": [
+        "model_spec",
+        "applied"
+      ],
+      "properties": {
+        "model_spec": {
+          "type": "string",
+          "description": "The canonical input model spec literal."
+        },
+        "applied": {
+          "type": "object",
+          "description": "Effective filter set.",
+          "required": [
+            "include",
+            "exclude",
+            "mandatory_added",
+            "effective_files"
+          ],
+          "properties": {
+            "include": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "exclude": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "mandatory_added": {
+              "type": "array",
+              "description": "Files modelcartridge added on top of the user's filter to satisfy the architecture's loader requirements.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "model_type": {
+              "type": "string",
+              "description": "Detected architecture from `config.json` `model_type` (None when unavailable)."
+            },
+            "effective_files": {
+              "type": "array",
+              "description": "Full list of files that will be downloaded after combining user filter and architecture rule.",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
     "urn": "media:model-list;textable;record",
     "media_type": "application/json",
     "title": "Model List",
@@ -3393,6 +3504,95 @@
       "allowed_values": [
         "huggingface"
       ]
+    }
+  },
+  {
+    "urn": "media:model-search-request;json;record;textable",
+    "media_type": "application/json",
+    "title": "Model Search Request",
+    "profile_uri": "https://capdag.com/schema/model-search-request",
+    "description": "JSON record carrying a remote-model search query, optionally restricted by architecture.",
+    "documentation": "## Purpose\nInput record for `cap:op=search-models`. Drives the wizard's first page: the user enters a query, the calling cap forwards its `supported_model_types` set as `architectures`, and the response is pre-filtered to runnable models.\n\n## When to use\nWhenever a cap needs to drive a model-picker UI against a remote repository. Wire the cap's `supported_model_types` into the `architectures` field so the user cannot select an incompatible model.\n\n## Notes\n- `architectures` is the structural architecture set (`config.json` `model_type`), not pipeline tags.\n- An empty `architectures` array applies no architecture restriction.\n- `cursor` carries the pagination state from a previous response's `next_cursor`.\n",
+    "extensions": [
+      "json"
+    ],
+    "schema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Free-text search query."
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "description": "Maximum number of results to return."
+        },
+        "tags": {
+          "type": "array",
+          "description": "Tag filters.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sort": {
+          "type": "string",
+          "description": "Sort order (one of: trending, downloads, likes, recent)."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from a previous response."
+        },
+        "architectures": {
+          "type": "array",
+          "description": "Architecture identifiers (config.json model_type) to restrict the result set to.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  {
+    "urn": "media:model-search-response;json;record;textable",
+    "media_type": "application/json",
+    "title": "Model Search Response",
+    "profile_uri": "https://capdag.com/schema/model-search-response",
+    "description": "JSON record carrying remote-model search results with detected architecture per result.",
+    "documentation": "## Purpose\nOutput record for `cap:op=search-models`. Carries the result list plus pagination cursors. Each model entry carries both the HuggingFace pipeline tag (`model_type`) and the structural architecture (`model_arch`) — the latter is the field used for cap compatibility checks.\n\n## When to use\nConsumed by model-picker UIs to render search results and drive pagination.\n",
+    "extensions": [
+      "json"
+    ],
+    "schema": {
+      "type": "object",
+      "required": [
+        "models",
+        "returned_count",
+        "has_more"
+      ],
+      "properties": {
+        "models": {
+          "type": "array",
+          "description": "Matching models."
+        },
+        "returned_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "has_more": {
+          "type": "boolean",
+          "description": "Whether additional pages of results exist."
+        },
+        "next_cursor": {
+          "type": "string",
+          "description": "Cursor for fetching the next page (if any)."
+        },
+        "previous_cursor": {
+          "type": "string",
+          "description": "Cursor for fetching the previous page (if any)."
+        }
+      }
     }
   },
   {

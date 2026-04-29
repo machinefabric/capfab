@@ -15,6 +15,16 @@
         }
       ],
       "arg_description": "The generation request with constraint field (json_schema, regex, or grammar)"
+    },
+    {
+      "media_urn": "media:hf-token;secret;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--hf-token"
+        }
+      ],
+      "arg_description": "HuggingFace bearer token. Required when targeting a gated repository."
     }
   ],
   "output": {

@@ -1,0 +1,27 @@
+{
+  "urn": "media:model-arch-list;json;record;textable",
+  "media_type": "application/json",
+  "title": "Model Architecture List",
+  "profile_uri": "https://capdag.com/schema/model-arch-list",
+  "description": "JSON record carrying a set of `config.json` `model_type` values used to filter cached models by architecture.",
+  "documentation": "## Purpose\nCarries the set of architecture identifiers a cap supports (its `supported_model_types`). Used by `list-compatible-models` and similar caps to drive cap-aware model pickers — the user is presented only with models whose detected architecture is in this set.\n\n## When to use\nPass this record from a cap's `supported_model_types` declaration to `cap:op=list-compatible-models` to retrieve the cached models the cap can run. The same shape is reused by the `architectures` field of `media:model-search-request`.\n\n## Notes\nArchitecture identifiers are HuggingFace `config.json` `model_type` values (e.g. `mistral`, `llama`, `qwen2`, `phi3`, `gemma2`). They are NOT pipeline tags — `text-generation` is a pipeline tag, not an architecture.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "architectures"
+    ],
+    "properties": {
+      "architectures": {
+        "type": "array",
+        "description": "Architecture identifiers the calling cap supports.",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

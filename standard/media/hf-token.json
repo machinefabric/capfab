@@ -1,0 +1,18 @@
+{
+  "urn": "media:hf-token;secret;textable",
+  "media_type": "text/plain",
+  "title": "HuggingFace Token",
+  "profile_uri": "https://capdag.com/schema/hf-token",
+  "description": "Bearer token for the HuggingFace Hub API.",
+  "documentation": "## Purpose\nCarries a HuggingFace Hub bearer token between caps. The token is forwarded as `Authorization: Bearer <token>` to the HuggingFace API for the call's duration only — no implicit fallback to the `HF_TOKEN` environment variable, no global state.\n\n## When to use\nUse this media type for any cap argument that must reach gated HuggingFace repositories (license-protected models such as the `gemma-*` family). Caps that do not provide a token to a gated download fail hard with a clear authentication error.\n\n## Notes\n- The `secret` tag instructs UIs and logs to mask the value.\n- An empty string is treated as \"no token\". Pass a non-empty string to authenticate.\n",
+  "extensions": [
+    "txt"
+  ],
+  "metadata": {
+    "secret": "true"
+  },
+  "validation": {
+    "max_length": 4096,
+    "min_length": 0
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "urn": "media:model-search-response;json;record;textable",
+  "media_type": "application/json",
+  "title": "Model Search Response",
+  "profile_uri": "https://capdag.com/schema/model-search-response",
+  "description": "JSON record carrying remote-model search results with detected architecture per result.",
+  "documentation": "## Purpose\nOutput record for `cap:op=search-models`. Carries the result list plus pagination cursors. Each model entry carries both the HuggingFace pipeline tag (`model_type`) and the structural architecture (`model_arch`) — the latter is the field used for cap compatibility checks.\n\n## When to use\nConsumed by model-picker UIs to render search results and drive pagination.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "models",
+      "returned_count",
+      "has_more"
+    ],
+    "properties": {
+      "models": {
+        "type": "array",
+        "description": "Matching models."
+      },
+      "returned_count": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "has_more": {
+        "type": "boolean",
+        "description": "Whether additional pages of results exist."
+      },
+      "next_cursor": {
+        "type": "string",
+        "description": "Cursor for fetching the next page (if any)."
+      },
+      "previous_cursor": {
+        "type": "string",
+        "description": "Cursor for fetching the previous page (if any)."
+      }
+    }
+  }
+}

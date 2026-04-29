@@ -31,6 +31,16 @@
       "default_value": "hf:MaziyarPanahi/Mistral-7B-Instruct-v0.3-GGUF?include=*Q8_0*,*.json&exclude=*IQ1*,*IQ2*,*IQ3*,*Q2*,*Q3*"
     },
     {
+      "media_urn": "media:hf-token;secret;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--hf-token"
+        }
+      ],
+      "arg_description": "HuggingFace bearer token. Required when targeting a gated repository. Without it, gated downloads fail with a clear authentication error."
+    },
+    {
       "media_urn": "media:max-tokens;inference;limit;user;task;textable;numeric",
       "required": false,
       "sources": [

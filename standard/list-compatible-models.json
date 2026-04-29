@@ -1,0 +1,24 @@
+{
+  "urn": "cap:in=\"media:json;model-arch-list;record;textable\";op=list-compatible-models;out=\"media:model-list;record;textable\"",
+  "command": "compatible",
+  "title": "List Compatible Models",
+  "cap_description": "List locally cached models whose architecture (config.json model_type) is in the supplied set.",
+  "documentation": "## Purpose\n\nReturns the subset of cached models whose detected architecture matches one of the requested architectures. Drives cap-aware model pickers: a cap declares the architectures it can run via `supported_model_types`, the picker forwards that set here, and the user is presented only with usable models.\n\n## Inputs\n\nA JSON record:\n\n```\n{ \"architectures\": [\"mistral\", \"llama\", \"qwen2\"] }\n```\n\n## Outputs\n\nA JSON record listing matching models:\n\n```\n{\n  \"architectures\": [\"mistral\", \"llama\", \"qwen2\"],\n  \"models\": [\n    {\n      \"model_spec\": \"hf:org/model\",\n      \"local_path\": \"/path/to/model\",\n      \"model_type\": \"mistral\"\n    }\n  ]\n}\n```\n\n## Notes\n\n- The architecture is read from each cached model's `config.json` `model_type` field. Models without a parseable `config.json` are excluded — a cap that does not recognise an arch cannot load that model.\n- The index is in-memory and rebuilt lazily from the cache directory on the first call after process start. Subsequent calls are cheap.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-arch-list;json;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:model-arch-list;json;record;textable"
+        }
+      ],
+      "arg_description": "JSON record { \"architectures\": [\"mistral\", \"llama\", ...] } — the architecture set the calling cap supports."
+    }
+  ],
+  "output": {
+    "media_urn": "media:model-list;textable;record",
+    "output_description": "JSON record listing matching cached models with local paths and model_type."
+  }
+}

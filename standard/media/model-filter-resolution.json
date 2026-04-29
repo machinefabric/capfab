@@ -1,0 +1,66 @@
+{
+  "urn": "media:model-filter-resolution;json;record;textable",
+  "media_type": "application/json",
+  "title": "Model Filter Resolution",
+  "profile_uri": "https://capdag.com/schema/model-filter-resolution",
+  "description": "Dry-run preview of which files modelcartridge would download for a model spec, including any architecture-driven additions on top of the user's filters.",
+  "documentation": "## Purpose\nOutput record for `cap:op=resolve-model-filters`. Surfaces both the user-supplied include/exclude filter and the modelcartridge-added mandatory files (driven by the detected architecture's `config.json` `model_type`) so the wizard UI can show the user exactly what will be downloaded before they commit.\n\n## When to use\nAs the response of `resolve-model-filters` calls preceding any download. The same shape is also embedded as `applied_filters` in `download-result` records for post-hoc verification.\n",
+  "extensions": [
+    "json"
+  ],
+  "schema": {
+    "type": "object",
+    "required": [
+      "model_spec",
+      "applied"
+    ],
+    "properties": {
+      "model_spec": {
+        "type": "string",
+        "description": "The canonical input model spec literal."
+      },
+      "applied": {
+        "type": "object",
+        "description": "Effective filter set.",
+        "required": [
+          "include",
+          "exclude",
+          "mandatory_added",
+          "effective_files"
+        ],
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mandatory_added": {
+            "type": "array",
+            "description": "Files modelcartridge added on top of the user's filter to satisfy the architecture's loader requirements.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "model_type": {
+            "type": "string",
+            "description": "Detected architecture from `config.json` `model_type` (None when unavailable)."
+          },
+          "effective_files": {
+            "type": "array",
+            "description": "Full list of files that will be downloaded after combining user filter and architecture rule.",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

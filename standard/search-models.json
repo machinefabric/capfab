@@ -1,0 +1,34 @@
+{
+  "urn": "cap:in=\"media:json;model-search-request;record;textable\";op=search-models;out=\"media:json;model-search-response;record;textable\"",
+  "command": "search",
+  "title": "Search Models",
+  "cap_description": "Search the HuggingFace Hub, optionally restricted to a set of architectures.",
+  "documentation": "## Purpose\n\nSearches HuggingFace for models matching a query, with optional restriction to a set of `config.json` `model_type` values. Drives the wizard's first page where the user picks a model — the cap that owns the picker forwards its `supported_model_types` set so search results are pre-filtered to runnable models.\n\n## Inputs\n\nA JSON request:\n\n```\n{\n  \"query\": \"instruct\",\n  \"limit\": 20,\n  \"tags\": [],\n  \"sort\": \"trending\",\n  \"cursor\": null,\n  \"architectures\": [\"mistral\", \"llama\", \"qwen2\"]\n}\n```\n\nOptional HuggingFace bearer token (`hf_token`) for gated repositories.\n\n## Outputs\n\nA JSON response:\n\n```\n{\n  \"models\": [\n    {\n      \"id\": \"org/model\",\n      \"model_type\": \"text-generation\",\n      \"model_arch\": \"mistral\",\n      ...\n    }\n  ],\n  \"returned_count\": 20,\n  \"has_more\": true,\n  \"next_cursor\": \"...\",\n  \"previous_cursor\": null\n}\n```\n\n## Notes\n\n- `model_type` is the HuggingFace pipeline tag; `model_arch` is the structural architecture from `config.json` and is the field used for cap compatibility checks.\n- When `architectures` is empty, no architecture restriction is applied.\n- Results without a detectable `model_arch` are filtered out when an architecture restriction is in effect — a cap that requires a specific architecture cannot load a model whose architecture is unknown.\n",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:model-search-request;json;record;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:model-search-request;json;record;textable"
+        }
+      ],
+      "arg_description": "Search request JSON record"
+    },
+    {
+      "media_urn": "media:hf-token;secret;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--hf-token"
+        }
+      ],
+      "arg_description": "HuggingFace bearer token. Required when targeting gated repositories in search."
+    }
+  ],
+  "output": {
+    "media_urn": "media:model-search-response;json;record;textable",
+    "output_description": "JSON record listing matching remote models with detected architecture."
+  }
+}
