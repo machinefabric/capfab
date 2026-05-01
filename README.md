@@ -6,7 +6,7 @@ CapFab is the canonical reference of what operations exist in the MachineFabric 
 
 ## Contributing
 
-Anyone can propose a new capability or media spec. There's no quality threshold — as long as a definition is well-formed, fills a real gap in the registry, and is documented clearly enough that other people can use it, we'll happily review and accept it. If you're unsure about any part of a submission, send it anyway and we'll work it out together.
+Anyone can propose a new capability or media spec. As long as a definition is well-formed, fills a real gap in the registry, and is documented clearly enough that other people can use it, we'll happily review and accept it. If you're unsure about any part of a submission, send it anyway and we'll work it out together.
 
 | To do this | Open an issue using this template |
 | --- | --- |
