@@ -1,0 +1,25 @@
+{
+  "urn": "cap:bind;in=media:pdf;out=media:pdf",
+  "command": "bind",
+  "title": "Bind PDFs",
+  "cap_description": "Concatenate a sequence of PDFs into a single multi-page PDF",
+  "documentation": "## Purpose\n\nStitches a sequence of PDFs into a single multi-page PDF. Each input PDF's pages are appended to the output in arrival order — the first input's pages first, then the second's, and so on. Page contents, resources, and metadata are copied verbatim via pdfium's import-pages path; no re-rendering, no font subsetting, no recompression.\n\n## Inputs\n\n- A sequence of `media:pdf` items.\n\n## Outputs\n\nA single `media:pdf` whose page count is the sum of all input PDFs' page counts.\n\n## Notes\n\n- An empty input sequence is a hard error; an input PDF with zero pages is also a hard error. Both surface the upstream issue rather than silently producing an empty output.\n- Each input is loaded as its own pdfium document and its pages are imported into the destination at the running insertion index. Memory usage scales with the size of the largest individual input PDF (loaded one at a time), not with the sum.\n- For the inverse (splitting one PDF into per-page PDFs), use [Disbind PDF Into Per-Page PDFs](https://capdag.com/browse/cap:disbind-to-pdf;in=media:pdf;out=media:pdf).",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:pdf",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:pdf"
+        }
+      ],
+      "arg_description": "Sequence of PDF files to concatenate",
+      "is_sequence": true
+    }
+  ],
+  "output": {
+    "media_urn": "media:pdf",
+    "output_description": "Single concatenated PDF"
+  }
+}

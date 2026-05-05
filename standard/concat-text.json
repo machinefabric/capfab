@@ -1,0 +1,36 @@
+{
+  "urn": "cap:concat;in=media:textable;out=media:textable",
+  "command": "concat",
+  "title": "Concat Text",
+  "cap_description": "Concatenate a sequence of textable items into a single textable",
+  "documentation": "## Purpose\n\nStitches a sequence of textable items into one textable, with an optional separator inserted between adjacent items. The bare `media:textable` input subsumes any concrete textable variant — txt, md, rst, log, JSON-as-text — so the planner routes them all through this cap.\n\n## Inputs\n\n- A sequence of textable items.\n- An optional `--separator` string (default: `\"\\n\"`).\n\n## Outputs\n\nA single textable whose value is `items[0] + sep + items[1] + sep + … + items[N-1]`.\n\n## Notes\n\n- The output URN is bare `media:textable` because the merged result no longer carries any single input's format-specific tags. Pipelines that need format-specific concatenation (e.g. preserving `media:md;textable`) should produce per-format variants.\n- Separator UTF-8 must be valid; non-UTF-8 bytes fail loudly.\n- An empty input sequence is a hard error — silently emitting `\"\"` would let downstream caps run on nothing without surfacing the upstream sequence being empty.",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:textable"
+        }
+      ],
+      "arg_description": "Sequence of textable items to concatenate",
+      "is_sequence": true
+    },
+    {
+      "media_urn": "media:separator;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--separator"
+        }
+      ],
+      "arg_description": "String inserted between adjacent items (default: newline)",
+      "default_value": "\n"
+    }
+  ],
+  "output": {
+    "media_urn": "media:textable",
+    "output_description": "Concatenated text"
+  }
+}

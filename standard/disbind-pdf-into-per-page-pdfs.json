@@ -1,0 +1,39 @@
+{
+  "urn": "cap:disbind-to-pdf;in=media:pdf;out=media:pdf",
+  "command": "disbind-to-pdf",
+  "title": "Disbind PDF Into Per-Page PDFs",
+  "cap_description": "Split a PDF into a sequence of one-page PDFs",
+  "documentation": "## Purpose\n\nSplits a PDF into a sequence of one-page PDFs — one item per page. Distinct from [Disbind PDF Into Page Text](https://capdag.com/browse/cap:in=media:pdf;op=disbind;out=\"media:textable;page\") in that the output items are *PDF documents*, not extracted text. Use this when downstream caps want to operate on individual pages while keeping the PDF structure intact (e.g. per-page rendering with different parameters, per-page redaction, per-page binding back into a different order).\n\n## Inputs\n\n- A PDF file (path or stdin).\n- An optional index range (default: `1-`, every page). Format: `1` (single page), `1-5` (pages 1-5), `3-` (page 3 to end).\n\n## Outputs\n\nA sequence of `media:pdf` items, one valid one-page PDF per emitted page.\n\n## Notes\n\n- Each emitted item is a complete standalone PDF with the page tree, resources, and metadata pdfium produces from the source page; downstream caps that load PDFs work on the items unchanged.\n- An index range that matches no pages is a hard error — silently emitting an empty sequence would let downstream pipelines run on nothing without surfacing the empty-range mistake.\n- For text-only extraction, use [Disbind PDF Into Page Text](https://capdag.com/browse/cap:in=media:pdf;op=disbind;out=\"media:textable;page\").\n- For the inverse (concatenating per-page PDFs back into one), use [Bind PDFs](https://capdag.com/browse/cap:bind;in=media:pdf;out=media:pdf).",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:file-path;textable",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:pdf"
+        },
+        {
+          "position": 0
+        }
+      ],
+      "arg_description": "Path to the PDF file to process"
+    },
+    {
+      "media_urn": "media:index-range;textable",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--index-range"
+        }
+      ],
+      "arg_description": "Index range to extract (1-based). Examples: '1', '1-5', '3-'",
+      "default_value": "1-"
+    }
+  ],
+  "output": {
+    "media_urn": "media:pdf",
+    "is_sequence": true,
+    "output_description": "Per-page PDFs, one item per page"
+  }
+}

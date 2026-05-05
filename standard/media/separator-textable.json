@@ -1,0 +1,8 @@
+{
+  "urn": "media:separator;textable",
+  "title": "Separator (Textable)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/separator",
+  "description": "String inserted between adjacent items when concatenating a sequence",
+  "documentation": "## Purpose\nThe infix string a concatenation cap places between adjacent items. Used by [Concat Text](https://capdag.com/browse/cap:concat;in=media:textable;out=media:textable) to glue a sequence of textable items into a single textable.\n\n## When to use\nPass any UTF-8 string. The cap inserts the value between adjacent items only — never as a leading or trailing prefix on the merged output. Omit the argument for the cap's default separator (newline).\n\n## Notes\nMulti-byte UTF-8 separators are supported verbatim; the cap does not split or normalise them. An empty separator butts items directly together without any infix.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
+}

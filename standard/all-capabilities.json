@@ -60,6 +60,31 @@
     }
   },
   {
+    "urn": "cap:bind;in=media:pdf;out=media:pdf",
+    "command": "bind",
+    "title": "Bind PDFs",
+    "cap_description": "Concatenate a sequence of PDFs into a single multi-page PDF",
+    "documentation": "## Purpose\n\nStitches a sequence of PDFs into a single multi-page PDF. Each input PDF's pages are appended to the output in arrival order — the first input's pages first, then the second's, and so on. Page contents, resources, and metadata are copied verbatim via pdfium's import-pages path; no re-rendering, no font subsetting, no recompression.\n\n## Inputs\n\n- A sequence of `media:pdf` items.\n\n## Outputs\n\nA single `media:pdf` whose page count is the sum of all input PDFs' page counts.\n\n## Notes\n\n- An empty input sequence is a hard error; an input PDF with zero pages is also a hard error. Both surface the upstream issue rather than silently producing an empty output.\n- Each input is loaded as its own pdfium document and its pages are imported into the destination at the running insertion index. Memory usage scales with the size of the largest individual input PDF (loaded one at a time), not with the sum.\n- For the inverse (splitting one PDF into per-page PDFs), use [Disbind PDF Into Per-Page PDFs](https://capdag.com/browse/cap:disbind-to-pdf;in=media:pdf;out=media:pdf).",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:pdf",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:pdf"
+          }
+        ],
+        "arg_description": "Sequence of PDF files to concatenate",
+        "is_sequence": true
+      }
+    ],
+    "output": {
+      "media_urn": "media:pdf",
+      "output_description": "Single concatenated PDF"
+    }
+  },
+  {
     "urn": "cap:coerce;in=\"media:bool;list;textable\";out=media:textable",
     "command": "coerce",
     "title": "Coerce Boolean Array to String",
@@ -822,6 +847,42 @@
     "output": {
       "media_urn": "media:list;record;textable;yaml",
       "output_description": "Single YAML sequence containing all input mappings"
+    }
+  },
+  {
+    "urn": "cap:concat;in=media:textable;out=media:textable",
+    "command": "concat",
+    "title": "Concat Text",
+    "cap_description": "Concatenate a sequence of textable items into a single textable",
+    "documentation": "## Purpose\n\nStitches a sequence of textable items into one textable, with an optional separator inserted between adjacent items. The bare `media:textable` input subsumes any concrete textable variant — txt, md, rst, log, JSON-as-text — so the planner routes them all through this cap.\n\n## Inputs\n\n- A sequence of textable items.\n- An optional `--separator` string (default: `\"\\n\"`).\n\n## Outputs\n\nA single textable whose value is `items[0] + sep + items[1] + sep + … + items[N-1]`.\n\n## Notes\n\n- The output URN is bare `media:textable` because the merged result no longer carries any single input's format-specific tags. Pipelines that need format-specific concatenation (e.g. preserving `media:md;textable`) should produce per-format variants.\n- Separator UTF-8 must be valid; non-UTF-8 bytes fail loudly.\n- An empty input sequence is a hard error — silently emitting `\"\"` would let downstream caps run on nothing without surfacing the upstream sequence being empty.",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:textable",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:textable"
+          }
+        ],
+        "arg_description": "Sequence of textable items to concatenate",
+        "is_sequence": true
+      },
+      {
+        "media_urn": "media:separator;textable",
+        "required": false,
+        "sources": [
+          {
+            "cli_flag": "--separator"
+          }
+        ],
+        "arg_description": "String inserted between adjacent items (default: newline)",
+        "default_value": "\n"
+      }
+    ],
+    "output": {
+      "media_urn": "media:textable",
+      "output_description": "Concatenated text"
     }
   },
   {
@@ -2013,6 +2074,42 @@
     }
   },
   {
+    "urn": "cap:decimate-sequence;in=media:;out=media:",
+    "command": "decimate-sequence",
+    "title": "Decimate Sequence",
+    "cap_description": "Keep one item out of every N from an input sequence (drop the rest)",
+    "documentation": "## Purpose\n\nReduces the length of a sequence by keeping items at positions `0, N, 2N, ...` and dropping the rest. Useful for sub-sampling a long sequence — e.g. taking every 10th frame from `extract-frames`, every 5th record from a CSV, every Nth file from a folder.\n\n## Inputs\n\n- A sequence of any media type.\n- An optional integer stride `N` (default: `1`, which is identity passthrough).\n\n## Outputs\n\nA sequence of the same media type as the input, containing approximately `ceil(input_count / N)` items. Per-item metadata on each kept item passes through unchanged.\n\n## Notes\n\n- The cap is generic over media (`in = media:`, `out = media:`); the planner routes it for any sequence input. The output's media URN matches the input's exactly — items themselves are passed through, not re-encoded.\n- `--keep-every 1` (or omitting the argument) is exact passthrough.\n- Negative, zero, or non-integer values fail loudly rather than silently being treated as 1; this is by design — a misspelled flag should surface, not be papered over.\n- An empty input sequence is treated as a real input error (not a \"successfully decimated zero items\" success), since silently emitting an empty sequence would let downstream caps run on nothing without anyone noticing.",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:"
+          }
+        ],
+        "arg_description": "Sequence of items to decimate",
+        "is_sequence": true
+      },
+      {
+        "media_urn": "media:keep-every;textable;numeric",
+        "required": false,
+        "sources": [
+          {
+            "cli_flag": "--keep-every"
+          }
+        ],
+        "arg_description": "Stride N: keep one item out of every N. Positive integer. Omit for passthrough."
+      }
+    ],
+    "output": {
+      "media_urn": "media:",
+      "is_sequence": true,
+      "output_description": "Decimated sequence (same media type as input)"
+    }
+  },
+  {
     "urn": "cap:disbind;in=media:pdf;out=\"media:page;textable\"",
     "command": "disbind",
     "title": "Disbind PDF Into Pages",
@@ -2049,6 +2146,45 @@
       "media_urn": "media:page;textable",
       "is_sequence": true,
       "output_description": "Plain text pages, one per page in the document"
+    }
+  },
+  {
+    "urn": "cap:disbind-to-pdf;in=media:pdf;out=media:pdf",
+    "command": "disbind-to-pdf",
+    "title": "Disbind PDF Into Per-Page PDFs",
+    "cap_description": "Split a PDF into a sequence of one-page PDFs",
+    "documentation": "## Purpose\n\nSplits a PDF into a sequence of one-page PDFs — one item per page. Distinct from [Disbind PDF Into Page Text](https://capdag.com/browse/cap:in=media:pdf;op=disbind;out=\"media:textable;page\") in that the output items are *PDF documents*, not extracted text. Use this when downstream caps want to operate on individual pages while keeping the PDF structure intact (e.g. per-page rendering with different parameters, per-page redaction, per-page binding back into a different order).\n\n## Inputs\n\n- A PDF file (path or stdin).\n- An optional index range (default: `1-`, every page). Format: `1` (single page), `1-5` (pages 1-5), `3-` (page 3 to end).\n\n## Outputs\n\nA sequence of `media:pdf` items, one valid one-page PDF per emitted page.\n\n## Notes\n\n- Each emitted item is a complete standalone PDF with the page tree, resources, and metadata pdfium produces from the source page; downstream caps that load PDFs work on the items unchanged.\n- An index range that matches no pages is a hard error — silently emitting an empty sequence would let downstream pipelines run on nothing without surfacing the empty-range mistake.\n- For text-only extraction, use [Disbind PDF Into Page Text](https://capdag.com/browse/cap:in=media:pdf;op=disbind;out=\"media:textable;page\").\n- For the inverse (concatenating per-page PDFs back into one), use [Bind PDFs](https://capdag.com/browse/cap:bind;in=media:pdf;out=media:pdf).",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:file-path;textable",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:pdf"
+          },
+          {
+            "position": 0
+          }
+        ],
+        "arg_description": "Path to the PDF file to process"
+      },
+      {
+        "media_urn": "media:index-range;textable",
+        "required": false,
+        "sources": [
+          {
+            "cli_flag": "--index-range"
+          }
+        ],
+        "arg_description": "Index range to extract (1-based). Examples: '1', '1-5', '3-'",
+        "default_value": "1-"
+      }
+    ],
+    "output": {
+      "media_urn": "media:pdf",
+      "is_sequence": true,
+      "output_description": "Per-page PDFs, one item per page"
     }
   },
   {
@@ -2470,6 +2606,196 @@
     "output": {
       "media_urn": "media:opus;audio",
       "output_description": "Opus audio track"
+    }
+  },
+  {
+    "urn": "cap:extract-frames;in=\"media:mkv;video\";out=\"media:image;png\"",
+    "command": "extract-frames",
+    "title": "Extract Frames from MKV",
+    "cap_description": "Decode the MKV video track and emit each frame as a PNG image",
+    "documentation": "## Purpose\n\nDecodes a Matroska MKV video and emits its frames as a sequence of PNG images. With no `--fps` argument every decoded frame is emitted; with `--fps N`, frames are decimated to approximately `N` per second by selecting the first decoded frame whose presentation timestamp passes each `1/N`-second boundary.\n\n## Inputs\n\n- An MKV file (path or stdin).\n- An optional target frame rate (default: every frame).\n\n## Outputs\n\nA sequence of PNG images, one per emitted frame.\n\n## Notes\n\n- Decoding happens in-process via embedded ffmpeg static archives — no system ffmpeg dependency, no shell-out.\n- For audio extraction from the same file, use [Extract Audio Track from MKV](https://capdag.com/browse/cap:extract-audio-track;in=\"media:mkv;video\";out=\"media:opus;audio\").",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:file-path;textable",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:mkv;video"
+          },
+          {
+            "position": 0
+          }
+        ],
+        "arg_description": "Path to the MKV file to process"
+      },
+      {
+        "media_urn": "media:fps;textable;numeric",
+        "required": false,
+        "sources": [
+          {
+            "cli_flag": "--fps"
+          }
+        ],
+        "arg_description": "Target frames per second. Omit to emit every decoded frame."
+      }
+    ],
+    "output": {
+      "media_urn": "media:image;png",
+      "is_sequence": true,
+      "output_description": "PNG images, one per emitted frame"
+    }
+  },
+  {
+    "urn": "cap:extract-frames;in=\"media:mov;video\";out=\"media:image;png\"",
+    "command": "extract-frames",
+    "title": "Extract Frames from MOV",
+    "cap_description": "Decode the MOV video track and emit each frame as a PNG image",
+    "documentation": "## Purpose\n\nDecodes a QuickTime MOV video and emits its frames as a sequence of PNG images. With no `--fps` argument every decoded frame is emitted; with `--fps N`, frames are decimated to approximately `N` per second by selecting the first decoded frame whose presentation timestamp passes each `1/N`-second boundary.\n\n## Inputs\n\n- A MOV file (path or stdin).\n- An optional target frame rate (default: every frame).\n\n## Outputs\n\nA sequence of PNG images, one per emitted frame.\n\n## Notes\n\n- Decoding happens in-process via embedded ffmpeg static archives — no system ffmpeg dependency, no shell-out.\n- For audio extraction from the same file, use [Extract Audio Track from MOV](https://capdag.com/browse/cap:extract-audio-track;in=\"media:mov;video\";out=\"media:m4a;audio\").",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:file-path;textable",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:mov;video"
+          },
+          {
+            "position": 0
+          }
+        ],
+        "arg_description": "Path to the MOV file to process"
+      },
+      {
+        "media_urn": "media:fps;textable;numeric",
+        "required": false,
+        "sources": [
+          {
+            "cli_flag": "--fps"
+          }
+        ],
+        "arg_description": "Target frames per second. Omit to emit every decoded frame."
+      }
+    ],
+    "output": {
+      "media_urn": "media:image;png",
+      "is_sequence": true,
+      "output_description": "PNG images, one per emitted frame"
+    }
+  },
+  {
+    "urn": "cap:extract-frames;in=\"media:mp4;video\";out=\"media:image;png\"",
+    "command": "extract-frames",
+    "title": "Extract Frames from MP4",
+    "cap_description": "Decode the MP4 video track and emit each frame as a PNG image",
+    "documentation": "## Purpose\n\nDecodes an MP4 video and emits its frames as a sequence of PNG images. With no `--fps` argument every decoded frame is emitted; with `--fps N`, frames are decimated to approximately `N` per second by selecting the first decoded frame whose presentation timestamp passes each `1/N`-second boundary.\n\n## Inputs\n\n- An MP4 file (path or stdin).\n- An optional target frame rate (default: every frame).\n\n## Outputs\n\nA sequence of PNG images, one per emitted frame.\n\n## Notes\n\n- Decoding happens in-process via embedded ffmpeg static archives — no system ffmpeg dependency, no shell-out.\n- Decoded frames are colour-converted to RGBA and re-encoded to PNG via the `image` crate; the byte stream is identical in shape to other `media:image;png` producers in the cap fabric (e.g. PDF page rendering), so downstream image consumers work without adjustment.\n- For audio extraction from the same file, use [Extract Audio Track from MP4](https://capdag.com/browse/cap:extract-audio-track;in=\"media:mp4;video\";out=\"media:m4a;audio\").",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:file-path;textable",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:mp4;video"
+          },
+          {
+            "position": 0
+          }
+        ],
+        "arg_description": "Path to the MP4 file to process"
+      },
+      {
+        "media_urn": "media:fps;textable;numeric",
+        "required": false,
+        "sources": [
+          {
+            "cli_flag": "--fps"
+          }
+        ],
+        "arg_description": "Target frames per second. Omit to emit every decoded frame."
+      }
+    ],
+    "output": {
+      "media_urn": "media:image;png",
+      "is_sequence": true,
+      "output_description": "PNG images, one per emitted frame"
+    }
+  },
+  {
+    "urn": "cap:extract-frames;in=\"media:video;webm\";out=\"media:image;png\"",
+    "command": "extract-frames",
+    "title": "Extract Frames from WebM",
+    "cap_description": "Decode the WebM video track and emit each frame as a PNG image",
+    "documentation": "## Purpose\n\nDecodes a WebM video and emits its frames as a sequence of PNG images. With no `--fps` argument every decoded frame is emitted; with `--fps N`, frames are decimated to approximately `N` per second by selecting the first decoded frame whose presentation timestamp passes each `1/N`-second boundary.\n\n## Inputs\n\n- A WebM file (path or stdin).\n- An optional target frame rate (default: every frame).\n\n## Outputs\n\nA sequence of PNG images, one per emitted frame.\n\n## Notes\n\n- Decoding happens in-process via embedded ffmpeg static archives — no system ffmpeg dependency, no shell-out.\n- For audio extraction from the same file, use [Extract Audio Track from WebM](https://capdag.com/browse/cap:extract-audio-track;in=\"media:webm;video\";out=\"media:opus;audio\").",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:file-path;textable",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:webm;video"
+          },
+          {
+            "position": 0
+          }
+        ],
+        "arg_description": "Path to the WebM file to process"
+      },
+      {
+        "media_urn": "media:fps;textable;numeric",
+        "required": false,
+        "sources": [
+          {
+            "cli_flag": "--fps"
+          }
+        ],
+        "arg_description": "Target frames per second. Omit to emit every decoded frame."
+      }
+    ],
+    "output": {
+      "media_urn": "media:image;png",
+      "is_sequence": true,
+      "output_description": "PNG images, one per emitted frame"
+    }
+  },
+  {
+    "urn": "cap:extract-frames;in=media:video;out=\"media:image;png\"",
+    "command": "extract-frames",
+    "title": "Extract Frames",
+    "cap_description": "Decode a video and emit each frame as a PNG image",
+    "documentation": "## Purpose\n\nGeneric video frame extractor that accepts any supported video container and produces PNG images. This is the umbrella cap; format-specific variants (MP4, MOV, MKV, WebM) provide more precise media type matching in the cap fabric so the planner can route correctly.\n\n## Inputs\n\n- A video file (any supported container — MP4/MOV/MKV/WebM).\n- An optional target frame rate (default: every frame).\n\n## Outputs\n\nA sequence of PNG images, one per emitted frame.\n\n## Notes\n\n- For typed pipelines, prefer the format-specific variants ([MP4](https://capdag.com/browse/cap:extract-frames;in=\"media:mp4;video\";out=\"media:image;png\"), [MOV](https://capdag.com/browse/cap:extract-frames;in=\"media:mov;video\";out=\"media:image;png\"), [MKV](https://capdag.com/browse/cap:extract-frames;in=\"media:mkv;video\";out=\"media:image;png\"), [WebM](https://capdag.com/browse/cap:extract-frames;in=\"media:webm;video\";out=\"media:image;png\")) so the planner can route correctly.\n- This umbrella variant is useful when the input video format is not known at pipeline design time.",
+    "metadata": {},
+    "args": [
+      {
+        "media_urn": "media:file-path;textable",
+        "required": true,
+        "sources": [
+          {
+            "stdin": "media:video"
+          },
+          {
+            "position": 0
+          }
+        ],
+        "arg_description": "Path to the video file to process"
+      },
+      {
+        "media_urn": "media:fps;textable;numeric",
+        "required": false,
+        "sources": [
+          {
+            "cli_flag": "--fps"
+          }
+        ],
+        "arg_description": "Target frames per second. Omit to emit every decoded frame."
+      }
+    ],
+    "output": {
+      "media_urn": "media:image;png",
+      "is_sequence": true,
+      "output_description": "PNG images, one per emitted frame"
     }
   },
   {

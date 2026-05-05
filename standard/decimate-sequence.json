@@ -1,0 +1,36 @@
+{
+  "urn": "cap:decimate-sequence;in=media:;out=media:",
+  "command": "decimate-sequence",
+  "title": "Decimate Sequence",
+  "cap_description": "Keep one item out of every N from an input sequence (drop the rest)",
+  "documentation": "## Purpose\n\nReduces the length of a sequence by keeping items at positions `0, N, 2N, ...` and dropping the rest. Useful for sub-sampling a long sequence — e.g. taking every 10th frame from `extract-frames`, every 5th record from a CSV, every Nth file from a folder.\n\n## Inputs\n\n- A sequence of any media type.\n- An optional integer stride `N` (default: `1`, which is identity passthrough).\n\n## Outputs\n\nA sequence of the same media type as the input, containing approximately `ceil(input_count / N)` items. Per-item metadata on each kept item passes through unchanged.\n\n## Notes\n\n- The cap is generic over media (`in = media:`, `out = media:`); the planner routes it for any sequence input. The output's media URN matches the input's exactly — items themselves are passed through, not re-encoded.\n- `--keep-every 1` (or omitting the argument) is exact passthrough.\n- Negative, zero, or non-integer values fail loudly rather than silently being treated as 1; this is by design — a misspelled flag should surface, not be papered over.\n- An empty input sequence is treated as a real input error (not a \"successfully decimated zero items\" success), since silently emitting an empty sequence would let downstream caps run on nothing without anyone noticing.",
+  "metadata": {},
+  "args": [
+    {
+      "media_urn": "media:",
+      "required": true,
+      "sources": [
+        {
+          "stdin": "media:"
+        }
+      ],
+      "arg_description": "Sequence of items to decimate",
+      "is_sequence": true
+    },
+    {
+      "media_urn": "media:keep-every;textable;numeric",
+      "required": false,
+      "sources": [
+        {
+          "cli_flag": "--keep-every"
+        }
+      ],
+      "arg_description": "Stride N: keep one item out of every N. Positive integer. Omit for passthrough."
+    }
+  ],
+  "output": {
+    "media_urn": "media:",
+    "is_sequence": true,
+    "output_description": "Decimated sequence (same media type as input)"
+  }
+}
