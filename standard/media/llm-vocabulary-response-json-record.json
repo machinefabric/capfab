@@ -1,0 +1,11 @@
+{
+  "urn": "media:json;llm-vocab-response;record",
+  "title": "LLM Vocabulary Response (JSON, Record)",
+  "media_type": "application/json",
+  "profile_uri": "https://capdag.com/schema/llm-vocab-response",
+  "description": "Response containing the model's vocabulary tokens",
+  "documentation": "## Purpose\nReturns the full token vocabulary of a loaded LLM, enabling token-level analysis, prompt engineering tools, and custom tokenization utilities to operate without a separate tokenizer library.\n\n## When to use\nThis is the response to a `get_vocab` request in a [LLM Generation Request](https://capdag.com/browse/media:llm-generation-request;json;record). Use it when you need to enumerate, inspect, or count the tokens the model recognises.\n\n## Notes\nThe `vocab` array is ordered by token ID. The `vocab_size` field should equal the length of `vocab`; include it as a convenience for consumers that only need the count without iterating the full array. Vocabulary extraction is typically slow on large models; cache the result when possible.\n\n## Data format\nThe serialization format of structured data. A value tagged with both a data-format\nand a structure tag tells consumers exactly how to parse the bytes into a structured\nrepresentation. JSON is the default for cap inter-step data exchange.\n\nJavaScript Object Notation. Text-based, human-readable, ubiquitous. The default\nserialization for structured cap inputs and outputs.\n\n## Record marker\nPresence marker indicating the value's content is a key-value mapping at its\nroot: a JSON object, a CSV row with named columns, a TOML table, an INI file.\nIndependent of `list-marker` — a value can be both (a list of records),\neither alone, or neither.\n\nThe value's content is a key-value mapping. Consumers can expect to address\nfields by name.",
+  "extensions": [
+    "json"
+  ]
+}

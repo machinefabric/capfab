@@ -1,10 +1,8 @@
 {
   "urn": "media:ods",
+  "title": "ODS",
   "media_type": "application/vnd.oasis.opendocument.spreadsheet",
-  "title": "OpenDocument Spreadsheet",
-  "profile_uri": "https://capdag.com/schema/ods",
-  "description": "OpenDocument spreadsheet data",
-  "documentation": "## Purpose\nCarries OpenDocument Spreadsheet files (`.ods`), the ISO-standardized spreadsheet format used by LibreOffice Calc, Apache OpenOffice Calc, and Google Sheets. ODS is a ZIP archive of XML content following the ODF specification.\n\n## When to use\nUse `media:ods` when a pipeline node processes open-format spreadsheets — for example, a data extraction step using `odfpy` or LibreOffice, or a step that produces tabular reports in an open standard format. For Microsoft Excel format, see [Excel Spreadsheet](https://capdag.com/browse/media:xlsx).\n\n## Notes\nODS supports formulas, charts, and multiple sheets in the same manner as XLSX. The `odfpy` Python library provides programmatic access. LibreOffice can convert ODS to CSV, XLSX, or PDF. See also [OpenDocument Spreadsheet](https://capdag.com/browse/media:ods).\n",
+  "documentation": "## File type\nThe concrete file format. Each value identifies a single, well-known format with its\nfile extensions and MIME type. File-type is the identity-tag of file-format media URNs:\n`media:pdf` carries the pdf file-type marker, `media:json;textable;record` carries the\njson file-type marker.\n\nThe file-type dim is authored across multiple fragment files in `fabric/dims/file-type/`\ngrouped by category (image, audio, video, archive, document, source, font, model,\ndata, config, web, other). Fragment merging produces a single global file-type dim\ncatalogue.\n\nOpenDocument Spreadsheet.",
   "extensions": [
     "ods"
   ]

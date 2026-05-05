@@ -1,0 +1,6 @@
+{
+  "urn": "media:",
+  "title": "Any Media",
+  "media_type": "application/octet-stream",
+  "description": "Identity URN; matches any media value"
+}

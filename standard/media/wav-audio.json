@@ -1,10 +1,8 @@
 {
-  "urn": "media:wav;audio",
+  "urn": "media:audio;wav",
+  "title": "WAV, Audio",
   "media_type": "audio/wav",
-  "title": "WAV Audio",
-  "profile_uri": "https://capdag.com/schema/wav",
-  "description": "Audio data (WAV, MP3, etc.)",
-  "documentation": "## Purpose\nGeneric audio media type for WAV-encoded audio without additional semantic constraints. Covers any waveform content regardless of what it contains (music, speech, sound effects, recordings).\n\n## When to use\nUse `media:wav;audio` when the semantic role of the audio is not specified or when the consumer can handle arbitrary audio content. If the content is specifically speech for transcription, prefer [Speech Audio](https://capdag.com/browse/media:audio;speech;wav) instead.\n\n## Notes\nDespite the description mentioning MP3 and other formats, the MIME type and extension for this spec are WAV. Other audio formats have their own dedicated media specs.\n",
+  "documentation": "## File type\nThe concrete file format. Each value identifies a single, well-known format with its\nfile extensions and MIME type. File-type is the identity-tag of file-format media URNs:\n`media:pdf` carries the pdf file-type marker, `media:json;textable;record` carries the\njson file-type marker.\n\nThe file-type dim is authored across multiple fragment files in `fabric/dims/file-type/`\ngrouped by category (image, audio, video, archive, document, source, font, model,\ndata, config, web, other). Fragment merging produces a single global file-type dim\ncatalogue.\n\nWAV (Waveform Audio File Format). Uncompressed PCM audio. Large files but maximum\nfidelity; standard intermediate format for audio production.\n\n## Medium\nMedium tags declare the primary human-perceivable nature of a value: visual, audible,\ntextual, etc. Medium is what a person experiences when consuming the value. Some media\ntypes carry multiple media tags (a PDF is both visual when displayed and textable when\nits text layer is extracted).\n\nMedium should not be confused with coercion: `textable` (coercion) means \"can be\nencoded as UTF-8 text without loss\"; `textual` (medium) means \"is fundamentally text\nto a human reader.\" A JSON config is textable but not necessarily textual in this\nsense — it is structured data that happens to be text-encoded.\n\nThe value is an audio recording or stream intended to be heard. Caps for transcription,\nspeech recognition, and audio analysis match on this tag.",
   "extensions": [
     "wav"
   ]

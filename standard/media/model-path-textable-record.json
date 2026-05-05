@@ -1,0 +1,11 @@
+{
+  "urn": "media:model-path;record;textable",
+  "title": "Model Path (Textable, Record)",
+  "media_type": "application/json",
+  "profile_uri": "https://capdag.com/schema/model-path",
+  "description": "Local filesystem path to a model directory",
+  "documentation": "## Purpose\nCarries the resolved local path to a model directory after a model has been downloaded or located on disk. It pairs the filesystem path with the originating model spec and an existence flag so consumers know whether the model is actually present.\n\n## When to use\nPass this type between caps that download a model and caps that load or inspect it. A download cap produces a [Model Download Result](https://capdag.com/browse/media:download-result;textable;record); a path-only reference uses this type when no additional download metadata is needed.\n\n## Notes\nThe `path` field is required. The `exists` flag allows callers to distinguish between a path that was computed but not yet downloaded versus one that is on disk and ready to use. Use [Model Availability](https://capdag.com/browse/media:model-availability;textable;record) when you need both local and remote availability in one response.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Record marker\nPresence marker indicating the value's content is a key-value mapping at its\nroot: a JSON object, a CSV row with named columns, a TOML table, an INI file.\nIndependent of `list-marker` — a value can be both (a list of records),\neither alone, or neither.\n\nThe value's content is a key-value mapping. Consumers can expect to address\nfields by name.",
+  "extensions": [
+    "json"
+  ]
+}

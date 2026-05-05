@@ -1,0 +1,23 @@
+{
+  "urn": "media:api-timeout-ms;app;network;numeric;textable;timing;user",
+  "title": "API request timeout in milliseconds (Network, Timing, User, Application, Textable, Numeric)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/api-timeout-ms",
+  "description": "API request timeout in milliseconds",
+  "documentation": "## Settings domain\nThe functional subsystem a setting governs. Domains group settings into UI sections\nand into the runtime modules that consume them.\n\nNetwork endpoints, timeouts, and connectivity policies — anything affecting how the\napp communicates with remote services.\n\n## Settings concern\nThe kind of decision a setting captures. Concern groups settings by the shape of the\nvalue they hold, regardless of which subsystem (domain) consumes them. Useful for\ngeneric UIs that render concern-by-concern.\n\nA duration, timeout, interval, or scheduling parameter. The setting value is\ntypically numeric in some unit (ms, seconds, minutes, hours).\n\n## Settings audience\nWho is expected to read or modify the setting. Audience determines which UI surface\nexposes the setting (end-user preferences vs operator console vs developer tuning).\n\nEnd-user preferences. Shown in the standard preferences UI. Safe defaults are chosen\nto work for non-technical users; modifying these settings should not require\noperational expertise.\n\n## Settings scope\nThe lifecycle attachment of a setting value. App-scoped settings persist across\nlaunches; task-scoped settings apply for the duration of a single cap or workflow\nexecution; model-scoped settings attach to a specific model artifact.\n\nPersists in app preferences. Applies across all sessions until changed.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Numeric\nCoercion marker indicating the value supports numeric operations (addition,\ncomparison, ordering). Independent of `textable`; a numeric value is often\nalso textable (an integer is encodable as text), but neither implies the\nother in general.\n\nThe value supports numeric operations.",
+  "validation": {
+    "min": 1000,
+    "max": 60000
+  },
+  "metadata": {
+    "category": "api",
+    "subcategory": "api_configuration",
+    "display_index": 2,
+    "ui_type": "SETTING_UI_TYPE_NUMBER_FIELD",
+    "data_type": "SETTING_DATA_TYPE_UNSIGNED_INTEGER",
+    "default": 10000,
+    "overridable_by": [
+      "user"
+    ]
+  }
+}

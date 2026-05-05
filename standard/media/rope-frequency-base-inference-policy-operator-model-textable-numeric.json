@@ -1,0 +1,25 @@
+{
+  "urn": "media:inference;model;numeric;operator;policy;rope-frequency-base;textable",
+  "title": "RoPE frequency base (Inference, Policy, Operator, Model, Textable, Numeric)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/inference-rope-freq-base",
+  "description": "RoPE frequency base",
+  "documentation": "## Settings domain\nThe functional subsystem a setting governs. Domains group settings into UI sections\nand into the runtime modules that consume them.\n\nModel inference parameters: temperature, top-k, top-p, max tokens, sampling and\nguidance policies.\n\n## Settings concern\nThe kind of decision a setting captures. Concern groups settings by the shape of the\nvalue they hold, regardless of which subsystem (domain) consumes them. Useful for\ngeneric UIs that render concern-by-concern.\n\nA choice among predefined modes or strategies. The setting value is typically an\nenumerated string identifying the policy variant.\n\n## Settings audience\nWho is expected to read or modify the setting. Audience determines which UI surface\nexposes the setting (end-user preferences vs operator console vs developer tuning).\n\nOperator-level configuration. Visible in deployment-tuning surfaces. Adjusting these\nsettings affects throughput, resource usage, or model behaviour and should be done\nby someone familiar with the workload.\n\n## Settings scope\nThe lifecycle attachment of a setting value. App-scoped settings persist across\nlaunches; task-scoped settings apply for the duration of a single cap or workflow\nexecution; model-scoped settings attach to a specific model artifact.\n\nAttached to a specific model artifact. Affects how a particular model is loaded or\ninvoked. Different models may carry different values.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Numeric\nCoercion marker indicating the value supports numeric operations (addition,\ncomparison, ordering). Independent of `textable`; a numeric value is often\nalso textable (an integer is encodable as text), but neither implies the\nother in general.\n\nThe value supports numeric operations.",
+  "validation": {
+    "min": 1,
+    "max": 1000000
+  },
+  "metadata": {
+    "category": "inference",
+    "subcategory": "inference_advanced",
+    "display_index": 21,
+    "ui_type": "SETTING_UI_TYPE_NUMBER_FIELD",
+    "data_type": "SETTING_DATA_TYPE_UNSIGNED_INTEGER",
+    "default": 10000,
+    "overridable_by": [
+      "cap",
+      "model",
+      "user"
+    ]
+  }
+}

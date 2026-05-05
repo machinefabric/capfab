@@ -1,9 +1,9 @@
 {
-  "urn": "cap:in=\"media:numeric;textable\";op=coerce;out=media:record",
+  "urn": "cap:coerce;in=\"media:numeric;textable\";out=media:record",
   "command": "coerce",
   "title": "Coerce Number to Object",
   "cap_description": "Wrap a numeric value in a record",
-  "documentation": "## Purpose\n\nWraps a floating-point number in a record so it can be passed to caps that expect a structured record input.\n\n## Inputs\n\nA numeric (float) value (media type `media:numeric;textable`).\n\n## Outputs\n\nA record containing the numeric value.\n\n## Notes\n\n- Type adapter for the capfab planner.\n- Use when connecting a number-producing cap to a record-consuming cap.\n",
+  "documentation": "## Purpose\n\nWraps a floating-point number in a record so it can be passed to caps that expect a structured record input.\n\n## Inputs\n\nA numeric (float) value (media type `media:numeric;textable`).\n\n## Outputs\n\nA record containing the numeric value.\n\n## Notes\n\n- Type adapter for the capfab planner.\n- Use when connecting a number-producing cap to a record-consuming cap.",
   "metadata": {},
   "args": [
     {

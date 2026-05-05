@@ -1,0 +1,9 @@
+{
+  "urn": "media:code;r;textable",
+  "title": "R, Source Code, Textable",
+  "media_type": "text/plain",
+  "documentation": "## Source language\nThe programming language of a source-code file. Caps that operate on code (linters,\nformatters, parsers) match on the language tag rather than on a specific file\nextension. Language and file extension are correlated but not identical: a `.h`\nfile may be C, C++, Objective-C, or Objective-C++ depending on context.\n\nR source code.\n\n## Role\nSemantic-role markers distinguish how a value is used in a flow from how it is\nstored. A textual file might be `code` (source code), `log` (log records), or\n`page` (a single document page). Role is attached during cap declaration to make\nrouting decisions explicit.\n\nThe value is source code. Caps that operate on code (formatters, linters, parsers,\nLSP-style analysers) match on this tag rather than on a specific language.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.",
+  "extensions": [
+    "r"
+  ]
+}

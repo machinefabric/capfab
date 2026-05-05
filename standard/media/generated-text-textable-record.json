@@ -1,0 +1,11 @@
+{
+  "urn": "media:generated-text;record;textable",
+  "title": "Generated Text (Textable, Record)",
+  "media_type": "application/json",
+  "profile_uri": "https://capdag.com/schema/generated-text",
+  "description": "Generated text structured as a map with metadata.",
+  "documentation": "## Purpose\nCarries the complete text generation result from an LLM cap, including the generated text and any associated metadata such as token counts, finish reason, and timing. This is the non-streaming counterpart to [LLM Text Stream](https://capdag.com/browse/media:llm-text-stream;ndjson).\n\n## When to use\nUse this type when a cap returns the full generated output in one shot rather than streaming tokens. Callers that do not need incremental delivery should prefer this simpler interface over the streaming variant.\n\n## Notes\nThe outer object is a flat map; implementations should include at minimum a `text` or `generated_text` key containing the model output. Additional metadata keys such as `tokens_generated`, `finish_reason`, and `generation_time_ms` are recommended for observability.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Record marker\nPresence marker indicating the value's content is a key-value mapping at its\nroot: a JSON object, a CSV row with named columns, a TOML table, an INI file.\nIndependent of `list-marker` — a value can be both (a list of records),\neither alone, or neither.\n\nThe value's content is a key-value mapping. Consumers can expect to address\nfields by name.",
+  "extensions": [
+    "json"
+  ]
+}

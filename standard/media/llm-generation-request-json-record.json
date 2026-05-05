@@ -1,0 +1,11 @@
+{
+  "urn": "media:json;llm-generation-request;record",
+  "title": "LLM Generation Request (JSON, Record)",
+  "media_type": "application/json",
+  "profile_uri": "https://capdag.com/schema/llm-generation-request",
+  "description": "Request object for LLM text generation containing prompt, model specification, and generation parameters",
+  "documentation": "## Purpose\nCarries all inputs needed to invoke an LLM text generation cap: the prompt, the model to use, and any sampling or constraint parameters. A single request object lets callers express the full generation intent without needing multiple input ports.\n\n## When to use\nPass this type to any cap that performs text generation, vocabulary inspection (`get_vocab`), or model information retrieval (`get_info`). For streaming responses the cap should produce a [LLM Text Stream](https://capdag.com/browse/media:llm-text-stream;ndjson); for batch responses it produces [Generated Text](https://capdag.com/browse/media:generated-text;textable;record).\n\n## Notes\nThe `request_type` field defaults to `generate` when absent. Constraint fields (`grammar`, `json_schema`, `constraint`) are mutually exclusive in practice; implementers should apply the first one present. The `model_spec` value follows the same format described in [Model Spec](https://capdag.com/browse/media:model-spec;textable).\n\n## Data format\nThe serialization format of structured data. A value tagged with both a data-format\nand a structure tag tells consumers exactly how to parse the bytes into a structured\nrepresentation. JSON is the default for cap inter-step data exchange.\n\nJavaScript Object Notation. Text-based, human-readable, ubiquitous. The default\nserialization for structured cap inputs and outputs.\n\n## Record marker\nPresence marker indicating the value's content is a key-value mapping at its\nroot: a JSON object, a CSV row with named columns, a TOML table, an INI file.\nIndependent of `list-marker` — a value can be both (a list of records),\neither alone, or neither.\n\nThe value's content is a key-value mapping. Consumers can expect to address\nfields by name.",
+  "extensions": [
+    "json"
+  ]
+}

@@ -1,9 +1,9 @@
 {
-  "urn": "cap:in=\"media:numeric;textable\";op=coerce;out=media:textable",
+  "urn": "cap:coerce;in=\"media:numeric;textable\";out=media:textable",
   "command": "coerce",
   "title": "Coerce Number to String",
   "cap_description": "Convert a numeric value to its string representation",
-  "documentation": "## Purpose\n\nConverts a floating-point number to its string representation. Use this when a downstream cap requires a text value but the upstream produces a numeric value.\n\n## Inputs\n\nA numeric (float) value (media type `media:numeric;textable`).\n\n## Outputs\n\nThe string representation of the number.\n\n## Notes\n\n- Output format follows standard floating-point decimal notation.\n- For the reverse conversion, use [Coerce String to Number](https://capdag.com/browse/cap:in=media:textable;op=coerce;out=\"media:numeric;textable\").\n",
+  "documentation": "## Purpose\n\nConverts a floating-point number to its string representation. Use this when a downstream cap requires a text value but the upstream produces a numeric value.\n\n## Inputs\n\nA numeric (float) value (media type `media:numeric;textable`).\n\n## Outputs\n\nThe string representation of the number.\n\n## Notes\n\n- Output format follows standard floating-point decimal notation.\n- For the reverse conversion, use [Coerce String to Number](https://capdag.com/browse/cap:in=media:textable;op=coerce;out=\"media:numeric;textable\").",
   "metadata": {},
   "args": [
     {

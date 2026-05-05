@@ -20,7 +20,7 @@ body:
       render: json
       placeholder: |
         {
-          "urn": "cap:in=\"media:bool;textable\";op=coerce;out=media:textable",
+          "urn": "cap:in=\"media:bool;textable\";coerce;out=media:textable",
           "command": "coerce",
           "title": "Coerce Boolean to String",
           "cap_description": "Convert a boolean value to its string representation",

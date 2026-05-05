@@ -1,0 +1,11 @@
+{
+  "urn": "media:decision;json;record;textable",
+  "title": "Decision (JSON, Record, Textable)",
+  "media_type": "application/json",
+  "profile_uri": "https://capdag.com/schema/decision",
+  "description": "Boolean decision as a JSON object with identifier and value fields.",
+  "documentation": "## Purpose\nEncodes the result of a binary evaluation as a structured JSON record. The `identifier` field records the question or criterion that was assessed; `value` holds the boolean answer.\n\n## When to use\nUse this type as the output of machines that perform yes/no classification, verification, or filtering. It is the canonical output for [Decision Type](https://capdag.com/browse/media:decision-type;textable) `binary` and `verification` modes.\n\n## Notes\nSchema requires exactly two fields: `identifier` (string) and `value` (boolean). No additional properties are allowed. For multi-class outputs, consider a classification-specific media type.\n\n## Data format\nThe serialization format of structured data. A value tagged with both a data-format\nand a structure tag tells consumers exactly how to parse the bytes into a structured\nrepresentation. JSON is the default for cap inter-step data exchange.\n\nJavaScript Object Notation. Text-based, human-readable, ubiquitous. The default\nserialization for structured cap inputs and outputs.\n\n## Record marker\nPresence marker indicating the value's content is a key-value mapping at its\nroot: a JSON object, a CSV row with named columns, a TOML table, an INI file.\nIndependent of `list-marker` — a value can be both (a list of records),\neither alone, or neither.\n\nThe value's content is a key-value mapping. Consumers can expect to address\nfields by name.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.",
+  "extensions": [
+    "json"
+  ]
+}

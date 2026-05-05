@@ -1,0 +1,12 @@
+{
+  "urn": "media:max-content-length;numeric;textable",
+  "title": "Max Content Length (Textable, Numeric)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/max_content_length",
+  "description": "Max Content Length numeric value",
+  "documentation": "## Purpose\nLimits the number of characters or tokens of document content passed to a machine. Used to prevent oversized inputs from exceeding downstream capacity.\n\n## When to use\nApply this parameter on ingestion or preprocessing machines that must truncate or split content before forwarding it. It complements [Max Context Length](https://capdag.com/browse/media:max-context-length;inference;limit;operator;model;textable;numeric), which governs the model's total window.\n\n## Notes\nValid range: 256–131072. Content exceeding this limit should be chunked using [Chunk Size](https://capdag.com/browse/media:chunk-size;textable;numeric) rather than silently truncated.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Numeric\nCoercion marker indicating the value supports numeric operations (addition,\ncomparison, ordering). Independent of `textable`; a numeric value is often\nalso textable (an integer is encodable as text), but neither implies the\nother in general.\n\nThe value supports numeric operations.",
+  "validation": {
+    "max": 131072,
+    "min": 256
+  }
+}

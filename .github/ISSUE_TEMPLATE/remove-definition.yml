@@ -27,7 +27,7 @@ body:
       description: One URN per line. Use the canonical form as it appears in the published JSON.
       render: text
       placeholder: |
-        cap:in="media:foo";op=example;out="media:bar"
+        cap:in="media:foo";example;out="media:bar"
     validations:
       required: true
   - type: textarea

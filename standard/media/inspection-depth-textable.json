@@ -1,0 +1,15 @@
+{
+  "urn": "media:inspection-depth;textable",
+  "title": "Inspection Depth (Textable)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/inspection_depth",
+  "description": "Inspection Depth value",
+  "documentation": "## Purpose\nA qualitative selector that controls how thoroughly a machine examines its input. The three levels (`summary`, `detailed`, `full`) trade off speed and token usage against completeness of analysis.\n\n## When to use\nUse `summary` for quick triage or routing decisions. Use `detailed` for standard analysis where most relevant content should be surfaced. Use `full` when exhaustive inspection is required, such as compliance review or deep extraction tasks.\n\n## Notes\nAllowed values: `summary`, `detailed`, `full`. For numeric depth control in hierarchical documents, use [Outline Max Depth](https://capdag.com/browse/media:outline-max-depth;textable;numeric). The computational cost typically scales with depth level.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.",
+  "validation": {
+    "allowed_values": [
+      "summary",
+      "detailed",
+      "full"
+    ]
+  }
+}

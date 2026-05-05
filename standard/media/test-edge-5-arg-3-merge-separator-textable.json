@@ -1,0 +1,7 @@
+{
+  "urn": "media:edge5arg3;textable",
+  "title": "Test Edge 5 Arg 3 (Merge Separator) (Textable)",
+  "media_type": "text/plain",
+  "description": "Text to insert between merged inputs",
+  "documentation": "Internal test media type. Used only in capfab test scenarios.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
+}

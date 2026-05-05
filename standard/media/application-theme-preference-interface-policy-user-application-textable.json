@@ -1,0 +1,27 @@
+{
+  "urn": "media:app;interface;policy;textable;theme;user",
+  "title": "Application theme preference (Interface, Policy, User, Application, Textable)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/interface-theme",
+  "description": "Application theme preference",
+  "documentation": "## Settings domain\nThe functional subsystem a setting governs. Domains group settings into UI sections\nand into the runtime modules that consume them.\n\nUser-interface preferences: theme, language, menu-bar visibility, startup behaviour.\n\n## Settings concern\nThe kind of decision a setting captures. Concern groups settings by the shape of the\nvalue they hold, regardless of which subsystem (domain) consumes them. Useful for\ngeneric UIs that render concern-by-concern.\n\nA choice among predefined modes or strategies. The setting value is typically an\nenumerated string identifying the policy variant.\n\n## Settings audience\nWho is expected to read or modify the setting. Audience determines which UI surface\nexposes the setting (end-user preferences vs operator console vs developer tuning).\n\nEnd-user preferences. Shown in the standard preferences UI. Safe defaults are chosen\nto work for non-technical users; modifying these settings should not require\noperational expertise.\n\n## Settings scope\nThe lifecycle attachment of a setting value. App-scoped settings persist across\nlaunches; task-scoped settings apply for the duration of a single cap or workflow\nexecution; model-scoped settings attach to a specific model artifact.\n\nPersists in app preferences. Applies across all sessions until changed.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.",
+  "validation": {
+    "allowed_values": [
+      "system",
+      "light",
+      "dark"
+    ]
+  },
+  "metadata": {
+    "category": "interface",
+    "subcategory": "interface_appearance",
+    "display_index": 3,
+    "ui_type": "SETTING_UI_TYPE_DROPDOWN",
+    "data_type": "SETTING_DATA_TYPE_STRING",
+    "default": "system",
+    "overridable_by": [
+      "user",
+      "end_user"
+    ]
+  }
+}

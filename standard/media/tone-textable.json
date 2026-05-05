@@ -1,0 +1,21 @@
+{
+  "urn": "media:textable;tone",
+  "title": "Tone (Textable)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/tone",
+  "description": "Tone value",
+  "documentation": "## Purpose\n\nTone specifies the emotional register and interpersonal stance of the generated text, shaping how readers experience the content rather than what information it conveys.\n\n## When to use\n\nUse this media type alongside [Genre](https://capdag.com/browse/media:genre;textable) and [Creativity Level](https://capdag.com/browse/media:creativity-level;textable;numeric) when configuring creative or editorial writing nodes. It is also applicable to customer-facing content nodes where brand voice matters.\n\n## Notes\n\nTone affects word choice, sentence rhythm, and the degree of formality. When tone and genre conflict (for example, `humorous` with `academic`), the model will attempt to honor both, but results may vary; test outputs carefully.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.",
+  "validation": {
+    "allowed_values": [
+      "formal",
+      "casual",
+      "humorous",
+      "serious",
+      "dramatic",
+      "playful",
+      "professional",
+      "academic",
+      "conversational"
+    ]
+  }
+}

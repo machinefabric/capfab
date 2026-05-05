@@ -1,13 +1,10 @@
 {
   "urn": "media:sqlite",
-  "media_type": "application/vnd.sqlite3",
-  "title": "SQLite Database",
-  "profile_uri": "https://capdag.com/schema/sqlite",
-  "description": "SQLite database file",
-  "documentation": "## Purpose\nSQLite is a self-contained, serverless relational database engine stored as a single file. The [SQLite Database](https://capdag.com/browse/media:sqlite) media type represents any `.sqlite`, `.sqlite3`, or `.db` file that follows the SQLite file format.\n\n## When to use\nUse this type when a node produces or consumes a structured relational dataset that must remain portable as a single file artifact — for example, query results, local caches, or embedded application data stores. It is a better choice than CSV or JSON when the data has multiple tables, foreign keys, or requires SQL querying.\n\n## Notes\nImplementers should use the SQLite C library or a language binding to open files; do not treat them as raw binary blobs. Consumers that only need read access should open the database in read-only mode to avoid unintended writes or WAL file creation.\n",
+  "title": "SQLite",
+  "media_type": "application/x-sqlite3",
+  "documentation": "## File type\nThe concrete file format. Each value identifies a single, well-known format with its\nfile extensions and MIME type. File-type is the identity-tag of file-format media URNs:\n`media:pdf` carries the pdf file-type marker, `media:json;textable;record` carries the\njson file-type marker.\n\nThe file-type dim is authored across multiple fragment files in `fabric/dims/file-type/`\ngrouped by category (image, audio, video, archive, document, source, font, model,\ndata, config, web, other). Fragment merging produces a single global file-type dim\ncatalogue.\n\nSQLite database file. Self-contained relational database in a single file.",
   "extensions": [
     "sqlite",
-    "sqlite3",
     "db"
   ]
 }

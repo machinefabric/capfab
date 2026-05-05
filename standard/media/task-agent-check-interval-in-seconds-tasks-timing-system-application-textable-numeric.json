@@ -1,0 +1,23 @@
+{
+  "urn": "media:app;numeric;system;task-agent-interval-seconds;tasks;textable;timing",
+  "title": "Task agent check interval in seconds (Tasks, Timing, System, Application, Textable, Numeric)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/task-agent-interval-seconds",
+  "description": "Task agent check interval in seconds",
+  "documentation": "## Settings domain\nThe functional subsystem a setting governs. Domains group settings into UI sections\nand into the runtime modules that consume them.\n\nTask scheduling, retries, timeouts, and concurrency limits for the cap-execution\npipeline.\n\n## Settings concern\nThe kind of decision a setting captures. Concern groups settings by the shape of the\nvalue they hold, regardless of which subsystem (domain) consumes them. Useful for\ngeneric UIs that render concern-by-concern.\n\nA duration, timeout, interval, or scheduling parameter. The setting value is\ntypically numeric in some unit (ms, seconds, minutes, hours).\n\n## Settings audience\nWho is expected to read or modify the setting. Audience determines which UI surface\nexposes the setting (end-user preferences vs operator console vs developer tuning).\n\nSystem-managed values. Set automatically by the runtime or platform; users do not\nmodify these directly. Examples: detected hardware capabilities, autodiscovered\nendpoints.\n\n## Settings scope\nThe lifecycle attachment of a setting value. App-scoped settings persist across\nlaunches; task-scoped settings apply for the duration of a single cap or workflow\nexecution; model-scoped settings attach to a specific model artifact.\n\nPersists in app preferences. Applies across all sessions until changed.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Numeric\nCoercion marker indicating the value supports numeric operations (addition,\ncomparison, ordering). Independent of `textable`; a numeric value is often\nalso textable (an integer is encodable as text), but neither implies the\nother in general.\n\nThe value supports numeric operations.",
+  "validation": {
+    "min": 1,
+    "max": 60
+  },
+  "metadata": {
+    "category": "task",
+    "subcategory": "task_scheduling",
+    "display_index": 1,
+    "ui_type": "SETTING_UI_TYPE_NUMBER_FIELD",
+    "data_type": "SETTING_DATA_TYPE_UNSIGNED_INTEGER",
+    "default": 5,
+    "overridable_by": [
+      "user"
+    ]
+  }
+}

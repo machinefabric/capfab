@@ -1,9 +1,9 @@
 {
-  "urn": "cap:in=media:;op=render_page_image;out=\"media:image;png\"",
+  "urn": "cap:in=media:;out=\"media:image;png\";render-page-image",
   "command": "render-page-image",
   "title": "Render Page Image",
   "cap_description": "Render PNG page images from the file",
-  "documentation": "## Purpose\n\nGeneric page-image renderer that accepts any supported document type and produces PNG page images. This is the base cap; type-specific variants (PDF, Markdown, text, RST, log) provide more precise media type matching in the capfab.\n\n## Inputs\n\n- A document file (any supported media type).\n- Page width in pixels (default 800).\n- Page height in pixels (default 1200).\n- An optional index range (default: `1-`, all pages).\n\n## Outputs\n\nA sequence of PNG images, one per rendered page.\n\n## Notes\n\n- For typed pipelines, prefer the format-specific render caps ([Render PDF Page Images](https://capdag.com/browse/cap:in=\"media:pdf\";op=render_page_image;out=\"media:image;png\"), [Render Markdown Page Image](https://capdag.com/browse/cap:in=\"media:md;textable\";op=render_page_image;out=\"media:image;png\"), etc.) so the planner can route correctly.\n- This generic variant is useful when the input media type is not known at pipeline design time.\n",
+  "documentation": "## Purpose\n\nGeneric page-image renderer that accepts any supported document type and produces PNG page images. This is the base cap; type-specific variants (PDF, Markdown, text, RST, log) provide more precise media type matching in the capfab.\n\n## Inputs\n\n- A document file (any supported media type).\n- Page width in pixels (default 800).\n- Page height in pixels (default 1200).\n- An optional index range (default: `1-`, all pages).\n\n## Outputs\n\nA sequence of PNG images, one per rendered page.\n\n## Notes\n\n- For typed pipelines, prefer the format-specific render caps ([Render PDF Page Images](https://capdag.com/browse/cap:in=\"media:pdf\";op=render_page_image;out=\"media:image;png\"), [Render Markdown Page Image](https://capdag.com/browse/cap:in=\"media:md;textable\";op=render_page_image;out=\"media:image;png\"), etc.) so the planner can route correctly.\n- This generic variant is useful when the input media type is not known at pipeline design time.",
   "metadata": {},
   "args": [
     {

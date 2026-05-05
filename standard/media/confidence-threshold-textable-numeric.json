@@ -1,0 +1,12 @@
+{
+  "urn": "media:confidence-threshold;numeric;textable",
+  "title": "Confidence Threshold (Textable, Numeric)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/confidence_threshold",
+  "description": "Confidence Threshold numeric value",
+  "documentation": "## Purpose\nA probability cutoff below which a machine's output is considered unreliable and should be suppressed, flagged, or sent to a fallback path. Typically used in classification or decision machines.\n\n## When to use\nSet a confidence threshold when downstream processes require a minimum certainty level. Results with scores below the threshold can be routed for human review or discarded. A common starting point is 0.7–0.9 for high-precision tasks.\n\n## Notes\nValid range: 0.0–1.0. A threshold of 0.0 accepts all results; 1.0 requires perfect certainty and will suppress most output. Pair with [Decision](https://capdag.com/browse/media:decision;json;record;textable) or classification output types that carry probability scores.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Numeric\nCoercion marker indicating the value supports numeric operations (addition,\ncomparison, ordering). Independent of `textable`; a numeric value is often\nalso textable (an integer is encodable as text), but neither implies the\nother in general.\n\nThe value supports numeric operations.",
+  "validation": {
+    "min": 0,
+    "max": 1
+  }
+}

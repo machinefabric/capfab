@@ -1,0 +1,10 @@
+{
+  "urn": "media:textable;yaml",
+  "title": "YAML, Textable",
+  "media_type": "application/yaml",
+  "documentation": "## Data format\nThe serialization format of structured data. A value tagged with both a data-format\nand a structure tag tells consumers exactly how to parse the bytes into a structured\nrepresentation. JSON is the default for cap inter-step data exchange.\n\nYAML Ain't Markup Language. Indentation-based, supports references and anchors.\nCommon for configuration and authoring contexts where humans edit files directly.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.",
+  "extensions": [
+    "yaml",
+    "yml"
+  ]
+}

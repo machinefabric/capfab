@@ -1,0 +1,23 @@
+{
+  "urn": "media:app;developer;memory;memory-monitor-interval-ms;numeric;textable;timing",
+  "title": "Memory monitoring interval in milliseconds (Memory, Timing, Developer, Application, Textable, Numeric)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/mem-monitor-interval-ms",
+  "description": "Memory monitoring interval in milliseconds",
+  "documentation": "## Settings domain\nThe functional subsystem a setting governs. Domains group settings into UI sections\nand into the runtime modules that consume them.\n\nMemory pressure thresholds, model lifecycle management, and resource-utilisation\npolicies.\n\n## Settings concern\nThe kind of decision a setting captures. Concern groups settings by the shape of the\nvalue they hold, regardless of which subsystem (domain) consumes them. Useful for\ngeneric UIs that render concern-by-concern.\n\nA duration, timeout, interval, or scheduling parameter. The setting value is\ntypically numeric in some unit (ms, seconds, minutes, hours).\n\n## Settings audience\nWho is expected to read or modify the setting. Audience determines which UI surface\nexposes the setting (end-user preferences vs operator console vs developer tuning).\n\nDeveloper-only tuning, debugging, and observability knobs. Hidden from the standard\nUI; surfaced in developer panels or via CLI flags.\n\n## Settings scope\nThe lifecycle attachment of a setting value. App-scoped settings persist across\nlaunches; task-scoped settings apply for the duration of a single cap or workflow\nexecution; model-scoped settings attach to a specific model artifact.\n\nPersists in app preferences. Applies across all sessions until changed.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Numeric\nCoercion marker indicating the value supports numeric operations (addition,\ncomparison, ordering). Independent of `textable`; a numeric value is often\nalso textable (an integer is encodable as text), but neither implies the\nother in general.\n\nThe value supports numeric operations.",
+  "validation": {
+    "min": 100,
+    "max": 10000
+  },
+  "metadata": {
+    "category": "mem",
+    "subcategory": "mem_monitoring",
+    "display_index": 3,
+    "ui_type": "SETTING_UI_TYPE_NUMBER_FIELD",
+    "data_type": "SETTING_DATA_TYPE_UNSIGNED_INTEGER",
+    "default": 1000,
+    "overridable_by": [
+      "user"
+    ]
+  }
+}

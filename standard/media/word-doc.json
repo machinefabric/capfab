@@ -1,0 +1,9 @@
+{
+  "urn": "media:doc",
+  "title": "Word DOC",
+  "media_type": "application/msword",
+  "documentation": "## File type\nThe concrete file format. Each value identifies a single, well-known format with its\nfile extensions and MIME type. File-type is the identity-tag of file-format media URNs:\n`media:pdf` carries the pdf file-type marker, `media:json;textable;record` carries the\njson file-type marker.\n\nThe file-type dim is authored across multiple fragment files in `fabric/dims/file-type/`\ngrouped by category (image, audio, video, archive, document, source, font, model,\ndata, config, web, other). Fragment merging produces a single global file-type dim\ncatalogue.\n\nMicrosoft Word legacy binary format.",
+  "extensions": [
+    "doc"
+  ]
+}

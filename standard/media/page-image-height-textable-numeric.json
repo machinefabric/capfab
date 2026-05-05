@@ -1,0 +1,12 @@
+{
+  "urn": "media:numeric;page-image-height;textable",
+  "title": "Page Image Height (Textable, Numeric)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/page_image_height",
+  "description": "Page Image Height numeric value",
+  "documentation": "## Purpose\nSpecifies the pixel height to use when rendering a document page as an image. Controls the vertical resolution of the rasterized output.\n\n## When to use\nSet this parameter alongside [Page Image Width](https://capdag.com/browse/media:page-image-width;textable;numeric) when you need to control the full resolution of rendered pages. Increasing height improves vertical detail for tall or portrait-oriented documents.\n\n## Notes\nValid range: 50–4000 pixels. Aspect ratio handling is machine-specific. For most document types, setting only width and allowing the machine to infer height is simpler and avoids distortion.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.\n\n## Numeric\nCoercion marker indicating the value supports numeric operations (addition,\ncomparison, ordering). Independent of `textable`; a numeric value is often\nalso textable (an integer is encodable as text), but neither implies the\nother in general.\n\nThe value supports numeric operations.",
+  "validation": {
+    "max": 4000,
+    "min": 50
+  }
+}

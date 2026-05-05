@@ -1,0 +1,19 @@
+{
+  "urn": "media:summary-focus;textable",
+  "title": "Summary Focus (Textable)",
+  "media_type": "text/plain",
+  "profile_uri": "https://capdag.com/schema/summary_focus",
+  "description": "Summary Focus value",
+  "documentation": "## Purpose\n\nSummary Focus narrows the aspect of the source material that the summary should emphasize, ensuring the model highlights the information most relevant to the reader's purpose.\n\n## When to use\n\nUse this media type alongside [Summary Type](https://capdag.com/browse/media:summary-type;textable) when the summarization node supports focused extraction. For general-purpose summaries, `main_points` or `overview` are safe defaults.\n\n## Notes\n\nChoosing `methodology` or `results` is most effective for research documents. `implications` suits strategic or analytical content. When the source does not contain the chosen focus area, the model will fall back to available material and may not produce the expected structure.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.",
+  "validation": {
+    "allowed_values": [
+      "main_points",
+      "key_facts",
+      "conclusions",
+      "methodology",
+      "results",
+      "implications",
+      "overview"
+    ]
+  }
+}

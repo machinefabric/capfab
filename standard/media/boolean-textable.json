@@ -1,0 +1,7 @@
+{
+  "urn": "media:bool;textable",
+  "title": "Boolean, Textable",
+  "media_type": "text/plain",
+  "description": "Boolean primitive (true/false)",
+  "documentation": "## Number kind\nRefines a numeric value with its number-system domain. A numeric value without a\nnumber-kind tag is unconstrained on this axis. Adding a kind narrows what arithmetic\nand comparison operations are well-defined on the value.\n\nA two-valued type: true or false. Carried as a numeric value because Booleans encode\nnaturally as 0/1 and admit logical-arithmetic operations. The `bool` tag makes the\ndiscrete nature of the value explicit to consumers that need to distinguish it from\na numeric quantity.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
+}

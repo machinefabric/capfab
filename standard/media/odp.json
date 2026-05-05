@@ -1,10 +1,8 @@
 {
   "urn": "media:odp",
+  "title": "ODP",
   "media_type": "application/vnd.oasis.opendocument.presentation",
-  "title": "OpenDocument Presentation",
-  "profile_uri": "https://capdag.com/schema/odp",
-  "description": "OpenDocument presentation data",
-  "documentation": "## Purpose\nCarries OpenDocument Presentation files (`.odp`), the ISO-standardized slide format used by LibreOffice Impress and Apache OpenOffice Impress. ODP is a ZIP archive of XML content following the ODF specification.\n\n## When to use\nUse `media:odp` when a pipeline node processes open-format presentations — for example, a slide rendering step via LibreOffice, a content extraction step, or a conversion step targeting PDF or PPTX output. For Microsoft PowerPoint format, see [PowerPoint Presentation](https://capdag.com/browse/media:pptx).\n\n## Notes\nODP follows the OASIS OpenDocument Format standard (ISO/IEC 26300). LibreOffice Impress provides the most complete support, including complex animations and transitions. Conversion to PDF for archival or distribution is a common pipeline operation. See also [OpenDocument Presentation](https://capdag.com/browse/media:odp).\n",
+  "documentation": "## File type\nThe concrete file format. Each value identifies a single, well-known format with its\nfile extensions and MIME type. File-type is the identity-tag of file-format media URNs:\n`media:pdf` carries the pdf file-type marker, `media:json;textable;record` carries the\njson file-type marker.\n\nThe file-type dim is authored across multiple fragment files in `fabric/dims/file-type/`\ngrouped by category (image, audio, video, archive, document, source, font, model,\ndata, config, web, other). Fragment merging produces a single global file-type dim\ncatalogue.\n\nOpenDocument Presentation.",
   "extensions": [
     "odp"
   ]
