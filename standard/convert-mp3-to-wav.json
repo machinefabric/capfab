@@ -3,7 +3,7 @@
   "command": "convert-audio",
   "title": "Convert MP3 to WAV",
   "cap_description": "Decode MP3 to uncompressed WAV (PCM)",
-  "documentation": "## Purpose\n\nDecodes an MP3 file and writes it as 16-bit signed PCM WAV. This is the canonical step before transcription, since [Transcribe Audio (Candle)](https://capdag.com/browse/cap:candle;in=\"media:audio;speech;wav\";ml-model;op=transcribe;out=\"media:transcription;textable;record\") requires WAV input.\n\n## Inputs\n\nAn MP3 file (CBR or VBR, any sample rate or channel count Symphonia supports).\n\n## Outputs\n\nA 16-bit signed PCM WAV file at the source's native sample rate and channel count.\n\n## Notes\n\nThe output is bit-exact decoded PCM; no resampling is performed. If a downstream consumer requires a specific sample rate, follow with a resampling cap.",
+  "documentation": "## Purpose\n\nDecodes an MP3 file and writes it as 16-bit signed PCM WAV. This is the canonical step before transcription, since [Transcribe Audio (Candle)](https://capdag.com/browse/cap:candle;in=\"media:audio;speech;wav\";ml-model;out=\"media:record;textable;transcription\";transcribe) requires WAV input.\n\n## Inputs\n\nAn MP3 file (CBR or VBR, any sample rate or channel count Symphonia supports).\n\n## Outputs\n\nA 16-bit signed PCM WAV file at the source's native sample rate and channel count.\n\n## Notes\n\nThe output is bit-exact decoded PCM; no resampling is performed. If a downstream consumer requires a specific sample rate, follow with a resampling cap.",
   "metadata": {},
   "args": [
     {

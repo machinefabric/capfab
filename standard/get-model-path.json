@@ -3,7 +3,7 @@
   "command": "path",
   "title": "Get Model Path",
   "cap_description": "Get local filesystem path to a cached model.",
-  "documentation": "## Purpose\n\nReturns the absolute filesystem path to a model that is already in the local cache. Use this when a downstream tool or script needs to reference the model by path rather than by spec.\n\n## Inputs\n\nA model spec string (e.g. `hf:org/model-name`).\n\n## Outputs\n\nA JSON record with the local directory path to the model and a list of files inside it.\n\n## Notes\n\n- Fails if the model is not in the local cache. Download it first with [Download Model](https://capdag.com/browse/cap:in=\"media:model-spec;textable\";op=download-model;out=\"media:download-result;textable;record\").\n- Useful for integrating with tools that require a filesystem path (e.g. llama.cpp CLI, custom scripts).",
+  "documentation": "## Purpose\n\nReturns the absolute filesystem path to a model that is already in the local cache. Use this when a downstream tool or script needs to reference the model by path rather than by spec.\n\n## Inputs\n\nA model spec string (e.g. `hf:org/model-name`).\n\n## Outputs\n\nA JSON record with the local directory path to the model and a list of files inside it.\n\n## Notes\n\n- Fails if the model is not in the local cache. Download it first with [Download Model](https://capdag.com/browse/cap:download-model;in=\"media:model-spec;textable\";out=\"media:download-result;record;textable\").\n- Useful for integrating with tools that require a filesystem path (e.g. llama.cpp CLI, custom scripts).",
   "metadata": {},
   "args": [
     {
