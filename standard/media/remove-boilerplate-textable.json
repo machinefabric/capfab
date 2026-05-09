@@ -1,8 +1,0 @@
-{
-  "urn": "media:remove-boilerplate;textable",
-  "title": "Remove Boilerplate (Textable)",
-  "media_type": "text/plain",
-  "profile_uri": "https://capdag.com/schema/remove_boilerplate",
-  "description": "Remove Boilerplate value",
-  "documentation": "## Purpose\nA boolean flag that tells a machine to strip standard boilerplate content from its input or output — such as legal disclaimers, headers, footers, or repeated standard clauses — before further processing.\n\n## When to use\nEnable when processing documents that contain recurring non-informative content that would consume token budget without adding analytical value (e.g., contract preambles, cookie banners, standard license headers).\n\n## Notes\nThe definition of \"boilerplate\" is machine-specific. See [Include Comments Flag](https://capdag.com/browse/media:include-comments-flag;textable) for the analogous control over code comments and [Preserve Structure Flag](https://capdag.com/browse/media:preserve-structure-flag;textable) for retaining document structure.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
-}

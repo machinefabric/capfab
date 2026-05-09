@@ -1,9 +1,0 @@
-{
-  "urn": "media:css;textable",
-  "title": "CSS, Textable",
-  "media_type": "text/css",
-  "documentation": "## File type\nThe concrete file format. Each value identifies a single, well-known format with its\nfile extensions and MIME type. File-type is the identity-tag of file-format media URNs:\n`media:pdf` carries the pdf file-type marker, `media:json;textable;record` carries the\njson file-type marker.\n\nThe file-type dim is authored across multiple fragment files in `fabric/dims/file-type/`\ngrouped by category (image, audio, video, archive, document, source, font, model,\ndata, config, web, other). Fragment merging produces a single global file-type dim\ncatalogue.\n\nCSS (Cascading Style Sheets). Style language for HTML documents.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss.",
-  "extensions": [
-    "css"
-  ]
-}

@@ -1,7 +1,0 @@
-{
-  "urn": "media:page;textable",
-  "title": "Document Page, Textable",
-  "media_type": "text/plain",
-  "description": "A single page of textable content extracted from a multi-page document",
-  "documentation": "## Role\nSemantic-role markers distinguish how a value is used in a flow from how it is\nstored. A textual file might be `code` (source code), `log` (log records), or\n`page` (a single document page). Role is attached during cap declaration to make\nrouting decisions explicit.\n\nThe value represents a single page extracted from a multi-page document.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
-}

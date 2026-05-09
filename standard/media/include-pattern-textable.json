@@ -1,8 +1,0 @@
-{
-  "urn": "media:include-pattern;textable",
-  "title": "Include Pattern (Textable)",
-  "media_type": "text/plain",
-  "profile_uri": "https://capdag.com/schema/include_pattern",
-  "description": "Include Pattern value",
-  "documentation": "## Purpose\n\nInclude Pattern specifies items that should be explicitly admitted into a collection or processing pipeline. When present, only items matching the pattern are forwarded; all others are dropped.\n\n## When to use\n\nUse this media type when a node supports allow-list filtering. Pair it with [Exclude Pattern](https://capdag.com/browse/media:exclude-pattern;textable) and [Filter Pattern](https://capdag.com/browse/media:filter-pattern;textable) to build layered selection logic.\n\n## Notes\n\nIf no include pattern is provided, the node typically defaults to admitting all items. The pattern syntax is node-specific; consult the node's documentation to determine whether glob, regex, or literal matching is used.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
-}

@@ -38,7 +38,7 @@ Each capability JSON describes a single operation: its URN tags (notably `in` an
 
 ## Using these definitions in code
 
-Capability and media URNs are tagged URNs with directional matching semantics; they should be parsed and compared via the [`capdag`](https://www.npmjs.com/package/capdag) library, never by string. The `CapRegistryClient` and `MediaRegistryClient` in that library know how to load and resolve these definitions.
+Capability and media URNs are tagged URNs with directional matching semantics; they should be parsed and compared via the [`capdag`](https://www.npmjs.com/package/capdag) library, never by string. The `FabricRegistryClient` in that library loads and resolves both cap definitions and media specs through the unified registry.
 
 ## Part of MachineFabric
 

@@ -1,9 +1,0 @@
-{
-  "urn": "media:archive;deb",
-  "title": "Debian package, Archive",
-  "media_type": "application/vnd.debian.binary-package",
-  "documentation": "## File type\nThe concrete file format. Each value identifies a single, well-known format with its\nfile extensions and MIME type. File-type is the identity-tag of file-format media URNs:\n`media:pdf` carries the pdf file-type marker, `media:json;textable;record` carries the\njson file-type marker.\n\nThe file-type dim is authored across multiple fragment files in `fabric/dims/file-type/`\ngrouped by category (image, audio, video, archive, document, source, font, model,\ndata, config, web, other). Fragment merging produces a single global file-type dim\ncatalogue.\n\nDebian / Ubuntu package format.\n\n## Medium\nMedium tags declare the primary human-perceivable nature of a value: visual, audible,\ntextual, etc. Medium is what a person experiences when consuming the value. Some media\ntypes carry multiple media tags (a PDF is both visual when displayed and textable when\nits text layer is extracted).\n\nMedium should not be confused with coercion: `textable` (coercion) means \"can be\nencoded as UTF-8 text without loss\"; `textual` (medium) means \"is fundamentally text\nto a human reader.\" A JSON config is textable but not necessarily textual in this\nsense — it is structured data that happens to be text-encoded.\n\nThe value is a compressed bundle of files (zip, tar.gz, 7z, etc.). Caps for archive\ninspection or extraction match on this tag rather than on a specific archive format.",
-  "extensions": [
-    "deb"
-  ]
-}

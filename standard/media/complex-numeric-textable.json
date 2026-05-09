@@ -1,7 +1,0 @@
-{
-  "urn": "media:complex;numeric;textable",
-  "title": "Complex, Numeric, Textable",
-  "media_type": "text/plain",
-  "description": "Numeric primitive (integer or real) optionally as a list",
-  "documentation": "## Number kind\nRefines a numeric value with its number-system domain. A numeric value without a\nnumber-kind tag is unconstrained on this axis. Adding a kind narrows what arithmetic\nand comparison operations are well-defined on the value.\n\nA complex number with real and imaginary components. Used in scientific computing,\nsignal processing, and any context requiring two-dimensional numeric representation.\n\n## Numeric\nCoercion marker indicating the value supports numeric operations (addition,\ncomparison, ordering). Independent of `textable`; a numeric value is often\nalso textable (an integer is encodable as text), but neither implies the\nother in general.\n\nThe value supports numeric operations.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
-}

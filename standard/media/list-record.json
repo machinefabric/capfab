@@ -1,7 +1,0 @@
-{
-  "urn": "media:list;record",
-  "title": "List, Record",
-  "media_type": "application/octet-stream",
-  "description": "An ordered sequence of record-shaped values",
-  "documentation": "## List marker\nPresence marker indicating the value's content is an ordered sequence at its\nroot: a JSON array, a multi-row CSV, a YAML sequence, a list of strings.\nIndependent of `record-marker` — a value can be both (a list of records),\neither alone, or neither.\n\nThe value's content is an ordered sequence. Consumers can expect to iterate\nelements in order.\n\n## Record marker\nPresence marker indicating the value's content is a key-value mapping at its\nroot: a JSON object, a CSV row with named columns, a TOML table, an INI file.\nIndependent of `list-marker` — a value can be both (a list of records),\neither alone, or neither.\n\nThe value's content is a key-value mapping. Consumers can expect to address\nfields by name."
-}

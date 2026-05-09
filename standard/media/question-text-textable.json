@@ -1,8 +1,0 @@
-{
-  "urn": "media:question;textable",
-  "title": "Question Text (Textable)",
-  "media_type": "text/plain",
-  "profile_uri": "https://capdag.com/schema/question_list",
-  "description": "Text file with one question per line.",
-  "documentation": "## Purpose\nA single natural-language question to be answered, evaluated, or routed by a machine. Suitable for Q&A, classification, and decision machines that process one question at a time.\n\n## When to use\nUse `media:question;textable` for single-question inputs. When processing multiple questions in bulk, use the companion `media:list;question;textable` type, which carries one question per line.\n\n## Notes\nLength is constrained to 5–4096 characters. See [Question List](https://capdag.com/browse/media:list;question;textable) for batch inputs and [Decision](https://capdag.com/browse/media:decision;json;record;textable) for the corresponding output type.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
-}

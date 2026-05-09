@@ -1,9 +1,0 @@
-{
-  "urn": "media:msgpack",
-  "title": "MessagePack",
-  "media_type": "application/msgpack",
-  "documentation": "## Data format\nThe serialization format of structured data. A value tagged with both a data-format\nand a structure tag tells consumers exactly how to parse the bytes into a structured\nrepresentation. JSON is the default for cap inter-step data exchange.\n\nMessagePack. Binary, JSON-equivalent, more compact than JSON for numeric-heavy data.",
-  "extensions": [
-    "msgpack"
-  ]
-}

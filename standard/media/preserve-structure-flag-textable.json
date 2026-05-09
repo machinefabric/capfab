@@ -1,8 +1,0 @@
-{
-  "urn": "media:preserve-structure-flag;textable",
-  "title": "Preserve Structure Flag (Textable)",
-  "media_type": "text/plain",
-  "profile_uri": "https://capdag.com/schema/preserve_structure_flag",
-  "description": "Preserve Structure Flag value",
-  "documentation": "## Purpose\nA boolean flag that instructs a machine to maintain the hierarchical or organizational structure of the input document in its output, even when content is summarized or extracted.\n\n## When to use\nEnable for document conversion, reformatting, or summarization tasks where section hierarchy, list structure, or table layout must be retained. Disable when flat or free-form output is sufficient.\n\n## Notes\nSee [Preserve All Data](https://capdag.com/browse/media:preserve-all-data;textable) when full content fidelity is required in addition to structure. See [Remove Boilerplate](https://capdag.com/browse/media:remove-boilerplate;textable) for the complementary operation of stripping non-essential structural elements.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
-}

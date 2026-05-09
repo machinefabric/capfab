@@ -1,7 +1,0 @@
-{
-  "urn": "media:record",
-  "title": "Record",
-  "media_type": "application/octet-stream",
-  "description": "Any value with key-value record structure",
-  "documentation": "## Record marker\nPresence marker indicating the value's content is a key-value mapping at its\nroot: a JSON object, a CSV row with named columns, a TOML table, an INI file.\nIndependent of `list-marker` — a value can be both (a list of records),\neither alone, or neither.\n\nThe value's content is a key-value mapping. Consumers can expect to address\nfields by name."
-}

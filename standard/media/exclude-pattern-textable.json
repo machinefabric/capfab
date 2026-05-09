@@ -1,8 +1,0 @@
-{
-  "urn": "media:exclude-pattern;textable",
-  "title": "Exclude Pattern (Textable)",
-  "media_type": "text/plain",
-  "profile_uri": "https://capdag.com/schema/exclude_pattern",
-  "description": "Exclude Pattern value",
-  "documentation": "## Purpose\n\nExclude Pattern specifies items that should be removed from a collection even if they match other selection criteria. It acts as a deny-list filter applied after inclusion rules.\n\n## When to use\n\nUse this media type together with [Include Pattern](https://capdag.com/browse/media:include-pattern;textable) and [Filter Pattern](https://capdag.com/browse/media:filter-pattern;textable) when a node supports a layered matching strategy. Exclude patterns are evaluated last, so they take precedence over include patterns.\n\n## Notes\n\nThe pattern syntax is determined by the consuming node. A common convention is glob-style wildcards (e.g., `*.tmp`, `build/**`). Verify the node's documentation before relying on regular expression syntax.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
-}

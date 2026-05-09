@@ -1,8 +1,0 @@
-{
-  "urn": "media:prompt;textable",
-  "title": "Prompt (Textable)",
-  "media_type": "text/plain",
-  "profile_uri": "https://capdag.com/schema/prompt",
-  "description": "Text prompt to guide model generation or analysis.",
-  "documentation": "## Purpose\nA prompt is the primary text instruction sent to a model to drive generation or analysis. It defines what the model should produce, ask, or evaluate.\n\n## When to use\nSupply a prompt whenever a machine requires user-authored or dynamically constructed instruction text as a distinct input port, separate from the system prompt or base prompt. Prompts are typically short-lived and task-specific.\n\n## Notes\nSee also [System Prompt](https://capdag.com/browse/media:system-prompt;textable) for session-level instructions and [Base Prompt](https://capdag.com/browse/media:base-prompt;inference;policy;user;task;textable) for operator-defined defaults.\n\n## Textable\nCoercion marker indicating the value is faithfully representable as UTF-8 text.\nStrings are textable trivially; integers and booleans are textable via their\nstring form; structured values are textable when JSON-serialised. Binary blobs\n(images, audio, raw bytes) are NOT textable — converting them to text requires\nexplicit transformation that may be lossy.\n\nThe value is faithfully representable as UTF-8 text without loss."
-}

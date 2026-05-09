@@ -66,13 +66,6 @@
         "type": "string"
       }
     },
-    "media_specs": {
-      "type": "array",
-      "description": "Inline media spec definitions. Each item is a full media spec object with its own urn. Duplicate URNs are not allowed.",
-      "items": {
-        "$ref": "media.schema.json"
-      }
-    },
     "command": {
       "type": "string",
       "description": "Command string for CLI execution",
@@ -93,7 +86,7 @@
       "properties": {
         "media_urn": {
           "type": "string",
-          "description": "Media URN reference (e.g., 'media:object' for built-in, or custom URN from media_specs)"
+          "description": "Media URN reference resolved through the FabricRegistry (e.g., 'media:object')"
         },
         "output_description": {
           "type": "string",

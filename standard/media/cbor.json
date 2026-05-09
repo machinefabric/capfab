@@ -1,9 +1,0 @@
-{
-  "urn": "media:cbor",
-  "title": "CBOR",
-  "media_type": "application/cbor",
-  "documentation": "## Data format\nThe serialization format of structured data. A value tagged with both a data-format\nand a structure tag tells consumers exactly how to parse the bytes into a structured\nrepresentation. JSON is the default for cap inter-step data exchange.\n\nConcise Binary Object Representation. Binary-compact JSON-equivalent. Used by the\nbifaci wire protocol for frame payloads.",
-  "extensions": [
-    "cbor"
-  ]
-}
