@@ -10,11 +10,8 @@ Anyone can propose a new capability or media spec. As long as a definition is we
 
 | To do this | Open an issue using this template |
 | --- | --- |
-| Add a new capability | [Add Capability](../../issues/new?template=add-capability.yml) |
-| Add a new media spec | [Add Media Spec](../../issues/new?template=add-media-spec.yml) |
-| Remove a definition | [Remove Definition](../../issues/new?template=remove-definition.yml) |
-| Edit an existing definition (typo, docs, metadata) | [Edit Existing Definition](../../issues/new?template=edit-definition.yml) |
-| Report a bug, ask a question, propose a feature | [Bug / Feature / Question](../../issues/new?template=bug-or-feature.yml) |
+| Add a new capability or media spec | [Add Definition](../../issues/new?template=add-definition.yml) |
+| Report a bug, ask a question, propose a feature | [Feedback on Definitions](../../issues/new?template=feedback-on-definitions.yml) |
 
 Submissions are paste-the-JSON. Browse [`standard/`](standard/) and [`standard/media/`](standard/media/) for live examples of what we accept; the schemas are at [`cap.schema.json`](cap.schema.json) and [`media.schema.json`](media.schema.json).
 

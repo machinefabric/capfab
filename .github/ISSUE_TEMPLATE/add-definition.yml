@@ -1,0 +1,75 @@
+name: Add Definition
+description: Submit one or more capability or media spec definitions for inclusion in the registry.
+title: "Add definition: <short title>"
+labels:
+  - add-definition
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a definition. We curate every submission by hand. Once we accept it, the definition is added to the [CAPDAG registry](https://capdag.com) and to the published `standard/` directory in this repository.
+
+        Use this template for either:
+        - a capability definition
+        - a media spec definition
+
+        Browse the existing capabilities in [`standard/`](https://github.com/machinefabric/capfab/tree/main/standard) and the existing media specs in [`standard/media/`](https://github.com/machinefabric/capfab/tree/main/standard/media) for live examples of the JSON shape we accept.
+  - type: dropdown
+    id: definition_type
+    attributes:
+      label: Definition type
+      options:
+        - Capability
+        - Media spec
+    validations:
+      required: true
+  - type: textarea
+    id: payload
+    attributes:
+      label: Definition JSON
+      description: One JSON object per definition. Multiple definitions can be wrapped in a JSON array.
+      render: json
+      placeholder: |
+        {
+          "urn": "cap:in=\"media:bool;textable\";coerce;out=media:textable",
+          "command": "coerce",
+          "title": "Coerce Boolean to String",
+          "cap_description": "Convert a boolean value to its string representation",
+          "documentation": "## Purpose\n…\n## Inputs\n…\n## Outputs\n…\n",
+          "metadata": {},
+          "args": [
+            {
+              "media_urn": "media:bool;textable",
+              "required": true,
+              "sources": [{ "stdin": "media:bool;textable" }, { "position": 0 }],
+              "arg_description": "Input value to coerce"
+            }
+          ],
+          "output": {
+            "media_urn": "media:textable",
+            "output_description": "Coerced value"
+          }
+        }
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this definition needed?
+      description: Explain the use case, the gap it fills, and what it unlocks that the registry does not already cover.
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Where is this implemented?
+      description: Optional. If you already know of a cartridge, binary, service, or codebase that implements this, link it here.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: I have searched the existing CAPDAG registry for a matching definition before submitting this.
+          required: true
+        - label: I understand that capability and media URNs are tagged URNs and must be reasoned about structurally, not as plain strings.
+          required: true
