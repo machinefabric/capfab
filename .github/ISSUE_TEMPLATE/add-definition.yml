@@ -1,5 +1,5 @@
 name: Add Definition
-description: Submit one or more capability or media spec definitions for inclusion in the registry.
+description: Submit one or more capability or media definitions for inclusion in the registry.
 title: "Add definition: <short title>"
 labels:
   - add-definition
@@ -11,16 +11,16 @@ body:
 
         Use this template for either:
         - a capability definition
-        - a media spec definition
+        - a media definition
 
-        Browse the existing capabilities in [`standard/`](https://github.com/machinefabric/capfab/tree/main/standard) and the existing media specs in [`standard/media/`](https://github.com/machinefabric/capfab/tree/main/standard/media) for live examples of the JSON shape we accept.
+        Browse the existing capabilities in [`standard/`](https://github.com/machinefabric/capfab/tree/main/standard) and the existing media definitions in [`standard/media/`](https://github.com/machinefabric/capfab/tree/main/standard/media) for live examples of the JSON shape we accept.
   - type: dropdown
     id: definition_type
     attributes:
       label: Definition type
       options:
         - Capability
-        - Media spec
+        - Media definition
     validations:
       required: true
   - type: textarea

@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://capdag.com/schema/media.schema.json",
-  "title": "Media Spec Definition",
-  "description": "Schema for media spec TOML/JSON definitions in the CAPDAG registry",
+  "title": "Media Definition",
+  "description": "Schema for media def TOML/JSON definitions in the CAPDAG registry",
   "type": "object",
   "required": ["urn", "media_type", "title"],
   "properties": {
@@ -36,7 +36,7 @@
     },
     "documentation": {
       "type": "string",
-      "description": "Optional long-form markdown documentation. Rendered in media info panels, the cap navigator, capdag-dot-com, and anywhere else a rich-text explanation of the media spec is useful. In TOML sources, author this as a triple-quoted literal string (''') so newlines and markdown punctuation pass through unchanged; the JSON generator re-escapes newlines per JSON rules on output."
+      "description": "Optional long-form markdown documentation. Rendered in media info panels, the cap navigator, capdag-dot-com, and anywhere else a rich-text explanation of the media def is useful. In TOML sources, author this as a triple-quoted literal string (''') so newlines and markdown punctuation pass through unchanged; the JSON generator re-escapes newlines per JSON rules on output."
     },
     "validation": {
       "type": "object",

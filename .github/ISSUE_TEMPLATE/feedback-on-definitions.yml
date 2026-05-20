@@ -9,7 +9,7 @@ body:
       value: |
         For brand-new definitions please use [Add Definition](../../issues/new?template=add-definition.yml).
 
-        This template is for everything else: feedback on an existing capability or media spec, a question about why two URNs are shaped a particular way, a request to revise or remove a definition, or a feature request for the registry.
+        This template is for everything else: feedback on an existing capability or media definition, a question about why two URNs are shaped a particular way, a request to revise or remove a definition, or a feature request for the registry.
   - type: textarea
     id: summary
     attributes:
