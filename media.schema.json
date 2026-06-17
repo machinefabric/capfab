@@ -6,6 +6,11 @@
   "type": "object",
   "required": ["urn", "media_type", "title"],
   "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Per-definition version. Optional; absent ⇒ 0. v0 is the frozen pre-versioning state at the flat R2 path. v ≥ 1 is published at media/<sha256>/<version>.json. Bumped explicitly in source TOMLs when content changes."
+    },
     "urn": {
       "type": "string",
       "pattern": "^media:",
