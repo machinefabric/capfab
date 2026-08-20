@@ -1,42 +1,27 @@
-# CapFab
+# CapFab definition proposals
 
-Standard capability and media definitions for the [CAPDAG](https://capdag.com) system.
+CapFab is the public contribution inbox for capability and media definitions used by [CapDAG](https://capdag.com). It contains the submission templates and JSON schemas maintainers use to review proposed additions or changes.
 
-CapFab is the canonical reference of what operations exist in the MachineFabric ecosystem and what data types they consume and produce. The definitions in [`standard/`](standard/) drive the live [capdag.com](https://capdag.com) registry.
+The live registry—not this repository—is the reference for currently published definitions. Browse it on [capdag.com](https://capdag.com) when you need examples or want to confirm that a URN exists.
 
-## Contributing
+## Propose or discuss a definition
 
-Anyone can propose a new capability or media def. As long as a definition is well-formed, fills a real gap in the registry, and is documented clearly enough that other people can use it, we'll happily review and accept it. If you're unsure about any part of a submission, send it anyway and we'll work it out together.
-
-| To do this | Open an issue using this template |
+| Goal | Issue template |
 | --- | --- |
-| Add a new capability or media def | [Add Definition](../../issues/new?template=add-definition.yml) |
-| Report a bug, ask a question, propose a feature | [Feedback on Definitions](../../issues/new?template=feedback-on-definitions.yml) |
+| Add a capability or media definition | [Add definition](https://github.com/machinefabric/capfab/issues/new?template=add-definition.yml) |
+| Report a problem, ask a question, or propose a change | [Definition feedback](https://github.com/machinefabric/capfab/issues/new?template=feedback-on-definitions.yml) |
 
-Submissions are paste-the-JSON. Browse [`standard/`](standard/) and [`standard/media/`](standard/media/) for live examples of what we accept; the schemas are at [`cap.schema.json`](cap.schema.json) and [`media.schema.json`](media.schema.json).
+Submit the proposed JSON in the issue. Capability submissions must validate against [`cap.schema.json`](cap.schema.json); media submissions must validate against [`media.schema.json`](media.schema.json). Explain the gap the definition fills, its intended inputs and outputs, and how it differs from neighboring published definitions.
 
-We curate every submission by hand. There's no automated merge — a maintainer will read your issue, work with you on any rough edges, and once we're happy with the shape, the new definition appears here and on capdag.com.
+Every submission is reviewed by a maintainer. There is no automatic merge or publication path. Accepted definitions are published to the versioned fabric registry and become visible on capdag.com.
 
-## Layout
+## Repository reference
 
-```
-capfab/
-├── cap.schema.json               JSON schema for capability definitions
-├── media.schema.json             JSON schema for media definitions
-└── standard/
-    ├── *.json                    one file per capability
-    ├── all-capabilities.json     combined manifest of every capability
-    └── media/
-        ├── *.json                one file per media def
-        └── all-media-defs.json  combined manifest of every media def
-```
+| Path | Purpose |
+| --- | --- |
+| `.github/ISSUE_TEMPLATE/` | Public proposal and feedback forms. |
+| `cap.schema.json` | Schema for a capability-definition proposal. |
+| `media.schema.json` | Schema for a media-definition proposal. |
+| `version.txt` | Repository release version. |
 
-Each capability JSON describes a single operation: its URN tags (notably `in` and `out` media URNs), its title and description, and any structured arguments it accepts. Each media def describes a media URN's shape — its content type, profile, and any associated documentation.
-
-## Using these definitions in code
-
-Capability and media URNs are tagged URNs with directional matching semantics; they should be parsed and compared via the [`capdag`](https://www.npmjs.com/package/capdag) library, never by string. The `FabricRegistryClient` in that library loads and resolves both cap definitions and media defs through the unified registry.
-
-## Part of MachineFabric
-
-CapFab is part of the [MachineFabric](https://machinefabric.com) project.
+Capability and media URNs are tagged values with directional matching semantics. Parse, normalize, and compare them with a CapDAG library; never route them with raw string manipulation.
