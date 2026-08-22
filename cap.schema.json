@@ -5,7 +5,7 @@
   "description": "Schema for capability definitions across all language implementations",
   "type": "object",
   "additionalProperties": false,
-  "required": ["urn", "command", "title"],
+  "required": ["urn", "aliases", "title"],
   "properties": {
     "version": {
       "type": "integer",
@@ -71,10 +71,16 @@
         "type": "string"
       }
     },
-    "command": {
-      "type": "string",
-      "description": "Command string for CLI execution",
-      "minLength": 1
+    "aliases": {
+      "type": "array",
+      "description": "Globally-unique human-facing names that select this cap in the capdag CLI and the direct cartridge CLI. Replaces the former non-unique `command`.",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9._-]+$" }
+    },
+    "abstract": {
+      "type": "boolean",
+      "description": "True for a generic-input dispatch umbrella cap: a valid alias target never backed by a cartridge and never a runnable graph edge; the capdag CLI narrows it to a concrete specialization by the detected input media. Absent ⇒ false."
     },
     "args": {
       "type": "array",
@@ -100,6 +106,11 @@
         "is_sequence": {
           "type": "boolean",
           "description": "Whether this output produces a sequence of items (true) or a single item (false, default)",
+          "default": false
+        },
+        "streaming": {
+          "type": "boolean",
+          "description": "Whether this output MAY be emitted without a length promise (an unbounded stream: open-ended capture, transcription of one, a generator). false (default) is a contract — every stream is bounded — audited at receipt. Orthogonal to is_sequence.",
           "default": false
         }
       }
@@ -136,7 +147,7 @@
       "properties": {
         "media_urn": {
           "type": "string",
-          "description": "Unique media URN for this argument (e.g., 'media:file-path;textable;scalar')"
+          "description": "Unique media URN for this argument (e.g., 'media:enc=utf-8;file-path')"
         },
         "required": {
           "type": "boolean",
@@ -145,6 +156,11 @@
         "is_sequence": {
           "type": "boolean",
           "description": "Whether this argument carries a sequence of items (true) or a single item (false, default)",
+          "default": false
+        },
+        "streaming": {
+          "type": "boolean",
+          "description": "Whether this argument is consumed WITHOUT a length promise — incrementally as the stream arrives (true) — or only as a complete value (false, default). Only the main input may stream (RULE14). Orthogonal to is_sequence.",
           "default": false
         },
         "sources": {
