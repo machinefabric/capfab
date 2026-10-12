@@ -190,7 +190,7 @@
       "properties": {
         "stdin": {
           "type": "string",
-          "description": "Media URN for stdin input (e.g., 'media:pdf;binary')"
+          "description": "Media URN for stdin input (e.g., 'media:document;ext=pdf')"
         },
         "position": {
           "type": "integer",

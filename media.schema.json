@@ -14,7 +14,7 @@
     "urn": {
       "type": "string",
       "pattern": "^media:",
-      "description": "The media URN identifier (e.g., 'media:pdf;binary')"
+      "description": "The media URN identifier (e.g., 'media:document;ext=pdf')"
     },
     "media_type": {
       "type": "string",
