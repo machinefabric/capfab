@@ -89,30 +89,11 @@
         "$ref": "#/definitions/cap_arg"
       }
     },
-    "output": {
-      "type": "object",
-      "description": "Output definition",
-      "additionalProperties": false,
-      "required": ["media_urn", "output_description"],
-      "properties": {
-        "media_urn": {
-          "type": "string",
-          "description": "Media URN reference resolved through the FabricRegistry (e.g., 'media:object')"
-        },
-        "output_description": {
-          "type": "string",
-          "description": "Description of the output"
-        },
-        "is_sequence": {
-          "type": "boolean",
-          "description": "Whether this output produces a sequence of items (true) or a single item (false, default)",
-          "default": false
-        },
-        "streaming": {
-          "type": "boolean",
-          "description": "Whether this output MAY be emitted without a length promise (an unbounded stream: open-ended capture, transcription of one, a generator). false (default) is a contract — every stream is bounded — audited at receipt. Orthogonal to is_sequence.",
-          "default": false
-        }
+    "outputs": {
+      "type": "array",
+      "description": "The outputs the cap gives. Exactly one is the main output, whose media_urn is the cap URN's out=; a cap whose out= is media:void declares none (RULE21). Each output has its own response stream.",
+      "items": {
+        "$ref": "#/definitions/cap_output"
       }
     },
     "metadata_json": {
@@ -139,15 +120,69 @@
     }
   },
   "definitions": {
+    "cap_output": {
+      "type": "object",
+      "description": "Output definition - media_urn is the unique identifier",
+      "additionalProperties": false,
+      "required": ["media_urn", "name", "output_description"],
+      "properties": {
+        "media_urn": {
+          "type": "string",
+          "description": "Unique media URN for this output among the cap's outputs (RULE20). The main output's is the cap URN's out=."
+        },
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_-]*$",
+          "description": "The label a machine takes this output by. Unique among the cap's outputs, and never true, false or null (RULE19). A label only: the media_urn identifies the output."
+        },
+        "optional": {
+          "type": "boolean",
+          "description": "Whether the cap may end without producing this output (true), in which case what needs it is skipped, or always produces it (false, default)",
+          "default": false
+        },
+        "carries": {
+          "type": "string",
+          "enum": ["input"],
+          "description": "What the output carries when that is not its own media_urn: 'input' is the main input's runtime type, unchanged. Only an output other than the main one, of a cap that takes an input, may declare it (RULE22)."
+        },
+        "output_description": {
+          "type": "string",
+          "description": "Description of the output"
+        },
+        "is_sequence": {
+          "type": "boolean",
+          "description": "Whether this output produces a sequence of items (true) or a single item (false, default)",
+          "default": false
+        },
+        "streaming": {
+          "type": "boolean",
+          "description": "Whether this output MAY be emitted without a length promise (an unbounded stream: open-ended capture, transcription of one, a generator). false (default) is a contract — every stream is bounded — audited at receipt. Orthogonal to is_sequence.",
+          "default": false
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Arbitrary metadata for this output"
+        }
+      }
+    },
     "cap_arg": {
       "type": "object",
       "description": "Argument definition - media_urn is the unique identifier",
       "additionalProperties": false,
-      "required": ["media_urn", "required", "sources"],
+      "required": ["media_urn", "name", "required", "sources"],
       "properties": {
         "media_urn": {
           "type": "string",
           "description": "Unique media URN for this argument (e.g., 'media:enc=utf-8;file-path')"
+        },
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_-]*$",
+          "description": "The label a machine selects this argument by. Unique among the cap's arguments, and never true, false or null (RULE17). A label only: the media_urn identifies the argument."
+        },
+        "accepts": {
+          "type": "string",
+          "description": "The media URN this argument's stream must conform to, when that is not its own media_urn. Never beside a stdin source, which says the same for the main input (RULE18). It is what lets two arguments take values of one type."
         },
         "required": {
           "type": "boolean",
