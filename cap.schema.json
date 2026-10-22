@@ -62,7 +62,15 @@
     },
     "documentation": {
       "type": "string",
-      "description": "Optional long-form markdown documentation. Rendered in capability info panels, the cap navigator, capdag-dot-com, and anywhere else a rich-text explanation of the cap is useful. In TOML sources, author this as a triple-quoted literal string (''') so newlines and markdown punctuation pass through unchanged; the JSON generator re-escapes newlines per JSON rules on output."
+      "description": "Optional long-form markdown documentation of this cap itself: what is specific to it. What the dims it was built from mean is documented once, with each dim (see `dims`), and is not repeated here; a reader shows both. Rendered in capability info panels, the cap navigator, capdag-dot-com, and anywhere else a rich-text explanation of the cap is useful. In TOML sources, author this as a triple-quoted literal string (''') so newlines and markdown punctuation pass through unchanged; the JSON generator re-escapes newlines per JSON rules on output."
+    },
+    "dims": {
+      "type": "array",
+      "minItems": 1,
+      "description": "The dims this definition was built from, in the order its source references them: for each, the dim's name and the value chosen from it. A dim is published on its own (dim.schema.json) with its documentation and each value's; a reader shows that documentation beside this definition's own. The registry manifest says which version of each dim a snapshot holds. A dim appears at most once. Absent when the definition was built from no dim.",
+      "items": {
+        "$ref": "#/definitions/dim_ref"
+      }
     },
     "metadata": {
       "type": "object",
@@ -120,6 +128,24 @@
     }
   },
   "definitions": {
+    "dim_ref": {
+      "type": "object",
+      "description": "One dim a definition was built from, and the value chosen from it",
+      "additionalProperties": false,
+      "required": ["dim", "value"],
+      "properties": {
+        "dim": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "The dim's name"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9+-]*$",
+          "description": "The name of the value chosen from that dim"
+        }
+      }
+    },
     "cap_output": {
       "type": "object",
       "description": "Output definition - media_urn is the unique identifier",

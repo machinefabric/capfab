@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://capdag.com/schema/dim.schema.json",
+  "title": "Fabric Dim",
+  "description": "The published wire/cache shape of a single fabric dim. A dim is a first-class fabric definition (like a cap, a media def or an alias): one axis along which definitions vary, such as a language, a file type or a quantisation, with the values it may take. Cap and media definitions name the dims they were built from, and the value chosen from each, in their `dims`; what a dim and each of its values mean is documented here, once, and a reader shows it beside the definition's own documentation. Stored at dims/<sha256-of-name>/<defver>.json and referenced from a manifest's `dims` map (name -> defver).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "version", "title", "documentation", "values"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "The dim's name, unique across the snapshot. Definitions refer to the dim by it."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Per-definition version. Dims exist only in the versioned regime; there is no v0 flat-path dim. Raised when anything in this body changes."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display-friendly title of the dim."
+    },
+    "documentation": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Markdown documentation of what the dim is: the axis, and how its values differ."
+    },
+    "values": {
+      "type": "array",
+      "minItems": 1,
+      "description": "The values the dim may take, in the order the dim declares them. Value names are unique within the dim.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "title", "tags"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9+-]*$",
+            "description": "The value's name, unique within the dim. A definition's `dims` entry names the value by it."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Display-friendly title of the value. Generated definition titles carry it."
+          },
+          "tags": {
+            "type": "array",
+            "minItems": 1,
+            "description": "The tags the value contributes to the URN of every definition built with it.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["key", "value"],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]*$"
+                },
+                "value": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "The tag's value; '*' for a marker tag (present, without a value)."
+                }
+              }
+            }
+          },
+          "documentation": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Markdown documentation of this value: what choosing it means. Absent when the dim's documentation says all there is."
+          },
+          "media_type": {
+            "type": "string",
+            "pattern": "^[a-z]+/[a-z0-9+._-]+$",
+            "description": "The MIME media type the value gives the media defs built with it."
+          },
+          "extensions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9+]+$"
+            },
+            "description": "The file extensions the value gives the media defs built with it, without the leading dot."
+          }
+        }
+      }
+    }
+  }
+}
