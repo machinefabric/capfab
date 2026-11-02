@@ -199,7 +199,7 @@
       "properties": {
         "media_urn": {
           "type": "string",
-          "description": "Unique media URN for this argument (e.g., 'media:enc=utf-8;file-path')"
+          "description": "Unique media URN for this argument (e.g., 'media:enc=utf8;file-path')"
         },
         "name": {
           "type": "string",
