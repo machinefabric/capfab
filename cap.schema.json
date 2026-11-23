@@ -128,24 +128,29 @@
   },
   "definitions": {
     "constraint": {
-      "description": "What a tag writes of its key, as the tagged-URN model holds it: `k` is present, `?k` unconstrained, `!k` absent, `k=v` exact, `k?=v` optionalNot (absent or not v), `k!=v` presentNot (present and not v). A key a URN does not write is not listed.",
-      "oneOf": [
-        {
+      "description": "What a tag writes of its key, as the tagged-URN model holds it: whether the key may be absent, and the values it may take, one of `vs` or any but `vs`, sorted and each once. `k` is {absent: false, noneOf []}, `?k` {absent: true, noneOf []}, `!k` {absent: true, oneOf []}, `k=a|b` {absent: false, oneOf [a, b]}, `k=a|b|!` {absent: true, oneOf [a, b]}, `k!=a|b` {absent: false, noneOf [a, b]}, `k?=a|b` {absent: true, noneOf [a, b]}. The constraint allowing nothing (absent false, oneOf []) is never written, and a key a URN does not write is not listed.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "absent", "values"],
+      "properties": {
+        "kind": { "const": "written" },
+        "absent": { "type": "boolean" },
+        "values": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["kind"],
-          "properties": { "kind": { "enum": ["present", "unconstrained", "absent"] } }
-        },
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["kind", "value"],
+          "required": ["kind", "vs"],
           "properties": {
-            "kind": { "enum": ["exact", "optionalNot", "presentNot"] },
-            "value": { "type": "string", "minLength": 1 }
+            "kind": { "enum": ["oneOf", "noneOf"] },
+            "vs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
           }
         }
-      ]
+      },
+      "not": {
+        "properties": {
+          "absent": { "const": false },
+          "values": { "properties": { "kind": { "const": "oneOf" }, "vs": { "maxItems": 0 } } }
+        }
+      }
     },
     "dim_ref": {
       "type": "object",
