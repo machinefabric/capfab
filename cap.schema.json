@@ -118,12 +118,12 @@
     "in_media_title": {
       "type": "string",
       "minLength": 1,
-      "description": "Published by the registry: the title of the media definition in_spec names."
+      "description": "Published by the registry: the title of the published media definition in_spec resolves to, the reference without the tags that let a key be absent."
     },
     "out_media_title": {
       "type": "string",
       "minLength": 1,
-      "description": "Published by the registry: the title of the media definition out_spec names."
+      "description": "Published by the registry: the title of the published media definition out_spec resolves to, the reference without the tags that let a key be absent."
     }
   },
   "definitions": {
@@ -148,7 +148,7 @@
       "not": {
         "properties": {
           "absent": { "const": false },
-          "values": { "properties": { "kind": { "const": "oneOf" }, "vs": { "maxItems": 0 } } }
+          "values": { "type": "object", "properties": { "kind": { "const": "oneOf" }, "vs": { "type": "array", "maxItems": 0 } } }
         }
       }
     },
